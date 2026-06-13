@@ -146,14 +146,31 @@ const GYMS = {
 const WORLD_MAP = [
   { city:'MILANO', region:'Lombardia', leader:'Carletto', type:'Normale', badge:'badge',
     maps:['milano','lab','parco','gym','ambmi','shopmi','navigli','segreto'],
-    link:'| treno -> Torino (con Medaglia Madonnina)' },
+    layout:[ { c:['lab','milano','parco'] },
+             { c:['shopmi','gym','ambmi'] },
+             { c:['navigli','segreto'], j:'->' } ],
+    link:'treno -> Torino (con Medaglia Madonnina)' },
   { city:'TORINO', region:'Piemonte', leader:'Gianduiotto', type:'Acciaio', badge:'badge2',
     maps:['torino','gymto','ambto','murazzi','sotterranei'],
-    link:'| bus -> Aosta (con Medaglia della Mole)' },
+    layout:[ { c:['torino'] },
+             { c:['gymto','ambto'] },
+             { c:['murazzi','sotterranei'], j:'->' } ],
+    link:'bus -> Aosta (con Medaglia della Mole)' },
   { city:'AOSTA', region:"Valle d'Aosta", leader:'Felicino', type:'Ghiaccio', badge:'badge3',
     maps:['aosta','gymao','ambao','gransanbernardo','gelo'],
-    link:'| prossima: Liguria - Genova (in arrivo)' }
+    layout:[ { c:['aosta'] },
+             { c:['gymao','ambao'] },
+             { c:['gransanbernardo','gelo'], j:'->' } ],
+    link:'prossima: Liguria - Genova (in arrivo)' }
 ];
+/* Etichette brevi delle aree per la schermata MAPPA. */
+const AREA_LABELS = {
+  lab:'Lab', milano:'Centro', parco:'Parco', gym:'Palestra', ambmi:'Ambul.',
+  shopmi:'Negozio', navigli:'Navigli', segreto:'Darsena',
+  torino:'Centro', gymto:'Palestra', ambto:'Ambul.', murazzi:'Murazzi', sotterranei:'Sotterr.',
+  aosta:'Centro', gymao:'Palestra', ambao:'Ambul.', gransanbernardo:'Passo', gelo:'Grotta'
+};
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo'];
 
 /* Risveglio dopo una sconfitta, per gruppo di mappe (def = fallback). */
 const RESPAWN = [

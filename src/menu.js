@@ -106,16 +106,29 @@ function menuMsg(text) {
 
 function menuRenderMap() {
   $('menuPanel').style.display = 'block';
+  const L = (typeof AREA_LABELS !== 'undefined') ? AREA_LABELS : {};
+  const SEC = (typeof SECRET_AREAS !== 'undefined') ? SECRET_AREAS : [];
   let h = '<h3>MAPPA · LEGGENDE D\'ITALIA</h3>';
   (typeof WORLD_MAP !== 'undefined' ? WORLD_MAP : []).forEach(r => {
-    const here = r.maps.includes(G.mapId);
     const earned = G.flags[r.badge];
-    h += '<div class="row' + (here ? ' sel' : '') + '">' + (here ? '▶ ' : '&nbsp;&nbsp;&nbsp;') +
-         r.city + (earned ? ' ✓' : '') +
-         '<span class="meta">' + r.region + ' · ' + r.leader + ' (' + r.type + ')</span></div>';
-    h += '<div style="color:#888;font-size:10px;padding:0 0 4px 8px">' + r.link + '</div>';
+    const inRegion = r.maps.includes(G.mapId);
+    h += '<div class="regttl' + (inRegion ? ' regnow' : '') + '">' + r.city +
+         (earned ? ' ✓' : '') +
+         ' <span style="color:#888;font-weight:normal">' + r.region + ' · ' + r.type + '</span></div>';
+    (r.layout || []).forEach(row => {
+      h += '<div class="maprow">';
+      row.c.forEach((id, i) => {
+        if (i > 0) h += '<span class="sep">' + (row.j || '·') + '</span>';
+        const here = id === G.mapId;
+        const secret = SEC.includes(id);
+        h += '<span class="chip' + (here ? ' here' : '') + (secret ? ' secret' : '') + '">' +
+             (L[id] || id) + (secret ? '★' : '') + '</span>';
+      });
+      h += '</div>';
+    });
+    h += '<div class="maplink">' + r.link + '</div>';
   });
-  h += '<div class="hintbar">▶ = sei qui · ✓ = medaglia · B: indietro</div>';
+  h += '<div class="hintbar">riquadro giallo = sei qui · ★ = area segreta · ✓ = medaglia · B: indietro</div>';
   $('menuPanel').innerHTML = h;
 }
 
