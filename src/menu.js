@@ -5,6 +5,7 @@ const MENU_ITEMS = [
   { key:'party',    label:'SQUADRA' },
   { key:'bag',      label:'BORSA' },
   { key:'map',      label:'MAPPA' },
+  { key:'pivadex',  label:'PIVADEX' },
   { key:'progress', label:'PROGRESSI' },
   { key:'save',     label:'SALVA' },
   { key:'close',    label:'CHIUDI' }
@@ -132,11 +133,49 @@ function menuRenderMap() {
   $('menuPanel').innerHTML = h;
 }
 
+/* ---- PIVADEX ---- */
+const PIVA_SOURCE = {
+  stambeco:'Aosta/Santuario', scighera:'Milano/Darsena', taurin:'Torino/Sotterranei', barry:'Aosta/Grotta',
+  salvanello:'Dalla Prof.ssa', tarantasino:'Dalla Prof.ssa', anguanella:'Dalla Prof.ssa / pesca'
+};
+function pivaWhere(id) {
+  if (PIVA_SOURCE[id]) return PIVA_SOURCE[id];
+  const z = [];
+  for (const [mid, m] of Object.entries(MAPS)) {
+    const reg = ((typeof WORLD_MAP !== 'undefined' && WORLD_MAP.find(w => w.maps.includes(mid))) || {}).city || '';
+    const lab = (typeof AREA_LABELS !== 'undefined' && AREA_LABELS[mid]) || mid;
+    if ((m.encounters || []).some(e => e.id === id)) z.push(reg + '/' + lab);
+    if ((m.fish || []).some(e => e.id === id)) z.push(reg + '/' + lab + ' (pesca)');
+  }
+  if (z.length) return [...new Set(z)].join(', ');
+  for (const bs of Object.values(SPECIES)) if (bs.evolve && bs.evolve.to === id) return 'evoluzione';
+  return '—';
+}
+function menuRenderPiva() {
+  $('menuPanel').style.display = 'block';
+  const dex = G.dex || { seen: [], caught: [] };
+  let h = '<h3>PIVADEX ' + dex.caught.length + '/' + CREATURE_ORDER.length + '</h3>';
+  CREATURE_ORDER.forEach((id, i) => {
+    const sp = SPECIES[id];
+    const st = dex.caught.includes(id) ? '●' : dex.seen.includes(id) ? '◦' : '·';
+    h += '<div class="row' + (i === MENU.sel ? ' sel' : '') + '">' + st + ' ' + sp.n +
+         '<span class="meta">' + sp.types.join('/') + '</span></div>';
+    if (i === MENU.sel) {
+      const evo = sp.evolve ? '<br>Evolve in ' + SPECIES[sp.evolve.to].n + ' a Lv ' + sp.evolve.lv : '';
+      h += '<div class="pivadet">' + sp.dex + '<br>Zona: ' + pivaWhere(id) + evo + '</div>';
+    }
+  });
+  h += '<div class="hintbar">● catturata · ◦ vista · ↑↓ scorri · B: indietro</div>';
+  $('menuPanel').innerHTML = h;
+  scrollSelIntoView($('menuPanel'));
+}
+
 function menuRenderSection() {
   menuRenderBox();
   if (MENU.view === 'party') menuRenderParty();
   else if (MENU.view === 'bag') menuRenderBag();
   else if (MENU.view === 'map') menuRenderMap();
+  else if (MENU.view === 'pivadex') menuRenderPiva();
   else if (MENU.view === 'progress') menuRenderProgress();
 }
 
@@ -150,6 +189,7 @@ function menuDir(d) {
   let n = 0;
   if (MENU.view === 'party') n = G.party.length;
   else if (MENU.view === 'bag') n = menuBagEntries().length;
+  else if (MENU.view === 'pivadex') n = CREATURE_ORDER.length;
   else return;
   if (!n) return;
   if (d === 'up')   MENU.sel = (MENU.sel + n - 1) % n;
