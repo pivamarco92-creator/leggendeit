@@ -58,6 +58,16 @@ function openMenu() {
   B.phase = 'menu'; B.menuSel = 0; showPanels(); renderMenu();
   $('bMsg').textContent = 'Cosa deve fare\n' + B.pm.name + '?';
 }
+/* Allenatore: quando schiera una nuova creatura, chiede se sostituire la tua. */
+function promptSwitch() {
+  const alive = G.party.filter(m => m.hp > 0);
+  if (alive.length <= 1) { openMenu(); return; }
+  B.phase = 'msg'; showPanels();
+  ask(['Sì, cambio Leggenda', 'No, continua'], sel => {
+    if (sel === 0) openList('party');   // cambio volontario (consuma il turno)
+    else openMenu();
+  });
+}
 function renderMenu() {
   $('bMenu').querySelectorAll('div').forEach((d, i) =>
     d.classList.toggle('sel', i === B.menuSel));
@@ -236,7 +246,7 @@ function onEnemyFaint() {
         dexSee(B.enemy.id);
         if (BSCENE) BSCENE.setEnemy(B.enemy.id, true);
         updateBars();
-        bSay(B.trainer.name + ' manda in campo\n' + B.enemy.name + '!', openMenu);
+        bSay(B.trainer.name + ' manda in campo\n' + B.enemy.name + '!', promptSwitch);
       } else endBattle(true);
     });
   });

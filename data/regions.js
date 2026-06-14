@@ -186,21 +186,21 @@ const GYMS = {
    maps = mappe che appartengono alla regione (per evidenziare "sei qui"). */
 const WORLD_MAP = [
   { city:'MILANO', region:'Lombardia', leader:'Carletto', type:'Normale', badge:'badge',
-    maps:['milano','lab','parco','gym','ambmi','shopmi','navigli','segreto'],
+    maps:['milano','lab','parco','gym','ambmi','shopmi','navigli','segreto','stradapo'],
     layout:[ { c:['lab','milano','parco'] },
              { c:['shopmi','gym','ambmi'] },
              { c:['navigli','segreto'], j:'->' } ],
     respawn:{ map:'lab', x:4, y:5, dir:'down', lines:["Ti svegli nel laboratorio.\nLa Prof.ssa Brambilla scuote la testa.","«Ti ho rimesso in sesto io.\nLa prossima volta occhio, neh.»"] },
     link:'treno -> Torino (con Medaglia Madonnina)' },
   { city:'TORINO', region:'Piemonte', leader:'Gianduiotto', type:'Acciaio', badge:'badge2',
-    maps:['torino','gymto','ambto','murazzi','sotterranei'],
+    maps:['torino','gymto','ambto','murazzi','sotterranei','valico'],
     layout:[ { c:['torino'] },
              { c:['gymto','ambto'] },
              { c:['murazzi','sotterranei'], j:'->' } ],
     respawn:{ map:'torino', x:25, y:18, dir:'down', lines:["Ti svegli su una panchina di\nPorta Nuova. Un piccione ti fissa.","«Esageruma nen», dice qualcuno.\nLa squadra è di nuovo in piedi."] },
     link:'bus -> Aosta (con Medaglia della Mole)' },
   { city:'AOSTA', region:"Valle d'Aosta", leader:'Felicino', type:'Ghiaccio', badge:'badge3',
-    maps:['aosta','gymao','ambao','gransanbernardo','gelo'],
+    maps:['aosta','gymao','ambao','gransanbernardo','gelo','appennino'],
     layout:[ { c:['aosta'] },
              { c:['gymao','ambao'] },
              { c:['gransanbernardo','gelo'], j:'->' } ],
@@ -220,7 +220,8 @@ const AREA_LABELS = {
   shopmi:'Negozio', navigli:'Navigli', segreto:'Darsena',
   torino:'Centro', gymto:'Palestra', ambto:'Ambul.', murazzi:'Murazzi', sotterranei:'Sotterr.',
   aosta:'Centro', gymao:'Palestra', ambao:'Ambul.', gransanbernardo:'Passo', gelo:'Grotta',
-  genova:'Centro', gymge:'Palestra', ambge:'Ambul.', scogliera:'Scogliera', lanterna:'Lanterna'
+  genova:'Centro', gymge:'Palestra', ambge:'Ambul.', scogliera:'Scogliera', lanterna:'Lanterna',
+  stradapo:'Statale', valico:'Valico', appennino:'Strada'
 };
 const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna'];
 

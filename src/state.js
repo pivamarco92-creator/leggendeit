@@ -27,7 +27,8 @@ const LEGENDARY_FLAG = { stambeco:'stamboCaught', scighera:'scigheraCaught',
 /* Allenatori-rivincita già battuti in QUESTA visita alla mappa (azzerato al cambio mappa). */
 const BEATEN_VISIT = new Set();
 /* Mappe-percorso: i loro allenatori (Cosca) si ripresentano a ogni visita, sempre più forti. */
-const ROUTE_MAPS = ['navigli', 'murazzi', 'gransanbernardo', 'scogliera'];
+const ROUTE_MAPS = ['navigli', 'murazzi', 'gransanbernardo', 'scogliera',
+  'stradapo', 'valico', 'appennino'];
 
 /* ---------------- SALVATAGGIO ---------------- */
 const SAVE_KEY = 'leggende-italia-save';

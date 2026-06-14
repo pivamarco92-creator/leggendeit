@@ -214,5 +214,38 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'GUARDIANO DEL FARO',
       lines:["La luce della Lanterna non si spegne\nda secoli. E non è solo la lampada\na vegliare.",
              "Lassù c'è il GRIFONE. Se dispiega le\nali, preparati: ti sta valutando."] }
+  ],
+  stradapo: [
+    { x:7, y:6, frame:14, name:'PICCIOTTO', ev:'trainer', look:'down', sight:6,
+      trainer:{ id:'spo1', team:[['bisso',8],['mazapegul',9]],
+        pre:["Questa strada è nostra, bagai.\nSi paga il pedaggio."], win:["Tch. Stavolta passa."], after:["Ci rivediamo, eh."] } },
+    { x:14, y:13, frame:14, name:'PALO', ev:'trainer', look:'up', sight:6,
+      trainer:{ id:'spo2', team:[['merlotta',9],['servanot',10]],
+        pre:["Faccio il palo. Non passi senza\nsalutare la Cosca."], win:["Vada, vada."], after:["Occhio, eh."] } },
+    { x:20, y:6, frame:14, name:'GREGARIO', ev:'trainer', look:'down', sight:6,
+      trainer:{ id:'spo3', team:[['mazapegul',10],['bisso',11]],
+        pre:["L'ultimo prima di Torino sono io.\nE non sono gentile."], win:["Uff. Forte, il bagai."], after:["La Cosca ti aspetta avanti."] } }
+  ],
+  valico: [
+    { x:7, y:6, frame:14, name:'SENTINELLA', ev:'trainer', look:'down', sight:6,
+      trainer:{ id:'val1', team:[['masca',13],['servanot',13]],
+        pre:["Quassù si gela e si paga doppio.\nMani in alto, le Leggende."], win:["Brr... vada."], after:["Su, su."] } },
+    { x:14, y:13, frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:6,
+      trainer:{ id:'val2', team:[['lupomannaro',14],['neiot',14]],
+        pre:["Porto roba oltre il valico, roba che\nnon dovrei. Tu non hai visto niente."], win:["Maledizione al freddo e a te."], after:["Niente parole, intesi?"] } },
+    { x:20, y:6, frame:14, name:'BRACCO', ev:'trainer', look:'down', sight:6,
+      trainer:{ id:'val3', team:[['neiot',15],['masca',15]],
+        pre:["Fiuto i deboli a un miglio.\nE tu puzzi di pivello."], win:["Bah. Mi sbagliavo."], after:["Vai, vai."] } }
+  ],
+  appennino: [
+    { x:7, y:6, frame:14, name:'SCAGNOZZO', ev:'trainer', look:'down', sight:6,
+      trainer:{ id:'app1', team:[['lupomannaro',17],['borda',17]],
+        pre:["La strada per il mare la teniamo noi.\nPizzo o pugni."], win:["Tch. Passa, per stavolta."], after:["La Cosca scrive tutto."] } },
+    { x:14, y:13, frame:14, name:'CORRIERE', ev:'trainer', look:'up', sight:6,
+      trainer:{ id:'app2', team:[['ratapignata',18],['civettona',18]],
+        pre:["Consegno pacchi per la Cosca,\ne tu mi rallenti."], win:["Sono in ritardo per colpa tua!"], after:["Spostati, bagai."] } },
+    { x:20, y:6, frame:14, name:'LUOGOTENENTE', ev:'trainer', look:'down', sight:6,
+      trainer:{ id:'app3', team:[['borda',19],['ratapignata',20]],
+        pre:["Sono un luogotenente della Cosca.\nE tu sei solo un fastidio."], win:["...Johnny aveva ragione su di te."], after:["Genova ti aspetta. E anche noi."] } }
   ]
 };
