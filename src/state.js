@@ -9,7 +9,8 @@ const G = {
   dex: { seen: [], caught: [] },   // id specie viste / catturate
   flags: { starter:false, cosca:false, badge:false, badge2:false, badge3:false,
            coscaChoice:null, torinoIntro:false, archivioDone:false,
-           stamboCaught:false, scigheraCaught:false, taurinCaught:false, barryCaught:false },
+           stamboCaught:false, scigheraCaught:false, taurinCaught:false, barryCaught:false,
+           badge4:false, grifoneCaught:false },
   morale: 0
 };
 
@@ -18,6 +19,15 @@ function dexSee(id)   { if (G.dex && !G.dex.seen.includes(id))   G.dex.seen.push
 function dexCatch(id) { if (!G.dex) return;
   if (!G.dex.caught.includes(id)) G.dex.caught.push(id);
   if (!G.dex.seen.includes(id))   G.dex.seen.push(id); }
+
+/* Leggendari: il flag "preso" si attiva SOLO alla cattura (battle.js). Se fuggi
+   o vai KO, il leggendario torna disponibile al santuario. */
+const LEGENDARY_FLAG = { stambeco:'stamboCaught', scighera:'scigheraCaught',
+  taurin:'taurinCaught', barry:'barryCaught', grifone:'grifoneCaught' };
+/* Allenatori-rivincita già battuti in QUESTA visita alla mappa (azzerato al cambio mappa). */
+const BEATEN_VISIT = new Set();
+/* Mappe-percorso: i loro allenatori (Cosca) si ripresentano a ogni visita, sempre più forti. */
+const ROUTE_MAPS = ['navigli', 'murazzi', 'gransanbernardo', 'scogliera'];
 
 /* ---------------- SALVATAGGIO ---------------- */
 const SAVE_KEY = 'leggende-italia-save';

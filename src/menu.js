@@ -81,7 +81,7 @@ function menuRenderBag() {
 
 function menuRenderProgress() {
   $('menuPanel').style.display = 'block';
-  const badges = [G.flags.badge, G.flags.badge2, G.flags.badge3].filter(Boolean).length;
+  const badges = Object.keys(G.flags).filter(k => /^badge\d*$/.test(k) && G.flags[k]).length;
   const rep = G.morale >= 4 ? 'Leggenda di quartiere'
             : G.morale >= 2 ? 'Ben vista'
             : G.morale <= -3 ? 'Vicina alla Cosca'
@@ -135,7 +135,7 @@ function menuRenderMap() {
 
 /* ---- PIVADEX ---- */
 const PIVA_SOURCE = {
-  stambeco:'Aosta/Santuario', scighera:'Milano/Darsena', taurin:'Torino/Sotterranei', barry:'Aosta/Grotta',
+  stambeco:'Aosta/Santuario', scighera:'Milano/Darsena', taurin:'Torino/Sotterranei', barry:'Aosta/Grotta', grifone:'Genova/Lanterna',
   salvanello:'Dalla Prof.ssa', tarantasino:'Dalla Prof.ssa', anguanella:'Dalla Prof.ssa / pesca'
 };
 function pivaWhere(id) {

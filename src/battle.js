@@ -269,6 +269,8 @@ function useItem(key) {
         beep(990, .2);
         const caught = B.enemy;
         dexCatch(caught.id);
+        if (typeof LEGENDARY_FLAG !== 'undefined' && LEGENDARY_FLAG[caught.id])
+          G.flags[LEGENDARY_FLAG[caught.id]] = true;   // leggendario: "preso" solo se catturato
         bSay('Preso! ' + caught.name + '\nè stato imbottigliato!', () => {
           if (G.party.length < 6) { G.party.push(caught); endBattle(true, true); }
           else {

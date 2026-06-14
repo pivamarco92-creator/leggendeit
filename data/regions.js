@@ -13,7 +13,7 @@
 const GYMS = {
   gym: {
     leader:'CARLETTO', type:'Normale', badge:'badge', region:1,
-    team:[['mazapegul',7],['gattomammone',9]],
+    team:[['mazapegul',9],['gattomammone',11]],
     challenge:"Regola della casa: chi vince piglia\nla MEDAGLIA MADONNINA. Si va!",
     intro:[
       "La palestra del Duomo.\nPavimento in marmo, eco solenne.",
@@ -56,7 +56,7 @@ const GYMS = {
 
   gymto: {
     leader:'GIANDUIOTTO', type:'Acciaio', badge:'badge2', region:2,
-    team:[['fusinot',11],['toret',13]],
+    team:[['fusinot',14],['toret',16]],
     challenge:"«Chi vince piglia la MEDAGLIA\nDELLA MOLE. Bogia!»",
     intro:[
       "La palestra di Torino: una vecchia\nofficina riconvertita.",
@@ -99,7 +99,7 @@ const GYMS = {
 
   gymao: {
     leader:'FELICINO', type:'Ghiaccio', badge:'badge3', region:3,
-    team:[['neiot',15],['brinassa',17]],
+    team:[['neiot',18],['brinassa',21]],
     challenge:"«Chi vince piglia la MEDAGLIA DEL\nMONTE BIANCO. Forza, vah!»",
     intro:[
       "La palestra di Aosta: una baita\ndi pietra, ghiaccioli al soffitto.",
@@ -128,15 +128,56 @@ const GYMS = {
     loseMsg:"Felicino ti aspetta in palestra.\n«Riscaldati e torna, vah.»",
     endAfterWin:false,   // la fine-regione la fa l'evento archivio (scelta morale)
     end:{
-      title:'★ FINE DEI CONTENUTI ★',
+      title:'★ REGIONE 3 · VALLE D\'AOSTA ★',
       medal:'MEDAGLIA DEL MONTE BIANCO ottenuta!', region:'Regione 3 di 20 completata',
       next:'PROSSIMA TAPPA: LIGURIA<br>Barbagialla · Tipo Acqua · Genova',
-      footer:'Hai finito i contenuti della demo!<br>Premi A: puoi continuare a giocare ed<br>esplorare liberamente le 3 regioni.',
+      footer:'Premi A: prosegui per GENOVA<br>(bus da Aosta, serve questa medaglia).',
       goodAt:4, badAt:-3,
       verdict:{
         good:'Da Milano alle Alpi, un nome corre\npiù veloce della Cosca: il tuo.',
         bad:'La Cosca ti chiama «socio».\nDormi al caldo — ma con un occhio\naperto.',
         neutral:'Tre medaglie, mani ancora pulite.\nL’Italia comincia a guardarti.'}
+    }
+  },
+
+  gymge: {
+    leader:'BARBAGIALLA', type:'Acqua', badge:'badge4', region:4,
+    team:[['borda',24],['anguanaregina',27]],
+    challenge:'«Chi vince si piglia la MEDAGLIA\nDELLA LANTERNA. Forza, belin!»',
+    intro:[
+      "La palestra di Genova: una darsena\ncoperta, odore di salsedine e catrame.",
+      "In fondo, un vecchio lupo di mare\nti aspetta con le braccia conserte."],
+    done:[
+      "«Ohè, campione. Va' in TRENTINO, da\nHans, a Bolzano. E porta una giacca\npesante.»",
+      "«E grazie: il porto ti deve un favore.»"],
+    openers:{
+      good:[
+        "«Belin, sei tu quello che gira l'Italia\nsenza farsi comprare. Mi piaci.»",
+        "«Ma qui comanda il mare. Vediamo se\nsai nuotare controcorrente.»"],
+      bad:[
+        "«Ho sentito che a valle hai stretto\nmani bagnate.»",
+        "«Il mare lava tutto, ma non i conti.\nIn acqua si vede chi sei.»"],
+      neutral:[
+        "«Ohè! Mi ciammo BARBAGIALLA,\ncapopalestra di Genova.»",
+        "«Tipo ACQUA: come il porto, profondo\ne pieno di sorprese.»"]
+    },
+    win:[
+      "Barbagialla richiama la sua ANGUANA\ne si gratta la barba gialla.",
+      "«Belin che lotta. Te la sei\nguadagnata.»",
+      "Hai ottenuto la MEDAGLIA DELLA\nLANTERNA! (4 di 20)",
+      "«Senti: la Cosca ha le mani anche sul\nporto. Container che vanno e vengono\ndi notte.»",
+      "«Ma è un'altra storia. Tu va' in\nTRENTINO, da Hans. E occhio al gelo,\nlassù.»"],
+    loseMsg:"Barbagialla ti aspetta in palestra.\n«Riprenditi e torna, mussu.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DELLA LANTERNA ottenuta!', region:'Regione 4 di 20 completata',
+      next:'PROSSIMA TAPPA: TRENTINO-A.A.<br>Hans · Ghiaccio/Roccia · Bolzano',
+      footer:'Hai finito i contenuti della demo!<br>Premi A: puoi continuare a esplorare<br>liberamente le 4 regioni.',
+      goodAt:5, badAt:-4,
+      verdict:{
+        good:'Da Milano al mare, un nome solo:\nil bagai che non si compra.',
+        bad:'La Cosca ti conosce porto per porto.\nNaviga con un occhio alla scia.',
+        neutral:'Quattro medaglie e mani pulite.\nMezza Italia, ormai, ti guarda.'}
     }
   }
 };
@@ -149,38 +190,39 @@ const WORLD_MAP = [
     layout:[ { c:['lab','milano','parco'] },
              { c:['shopmi','gym','ambmi'] },
              { c:['navigli','segreto'], j:'->' } ],
+    respawn:{ map:'lab', x:4, y:5, dir:'down', lines:["Ti svegli nel laboratorio.\nLa Prof.ssa Brambilla scuote la testa.","«Ti ho rimesso in sesto io.\nLa prossima volta occhio, neh.»"] },
     link:'treno -> Torino (con Medaglia Madonnina)' },
   { city:'TORINO', region:'Piemonte', leader:'Gianduiotto', type:'Acciaio', badge:'badge2',
     maps:['torino','gymto','ambto','murazzi','sotterranei'],
     layout:[ { c:['torino'] },
              { c:['gymto','ambto'] },
              { c:['murazzi','sotterranei'], j:'->' } ],
+    respawn:{ map:'torino', x:25, y:18, dir:'down', lines:["Ti svegli su una panchina di\nPorta Nuova. Un piccione ti fissa.","«Esageruma nen», dice qualcuno.\nLa squadra è di nuovo in piedi."] },
     link:'bus -> Aosta (con Medaglia della Mole)' },
   { city:'AOSTA', region:"Valle d'Aosta", leader:'Felicino', type:'Ghiaccio', badge:'badge3',
     maps:['aosta','gymao','ambao','gransanbernardo','gelo'],
     layout:[ { c:['aosta'] },
              { c:['gymao','ambao'] },
              { c:['gransanbernardo','gelo'], j:'->' } ],
-    link:'prossima: Liguria - Genova (in arrivo)' }
+    respawn:{ map:'aosta', x:13, y:15, dir:'up', lines:["Ti svegli su una panchina gelata.\nUn San Bernardo ti lecca la faccia.","«Tutto a posto, giovnot?»\nLa squadra è di nuovo in forze."] },
+    link:'bus -> Genova (con Medaglia del Monte Bianco)' },
+  { city:'GENOVA', region:'Liguria', leader:'Barbagialla', type:'Acqua', badge:'badge4',
+    maps:['genova','gymge','ambge','scogliera','lanterna'],
+    layout:[ { c:['genova'] },
+             { c:['gymge','ambge'] },
+             { c:['scogliera','lanterna'], j:'->' } ],
+    respawn:{ map:'genova', x:14, y:4, dir:'down', lines:["Ti svegli su una panchina del porto.\nUn gabbiano ti fissa, impassibile.","«Tutto ben, mussu?»\nLa squadra è di nuovo in sesto."] },
+    link:'prossima: Trentino - Bolzano (in arrivo)' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
 const AREA_LABELS = {
   lab:'Lab', milano:'Centro', parco:'Parco', gym:'Palestra', ambmi:'Ambul.',
   shopmi:'Negozio', navigli:'Navigli', segreto:'Darsena',
   torino:'Centro', gymto:'Palestra', ambto:'Ambul.', murazzi:'Murazzi', sotterranei:'Sotterr.',
-  aosta:'Centro', gymao:'Palestra', ambao:'Ambul.', gransanbernardo:'Passo', gelo:'Grotta'
+  aosta:'Centro', gymao:'Palestra', ambao:'Ambul.', gransanbernardo:'Passo', gelo:'Grotta',
+  genova:'Centro', gymge:'Palestra', ambge:'Ambul.', scogliera:'Scogliera', lanterna:'Lanterna'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna'];
 
-/* Risveglio dopo una sconfitta, per gruppo di mappe (def = fallback). */
-const RESPAWN = [
-  { maps:['aosta','gymao','ambao'], to:'aosta', x:13, y:15, dir:'up', lines:[
-      "Ti svegli su una panchina gelata.\nUn San Bernardo ti lecca la faccia,\npreoccupato.",
-      "«Tutto a posto, giovnot?»\nLa squadra è di nuovo in forze."] },
-  { maps:['torino','gymto','ambto'], to:'torino', x:25, y:18, dir:'down', lines:[
-      "Ti svegli su una panchina di\nPorta Nuova. Un piccione ti\nfissa, severo.",
-      "«Esageruma nen», dice qualcuno.\nLa squadra è di nuovo in piedi."] },
-  { def:true, to:'lab', x:4, y:5, dir:'down', lines:[
-      "Ti svegli nel laboratorio.\nLa Prof.ssa Brambilla scuote la testa.",
-      "«Ti ho rimesso in sesto io.\nFila a comprarti un caffè, va'.»"] }
-];
+/* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
+   così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

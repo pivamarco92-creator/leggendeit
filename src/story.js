@@ -46,12 +46,14 @@ function onEnterMap(map) {
   if (g && g.intro && !G.flags[g.badge]) say(g.intro);
 }
 
-/* Sconfitta: ci si risveglia nel punto sicuro della regione (data/regions.js → RESPAWN). */
+/* Sconfitta: ci si risveglia nella città della regione corrente (più vicina),
+   non più sempre a Milano. Punto definito in WORLD_MAP[regione].respawn. */
 function whiteout(cb) {
   healParty();
-  const r = RESPAWN.find(e => e.maps && e.maps.includes(G.mapId)) || RESPAWN.find(e => e.def);
+  const reg = (typeof WORLD_MAP !== 'undefined' && WORLD_MAP.find(w => w.maps.includes(G.mapId))) || WORLD_MAP[0];
+  const r = reg.respawn;
   G.px = r.x; G.py = r.y; G.dir = r.dir;
-  WORLD.loadMap(r.to);
+  WORLD.loadMap(r.map);
   saveGame();
   say(r.lines, cb);
 }
@@ -87,12 +89,15 @@ function shop(name) {
   say(['«Cosa ti serve, neh?»\nIn cassa hai ' + G.money + '€.'], () => shopMenu(name), name);
 }
 function shopMenu(name) {
-  const opts = SHOP_STOCK.map(k => ITEMS[k].n + ' — ' + ITEMS[k].price + '€')
+  // dalla 2a regione in poi il negozio vende anche la Canna da Pesca
+  const reg = (typeof WORLD_MAP !== 'undefined') ? WORLD_MAP.findIndex(w => w.maps.includes(G.mapId)) : 0;
+  const stock = reg >= 1 ? SHOP_STOCK.concat('canna') : SHOP_STOCK;
+  const opts = stock.map(k => ITEMS[k].n + ' — ' + ITEMS[k].price + '€')
     .concat('LAPTOP (deposito)', 'Esci');
   ask(opts, sel => {
-    if (sel === SHOP_STOCK.length) { openLaptop(); return; }       // laptop del deposito
-    if (sel > SHOP_STOCK.length)   { say('«Torna quando vuoi.»', null, name); return; }
-    const key = SHOP_STOCK[sel], price = ITEMS[key].price;
+    if (sel === stock.length) { openLaptop(); return; }            // laptop del deposito
+    if (sel > stock.length)   { say('«Torna quando vuoi.»', null, name); return; }
+    const key = stock[sel], price = ITEMS[key].price;
     if (G.money < price) {
       say(['«Eh, no. Prima i danè.»\nServono ' + price + '€, ne hai ' + G.money + '.'],
           () => shopMenu(name), name);
@@ -110,6 +115,19 @@ function shopMenu(name) {
 /* Allenatore generico (una sola sfida, definito in data/npcs.js). */
 function evTrainer(n) {
   const t = n.trainer;
+  const rematch = (typeof ROUTE_MAPS !== 'undefined') && ROUTE_MAPS.includes(G.mapId);
+  if (rematch) {
+    if (BEATEN_VISIT.has(t.id)) { say(t.after, null, n.name); return; }
+    const rc = G.flags['rc_' + t.id] || 0;                 // quante volte già battuto
+    const team = t.team.map(([id, lv]) => makeMon(id, Math.min(MAX_LEVEL, lv + rc * 3)));
+    const pre = rc > 0 ? ["«Ancora tu? Stavolta non te la cavi\ncosì facile, bagai.»"] : t.pre;
+    say(pre, () => {
+      startBattle(team[0], { name: n.name, team, idx: 0,
+        winCb: () => { BEATEN_VISIT.add(t.id); G.flags['rc_' + t.id] = rc + 1; saveGame(); say(t.win, null, n.name); },
+        loseCb: () => whiteout() });
+    }, n.name);
+    return;
+  }
   if (G.flags['tr_' + t.id]) { say(t.after, null, n.name); return; }
   say(t.pre, () => {
     const team = t.team.map(([id, lv]) => makeMon(id, lv));
@@ -125,8 +143,11 @@ function evTrainer(n) {
 const OPP = { up:'down', down:'up', left:'right', right:'left' };
 function checkTrainerSight() {
   if (G.mode !== 'walk' || !WORLD) return false;
+  const rematchMap = (typeof ROUTE_MAPS !== 'undefined') && ROUTE_MAPS.includes(G.mapId);
   for (const n of (NPCS[G.mapId] || [])) {
-    if (n.ev !== 'trainer' || !n.look || !n.trainer || G.flags['tr_' + n.trainer.id]) continue;
+    if (n.ev !== 'trainer' || !n.look || !n.trainer) continue;
+    const beaten = rematchMap ? BEATEN_VISIT.has(n.trainer.id) : G.flags['tr_' + n.trainer.id];
+    if (beaten) continue;
     if (trainerSees(n)) { triggerTrainerSight(n); return true; }
   }
   return false;
@@ -214,7 +235,39 @@ function checkTriggers() {
   if (G.mapId === 'milano' && G.flags.starter && !G.flags.cosca &&
       G.px >= 3 && G.px <= 7 && G.py >= 11 && G.py <= 13) {
     evCosca();
+    return;
   }
+  // Johnny Lametta sbarra la strada alla prima visita di ogni città
+  if (typeof JL_TOWNS !== 'undefined' && JL_TOWNS[G.mapId] &&
+      G.flags.starter && G.party.length && !G.flags['jl_' + G.mapId]) {
+    evJohnny(G.mapId);
+  }
+}
+
+/* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
+   Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
+const JL_TOWNS = { torino:true, aosta:true, genova:true };
+function evJohnny(town) {
+  const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
+  const lv = avg + 2;
+  const teams = {
+    torino: [['bisso', lv], ['mazapegul', lv], ['gattomammone', lv + 1]],
+    aosta:  [['masca', lv], ['lupomannaro', lv], ['bisso', lv + 2]],
+    genova: [['borda', lv], ['ratapignata', lv + 1], ['bissone', lv + 2]]
+  };
+  const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
+  say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
+       "«Johnny Lametta. La Cosca mi manda a\nfarti un... ritocchino, bagai.»",
+       "«Da queste parti il pizzo si paga.\nO si lotta. Indovina un po'.»"], () => {
+    const t = team.map(m => m);
+    startBattle(t[0], { name: 'JOHNNY LAMETTA', team: t, idx: 0,
+      winCb: () => {
+        G.flags['jl_' + town] = true; saveGame();
+        say(["Johnny si liscia la giacca, storto.\n«Niente male... per ora.»",
+             "«Ma la Cosca ha pazienza. E memoria.\nCi rivediamo, bagai.»"], null, 'JOHNNY LAMETTA');
+      },
+      loseCb: () => whiteout(() => say("Johnny ride mentre vai giù.\n«Ripassa quando sai lottare, pivello.»")) });
+  }, 'JOHNNY LAMETTA');
 }
 function evCosca() {
   say(["Vicino all'edicola, due tizi in\ngessato stringono il giornalaio.",
@@ -413,7 +466,6 @@ function evStambeco() {
   say(["In cima, sulla neve intatta, uno\nSTAMBÉCO BIANCO ti fissa. Enorme.\nLe corna come due lune.",
        "Non scappa: ti studia. È una prova,\nnon un agguato.",
        "Lo STAMBÉCO scalpita!"], () => {
-    G.flags.stamboCaught = true;   // si mostra una volta sola, comunque vada
     saveGame();
     beep(160, .2, 'triangle'); beep(120, .25, 'triangle');
     startBattle(makeMon('stambeco', 20), null);
@@ -430,7 +482,6 @@ function evScighera() {
   say(["La nebbia sulla darsena si addensa\ne prende forma. Due occhi freddi si\naprono nel grigio.",
        "La SCIGHÉRA ti ha scelto. Tocca a te.",
        "La SCIGHÉRA emerge dall'acqua!"], () => {
-    G.flags.scigheraCaught = true;   // si mostra una volta sola, comunque vada
     saveGame();
     beep(140, .25, 'triangle'); beep(180, .25, 'triangle');
     startBattle(makeMon('scighera', 14), null);
@@ -479,7 +530,7 @@ function evTaurin() {
   say(["Nel buio due occhi si accendono di\nrosso. La mole di bronzo SBUFFA.",
        "Il TAURIN di San Carlo si è svegliato.\nE ha scelto te.",
        "Il TAURIN carica!"], () => {
-    G.flags.taurinCaught = true; saveGame();
+    saveGame();
     beep(120, .25, 'triangle'); beep(90, .3, 'triangle');
     startBattle(makeMon('taurin', 18), null);
   });
@@ -490,12 +541,23 @@ function evBarry() {
   say(["Sul ghiaccio un enorme San Bernardo\nti fissa con occhi buoni. Al collo,\nuna botticella.",
        "BARRY ti annusa, poi abbaia deciso:\nè una sfida, non un saluto.",
        "BARRY si lancia!"], () => {
-    G.flags.barryCaught = true; saveGame();
+    saveGame();
     beep(200, .2, 'triangle'); beep(150, .25, 'triangle');
     startBattle(makeMon('barry', 19), null);
   });
 }
+function evGrifone() {
+  if (G.flags.grifoneCaught) { say(["La cima della Lanterna è quieta.\nIl GRIFONE si è già mostrato a te."]); return; }
+  if (!activeMon()) { say("Senza una Leggenda in forze non osi\nsalire fin lassù."); return; }
+  say(["In cima alla Lanterna un'ombra enorme\nsi staglia contro il faro. Becco, ali,\nartigli: il GRIFONE di Genova.",
+       "Ti scruta dall'alto, poi piega le ali:\nti ha scelto come avversario.",
+       "Il GRIFONE piomba in picchiata!"], () => {
+    saveGame();
+    beep(180, .2, 'triangle'); beep(140, .25, 'triangle');
+    startBattle(makeMon('grifone', 24), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

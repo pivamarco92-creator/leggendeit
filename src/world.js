@@ -26,6 +26,7 @@ class WorldScene extends Phaser.Scene {
 
   loadMap(id) {
     G.mapId = id;
+    if (typeof BEATEN_VISIT !== 'undefined') BEATEN_VISIT.clear();   // gli allenatori-rivincita ti risfidano
     const def = MAPS[id];
     if (this.layer) { this.layer.destroy(); this.map.destroy(); }
     this.npcSprites.forEach(s => s.destroy());

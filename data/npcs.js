@@ -23,12 +23,12 @@ const NPCS = {
   gym: [
     { x:5, y:2, frame:13, name:'CARLETTO', ev:'gymLeader' },
     { x:3, y:5, frame:10, name:'ALLIEVO PIERO', ev:'trainer', look:'right', sight:6,
-      trainer:{ id:'gymmi1', team:[['bigatto',5],['merlotta',6]],
+      trainer:{ id:'gymmi1', team:[['bigatto',7],['merlotta',8]],
         pre:["Per arrivare a Carletto devi\npassare da me. Regola della\npalestra, taaac!"],
         win:["Ahia. Vabbè, vai pure.\nMa con Carletto non è mica\ncosì facile, neh."],
         after:["Vai, vai. Carletto ti aspetta\nin fondo alla sala."] } },
     { x:8, y:7, frame:11, name:'ALLIEVA RACHELE', ev:'trainer', look:'left', sight:6,
-      trainer:{ id:'gymmi2', team:[['mazapegul',7]],
+      trainer:{ id:'gymmi2', team:[['mazapegul',9]],
         pre:["Il mio Mazapégul è piccolo ma\ncattivissimo. Come me."],
         win:["Ok ok, sei forte. Però il Gatto\nMammone di Carletto graffia,\nti avviso."],
         after:["In bocca al lupo col capo!"] } }
@@ -49,12 +49,12 @@ const NPCS = {
   gymto: [
     { x:5, y:2, frame:13, name:'GIANDUIOTTO', ev:'gymLeader' },
     { x:3, y:5, frame:14, name:'OPERAIO', ev:'trainer', look:'right', sight:6,
-      trainer:{ id:'gymto1', team:[['fusinot',9]],
+      trainer:{ id:'gymto1', team:[['fusinot',12]],
         pre:["In questa palestra si suda,\ngiovnot. Il mio Fusinot esce\ndal turno di notte."],
         win:["Bogia... niente male.\nIl Ferroviere è più tosto di me."],
         after:["Avanti, avanti. E saluta il capo."] } },
     { x:8, y:7, frame:10, name:'FERROVIERE', ev:'trainer', look:'left', sight:6,
-      trainer:{ id:'gymto2', team:[['servanot',10],['fusinot',11]],
+      trainer:{ id:'gymto2', team:[['servanot',13],['fusinot',14]],
         pre:["Ho passato trent'anni sui binari.\nI miei colpi arrivano puntuali,\nmica come i treni."],
         win:["In orario e pure forte. Vai da\nGianduiotto, te lo sei meritato."],
         after:["Binario uno per Gianduiotto.\nSenza fermate intermedie."] } }
@@ -77,12 +77,12 @@ const NPCS = {
   gymao: [
     { x:5, y:2, frame:13, name:'FELICINO', ev:'gymLeader' },
     { x:3, y:5, frame:12, name:'GUARDIAPARCO', ev:'trainer', look:'right', sight:6,
-      trainer:{ id:'gymao1', team:[['neiot',14]],
+      trainer:{ id:'gymao1', team:[['neiot',17]],
         pre:["Su queste vette ci si tempra,\ngiovnot. Il mio NEIÒT non sente\nil freddo. E nemmeno la pietà."],
         win:["Brrr... battuto in casa mia.\nFelicino sarà un osso più duro."],
         after:["Avanti. Felicino ti aspetta\nin fondo, al gelo."] } },
     { x:8, y:7, frame:11, name:'SCIATORE', ev:'trainer', look:'left', sight:6,
-      trainer:{ id:'gymao2', team:[['civettona',14],['neiot',16]],
+      trainer:{ id:'gymao2', team:[['civettona',17],['neiot',19]],
         pre:["Scendo a novanta all'ora e non\nsbaglio un palo. Vediamo se reggi\nil freddo, eh."],
         win:["Niente male! Vai dal capo. Ma\ncopriti: là dentro gela davvero."],
         after:["Il capo è in fondo. Porta\npazienza e maglione."] } }
@@ -165,5 +165,54 @@ const NPCS = {
     { x:3, y:10, frame:8, name:'MONACO',
       lines:["Pace, viandante. Questa grotta la\nconoscono in pochi.",
              "Su quel banco di ghiaccio si posa\nBARRY, il San Bernardo che salvò\ncento dispersi. Se si fida, ti seguirà."] }
+  ],
+  genova: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:16, y:8,  frame:9,  name:'CAMALLO',
+      lines:["Ohè! Faccio il camallo, scarico navi\nda trent'anni. Belin che schiena.",
+             "Di notte, al porto, arrivano container\nche è meglio non vedere. Roba della\nCosca, dicono."] },
+    { x:6,  y:11, frame:11, name:'PESCIVENDOLA',
+      lines:["Acciughe fresche! E se ti serve,\ndavanti al molo l'Anguana abbocca,\nohè. Tira fuori la canna."] }
+  ],
+  gymge: [
+    { x:5, y:2, frame:13, name:'BARBAGIALLA', ev:'gymLeader' },
+    { x:3, y:5, frame:11, name:'MOZZO', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymge1', team:[['anguanella',21]],
+        pre:["Prima di Barbagialla passi da me,\nmussu. Ordini del capo."],
+        win:["Uff. Va', va'. Ti aspetta in fondo."],
+        after:["Il capo è là. Non farlo arrabbiare."] } },
+    { x:8, y:7, frame:9, name:'OSTREGA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymge2', team:[['borda',22],['anguanella',23]],
+        pre:["Belin, un altro per la medaglia.\nVediamo se reggi l'onda."],
+        win:["Brava gente. Vai dal vecchio."],
+        after:["Barbagialla non perde spesso, eh."] } }
+  ],
+  ambge: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA SCIORBA', ev:'cura' }
+  ],
+  scogliera: [
+    { x:8, y:5, frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'sco1', team:[['ratapignata',18],['borda',19]],
+        pre:["Questo tratto di costa lo gestisce\nla Cosca. Tu qui non passi."],
+        win:["Maledizione. Vada per stavolta."],
+        after:["Ti tengo d'occhio, bagai."] } },
+    { x:8, y:10, frame:11, name:'PESCATORE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'sco2', team:[['anguanella',19],['merlotta',19]],
+        pre:["Pesco da prima che tu nascessi,\ne so anche lottare, ohè."],
+        win:["Bè, hai polso. Buona pesca!"],
+        after:["L'Anguana abbocca al largo, prova."] } },
+    { x:8, y:14, frame:14, name:'GUARDIACOSTE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'sco3', team:[['borda',20],['ratapignata',20]],
+        pre:["Dovrei fermare i contrabbandieri.\nMa la Cosca paga meglio dello Stato."],
+        win:["Tch. Non hai visto niente, intesi?"],
+        after:["Gira al largo, ragazzo."] } },
+    { x:2, y:8, frame:9, name:'BAGNINO',
+      lines:["Più giù c'è la vecchia LANTERNA.\nIn cima dicono si posi il GRIFONE,\nquello dello stemma di Genova.",
+             "Si mostra a chi se lo merita. O a\nchi è abbastanza matto da salire."] }
+  ],
+  lanterna: [
+    { x:3, y:9, frame:12, name:'GUARDIANO DEL FARO',
+      lines:["La luce della Lanterna non si spegne\nda secoli. E non è solo la lampada\na vegliare.",
+             "Lassù c'è il GRIFONE. Se dispiega le\nali, preparati: ti sta valutando."] }
   ]
 };

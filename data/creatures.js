@@ -22,6 +22,8 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'granservan','mascagna','fusinon','toron',
                         /* evoluzioni — blocco 3 (Hexany A) + blocco 4 (Hexany B) */
                         'strigone','bordona','mannarone','ratavolora','malebranca','basiliscu',
+                        /* Liguria — leggendario */
+                        'grifone',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -199,6 +201,11 @@ const SPECIES = {
   basiliscu: { n:'BASILISCU', types:['Veleno'], hp:80, atk:90, def:80, spd:66,
     learnset:[[1,'morso'],[1,'velenovivo'],[1,'sfondata'],[1,'malocchio'],[48,'maledizione']],
     dex:'Il basilisco sardo, custode supremo dei nuraghi. Si dice che il suo sguardo pietrifichi.' },
+
+  /* ---------- Liguria — il Grifone di Genova ---------- */
+  grifone: { n:'GRIFONE', types:['Volante'], hp:85, atk:92, def:80, spd:96,
+    learnset:[[1,'beccata'],[1,'morso'],[1,'sfondata'],[1,'tramontana'],[50,'tramontana']],
+    dex:'Il Grifone di Genova, sceso dallo stemma della città. Sorveglia il porto dall’alto della Lanterna.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).

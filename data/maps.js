@@ -186,7 +186,7 @@ const MAPS = {
   /* ---------- REGIONE 3 · VALLE D'AOSTA ----------
      ^ montagna · X santuario dello Stambéco · A archivio della Cosca · V bus per Torino */
   aosta: {
-    t2i: { '.':19, 'G':3, 'T':4, 'W':5, '#':7, 'Y':10, 'H':18, 'A':9, 'V':12, '^':20, 'X':20, 'B':12 },
+    t2i: { '.':19, 'G':3, 'T':4, 'W':5, '#':7, 'Y':10, 'H':18, 'A':9, 'V':12, '^':20, 'X':20, 'B':12, 'J':12 },
     tiles: [
       '^^^^B^^^^^^^^X^^^^^^^^^^^^^^',
       '^.........TT...TT..........^',
@@ -204,7 +204,7 @@ const MAPS = {
       '^....WWWW..................^',
       '^....WWWW..................^',
       '^..........................^',
-      '^............VV............^',
+      '^...J........VV............^',
       '^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
     ],
     encounters: [
@@ -457,6 +457,122 @@ const MAPS = {
       { id:'civettona',   min:15, max:18, w:20 }
     ],
     items: [ { x:12, y:1, item:'ampolla', flag:'it_gel1' } ]
+  },
+  /* ---------- REGIONE 4 · LIGURIA (Genova) ---------- */
+  genova: {
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, '#':7, 'Y':10, 'H':18, 'V':12, 'R':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T............VV............T',
+      'T..####...####.....####....T',
+      'T..#Y##...####.....#H##....T',
+      'T..........................T',
+      'T..........................T',
+      'T....GGGG.........GGGG.....T',
+      'T....GGGG.........GGGG.....T',
+      'T..........................T',
+      'T.........................RT',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'TWWWWWWWWWWWWWWWWWWWWWWWWWWT',
+      'TWWWWWWWWWWWW..WWWWWWWWWWWWT',
+      'TWWWWWWWWWWWW..WWWWWWWWWWWWT',
+      'TWWWWWWWWWWWWWWWWWWWWWWWWWWT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null,
+    fish: [ { id:'anguanella', min:17, max:20, w:60 }, { id:'borda', min:18, max:21, w:40 } ]
+  },
+  gymge: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambge: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  scogliera: {
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTT',
+      'T.........UU...........T',
+      'T............WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T........TT..WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T........TT..WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T.........ZZ.WWWWWWWWW.T',
+      'TTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'ratapignata', min:17, max:20, w:28 },
+      { id:'merlotta',    min:17, max:20, w:22 },
+      { id:'civettona',   min:18, max:21, w:18 },
+      { id:'anguanella',  min:17, max:20, w:18 },
+      { id:'borda',       min:19, max:22, w:14 }
+    ],
+    items: [
+      { x:2, y:5,  item:'ampolla',    flag:'it_sco1' },
+      { x:2, y:12, item:'panzerotto', flag:'it_sco2' }
+    ],
+    fish: [ { id:'anguanella', min:18, max:21, w:60 }, { id:'borda', min:19, max:22, w:40 } ]
+  },
+  lanterna: {
+    t2i: { '.':13, '#':14, 'W':5, 'G':3, 'X':14, 'E':12 },
+    tiles: [
+      '################',
+      '#..............#',
+      '#......XX......#',
+      '#..............#',
+      '#.GGG....GGG...#',
+      '#.GGG....GGG...#',
+      '#..............#',
+      '#..WW......WW..#',
+      '#..WW......WW..#',
+      '#..............#',
+      '#..............#',
+      '#......EE......#',
+      '#..............#',
+      '################'
+    ],
+    encounters: [
+      { id:'ratapignata', min:20, max:23, w:34 },
+      { id:'civettona',   min:20, max:23, w:26 },
+      { id:'borda',       min:21, max:24, w:20 }
+    ],
+    items: [ { x:12, y:1, item:'ampolla', flag:'it_lan1' } ]
   }
 };
 
@@ -508,7 +624,13 @@ const PORTALS = {
             Y: { map:'gymao',  x:5,  y:9,  dir:'up' },
             H: { map:'ambao',  x:3,  y:3,  dir:'up' },
             B: { map:'gransanbernardo', x:11, y:2, dir:'down',
-                 arriveMsg: ["IL GRAN SAN BERNARDO. Tornanti di\nneve e silenzio. Quassù si respira\npiano."] } },
+                 arriveMsg: ["IL GRAN SAN BERNARDO. Tornanti di\nneve e silenzio. Quassù si respira\npiano."] },
+            J: { map:'genova', x:14, y:2, dir:'down', heal: true,
+                 lock: () => !G.flags.badge3,
+                 msg: ["Stazione per GENOVA e la Liguria.\nIl bigliettaio ti squadra:",
+                       "«Senza la Medaglia del Monte Bianco\nin Liguria non hai niente da fare,\nbagai.»"],
+                 arriveMsg: ["GENOVA. Caruggi stretti, focaccia,\nsalsedine. Il porto brulica.",
+                             "Il viaggio ha rimesso in sesto\nla squadra!"] } },
   gymao:  { E: { map:'aosta', x:4, y:4,  dir:'down' } },
   ambao:  { E: { map:'aosta', x:4, y:11, dir:'down' } },
   navigli:{ U: { map:'milano',  x:14, y:19, dir:'up' },
@@ -523,5 +645,17 @@ const PORTALS = {
   gransanbernardo:{ U: { map:'aosta', x:4, y:1, dir:'down' },
             Z: { map:'gelo', x:7, y:10, dir:'up',
                  arriveMsg: ["Una fenditura nel ghiacciaio. Dentro,\nla GROTTA DEL GELO. Un freddo che\ntaglia il fiato."] } },
-  gelo:{ E: { map:'gransanbernardo', x:11, y:15, dir:'up' } }
+  gelo:{ E: { map:'gransanbernardo', x:11, y:15, dir:'up' } },
+  genova:{ V: { map:'aosta', x:4, y:15, dir:'up', heal: true,
+               arriveMsg: ["AOSTA. Di nuovo tra le vette."] },
+           Y: { map:'gymge', x:5, y:9, dir:'up' },
+           H: { map:'ambge', x:3, y:3, dir:'up' },
+           R: { map:'scogliera', x:10, y:2, dir:'down',
+               arriveMsg: ["LA SCOGLIERA. Onde, gabbiani e\nscogli a picco sul mare."] } },
+  gymge:{ E: { map:'genova', x:4, y:4, dir:'down' } },
+  ambge:{ E: { map:'genova', x:20, y:4, dir:'down' } },
+  scogliera:{ U: { map:'genova', x:25, y:9, dir:'left' },
+              Z: { map:'lanterna', x:7, y:10, dir:'up',
+                  arriveMsg: ["LA LANTERNA. Il vecchio faro di\nGenova. In cima, un battito d'ali\nenorme."] } },
+  lanterna:{ E: { map:'scogliera', x:10, y:15, dir:'up' } }
 };

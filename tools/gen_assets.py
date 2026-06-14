@@ -464,6 +464,13 @@ CREATURES = {
    '...VVVRRVVV.....','....VVVVVV......','...vVVVVVVv.....','..VVVVVVVVVV....',
    '.VVVv....vVVV...','.VVV......VVV...','.VVv......vVV...','..VVv....vVV....',
    '...VVVVVVVV.....','.....vvvv.......','................','................']),
+ # ---------- LIGURIA — il Grifone di Genova (Volante) ----------
+ 'grifone': dict(pal={'B':(150,110,60,255),'b':(110,80,44,255),'Y':(232,196,90,255),
+   'W':(232,224,196,255),'K':(28,24,28,255)}, rows=[
+   '.....WWW........','....WWWWW.......','...WWKWWY.......','...WWWWWW.......',
+   '..WWWWWWW.......','..WBBBBBBB......','.BBBBBBBBBB.....','.BBbBBBBBBBB....',
+   '.BBBBBBBBBBB....','..BBBBBBBBB.....','..BBBBBBBBB.....','..BB.BB.BB.....',
+   '..bb.bb.bb.....','..Y..Y..Y......','................','................']),
 }
 
 ORDER = list(CREATURES.keys())
