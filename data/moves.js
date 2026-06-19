@@ -28,6 +28,8 @@ const MOVES = {
   brinata:     { n:'Brinata',       t:'Ghiaccio',   pow:40, pp:25 },
   gelata:      { n:'Gelata',        t:'Ghiaccio',   pow:65, pp:20 },
   bufera:      { n:'Bufera',        t:'Ghiaccio',   pow:95, pp:10 },
+  sassata:     { n:'Sassata',       t:'Roccia',     pow:50, pp:25 },
+  frana:       { n:'Frana',         t:'Roccia',     pow:90, pp:10 },
   dispetto:   { n:'Dispetto',     t:'Normale',    pow:0,  pp:40, fx:'atk-' },
   codata:     { n:'Codata',       t:'Normale',    pow:0,  pp:40, fx:'def-' },
   filodiseta: { n:'Filo di Seta', t:'Coleottero', pow:0,  pp:40, fx:'spd-' }

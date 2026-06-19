@@ -179,6 +179,86 @@ const GYMS = {
         bad:'La Cosca ti conosce porto per porto.\nNaviga con un occhio alla scia.',
         neutral:'Quattro medaglie e mani pulite.\nMezza Italia, ormai, ti guarda.'}
     }
+  },
+
+  gymve: {
+    leader:'BEPI', type:'Acqua', badge:'badge6', region:6,
+    team:[['mazarione',32],['borda',34],['anguanaregina',36]],
+    challenge:'«Chi vince piglia la MEDAGLIA DEL LEONE.\nVoga! Voga!»',
+    intro:[
+      "La palestra di Venezia: una vecchia\nrimessa per gondole, profumo di\nsalsedine e legno antico.",
+      "In fondo, un omone sorridente con\nun remo tra le mani ti aspetta\nsenza fretta."],
+    done:[
+      "«Xè un piacere, forestiero. La medaglia\nla tieni bene.»",
+      "«Gira, gira ancora. Il Veneto ha ancora\ncose da mostrarti.»"],
+    openers:{
+      good:[
+        "«Ostrega! Sei tu il forestiero che gira\nl'Italia senza farsi comprare.\nMi piaci, veh.»",
+        "«Qui però comanda la laguna. Vediamo\nse sai vogare controcorrente.»"],
+      bad:[
+        "«Ho sentito che a valle hai stretto\nmani sbagliate, xèlo?»",
+        "«L'acqua non mente, forestiero.\nIn laguna si vede chi sei.»"],
+      neutral:[
+        "«Servito! Sono BEPI, capopalestra\ndi Venezia.»",
+        "«Tipo ACQUA: come la laguna,\nprofonda e imprevedibile.»"]
+    },
+    win:[
+      "Bepi richiama la sua ANGUANAREGINA\ne allarga le braccia.",
+      "«Ostrega, bella lotta! Te lo sei\nguadagnato, forestiero.»",
+      "Hai ottenuto la MEDAGLIA DEL LEONE!\n(6 di 20)",
+      "«La Cosca ha provato anche qui.\nMa l'acqua della laguna non\nsi vende, cossa xèlo.»",
+      "«Tu vai avanti. Il Friuli ti aspetta,\ne poi tutta l'Italia ancora.\nBuon viaggio, veh!»"],
+    loseMsg:"Bepi ti aspetta in palestra.\n«Riscaldati e torna, veh!»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL LEONE ottenuta!', region:'Regione 6 di 20 completata',
+      next:'PROSSIMA TAPPA: FRIULI-V.G.<br>Gigio · Tipo Vento · Trieste',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 6 regioni.',
+      goodAt:7, badAt:-6,
+      verdict:{
+        good:'Da Milano a Venezia, un nome che\nla Cosca non può comprare.',
+        bad:'La Cosca ti segue di regione in\nregione. Prima o poi il conto si paga.',
+        neutral:'Sei medaglie. Mezza Italia dietro,\nmezza ancora da fare.'}
+    }
+  },
+
+  gymtr: {
+    leader:'HANS', type:'Ghiaccio/Roccia', badge:'badge5', region:5,
+    team:[['croder',27],['brinassa',28],['crodon',30]],
+    challenge:'«Chi vince prende la MEDAGLIA DELLE\nDOLOMITI. Auf geht\'s!»',
+    intro:[
+      "La palestra di Bolzano: legno di malga,\ntrofei di roccia e ghiaccio.",
+      "In fondo, un omone biondo ti osserva\nsoffiandosi sulle mani."],
+    done:[
+      "«Bravo, hai vinto. La strada continua,\nma i miei contenuti finiscono qui.\nPer ora!»"],
+    openers:{
+      good:[
+        "«Servus! Sei tu il ragazzo che non si\npiega alla Cosca. Mi piaci.»",
+        "«Ma quassù decide la montagna.\nVediamo se reggi roccia e gelo.»"],
+      bad:[
+        "«Servus. Si dice che a valle tu abbia\nstretto mani sbagliate.»",
+        "«La montagna non perdona i furbi.\nVediamo.»"],
+      neutral:[
+        "«Servus! Io sono HANS,\ncapopalestra di Bolzano.»",
+        "«Tipo GHIACCIO e ROCCIA: come le\nDolomiti, dure e taglienti.»"]
+    },
+    win:[
+      "Hans richiama il suo CRODÒN e ride\nforte. «Auf! Gran bella lotta!»",
+      "Hai ottenuto la MEDAGLIA DELLE\nDOLOMITI! (5 di 20)",
+      "«La Cosca ha provato a comprare anche\nme. Gli ho detto di sciare a valle.»",
+      "«Tu continua così. L'Italia, pezzo per\npezzo, comincia a respirare.»"],
+    loseMsg:"Hans ti aspetta in palestra.\n«Riscaldati e torna, ja?»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DELLE DOLOMITI ottenuta!', region:'Regione 5 di 20 completata',
+      next:'PROSSIMA TAPPA: VENETO<br>Bepi · Tipo Acqua · Venezia',
+      footer:'Hai finito i contenuti della demo!<br>Premi A: puoi continuare a esplorare<br>liberamente le 5 regioni.',
+      goodAt:6, badAt:-5,
+      verdict:{
+        good:'Da Milano alle Dolomiti, un nome che\nla Cosca non può comprare.',
+        bad:'La Cosca ti segue di regione in\nregione, e aspetta il tuo passo falso.',
+        neutral:'Cinque medaglie. Mezza Italia ti\nconosce, l\'altra metà ti cerca.'}
+    }
   }
 };
 
@@ -207,12 +287,26 @@ const WORLD_MAP = [
     respawn:{ map:'aosta', x:13, y:15, dir:'up', lines:["Ti svegli su una panchina gelata.\nUn San Bernardo ti lecca la faccia.","«Tutto a posto, giovnot?»\nLa squadra è di nuovo in forze."] },
     link:'bus -> Genova (con Medaglia del Monte Bianco)' },
   { city:'GENOVA', region:'Liguria', leader:'Barbagialla', type:'Acqua', badge:'badge4',
-    maps:['genova','gymge','ambge','scogliera','lanterna'],
+    maps:['genova','gymge','ambge','scogliera','lanterna','valdadige'],
     layout:[ { c:['genova'] },
              { c:['gymge','ambge'] },
              { c:['scogliera','lanterna'], j:'->' } ],
     respawn:{ map:'genova', x:14, y:4, dir:'down', lines:["Ti svegli su una panchina del porto.\nUn gabbiano ti fissa, impassibile.","«Tutto ben, mussu?»\nLa squadra è di nuovo in sesto."] },
-    link:'prossima: Trentino - Bolzano (in arrivo)' }
+    link:'bus -> Bolzano (con Medaglia della Lanterna)' },
+  { city:'BOLZANO', region:'Trentino-A.A.', leader:'Hans', type:'Ghiaccio/Roccia', badge:'badge5',
+    maps:['bolzano','gymtr','ambtr','dolomiti','rosengarten','brenta'],
+    layout:[ { c:['bolzano'] },
+             { c:['gymtr','ambtr'] },
+             { c:['dolomiti','rosengarten'], j:'->' } ],
+    respawn:{ map:'bolzano', x:13, y:2, dir:'down', lines:["Ti svegli in una malga, accanto a una\nstufa. Una nonna ti porge dello speck.","La squadra è di nuovo in forze, ja."] },
+    link:'percorso lungo il Brenta -> Venezia (con Medaglia delle Dolomiti)' },
+  { city:'VENEZIA', region:'Veneto', leader:'Bepi', type:'Acqua', badge:'badge6',
+    maps:['venezia','gymve','ambve','laguna','calle'],
+    layout:[ { c:['venezia'] },
+             { c:['gymve','ambve'] },
+             { c:['laguna','calle'], j:'->' } ],
+    respawn:{ map:'venezia', x:14, y:5, dir:'down', lines:["Ti svegli su una riva del Canal Grande.\nUn gabbiano ti fissa con superiorità.","La squadra è di nuovo in forze, veh."] },
+    link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
 const AREA_LABELS = {
@@ -221,9 +315,12 @@ const AREA_LABELS = {
   torino:'Centro', gymto:'Palestra', ambto:'Ambul.', murazzi:'Murazzi', sotterranei:'Sotterr.',
   aosta:'Centro', gymao:'Palestra', ambao:'Ambul.', gransanbernardo:'Passo', gelo:'Grotta',
   genova:'Centro', gymge:'Palestra', ambge:'Ambul.', scogliera:'Scogliera', lanterna:'Lanterna',
-  stradapo:'Statale', valico:'Valico', appennino:'Strada'
+  stradapo:'Statale', valico:'Valico', appennino:'Strada',
+  bolzano:'Centro', gymtr:'Palestra', ambtr:'Ambul.', dolomiti:'Dolomiti', rosengarten:'Rosengarten', valdadige:"Val d'Adige",
+  brenta:'Brenta',
+  venezia:'Centro', gymve:'Palestra', ambve:'Ambul.', laguna:'Laguna', calle:'Calle'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

@@ -247,5 +247,118 @@ const NPCS = {
     { x:20, y:6, frame:14, name:'LUOGOTENENTE', ev:'trainer', look:'down', sight:6,
       trainer:{ id:'app3', team:[['borda',19],['ratapignata',20]],
         pre:["Sono un luogotenente della Cosca.\nE tu sei solo un fastidio."], win:["...Johnny aveva ragione su di te."], after:["Genova ti aspetta. E anche noi."] } }
+  ],
+  bolzano: [
+    { x:9,  y:5, frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:16, y:8, frame:11, name:'SCHÜTZE',
+      lines:["Servus! Bella Bolzano, eh? Due lingue,\nuna montagna sola.",
+             "Sul Catinaccio, al tramonto, la roccia\ndiventa rossa: è l'enrosadira. Dicono\nsia la maledizione di Re Laurino."] },
+    { x:6, y:11, frame:9, name:'NONNA SPECK',
+      lines:["Mangia qualcosa, magrolino! Speck e\npane di segale. Poi vai pure a sfidare\nHans, ma copriti."] }
+  ],
+  gymtr: [
+    { x:5, y:2, frame:13, name:'HANS', ev:'gymLeader' },
+    { x:3, y:5, frame:12, name:'MAESTRO DI SCI', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymtr1', team:[['neiot',25],['croder',25]],
+        pre:["Prima di Hans, una sciata con me.\nReggi la discesa?"], win:["Bravo, gambe buone. Vai dal capo."], after:["Hans è in fondo, ja."] } },
+    { x:8, y:7, frame:11, name:'GUARDIA FORESTALE', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymtr2', team:[['croder',26],['brinassa',27]],
+        pre:["Proteggo queste montagne. Anche da\nte, se serve."], win:["Bene. Hans ti aspetta."], after:["Rispetta la montagna, lassù."] } }
+  ],
+  ambtr: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA GRUBER', ev:'cura' }
+  ],
+  dolomiti: [
+    { x:8, y:5, frame:14, name:'SCALATORE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'dol1', team:[['croder',24],['neiot',25]],
+        pre:["Questo sentiero lo controlla la Cosca.\nTu paghi o scali altrove."], win:["Tch. Passa."], after:["Occhio ai sassi, eh."] } },
+    { x:8, y:10, frame:14, name:'GUIDA', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'dol2', team:[['brinassa',26],['croder',26]],
+        pre:["Conosco ogni croda. E ogni nascondiglio\ndella Cosca quassù."], win:["Niente male, valligiano."], after:["La grotta è più giù."] } },
+    { x:8, y:13, frame:14, name:'BRACCONIERE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'dol3', team:[['lupomannaro',26],['crodon',27]],
+        pre:["Caccio camosci e fastidi. Tu sei\nun fastidio."], win:["Bah. Sparisci."], after:["Re Laurino ti aspetta, se osi."] } }
+  ],
+  rosengarten: [
+    { x:3, y:9, frame:12, name:'EREMITA',
+      lines:["Sei salito fin qui, tra le rose di pietra.\nPochi osano.",
+             "Re Laurino dorme nel suo giardino.\nSe lo svegli, che la montagna ti assista."] }
+  ],
+  valdadige: [
+    { x:7, y:6, frame:14, name:'PICCIOTTO', ev:'trainer', look:'down', sight:6,
+      trainer:{ id:'vda1', team:[['civettona',20],['borda',21]],
+        pre:["La Val d'Adige è zona nostra, bagai.\nPedaggio."], win:["Tch. Vai."], after:["Ci rivediamo."] } },
+    { x:14, y:13, frame:14, name:'CORRIERE', ev:'trainer', look:'up', sight:6,
+      trainer:{ id:'vda2', team:[['lupomannaro',21],['ratapignata',22]],
+        pre:["Porto pacchi della Cosca su per la valle.\nTu non mi rallenti."], win:["In ritardo, per colpa tua!"], after:["Spostati."] } },
+    { x:20, y:6, frame:14, name:'CAPOZONA', ev:'trainer', look:'down', sight:6,
+      trainer:{ id:'vda3', team:[['borda',22],['croder',23]],
+        pre:["Gestisco la valle per la Cosca.\nE tu non sei sulla lista degli ospiti."], win:["...forte, il bagai."], after:["Bolzano ti aspetta. E anche noi."] } }
+  ],
+  /* ---------- REGIONE 6 · VENETO ---------- */
+  venezia: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'GONDOLIERE',
+      lines:["Benvenuto a Venezia, forestiero!\nIl Canal Grande divide la città\nin due: acqua da una parte, acqua dall'altra.",
+             "Il LEON DE SAN MARCO veglia da\nsecoli. Dicono si nasconda in una\ncalle che non trovi sulle mappe."] },
+    { x:8,  y:14, frame:11, name:'PESCATRICE',
+      lines:["In laguna si pesca, si vive e si muore.\nE si incontrano creature che non\nexistono altrove.",
+             "Prendi la canna e scendi in laguna,\nse hai coraggio. L'acqua là nasconde\ncose strane tra le canne."] },
+    { x:18, y:16, frame:12, name:'VECCHIETTO',
+      lines:["Sessant'anni che vivo qui. La laguna\ncambia ogni giorno. Il Leon, invece,\nnon cambia mai.",
+             "C'è una calle che non trovi sulle\nmappe. L'acqua ci entra dentro.\nE qualcosa ci abita da sempre."] }
+  ],
+  gymve: [
+    { x:5, y:2, frame:13, name:'BEPI', ev:'gymLeader' },
+    { x:3, y:5, frame:10, name:'REMATORE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymve1', team:[['mazariol',30],['anguanella',30]],
+        pre:["Per arrivare a Bepi si rema contro\ncorrente. Inizia con me, veh."],
+        win:["Bè, sei in forma. Bepi ti aspetta\nin fondo alla palestra."],
+        after:["Vai, vai. Non farlo aspettare."] } },
+    { x:8, y:7, frame:11, name:'MURANERA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymve2', team:[['mazarione',31],['borda',32]],
+        pre:["Vengo da Murano: lavoro il vetro\ne l'acqua da vent'anni. Vediamo\nse sai lavorare te."],
+        win:["Ostrega! Sei bravo davvero.\nBepi sarà contento, veh."],
+        after:["Il capo è in fondo. Rispettalo."] } }
+  ],
+  ambve: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA MALIPIERO', ev:'cura' }
+  ],
+  laguna: [
+    { x:2, y:5,  frame:14, name:'BARCAIOLO DELLA COSCA', ev:'trainer', look:'right', sight:9,
+      trainer:{ id:'lag1', team:[['mazariol',28],['anguanella',28]],
+        pre:["La laguna l'abbiamo privatizzata noi.\nSe vuoi passare, le tue Leggende\nparlano con le mie."],
+        win:["Tch. Passa. Ma la Cosca ricorda."],
+        after:["La nebbia copre tutto, laggiù."] } },
+    { x:2, y:10, frame:14, name:'CONTRABBANDIERA', ev:'trainer', look:'right', sight:9,
+      trainer:{ id:'lag2', team:[['mazariol',29],['borda',30]],
+        pre:["Porto roba tra le barene di notte.\nTu mi rallenti. Non mi piace."],
+        win:["Bah. Vada per stavolta."],
+        after:["Questa zona è nostra. Non tornare."] } },
+    { x:2, y:14, frame:14, name:'CAPOBARCA', ev:'trainer', look:'right', sight:9,
+      trainer:{ id:'lag3', team:[['mazarione',30],['borda',31]],
+        pre:["Controllo questo tratto di laguna\nper la Cosca. Ultimo guardiano\nprima della calle."],
+        win:["...non ci siamo capiti. Hai vinto.\nPassarà."],
+        after:["La calle è in fondo. Non dire\nche ti ho lasciato passare."] } }
+  ],
+  calle: [
+    { x:3, y:9, frame:12, name:'CUSTODE DELLA CALLE',
+      lines:["Ci abito da quando sono nato.\nQuesta calle non esiste sulle mappe\nufficiali. Per un motivo.",
+             "Nell'acqua là sopra si posa il LEON\nDE SAN MARCO. Non disturbarlo,\nforestiero. Te lo chiedo per favore."] }
+  ],
+  brenta: [
+    { x:7, y:6, frame:14, name:'PICCIOTTO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'bre1', team:[['civettona',25],['borda',25]],
+        pre:["Questo tratto del Brenta è zona Cosca.\nPaghi o ti bagni."],
+        win:["Tch. Vada."], after:["La corrente è forte, laggiù."] } },
+    { x:14, y:13, frame:14, name:'CORRIERE', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'bre2', team:[['lupomannaro',26],['ratapignata',26]],
+        pre:["Porto pacchi su per il fiume.\nTu sei un ostacolo."],
+        win:["In ritardo, per tua colpa!"], after:["Sparisci."] } },
+    { x:20, y:6, frame:14, name:'GUARDIANO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'bre3', team:[['croder',27],['mazariol',27]],
+        pre:["L'ultimo prima di Venezia sono io.\nE non sono gentile come i colleghi."],
+        win:["...forte, il forestiero. Venezia\nti aspetta. E anche la Cosca."],
+        after:["Laguna dritta, poi a destra."] } }
   ]
 };

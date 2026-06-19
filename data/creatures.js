@@ -24,6 +24,10 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'strigone','bordona','mannarone','ratavolora','malebranca','basiliscu',
                         /* Liguria — leggendario */
                         'grifone',
+                        /* Trentino-A.A. — linea di Roccia + leggendario */
+                        'croder','crodon','laurino',
+                        /* Veneto — linea del Mazariol + leggendario */
+                        'mazariol','mazarione','leon',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -206,6 +210,30 @@ const SPECIES = {
   grifone: { n:'GRIFONE', types:['Volante'], hp:85, atk:92, def:80, spd:96,
     learnset:[[1,'beccata'],[1,'morso'],[1,'sfondata'],[1,'tramontana'],[50,'tramontana']],
     dex:'Il Grifone di Genova, sceso dallo stemma della città. Sorveglia il porto dall’alto della Lanterna.' },
+
+  /* ---------- Veneto — linea del Mazariol + leggendario ---------- */
+  mazariol: { n:'MAZARIOL', types:['Erba'], hp:45, atk:52, def:45, spd:58,
+    evolve:{ lv:28, to:'mazarione' },
+    learnset:[[1,'botta'],[1,'dispetto'],[7,'sferzata'],[16,'morso'],[26,'fogliolame'],[42,'querciasacra']],
+    dex:'Il folletto rosso dei boschi veneti. Sposta le pietre del sentiero e gioca scherzi agli escursionisti. Veloce e sfuggente.' },
+  mazarione: { n:'MAZARIONE', types:['Erba','Acqua'], hp:68, atk:76, def:65, spd:72,
+    learnset:[[1,'sferzata'],[1,'morso'],[1,'fogliolame'],[30,'ondata'],[44,'querciasacra'],[52,'piena']],
+    dex:'Il Mazariol adulto, signore delle barene veneziane. Guida le maree della laguna a suo piacimento e affoga chi lo disturba.' },
+  leon: { n:'LEON DE SAN MARCO', types:['Acqua','Volante'], hp:92, atk:100, def:90, spd:88,
+    learnset:[[1,'beccata'],[1,'zampillo'],[1,'ondata'],[1,'tramontana'],[50,'piena']],
+    dex:'Il leone alato dello stemma di Venezia. Custode del Canal Grande, sorveglia la Serenissima dall\'alto delle acque da secoli di secoli.' },
+
+  /* ---------- Trentino-Alto Adige — linea di Roccia + Re Laurino ---------- */
+  croder: { n:'CRODÈR', types:['Roccia'], hp:50, atk:60, def:78, spd:30,
+    evolve:{ lv:30, to:'crodon' },
+    learnset:[[1,'botta'],[1,'sassata'],[14,'morso'],[30,'frana']],
+    dex:'Spiritello di roccia dolomitica (la «croda»). Sembra un sasso, finché non si muove.' },
+  crodon: { n:'CRODÒN', types:['Roccia'], hp:78, atk:88, def:102, spd:38,
+    learnset:[[1,'sassata'],[1,'morso'],[1,'sfondata'],[44,'frana']],
+    dex:'Golem delle Dolomiti. Quando cammina, dicono, è una frana che decide dove andare.' },
+  laurino: { n:'RE LAURINO', types:['Roccia'], hp:90, atk:98, def:95, spd:62,
+    learnset:[[1,'sassata'],[1,'morso'],[1,'sfondata'],[1,'maledizione'],[50,'frana']],
+    dex:'Il re dei nani del Catinaccio. La sua maledizione tinge le Dolomiti di rosso al tramonto: l’enrosadira.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).

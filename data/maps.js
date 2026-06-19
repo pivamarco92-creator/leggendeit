@@ -460,7 +460,7 @@ const MAPS = {
   },
   /* ---------- REGIONE 4 · LIGURIA (Genova) ---------- */
   genova: {
-    t2i: { '.':0, 'G':3, 'T':4, 'W':5, '#':7, 'Y':10, 'H':18, 'V':12, 'R':12 },
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, '#':7, 'Y':10, 'H':18, 'V':12, 'R':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T............VV............T',
@@ -471,7 +471,7 @@ const MAPS = {
       'T....GGGG.........GGGG.....T',
       'T....GGGG.........GGGG.....T',
       'T..........................T',
-      'T.........................RT',
+      'T........B................RT',
       'T.........................RT',
       'T..........................T',
       'T..........................T',
@@ -667,6 +667,304 @@ const MAPS = {
       { id:'borda',       min:17, max:20, w:26 },
       { id:'ratapignata', min:17, max:20, w:22 }
     ]
+  },
+  /* ---------- REGIONE 5 · TRENTINO-ALTO ADIGE (Bolzano) ---------- */
+  bolzano: {
+    t2i: { '.':19, 'G':3, 'T':4, 'W':5, '#':7, '^':20, 'Y':10, 'H':18, 'V':12, 'D':12, 'B':12 },
+    tiles: [
+      '^^^^^^^^^^^^^^^^^^^^^^^^^^^^',
+      '^............VV............^',
+      '^..####............####....^',
+      '^..#Y##............#H##....^',
+      '^..........................^',
+      '^..........................^',
+      '^....GGGG.........GGGG.....^',
+      '^....GGGG.........GGGG.....^',
+      '^..........................^',
+      '^.........................D^',
+      '^.........................D^',
+      '^..........................^',
+      '^WWWWWWWWWWW...............^',
+      '^WWWWWWWWWWW...............^',
+      '^WWWWWWWWWWW...............^',
+      '^..........................^',
+      '^............BB............^',
+      '^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+    ],
+    encounters: null,
+    fish: [ { id:'anguanella', min:22, max:25, w:60 }, { id:'borda', min:23, max:26, w:40 } ]
+  },
+  gymtr: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambtr: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  dolomiti: {
+    t2i: { '.':19, 'G':3, '^':20, 'U':12, 'Z':12 },
+    tiles: [
+      '^^^^^^^^^^^^^^^^^^^^^^^^',
+      '^.........UU...........^',
+      '^......................^',
+      '^...GGGG...............^',
+      '^...GGGG.......^^......^',
+      '^......................^',
+      '^........^^............^',
+      '^......................^',
+      '^...GGGG...............^',
+      '^...GGGG...............^',
+      '^......................^',
+      '^........^^............^',
+      '^......................^',
+      '^...GGGG...............^',
+      '^...GGGG.......^^......^',
+      '^......................^',
+      '^.........ZZ...........^',
+      '^^^^^^^^^^^^^^^^^^^^^^^^'
+    ],
+    encounters: [
+      { id:'croder',      min:24, max:27, w:30 },
+      { id:'neiot',       min:24, max:27, w:24 },
+      { id:'civettona',   min:24, max:27, w:20 },
+      { id:'brinassa',    min:26, max:28, w:14 },
+      { id:'lupomannaro', min:25, max:28, w:12 }
+    ],
+    items: [ { x:2, y:8, item:'ampolla', flag:'it_dol1' } ]
+  },
+  rosengarten: {
+    t2i: { '.':13, '#':14, 'G':3, '^':20, 'X':20, 'E':12 },
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#......XX......#',
+      '#..............#',
+      '#....^....^....#',
+      '#..............#',
+      '#.GGG......GGG.#',
+      '#.GGG......GGG.#',
+      '#..............#',
+      '#..............#',
+      '#......EE......#',
+      '#..............#',
+      '################'
+    ],
+    encounters: [
+      { id:'croder', min:26, max:29, w:34 },
+      { id:'crodon', min:28, max:30, w:16 },
+      { id:'brinassa', min:27, max:30, w:24 }
+    ],
+    items: [ { x:12, y:1, item:'pizza', flag:'it_ros1' } ]
+  },
+  valdadige: {
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T..........................T',
+      'T..GGGG....................T',
+      'T..GGGG....................T',
+      'T...............WWWW.......T',
+      'T...............WWWW.......T',
+      'T...............WWWW.......T',
+      'T.........GGGGG............T',
+      'T.........GGGGG............T',
+      'TU........................ZT',
+      'T.....................TT...T',
+      'T........TT................T',
+      'T..........................T',
+      'T..........................T',
+      'T..WWWW.............GGGG...T',
+      'T..WWWW.............GGGG...T',
+      'T..WWWW....................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'civettona',   min:20, max:23, w:28 },
+      { id:'lupomannaro', min:20, max:23, w:24 },
+      { id:'borda',       min:21, max:24, w:22 },
+      { id:'ratapignata', min:21, max:24, w:18 },
+      { id:'croder',      min:22, max:24, w:14 }
+    ]
+  },
+  /* ---------- REGIONE 6 · VENETO (Venezia, capopalestra Bepi — Acqua) ---------- */
+  venezia: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T............VV............T',
+      'T..####...####.....####....T',
+      'T..#Y##...####.....#H##....T',
+      'T..........................T',
+      'T..........................T',
+      'T.WWWWWWWWWWWWWWWWWWWWWWWW.T',
+      'T.W......................W.T',
+      'T.W....GGGG.....GGGG.....W.T',
+      'T.W....GGGG.....GGGG.....W.T',
+      'T.W......................W.T',
+      'T.WWWWWWWWWWWWWWWWWWWWWWWW.T',
+      'T..........................T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null,
+    fish: [ { id:'anguanella', min:27, max:30, w:60 }, { id:'borda', min:27, max:30, w:40 } ]
+  },
+  gymve: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambve: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- VENEZIA · Laguna (U = Venezia, Z = calle segreta) ---------- */
+  laguna: {
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTT',
+      'T.........UU...........T',
+      'T............WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T........TT..WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T........TT..WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T...GGGG.....WWWWWWWWW.T',
+      'T............WWWWWWWWW.T',
+      'T.........ZZ.WWWWWWWWW.T',
+      'TTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'mazariol',    min:28, max:31, w:28 },
+      { id:'anguanella',  min:27, max:30, w:24 },
+      { id:'borda',       min:28, max:31, w:20 },
+      { id:'ratapignata', min:28, max:31, w:16 },
+      { id:'civettona',   min:27, max:30, w:12 }
+    ],
+    items: [
+      { x:2, y:5,  item:'ampolla',    flag:'it_lag1' },
+      { x:2, y:12, item:'panzerotto', flag:'it_lag2' }
+    ],
+    fish: [ { id:'anguanella', min:28, max:31, w:60 }, { id:'borda', min:29, max:32, w:40 } ]
+  },
+  /* ---------- VENEZIA · area segreta — calle (X = Leon de San Marco) ---------- */
+  calle: {
+    t2i: { '.':13, '#':14, 'W':5, 'G':3, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#.WWWWWWWWWWWW.#',
+      '#.WWWWWWWWWWWW.#',
+      '#......XX......#',
+      '#..............#',
+      '#.GGG......GGG.#',
+      '#.GGG......GGG.#',
+      '#..............#',
+      '#..............#',
+      '#......EE......#',
+      '#..............#',
+      '################'
+    ],
+    encounters: [
+      { id:'mazariol',    min:30, max:33, w:30 },
+      { id:'anguanella',  min:30, max:33, w:26 },
+      { id:'borda',       min:31, max:34, w:20 },
+      { id:'ratapignata', min:30, max:33, w:14 }
+    ],
+    items: [ { x:12, y:1, item:'pizza', flag:'it_cal1' } ]
+  },
+  /* ---------- TRENTINO → VENETO · percorso lungo il Brenta (U = Bolzano, Z = Venezia) ---------- */
+  brenta: {
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T..........................T',
+      'T..GGGG....................T',
+      'T..GGGG....................T',
+      'T...............WWWW.......T',
+      'T...............WWWW.......T',
+      'T...............WWWW.......T',
+      'T.........GGGGG............T',
+      'T.........GGGGG............T',
+      'TU........................ZT',
+      'T.....................TT...T',
+      'T........TT................T',
+      'T..........................T',
+      'T..........................T',
+      'T..WWWW.............GGGG...T',
+      'T..WWWW.............GGGG...T',
+      'T..WWWW....................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'civettona',   min:25, max:28, w:28 },
+      { id:'lupomannaro', min:25, max:28, w:24 },
+      { id:'borda',       min:26, max:29, w:22 },
+      { id:'ratapignata', min:26, max:29, w:18 },
+      { id:'croder',      min:25, max:28, w:14 },
+      { id:'mazariol',    min:27, max:29, w:10 }
+    ]
   }
 };
 
@@ -742,7 +1040,12 @@ const PORTALS = {
            Y: { map:'gymge', x:5, y:9, dir:'up' },
            H: { map:'ambge', x:3, y:3, dir:'up' },
            R: { map:'scogliera', x:10, y:2, dir:'down',
-               arriveMsg: ["LA SCOGLIERA. Onde, gabbiani e\nscogli a picco sul mare."] } },
+               arriveMsg: ["LA SCOGLIERA. Onde, gabbiani e\nscogli a picco sul mare."] },
+           B: { map:'valdadige', x:2, y:10, dir:'right',
+               lock: () => !G.flags.badge4,
+               msg: ["La strada per il TRENTINO e le Dolomiti.",
+                     "«Senza la Medaglia della Lanterna\nlassù non si va, mussu.»"],
+               arriveMsg: ["LA VAL D'ADIGE. Vigneti, meleti e\nle Dolomiti che si alzano in fondo."] } },
   gymge:{ E: { map:'genova', x:4, y:4, dir:'down' } },
   ambge:{ E: { map:'genova', x:20, y:4, dir:'down' } },
   scogliera:{ U: { map:'genova', x:25, y:9, dir:'left' },
@@ -751,5 +1054,37 @@ const PORTALS = {
   lanterna:{ E: { map:'scogliera', x:10, y:15, dir:'up' } },
   stradapo:{ U: { map:'milano', x:27, y:2,  dir:'down' }, Z: { map:'torino', x:25, y:19, dir:'left' } },
   valico:{   U: { map:'torino', x:14, y:3,  dir:'down' }, Z: { map:'aosta',  x:13, y:15, dir:'up' } },
-  appennino:{ U: { map:'aosta', x:4,  y:15, dir:'up' },   Z: { map:'genova', x:14, y:2,  dir:'down' } }
+  appennino:{ U: { map:'aosta', x:4,  y:15, dir:'up' },   Z: { map:'genova', x:14, y:2,  dir:'down' } },
+  valdadige:{ U: { map:'genova', x:9, y:10, dir:'down' }, Z: { map:'bolzano', x:13, y:2, dir:'down' } },
+  bolzano:{ V: { map:'valdadige', x:25, y:10, dir:'left' },
+            D: { map:'dolomiti', x:10, y:2, dir:'down',
+                 arriveMsg: ["SENTIERO DELLE DOLOMITI.\nCrode rosa, aria che taglia e\nqualcosa che si muove tra i sassi."] },
+            Y: { map:'gymtr', x:5, y:9, dir:'up' },
+            H: { map:'ambtr', x:3, y:3, dir:'up' },
+            B: { map:'brenta', x:2, y:10, dir:'right',
+                 lock: () => !G.flags.badge5,
+                 msg: ["La strada verso il VENETO e Venezia.\nUn guardiano ti sbarra la via:",
+                       "«Senza la Medaglia del Rosengarten\nnon si scende, Bursch.»"],
+                 arriveMsg: ["IL BRENTA. Il fiume scende lento\nverso la laguna. Barene, anguane\ne acque verdi a perdita d'occhio."] } },
+  dolomiti:{ U: { map:'bolzano', x:25, y:9, dir:'left' },
+             Z: { map:'rosengarten', x:7, y:10, dir:'up',
+                  arriveMsg: ["IL ROSENGARTEN. Il roseto pietrificato\ndi Re Laurino. Al tramonto le Dolomiti\nsi tingono di rosso."] } },
+  rosengarten:{ E: { map:'dolomiti', x:10, y:15, dir:'up' } },
+  gymtr:{ E: { map:'bolzano', x:4, y:4, dir:'down' } },
+  ambtr:{ E: { map:'bolzano', x:20, y:4, dir:'down' } },
+  venezia:{ V: { map:'brenta', x:25, y:10, dir:'left',
+                 arriveMsg: ["IL BRENTA. Si risale verso le\nDolomiti. L'acqua si fa più fredda."] },
+            Y: { map:'gymve', x:5, y:9, dir:'up' },
+            H: { map:'ambve', x:3, y:3, dir:'up' },
+            R: { map:'laguna', x:11, y:2, dir:'down',
+                 arriveMsg: ["LA LAGUNA. Acqua, canne e aironi.\nQui il confine tra terra e mare\nnon esiste davvero."] } },
+  gymve:{ E: { map:'venezia', x:4, y:4, dir:'down' } },
+  ambve:{ E: { map:'venezia', x:20, y:4, dir:'down' } },
+  laguna:{ U: { map:'venezia', x:25, y:13, dir:'left' },
+           Z: { map:'calle', x:7, y:10, dir:'up',
+                arriveMsg: ["UNA CALLE DIMENTICATA. Il silenzio\nè totale. Solo il ciac dell'acqua\ne qualcosa che veglia nell'ombra."] } },
+  calle:{ E: { map:'laguna', x:10, y:15, dir:'up' } },
+  brenta:{ U: { map:'bolzano', x:13, y:15, dir:'up' },
+           Z: { map:'venezia', x:14, y:2, dir:'down',
+                arriveMsg: ["VENEZIA. La Serenissima.\nGondole, palazzi sull'acqua e\nil leone alato che tutto sorveglia."] } }
 };

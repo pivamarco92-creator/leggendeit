@@ -246,14 +246,16 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
   const teams = {
-    torino: [['bisso', lv], ['mazapegul', lv], ['gattomammone', lv + 1]],
-    aosta:  [['masca', lv], ['lupomannaro', lv], ['bisso', lv + 2]],
-    genova: [['borda', lv], ['ratapignata', lv + 1], ['bissone', lv + 2]]
+    torino:  [['bisso', lv], ['mazapegul', lv], ['gattomammone', lv + 1]],
+    aosta:   [['masca', lv], ['lupomannaro', lv], ['bisso', lv + 2]],
+    genova:  [['borda', lv], ['ratapignata', lv + 1], ['bissone', lv + 2]],
+    bolzano: [['croder', lv], ['lupomannaro', lv], ['crodon', lv + 2]],
+    venezia: [['mazariol', lv], ['borda', lv + 1], ['mazarione', lv + 2]]
   };
   const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
@@ -557,7 +559,34 @@ function evGrifone() {
     startBattle(makeMon('grifone', 24), null);
   });
 }
+function evLaurino() {
+  if (G.flags.laurinoCaught) { say(["Il roseto è di pietra e silenzio.\nRE LAURINO si è già mostrato a te."]); return; }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nturbare il sonno del re."); return; }
+  say(["Tra le rose pietrificate una sagoma\ndi roccia si erge: corona, barba, occhi\nche bruciano come il tramonto.",
+       "RE LAURINO ti misura. «Chi disturba\nil mio giardino, che si batta.»",
+       "RE LAURINO scatena la frana!"], () => {
+    saveGame();
+    beep(110, .25, 'triangle'); beep(80, .3, 'triangle');
+    startBattle(makeMon('laurino', 28), null);
+  });
+}
+/* Leggendario di Venezia: il Leon de San Marco, custode della calle dimenticata. */
+function evLeon() {
+  if (G.flags.leonCaught) {
+    say(["La calle è silenziosa. Il LEON DE\nSAN MARCO si è già mostrato a te.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nturbare le acque della calle."); return; }
+  say(["Sull'acqua ferma compare un'ombra\nenorme: ali d'aquila, zampe di leone,\nocchi d'oro come la cupola.",
+       "Il LEON DE SAN MARCO scende\ndall'alto, silenzioso. Il canal\nscintilla sotto di lui.",
+       "«Chi viola la calle, si batta.»",
+       "Il LEON DE SAN MARCO attacca!"], () => {
+    saveGame();
+    beep(200, .2, 'triangle'); beep(160, .25, 'triangle');
+    startBattle(makeMon('leon', 32), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */
