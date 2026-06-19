@@ -32,5 +32,7 @@ const MOVES = {
   frana:       { n:'Frana',         t:'Roccia',     pow:90, pp:10 },
   dispetto:   { n:'Dispetto',     t:'Normale',    pow:0,  pp:40, fx:'atk-' },
   codata:     { n:'Codata',       t:'Normale',    pow:0,  pp:40, fx:'def-' },
-  filodiseta: { n:'Filo di Seta', t:'Coleottero', pow:0,  pp:40, fx:'spd-' }
+  filodiseta: { n:'Filo di Seta', t:'Coleottero', pow:0,  pp:40, fx:'spd-' },
+  raffica:    { n:'Raffica',      t:'Vento',      pow:45, pp:25 },
+  ciclone:    { n:'Ciclone',      t:'Vento',      pow:90, pp:10 }
 };

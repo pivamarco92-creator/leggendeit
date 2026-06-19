@@ -181,6 +181,47 @@ const GYMS = {
     }
   },
 
+  gymts: {
+    leader:'GIGIO', type:'Vento', badge:'badge7', region:7,
+    team:[['cjalcjut',34],['cjalcjutone',37]],
+    challenge:'«A Trieste si combatte con la BORA\nnei polmoni. Tieni duro!»',
+    intro:[
+      "La palestra di Trieste: una vecchia\nstazione della tramvia sul Carso,\npiena di correnti d'aria.",
+      "In fondo, un uomo magro e nervoso\ncon gli occhi chiari ti osserva.\nDietro di lui, il vento fischia."],
+    done:[
+      "«Ben. Sei duro come il Carso.\nLa medaglia è tua.»",
+      "«Il vento conosce la tua strada.\nSeguilo.»"],
+    openers:{
+      good:[
+        "«Ho sentito di te. Un nome che la\nCosca non è riuscita a comprare.\nBen.»",
+        "«Qui però decide la BORA. Vediamo\nse sai stare in piedi controvento.»"],
+      bad:[
+        "«Si dice che a valle tu abbia\nstretto mani che non si devono\nstringere.»",
+        "«Il vento porta tutto. Anche le\nnotizie che non piacciono.»"],
+      neutral:[
+        "«Servito. Sono GIGIO, capopalestra\ndi Trieste.»",
+        "«Tipo VENTO: come la BORA,\nveloce, freddo e imprevedibile.»"]
+    },
+    win:[
+      "Gigio richiama il suo CJALCJUTONE\ne annuisce in silenzio.",
+      "«Ben fatto. Ti sei guadagnato\nla Medaglia della Bora.»",
+      "Hai ottenuto la MEDAGLIA DELLA BORA!\n(7 di 20)",
+      "«La Cosca ha provato anche qui.\nIl vento ha portato via i loro piani.»",
+      "«Vai avanti. L'Italia è lunga\ne il vento ti accompagna.»"],
+    loseMsg:"Gigio ti aspetta in palestra.\n«Torna quando sei pronto al vento.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DELLA BORA ottenuta!', region:'Regione 7 di 20 completata',
+      next:'PROSSIMA TAPPA: ...<br>Prossima regione in sviluppo',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 7 regioni.',
+      goodAt:8, badAt:-7,
+      verdict:{
+        good:'Da Milano a Trieste, un nome che\nla Cosca non riesce a fermare.',
+        bad:'La Cosca ti segue passo per passo.\nPrima o poi il conto si paga.',
+        neutral:'Sette medaglie. L\'Italia del nord\nconosce il tuo nome.'}
+    }
+  },
+
   gymve: {
     leader:'BEPI', type:'Acqua', badge:'badge6', region:6,
     team:[['mazarione',32],['borda',34],['anguanaregina',36]],
@@ -301,11 +342,18 @@ const WORLD_MAP = [
     respawn:{ map:'bolzano', x:13, y:2, dir:'down', lines:["Ti svegli in una malga, accanto a una\nstufa. Una nonna ti porge dello speck.","La squadra è di nuovo in forze, ja."] },
     link:'percorso lungo il Brenta -> Venezia (con Medaglia delle Dolomiti)' },
   { city:'VENEZIA', region:'Veneto', leader:'Bepi', type:'Acqua', badge:'badge6',
-    maps:['venezia','gymve','ambve','laguna','calle'],
+    maps:['venezia','gymve','ambve','laguna','calle','isonzo'],
     layout:[ { c:['venezia'] },
              { c:['gymve','ambve'] },
              { c:['laguna','calle'], j:'->' } ],
     respawn:{ map:'venezia', x:14, y:5, dir:'down', lines:["Ti svegli su una riva del Canal Grande.\nUn gabbiano ti fissa con superiorità.","La squadra è di nuovo in forze, veh."] },
+    link:'percorso lungo l\'Isonzo -> Trieste (con Medaglia del Leone)' },
+  { city:'TRIESTE', region:'Friuli-V.G.', leader:'Gigio', type:'Vento', badge:'badge7',
+    maps:['trieste','gymts','ambts','carso','grotta_bora'],
+    layout:[ { c:['trieste'] },
+             { c:['gymts','ambts'] },
+             { c:['carso','grotta_bora'], j:'->' } ],
+    respawn:{ map:'trieste', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in piazza.\nLa BORA ti scompiglia i capelli.","La squadra è di nuovo in forze."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -318,9 +366,10 @@ const AREA_LABELS = {
   stradapo:'Statale', valico:'Valico', appennino:'Strada',
   bolzano:'Centro', gymtr:'Palestra', ambtr:'Ambul.', dolomiti:'Dolomiti', rosengarten:'Rosengarten', valdadige:"Val d'Adige",
   brenta:'Brenta',
-  venezia:'Centro', gymve:'Palestra', ambve:'Ambul.', laguna:'Laguna', calle:'Calle'
+  venezia:'Centro', gymve:'Palestra', ambve:'Ambul.', laguna:'Laguna', calle:'Calle', isonzo:'Isonzo',
+  trieste:'Centro', gymts:'Palestra', ambts:'Ambul.', carso:'Carso', grotta_bora:'Grotta'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

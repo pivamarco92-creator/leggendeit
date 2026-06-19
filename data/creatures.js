@@ -28,6 +28,8 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'croder','crodon','laurino',
                         /* Veneto — linea del Mazariol + leggendario */
                         'mazariol','mazarione','leon',
+                        /* Friuli-V.G. — linea del Cjalcjut + leggendario */
+                        'cjalcjut','cjalcjutone','bora',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -222,6 +224,18 @@ const SPECIES = {
   leon: { n:'LEON DE SAN MARCO', types:['Acqua','Volante'], hp:92, atk:100, def:90, spd:88,
     learnset:[[1,'beccata'],[1,'zampillo'],[1,'ondata'],[1,'tramontana'],[50,'piena']],
     dex:'Il leone alato dello stemma di Venezia. Custode del Canal Grande, sorveglia la Serenissima dall\'alto delle acque da secoli di secoli.' },
+
+  /* ---------- Friuli-Venezia Giulia — linea del Cjalcjut + leggendario ---------- */
+  cjalcjut: { n:'CJALCJUT', types:['Vento'], hp:42, atk:48, def:38, spd:68,
+    evolve:{ lv:28, to:'cjalcjutone' },
+    learnset:[[1,'botta'],[1,'dispetto'],[7,'raffica'],[16,'morso'],[26,'tramontana'],[40,'ciclone']],
+    dex:'Folletto friulano che vaga nelle notti di vento e svia i viandanti dai sentieri. Imprendibile come una folata.' },
+  cjalcjutone: { n:'CJALCJUTONE', types:['Vento'], hp:65, atk:76, def:56, spd:92,
+    learnset:[[1,'raffica'],[1,'morso'],[1,'tramontana'],[30,'dispetto'],[44,'sfondata'],[52,'ciclone']],
+    dex:'Il Cjalcjut cresciuto. Ha imparato a cavalcare la Bora: la sua velocità supera quella del vento e non lascia tracce nel carso.' },
+  bora: { n:'BORA', types:['Vento'], hp:95, atk:105, def:80, spd:115,
+    learnset:[[1,'botta'],[1,'raffica'],[1,'tramontana'],[1,'ciclone'],[50,'ciclone']],
+    dex:'Lo spirito del vento che da secoli devasta Trieste. Vento catabatico del nord-est, scende dal Carso con una forza che piega gli alberi e rovina i cappelli.' },
 
   /* ---------- Trentino-Alto Adige — linea di Roccia + Re Laurino ---------- */
   croder: { n:'CRODÈR', types:['Roccia'], hp:50, atk:60, def:78, spd:30,

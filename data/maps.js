@@ -814,7 +814,7 @@ const MAPS = {
   },
   /* ---------- REGIONE 6 · VENETO (Venezia, capopalestra Bepi — Acqua) ---------- */
   venezia: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'I':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T............VV............T',
@@ -832,7 +832,7 @@ const MAPS = {
       'T.........................RT',
       'T..........................T',
       'T..........................T',
-      'T..........................T',
+      'T.........................IT',
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
     ],
     encounters: null,
@@ -965,6 +965,156 @@ const MAPS = {
       { id:'croder',      min:25, max:28, w:14 },
       { id:'mazariol',    min:27, max:29, w:10 }
     ]
+  },
+
+  /* ---------- FRIULI-V.G. — Isonzo (route inter-regione), Trieste, Carso, Grotta ---------- */
+  isonzo: {
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.TT.....GGGG....TT.GGGGT',
+      'T...GGG.....GGG.....GGG....T',
+      'T..........................T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..GGG...............GGG...T',
+      'T..........................T',
+      'T..........................T',
+      'T..WWWWWWWWWWWWWWWWWWWWWWWWT',
+      'T..WWWWWWWWWWWWWWWWWWWWWWWWT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'cjalcjut',   min:30, max:33, w:35 },
+      { id:'borda',      min:29, max:32, w:25 },
+      { id:'ratapignata',min:30, max:33, w:25 },
+      { id:'mazariol',   min:29, max:31, w:15 }
+    ],
+    items: [
+      { x:6,  y:5,  item:'panzerotto', flag:'it_iso1' },
+      { x:20, y:13, item:'ampolla',    flag:'it_iso2' }
+    ]
+  },
+
+  trieste: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+
+  gymts: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+
+  ambts: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+
+  /* ---------- CARSO (route del Friuli, verso grotta_bora) ---------- */
+  carso: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'cjalcjut',   min:32, max:35, w:35 },
+      { id:'ratapignata',min:32, max:35, w:28 },
+      { id:'lupomannaro',min:32, max:35, w:22 },
+      { id:'cjalcjutone',min:33, max:36, w:15 }
+    ],
+    items: [
+      { x:22, y:5,  item:'ampolla',    flag:'it_car1' },
+      { x:5,  y:15, item:'panzerotto', flag:'it_car2' }
+    ]
+  },
+
+  /* ---------- GROTTA DELLA BORA (area segreta) ---------- */
+  grotta_bora: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
   }
 };
 
@@ -1077,7 +1227,11 @@ const PORTALS = {
             Y: { map:'gymve', x:5, y:9, dir:'up' },
             H: { map:'ambve', x:3, y:3, dir:'up' },
             R: { map:'laguna', x:11, y:2, dir:'down',
-                 arriveMsg: ["LA LAGUNA. Acqua, canne e aironi.\nQui il confine tra terra e mare\nnon esiste davvero."] } },
+                 arriveMsg: ["LA LAGUNA. Acqua, canne e aironi.\nQui il confine tra terra e mare\nnon esiste davvero."] },
+            I: { map:'isonzo', x:2, y:9, dir:'right',
+                 lock: () => !G.flags.badge6,
+                 msg: ["La via verso il FRIULI...", "«Prima devi ottenere\nla Medaglia del Leone.»"],
+                 arriveMsg: ["ISONZO. Il vento arriva da est,\nfreddo e diretto. Trieste è vicina."] } },
   gymve:{ E: { map:'venezia', x:4, y:4, dir:'down' } },
   ambve:{ E: { map:'venezia', x:20, y:4, dir:'down' } },
   laguna:{ U: { map:'venezia', x:25, y:13, dir:'left' },
@@ -1086,5 +1240,19 @@ const PORTALS = {
   calle:{ E: { map:'laguna', x:10, y:15, dir:'up' } },
   brenta:{ U: { map:'bolzano', x:13, y:15, dir:'up' },
            Z: { map:'venezia', x:14, y:2, dir:'down',
-                arriveMsg: ["VENEZIA. La Serenissima.\nGondole, palazzi sull'acqua e\nil leone alato che tutto sorveglia."] } }
+                arriveMsg: ["VENEZIA. La Serenissima.\nGondole, palazzi sull'acqua e\nil leone alato che tutto sorveglia."] } },
+  isonzo:{ U: { map:'venezia', x:25, y:16, dir:'left' },
+           Z: { map:'trieste', x:2, y:14, dir:'right',
+                arriveMsg: ["TRIESTE. La città del vento.\nLa BORA soffia tra i vicoli."] } },
+  trieste:{ V: { map:'isonzo', x:25, y:9, dir:'left' },
+             Y: { map:'gymts', x:5, y:9, dir:'up' },
+             H: { map:'ambts', x:3, y:3, dir:'up' },
+             R: { map:'carso', x:14, y:9, dir:'right',
+                  arriveMsg: ["IL CARSO. Il vento sibila\ntra i sassi. La bora è padrona."] } },
+  gymts:{ E: { map:'trieste', x:4, y:4, dir:'down' } },
+  ambts:{ E: { map:'trieste', x:20, y:4, dir:'down' } },
+  carso:{ U: { map:'trieste', x:25, y:9, dir:'left' },
+          Z: { map:'grotta_bora', x:7, y:12, dir:'up',
+               arriveMsg: ["GROTTA DEL VENTO. Il buio risuona\ndi un sibilo profondo."] } },
+  grotta_bora:{ E: { map:'carso', x:8, y:5, dir:'down' } }
 };

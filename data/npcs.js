@@ -360,5 +360,69 @@ const NPCS = {
         pre:["L'ultimo prima di Venezia sono io.\nE non sono gentile come i colleghi."],
         win:["...forte, il forestiero. Venezia\nti aspetta. E anche la Cosca."],
         after:["Laguna dritta, poi a destra."] } }
+  ],
+  isonzo: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DELL\'ISONZO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'iso1', team:[['cjalcjut',30],['borda',30]],
+        pre:["Frontiera del Friuli. Si paga dazio.\nAnche in Leggende."],
+        win:["Niente da fare..."], after:["Continua a est."] } },
+    { x:20, y:7,  frame:14, name:'CORRIERE DEL FRIULI', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'iso2', team:[['mazariol',31],['ratapignata',31]],
+        pre:["Sto consegnando qualcosa alla Cosca\ndi Trieste. Non farti i cazzi miei."],
+        win:["Maledetto ritardo."], after:["Sbrigati, si alza il vento."] } },
+    { x:14, y:11, frame:14, name:'BATTITORE LIBERO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'iso3', team:[['cjalcjutone',32],['borda',32]],
+        pre:["Il CJALCJUTONE mi ha insegnato\na non aver paura del buio.\nE neanche di te."],
+        win:["...ti stimo."], after:["Trieste è là. Attento alla BORA."] } }
+  ],
+  trieste: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'BARCAIOLO',
+      lines:["Il vento! Fa saltare tutto, porco\ncane. La BORA è la nostra signora\ne la nostra maledizione.",
+             "Mio nonno diceva: 'Se la BORA\nnon ti spaventa, non hai ancora\npassato un inverno a Trieste.'"] },
+    { x:8,  y:10, frame:11, name:'PENSIONATA',
+      lines:["Di notte, quando soffia la BORA,\nsi sentono voci nelle pietre.\nI vecchi dicono che è lei.",
+             "La grotta sul Carso... ci andava\nmio padre. Non tornò allegro.\nDisse solo: 'È viva.'"] },
+    { x:18, y:10, frame:12, name:'STUDENTE',
+      lines:["Sto studiando meteorologia.\nLa BORA è un vento catabatico\nda nord-est, freddissimo.",
+             "C'è una grotta sul Carso.\nDicono che lì dentro il vento\nnon si ferma mai. Mai."] }
+  ],
+  gymts: [
+    { x:5, y:2, frame:13, name:'GIGIO', ev:'gymLeader' },
+    { x:3, y:5, frame:10, name:'BORESANO', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymts1', team:[['cjalcjut',34],['ratapignata',34]],
+        pre:["Ho vissuto quarant'anni a Trieste.\nSo cos'è il vento. E sa combattere."],
+        win:["Eh... il vento non è sempre\ndalla nostra parte."],
+        after:["GIGIO è là. Non si batte facilmente."] } },
+    { x:8, y:7, frame:11, name:'TRIESTINA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymts2', team:[['cjalcjutone',35],['borda',35]],
+        pre:["La BORA mi ha insegnato la forza.\nNon mi passi davanti così."],
+        win:["Buono a sapersi. Sei degno\ndi sfidare GIGIO."],
+        after:["Tieni duro là dentro."] } }
+  ],
+  ambts: [
+    { x:3, y:1, frame:8, name:'DOTTOR SVEVO', ev:'cura' }
+  ],
+  carso: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DEL CARSO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'car1', team:[['cjalcjut',32],['ratapignata',33]],
+        pre:["Il Carso è nostro. Ogni sasso,\nogni grotta. Paga il pedaggio."],
+        win:["Tch. Vada."], after:["Non avvicinarti alla grotta."] } },
+    { x:14, y:13, frame:14, name:'CONTRABBANDIERA', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'car2', team:[['lupomannaro',33],['cjalcjut',33]],
+        pre:["Porto roba che non si chiede\ne non si dice. Fuori dai piedi."],
+        win:["Bene. Potresti lavorare per noi."],
+        after:["Ignorami e vai per la tua strada."] } },
+    { x:20, y:6,  frame:14, name:'CAPOMANDRIA', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'car3', team:[['cjalcjutone',34],['borda',34]],
+        pre:["Il CJALCJUTONE del Carso non teme\nniente. Nemmeno i forestieri armati\ndi Leggende."],
+        win:["...sei migliore di quanto pensassi.\nLa grotta è a nord. Se ci tieni\nla pelle, stai lontano."],
+        after:["Vai. Il vento ti guiderà."] } }
+  ],
+  grotta_bora: [
+    { x:12, y:8, frame:12, name:'GUARDIANO DEL VENTO',
+      lines:["Shhh...",
+             "La BORA dorme qui dentro.\nDopo secoli, dorme.\nNon svegliarla.",
+             "Se la svegli... beh.\nSarà colpa tua. Io te l'ho detto."] }
   ]
 };
