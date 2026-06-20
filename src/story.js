@@ -249,7 +249,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -264,7 +264,8 @@ function evJohnny(town) {
     firenze: [['strio', lv], ['civettona', lv + 1], ['strione', lv + 2]],
     perugia: [['zollin', lv], ['lupomannaro', lv + 1], ['zollone', lv + 2]],
     ancona: [['falchin', lv], ['ratapignata', lv + 1], ['falchione', lv + 2]],
-    roma: [['ruderin', lv], ['lupomannaro', lv + 1], ['ruderone', lv + 2]]
+    roma: [['ruderin', lv], ['lupomannaro', lv + 1], ['ruderone', lv + 2]],
+    aquila: [['petrin', lv], ['cinghial', lv + 1], ['petrone', lv + 2]]
   };
   const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
@@ -853,7 +854,23 @@ function evDracone() {
     startBattle(makeMon('dracone', 50), null);
   });
 }
+/* Leggendario dell'Abruzzo: Il Dormiente, il gigante di pietra del Gran Sasso. */
+function evDormiente() {
+  if (G.flags.dormienteCaught) {
+    say(["Il monte è di nuovo immobile.\nIL DORMIENTE ti ha già riconosciuto.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nosi destare il gigante del monte."); return; }
+  say(["La grotta trema. Quella che credevi\nuna parete di roccia apre due occhi\ndorati grandi come massi.",
+       "IL DORMIENTE si solleva: il gigante\ndi pietra del Gran Sasso si desta\ndopo millenni di sonno.",
+       "«Chi turba il mio riposo... che regga\nla montagna.»",
+       "IL DORMIENTE scatena la frana!"], () => {
+    saveGame();
+    beep(90, .3, 'triangle'); beep(70, .34, 'triangle'); beep(55, .38, 'triangle');
+    startBattle(makeMon('dormiente', 52), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

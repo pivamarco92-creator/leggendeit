@@ -1,8 +1,8 @@
 # ROADMAP — Leggende d'Italia
 
-Stato: **12 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
+Stato: **13 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
 Questa roadmap dice **cosa** costruire; CLAUDE.md dice **come**.
-Prossima da fare: **13 — Abruzzo / L'Aquila (Carmine, Roccia — tipo già esistente)**.
+Prossima da fare: **14 — Molise / Campobasso (Spettro — GYM NASCOSTA, «il Molise non esiste»)**.
 Tipi già implementati: Normale, Fuoco, Acqua, Erba, Elettro, Volante, Coleottero, Veleno,
 Acciaio, Ghiaccio, Roccia, Spettro, Vento, Psico, Terra, **Drago**. Ancora da fare: Luce, Oscurità.
 Trama: a Roma Sor Alvaro rivela che l'HQ della Cosca è sotto un monumento romano (resa dei conti finale).
@@ -25,7 +25,7 @@ Extra fatto: **"I tre soci"** (Pivòt/Faccìn/Licàt) — 3 linee speciali con q
 | 10 | Umbria | Perugia | Quirino | Terra | ✓ |
 | 11 | Marche | Ancona | Guerrino | Volante | ✓ |
 | 12 | Lazio | Roma | Sor Alvaro | Drago | ✓ |
-| 13 | Abruzzo | L'Aquila | Carmine | Roccia | da fare |
+| 13 | Abruzzo | L'Aquila | Carmine | Roccia | ✓ |
 | 14 | Molise | Campobasso | ??? | Spettro | da fare (gym nascosta) |
 | 15 | Campania | Napoli | Ciruzzo | Fuoco | da fare |
 | 16 | Puglia | Bari | Mimmo | Luce (NEW) | da fare |

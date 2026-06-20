@@ -760,5 +760,70 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'FRATE DELLE CATACOMBE',
       lines:["Pax, viandante. Sei nelle catacombe\ndi Roma, dove riposano i primi\ncristiani. E qualcosa di più antico.",
              "Sotto di noi dorme il DRACÒNE, il\ngran drago che Papa Silvestro sigillò.\nSe lo svegli, che Dio t'assista."] }
+  ],
+
+  /* ========== ABRUZZO (L'Aquila) ========== */
+  valeria: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DELLA VALERIA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'vle1', team:[['petrin',53],['cinghial',53]],
+        pre:["La Via Valeria la tenemo noi.\nSe sali in montagna, se paga\nil pedaggio, guagliò."],
+        win:["Mannaggia. Passa."], after:["Tira su verso L'Aquila."] } },
+    { x:20, y:7,  frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'vle2', team:[['lupomannaro',54],['pantafica',54]],
+        pre:["Porto roba su per i monti di notte.\nTu nun eri previsto."],
+        win:["Maledetta strada."], after:["Sali, sali al Gran Sasso."] } },
+    { x:14, y:13, frame:14, name:'CAPOMONTAGNA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'vle3', team:[['petrin',55],['gazzot',55]],
+        pre:["L'urtimo prima de L'Aquila so' io.\nE so' duro come la roccia\nde 'sti monti."],
+        win:["...sì tosto pure tu. L'Aquila\nt'aspetta."],
+        after:["I 99 castelli stanno di là."] } }
+  ],
+  aquila: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'AQUILANO',
+      lines:["Benvenuto a L'Aquila! La città dei\n99 castelli, rinata dopo il sisma.\nQui la gente è dura come la pietra.",
+             "Il Gran Sasso ci sovrasta. E dicono\nche nel massiccio dorma un gigante\ndi pietra: IL DORMIENTE."] },
+    { x:8,  y:14, frame:11, name:'PASTORE',
+      lines:["Porto le pecore su ai pascoli del\nGran Sasso da quarant'anni. Lassù\nl'aria taglia e la roccia comanda.",
+             "C'è una grotta in cima al Corno\nGrande. Mio nonno diceva: 'Non\nsvegliare ciò che dorme nel monte.'"] },
+    { x:18, y:16, frame:12, name:'STUDIOSA DI FOLKLORE',
+      lines:["Studio le leggende d'Abruzzo. La\nPantàfica che opprime nel sonno, il\nmazzamurello che bussa nei muri...",
+             "Ma la più grande è IL DORMIENTE:\nil profilo del Gran Sasso è il suo\ncorpo. Se si sveglia, trema tutto."] }
+  ],
+  gymaq: [
+    { x:5, y:2, frame:13, name:'CARMINE', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'SCALPELLINO', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymaq1', team:[['petrin',55],['cinghial',55]],
+        pre:["Pe' arrivà a Carmine passi da me.\nLavoro la pietra da una vita,\nuagliò."],
+        win:["Dura la roccia, eh. Carmine\nt'aspetta in fondo."],
+        after:["Vai, vai. È là che spacca pietre."] } },
+    { x:8, y:7, frame:11, name:'GUARDIAPARCO', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymaq2', team:[['petrone',56],['gazzot',56]],
+        pre:["Custodisco il Parco del Gran Sasso\ne i suoi orsi. La montagna non\nperdona i deboli."],
+        win:["Hai spina dorsale. Vai da Carmine."],
+        after:["Il capo è là. Reggi l'urto."] } }
+  ],
+  ambaq: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA DE CECCO', ev:'cura' }
+  ],
+  gransasso: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DEL GRAN SASSO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'grs1', team:[['petrin',54],['cinghial',54]],
+        pre:["I pascoli del Gran Sasso li gestimo\nnoi. Paga il pedaggio, guagliò."],
+        win:["Mannaggia. Passa."], after:["Nun salì al Corno Grande."] } },
+    { x:14, y:12, frame:14, name:'BRACCONIERE', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'grs2', team:[['lupomannaro',55],['petrin',55]],
+        pre:["Caccio dove nun se po' caccià.\nLevate da 'nnanzi."],
+        win:["Uff. Vada."], after:["Tira dritto e zitto."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DEL CORNO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'grs3', team:[['petrone',56],['pantafica',56]],
+        pre:["L'urtimo prima della grotta so' io.\nE quello che dorme lassù è mejo\nlasciallo dormì."],
+        win:["...va be', sali. Ma quer gigante\nnun l'ho svejato io, intesi?"],
+        after:["La grotta è in cima. Forza."] } }
+  ],
+  corno: [
+    { x:3, y:9, frame:12, name:'EREMITA DEL CORNO',
+      lines:["Silenzio, viandante. Sei in cima al\nCorno Grande, il tetto dell'Appennino.\nQui l'aria è sottile e antica.",
+             "Nel cuore del monte dorme IL\nDORMIENTE, il gigante di pietra. Se\nlo svegli, l'Abruzzo intero tremerà."] }
   ]
 };

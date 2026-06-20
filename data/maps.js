@@ -1752,7 +1752,7 @@ const MAPS = {
   },
 
   roma: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
@@ -1765,7 +1765,7 @@ const MAPS = {
       'T.##..####..####..####..##.T',
       'T.........................RT',
       'T..........................T',
-      'T..........................T',
+      'TB.........................T',
       'T..........................T',
       'T..........................T',
       'TV.........................T',
@@ -1842,6 +1842,155 @@ const MAPS = {
   },
   /* ---------- CATACOMBE ROMANE (area segreta — X = Dracòne) ---------- */
   catacombe: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== ABRUZZO (L'Aquila) — regione 13 ========== */
+  /* ---------- LAZIO → ABRUZZO · Via Valeria (U = Roma, Z = L'Aquila) ---------- */
+  valeria: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TMM..GGG......GGG......MMMMT',
+      'TM...GGG......GGG......MMM.T',
+      'T....................MM....T',
+      'T..GG................MM....T',
+      'T..........................T',
+      'T..GGG.........GGG.........T',
+      'TMM........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T........MM......MM........T',
+      'T..GGG...MM......MM...GGG..T',
+      'T........MM......MM........T',
+      'T..........................T',
+      'T..GGG................GGG..T',
+      'TMMM....................MMMT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'petrin',      min:53, max:56, w:28 },
+      { id:'cinghial',    min:52, max:55, w:22 },
+      { id:'pantafica',   min:53, max:56, w:18 },
+      { id:'lupomannaro', min:53, max:56, w:16 },
+      { id:'gazzot',      min:53, max:56, w:16 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'ampolla',    flag:'it_vle1' },
+      { x:22, y:14, item:'pizza',      flag:'it_vle2' }
+    ]
+  },
+
+  aquila: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gymaq: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambaq: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- GRAN SASSO (route della regione, verso il Corno Grande) ---------- */
+  gransasso: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'petrin',      min:54, max:57, w:30 },
+      { id:'cinghial',    min:53, max:56, w:20 },
+      { id:'pantafica',   min:54, max:57, w:18 },
+      { id:'gazzot',      min:54, max:57, w:18 },
+      { id:'lupomannaro', min:54, max:57, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'panzerotto', flag:'it_grs1' },
+      { x:22, y:9,  item:'ampolla',    flag:'it_grs2' }
+    ]
+  },
+  /* ---------- CORNO GRANDE (area segreta — X = Il Dormiente) ---------- */
+  corno: {
     t2i: { '.':13, '#':14, 'X':5, 'E':12 },
     indoor: true,
     tiles: [
@@ -2094,11 +2243,31 @@ const PORTALS = {
          Y: { map:'gymrm', x:5, y:9, dir:'up' },
          H: { map:'ambrm', x:3, y:3, dir:'up' },
          R: { map:'appiaantica', x:2, y:9, dir:'right',
-              arriveMsg: ["LA VIA APPIA ANTICA. La regina delle\nstrade: basoli, pini marittimi e\nmausolei. Sotto, le catacombe."] } },
+              arriveMsg: ["LA VIA APPIA ANTICA. La regina delle\nstrade: basoli, pini marittimi e\nmausolei. Sotto, le catacombe."] },
+         B: { map:'valeria', x:2, y:9, dir:'right',
+              lock: () => !G.flags.badge12,
+              msg: ["La Via Valeria, verso l'ABRUZZO e\nL'Aquila, tra i monti.",
+                    "«Senza la Medaglia der Colosseo de\nlà nun ce vai, ahò.»"],
+              arriveMsg: ["LA VIA VALERIA. L'antica strada romana\nsale verso l'Appennino abruzzese.\nIn fondo, il Gran Sasso."] } },
   gymrm:{ E: { map:'roma', x:4, y:4, dir:'down' } },
   ambrm:{ E: { map:'roma', x:20, y:4, dir:'down' } },
   appiaantica:{ U: { map:'roma', x:25, y:9, dir:'left' },
                 Z: { map:'catacombe', x:7, y:12, dir:'up',
                      arriveMsg: ["LE CATACOMBE. Scendi tra loculi e\naffreschi paleocristiani. Nel buio,\nin fondo, qualcosa di enorme respira."] } },
-  catacombe:{ E: { map:'appiaantica', x:8, y:5, dir:'down' } }
+  catacombe:{ E: { map:'appiaantica', x:8, y:5, dir:'down' } },
+  valeria:{ U: { map:'roma', x:2, y:11, dir:'right' },
+            Z: { map:'aquila', x:2, y:14, dir:'right',
+                 arriveMsg: ["L'AQUILA. La città dei 99 castelli,\nrinata dopo il sisma. Intorno, il\nGran Sasso veglia come un gigante."] } },
+  aquila:{ V: { map:'valeria', x:25, y:9, dir:'left',
+                arriveMsg: ["LA VIA VALERIA. Si torna verso Roma,\ngiù per l'Appennino."] },
+           Y: { map:'gymaq', x:5, y:9, dir:'up' },
+           H: { map:'ambaq', x:3, y:3, dir:'up' },
+           R: { map:'gransasso', x:2, y:8, dir:'right',
+                arriveMsg: ["IL GRAN SASSO. Praterie d'alta quota\ne pareti di roccia. Lassù, dicono,\ndorme un gigante di pietra."] } },
+  gymaq:{ E: { map:'aquila', x:4, y:4, dir:'down' } },
+  ambaq:{ E: { map:'aquila', x:20, y:4, dir:'down' } },
+  gransasso:{ U: { map:'aquila', x:25, y:9, dir:'left' },
+              Z: { map:'corno', x:7, y:12, dir:'up',
+                   arriveMsg: ["IL CORNO GRANDE. La vetta più alta\ndell'Appennino. Una grotta si apre\nnella roccia. Dentro, qualcosa respira\nlentissimo."] } },
+  corno:{ E: { map:'gransasso', x:8, y:4, dir:'down' } }
 };

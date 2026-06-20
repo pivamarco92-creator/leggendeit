@@ -498,12 +498,52 @@ const GYMS = {
       title:'★ FINE DEI CONTENUTI ★',
       medal:'MEDAGLIA DER COLOSSEO ottenuta!', region:'Regione 12 di 20 completata',
       next:'PROSSIMA TAPPA: ABRUZZO<br>Carmine · Tipo Roccia · L\'Aquila',
-      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 12 regioni.',
+      footer:'Premi A: prosegui verso l\'ABRUZZO<br>(Via Valeria da Roma,<br>serve la Medaglia der Colosseo).',
       goodAt:13, badAt:-12,
       verdict:{
         good:'Da Milano a Roma, capitale: un nome\nche la Cosca non può comprare.\nE ora sai dove si nascondono.',
         bad:'La Cosca ti osserva dal suo covo\nromano. Conosci la loro tana, ma\nloro conoscono te.',
         neutral:'Dodici medaglie, e un segreto:\nil cuore della Cosca batte sotto\nRoma. Prima o poi, ci tornerai.'}
+    }
+  },
+
+  gymaq: {
+    leader:'CARMINE', type:'Roccia', badge:'badge13', region:13,
+    team:[['petrin',55],['cinghial',56],['petrone',58]],
+    challenge:'«Chi vince si piglia la MEDAGLIA DEL\nGRAN SASSO. Dai, uagliò!»',
+    intro:[
+      "La palestra di L'Aquila: un cortile\ndi pietra tra i 99 castelli, blocchi\ndi roccia ovunque.",
+      "In fondo, un omone con le mani callose\nspacca un masso a mani nude e ti\nguarda, calmo come la montagna."],
+    done:[
+      "«La Medaglia del Gran Sasso è tua,\nuagliò. Mo' scendi nel MOLISE... se\nlo trovi. Dicono che non esista.»"],
+    openers:{
+      good:[
+        "«Allora sei tu che la Cosca non riesce\na comprare. Duro come la roccia,\nmi piace.»",
+        "«Ma qui comanda la montagna. Vediamo\nse reggi quando ti casca addosso.»"],
+      bad:[
+        "«Si dice che a valle tu abbia stretto\nmani sbagliate, uagliò.»",
+        "«La roccia seppellisce tutto, col\ntempo. Vediamo te.»"],
+      neutral:[
+        "«Benvenuto! So' CARMINE,\ncapopalestra de L'Aquila.»",
+        "«Tipo ROCCIA: come il Gran Sasso e\ncome noi aquilani. Ci spaccano, ma\nnon ci piegano.»"]
+    },
+    win:[
+      "Carmine richiama il suo PETRÒNE e si\nspolvera le mani, soddisfatto.",
+      "«Gran bella lotta, uagliò. Dura come\nla nostra pietra.»",
+      "Hai ottenuto la MEDAGLIA DEL GRAN SASSO!\n(13 di 20)",
+      "«La Cosca ha provato a comprarsi mezzo\nAbruzzo dopo il terremoto. Ma noi\nrinasciamo, non ci vendiamo.»",
+      "«Tu va' avanti. E ricordati di Roma,\nde quello che t'ha detto Sor Alvaro.\nLa resa dei conti è là.»"],
+    loseMsg:"Carmine ti aspetta in palestra.\n«Rialzati e torna, uagliò.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL GRAN SASSO ottenuta!', region:'Regione 13 di 20 completata',
+      next:'PROSSIMA TAPPA: MOLISE<br>Campobasso · «il Molise non esiste»',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 13 regioni.',
+      goodAt:14, badAt:-13,
+      verdict:{
+        good:'Da Milano al Gran Sasso, un nome duro\ncome la roccia: la Cosca non lo piega.',
+        bad:'La Cosca ti segue di regione in\nregione. Ma la montagna è dalla tua.',
+        neutral:'Tredici medaglie. Forte come la\npietra degli Appennini, ormai.'}
     }
   }
 };
@@ -589,11 +629,18 @@ const WORLD_MAP = [
     respawn:{ map:'ancona', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina del porto.\nUn falco plana in alto, lento.","La squadra è di nuovo in forze."] },
     link:'Via Salaria -> Roma (con Medaglia del Conero)' },
   { city:'ROMA', region:'Lazio', leader:'Sor Alvaro', type:'Drago', badge:'badge12',
-    maps:['roma','gymrm','ambrm','appiaantica','catacombe'],
+    maps:['roma','gymrm','ambrm','appiaantica','catacombe','valeria'],
     layout:[ { c:['roma'] },
              { c:['gymrm','ambrm'] },
              { c:['appiaantica','catacombe'], j:'->' } ],
     respawn:{ map:'roma', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina ai Fori.\nUn gatto romano ti fissa dall'alto\ndi una colonna, regale.","La squadra è di nuovo in forze, ahò."] },
+    link:'Via Valeria -> L\'Aquila (con Medaglia der Colosseo)' },
+  { city:'L\'AQUILA', region:'Abruzzo', leader:'Carmine', type:'Roccia', badge:'badge13',
+    maps:['aquila','gymaq','ambaq','gransasso','corno'],
+    layout:[ { c:['aquila'] },
+             { c:['gymaq','ambaq'] },
+             { c:['gransasso','corno'], j:'->' } ],
+    respawn:{ map:'aquila', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in centro.\nIl Gran Sasso domina l'orizzonte,\nimmobile.","La squadra è di nuovo in forze, uagliò."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -617,9 +664,11 @@ const AREA_LABELS = {
   furlo:'Furlo',
   ancona:'Centro', gyman:'Palestra', amban:'Ambul.', conero:'Conero', sibillini:'Sibillini',
   salaria:'Salaria',
-  roma:'Centro', gymrm:'Palestra', ambrm:'Ambul.', appiaantica:'Appia', catacombe:'Catacombe'
+  roma:'Centro', gymrm:'Palestra', ambrm:'Ambul.', appiaantica:'Appia', catacombe:'Catacombe',
+  valeria:'Valeria',
+  aquila:'Centro', gymaq:'Palestra', ambaq:'Ambul.', gransasso:'Gran Sasso', corno:'Corno Grande'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

@@ -49,6 +49,8 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'cinghial','pantafica','luccicola',
                         /* Comuni selvatiche del nord (per varietà incontri) */
                         'pantegana','ranot','gazzot',
+                        /* Abruzzo — linea Roccia + leggendario */
+                        'petrin','petrone','dormiente',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -388,6 +390,18 @@ const SPECIES = {
   gazzot: { n:'GAZZÒT', types:['Volante'], hp:46, atk:54, def:44, spd:66,
     learnset:[[1,'beccata'],[1,'dispetto'],[12,'graffio'],[26,'tramontana']],
     dex:'Gazza ladra del settentrione. Ruba tutto ciò che luccica: monete, orecchini e, se ti distrai, pure le Ampolle.' },
+
+  /* ---------- Abruzzo — linea Roccia + Il Dormiente del Gran Sasso ---------- */
+  petrin: { n:'PETRÌN', types:['Roccia'], hp:52, atk:56, def:72, spd:30,
+    evolve:{ lv:34, to:'petrone' },
+    learnset:[[1,'botta'],[1,'sassata'],[14,'morso'],[34,'frana']],
+    dex:'Spiritello di pietra della Majella, cugino del mazzamurello. Si annida nei muri a secco e tira sassolini a chi passa, per dispetto.' },
+  petrone: { n:'PETRÒNE', types:['Roccia'], hp:82, atk:90, def:106, spd:38,
+    learnset:[[1,'sassata'],[1,'morso'],[1,'sfondata'],[48,'frana']],
+    dex:'Golem di roccia degli Appennini abruzzesi. Quando rotola giù dal monte, i pastori lo scambiano per una frana. Spesso lo è.' },
+  dormiente: { n:'IL DORMIENTE', types:['Roccia'], hp:104, atk:104, def:110, spd:58,
+    learnset:[[1,'sassata'],[1,'morso'],[1,'sfondata'],[1,'frana'],[50,'frana']],
+    dex:'Il gigante di pietra del Gran Sasso: il profilo del massiccio è il suo corpo addormentato da millenni. Se si desta, l\'Abruzzo intero trema.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).
