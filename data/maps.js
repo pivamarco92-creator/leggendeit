@@ -1155,7 +1155,7 @@ const MAPS = {
   },
 
   bologna: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
@@ -1168,7 +1168,7 @@ const MAPS = {
       'T.##..####..####..####..##.T',
       'T.........................RT',
       'T..........................T',
-      'T..........................T',
+      'TB.........................T',
       'T..........................T',
       'T..........................T',
       'TV.........................T',
@@ -1245,6 +1245,155 @@ const MAPS = {
   },
   /* ---------- LE DUE TORRI (area segreta — X = Al Diâl) ---------- */
   torri: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== TOSCANA (Firenze) — regione 9 ========== */
+  /* ---------- EMILIA → TOSCANA · valico appenninico della Futa (U = Bologna, Z = Firenze) ---------- */
+  futa: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TMM..GGG......GGG......MMMMT',
+      'TM...GGG......GGG......MMM.T',
+      'T....................MM....T',
+      'T..GG................MM....T',
+      'T..........................T',
+      'T..GGG.........GGG.........T',
+      'TMM........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T........MM......MM........T',
+      'T..GGG...MM......MM...GGG..T',
+      'T........MM......MM........T',
+      'T..........................T',
+      'T..GGG................GGG..T',
+      'TMMM....................MMMT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'strio',       min:41, max:44, w:28 },
+      { id:'civettona',   min:40, max:43, w:22 },
+      { id:'borda',       min:41, max:44, w:20 },
+      { id:'farfarello',  min:41, max:44, w:16 },
+      { id:'lupomannaro', min:41, max:44, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'ampolla',    flag:'it_fut1' },
+      { x:22, y:14, item:'panzerotto', flag:'it_fut2' }
+    ]
+  },
+
+  firenze: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gymfi: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambfi: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- IL CHIANTI (route della regione, verso l'ipogeo etrusco) ---------- */
+  chianti: {
+    t2i: { '.':0, 'G':3, 'T':4, '#':7, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.##....GGG....##.GGGGGGT',
+      'T....##....GGG....##.......T',
+      'T....##.ZG.GGG....##.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..##....GGG....##.........T',
+      'T..##....GGG....##.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'strio',       min:40, max:43, w:30 },
+      { id:'civettona',   min:39, max:42, w:22 },
+      { id:'borda',       min:40, max:43, w:20 },
+      { id:'farfarello',  min:40, max:43, w:16 },
+      { id:'lupomannaro', min:40, max:43, w:12 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'pizza',      flag:'it_chi1' },
+      { x:22, y:10, item:'ampolla',    flag:'it_chi2' }
+    ]
+  },
+  /* ---------- IPOGEO ETRUSCO (area segreta — X = L'Arùspice) ---------- */
+  ipogeo: {
     t2i: { '.':13, '#':14, 'X':5, 'E':12 },
     indoor: true,
     tiles: [
@@ -1417,11 +1566,31 @@ const PORTALS = {
             Y: { map:'gymbo', x:5, y:9, dir:'up' },
             H: { map:'ambbo', x:3, y:3, dir:'up' },
             R: { map:'viaemilia', x:2, y:9, dir:'right',
-                 arriveMsg: ["LA VIA EMILIA. La strada romana che\ntaglia dritta la pianura. In fondo,\nle Due Torri."] } },
+                 arriveMsg: ["LA VIA EMILIA. La strada romana che\ntaglia dritta la pianura. In fondo,\nle Due Torri."] },
+            B: { map:'futa', x:2, y:9, dir:'right',
+                 lock: () => !G.flags.badge8,
+                 msg: ["Il valico della Futa, verso la TOSCANA.",
+                       "«Senza la Medaglia delle Due Torri\nl'Appennino non si passa, ciò.»"],
+                 arriveMsg: ["IL PASSO DELLA FUTA. Tornanti tra i\nfaggi dell'Appennino tosco-emiliano.\nDi là, la Toscana."] } },
   gymbo:{ E: { map:'bologna', x:4, y:4, dir:'down' } },
   ambbo:{ E: { map:'bologna', x:20, y:4, dir:'down' } },
   viaemilia:{ U: { map:'bologna', x:25, y:9, dir:'left' },
               Z: { map:'torri', x:7, y:12, dir:'up',
                    arriveMsg: ["LE DUE TORRI. Dentro la Garisenda, una\nscala a chiocciola sale nel buio. In\ncima, qualcosa ride piano."] } },
-  torri:{ E: { map:'viaemilia', x:8, y:5, dir:'down' } }
+  torri:{ E: { map:'viaemilia', x:8, y:5, dir:'down' } },
+  futa:{ U: { map:'bologna', x:2, y:11, dir:'right' },
+         Z: { map:'firenze', x:2, y:14, dir:'right',
+              arriveMsg: ["FIRENZE. La culla del Rinascimento.\nIl Duomo, il giglio, e qualcosa di\nmolto più antico sotto i suoi piedi."] } },
+  firenze:{ V: { map:'futa', x:25, y:9, dir:'left',
+                 arriveMsg: ["IL PASSO DELLA FUTA. Si risale verso\nl'Emilia, tra i faggi dell'Appennino."] },
+            Y: { map:'gymfi', x:5, y:9, dir:'up' },
+            H: { map:'ambfi', x:3, y:3, dir:'up' },
+            R: { map:'chianti', x:2, y:9, dir:'right',
+                 arriveMsg: ["LE COLLINE DEL CHIANTI. Filari di viti\na perdita d'occhio, cipressi e vecchie\ntombe etrusche tra gli ulivi."] } },
+  gymfi:{ E: { map:'firenze', x:4, y:4, dir:'down' } },
+  ambfi:{ E: { map:'firenze', x:20, y:4, dir:'down' } },
+  chianti:{ U: { map:'firenze', x:25, y:9, dir:'left' },
+            Z: { map:'ipogeo', x:7, y:12, dir:'up',
+                 arriveMsg: ["UN IPOGEO ETRUSCO. Scendi nel buio tra\naffreschi sbiaditi di banchetti e\ndemoni. Qualcosa, qui sotto, veglia."] } },
+  ipogeo:{ E: { map:'chianti', x:8, y:5, dir:'down' } }
 };

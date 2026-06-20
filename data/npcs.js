@@ -13,12 +13,14 @@ const NPCS = {
              "Dicono che certa gente strana\ngiri vicino all'edicola. Occhio."] },
     { x:20, y:6, frame:11, name:'TIFOSO',
       lines:["Hanno visto un'Anguana nei\nNavigli! O era un sacco della\nspazzatura? Boh."] },
-    { x:4, y:13, frame:15, name:'GIORNALAIO GINO', ev:'giornalaio' }
+    { x:4, y:13, frame:15, name:'GIORNALAIO GINO', ev:'giornalaio' },
+    { x:10, y:6, frame:9, name:'PIVA', ev:'piva' }
   ],
   parco: [
     { x:14, y:13, frame:12, name:'VECCHIETTO',
       lines:["Nell'erba alta vivono le\nLeggende, fioeu. Quelle vere.",
-             "Pare ci sia anche un MUNACIELLO.\nRaro come un parcheggio gratis."] }
+             "Pare ci sia anche un MUNACIELLO.\nRaro come un parcheggio gratis."] },
+    { x:5, y:5, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:1 }
   ],
   gym: [
     { x:5, y:2, frame:13, name:'CARLETTO', ev:'gymLeader' },
@@ -106,12 +108,14 @@ const NPCS = {
         pre:["Bella la tua Leggenda. Sai che\nprezzo fa, al mercato giusto?"],
         win:["Ok, ok! Non rubo più... per oggi."],
         after:["Tieni stretto lo zaino, bagai."] } },
-    { x:4, y:8, frame:12, name:'PESCATORE', ev:'pescatore' }
+    { x:4, y:8, frame:12, name:'PESCATORE', ev:'pescatore' },
+    { x:12, y:8, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:2 }
   ],
   segreto: [
     { x:8, y:7, frame:9, name:'VECCHIA DEL NAVIGLIO',
       lines:["Sei arrivato fin qui, eh.\nIn pochi ci riescono.",
-             "Quella sull'acqua non è nebbia.\nÈ la SCIGHÉRA. Se si mostra,\nsalutala con rispetto."] }
+             "Quella sull'acqua non è nebbia.\nÈ la SCIGHÉRA. Se si mostra,\nsalutala con rispetto."] },
+    { x:5, y:10, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:3 }
   ],
   shopmi: [
     { x:3, y:1, frame:15, name:'COMMESSO', ev:'negozio' },
@@ -172,7 +176,8 @@ const NPCS = {
       lines:["Ohè! Faccio il camallo, scarico navi\nda trent'anni. Belin che schiena.",
              "Di notte, al porto, arrivano container\nche è meglio non vedere. Roba della\nCosca, dicono."] },
     { x:6,  y:11, frame:11, name:'PESCIVENDOLA',
-      lines:["Acciughe fresche! E se ti serve,\ndavanti al molo l'Anguana abbocca,\nohè. Tira fuori la canna."] }
+      lines:["Acciughe fresche! E se ti serve,\ndavanti al molo l'Anguana abbocca,\nohè. Tira fuori la canna."] },
+    { x:20, y:5, frame:11, name:'LICATA', ev:'licata' }
   ],
   gymge: [
     { x:5, y:2, frame:13, name:'BARBAGIALLA', ev:'gymLeader' },
@@ -208,7 +213,8 @@ const NPCS = {
         after:["Gira al largo, ragazzo."] } },
     { x:2, y:8, frame:9, name:'BAGNINO',
       lines:["Più giù c'è la vecchia LANTERNA.\nIn cima dicono si posi il GRIFONE,\nquello dello stemma di Genova.",
-             "Si mostra a chi se lo merita. O a\nchi è abbastanza matto da salire."] }
+             "Si mostra a chi se lo merita. O a\nchi è abbastanza matto da salire."] },
+    { x:11, y:8, frame:16, name:'RIFLESSO NELL\'ACQUA', ev:'licatamed' }
   ],
   lanterna: [
     { x:3, y:9, frame:12, name:'GUARDIANO DEL FARO',
@@ -385,7 +391,8 @@ const NPCS = {
              "La grotta sul Carso... ci andava\nmio padre. Non tornò allegro.\nDisse solo: 'È viva.'"] },
     { x:18, y:10, frame:12, name:'STUDENTE',
       lines:["Sto studiando meteorologia.\nLa BORA è un vento catabatico\nda nord-est, freddissimo.",
-             "C'è una grotta sul Carso.\nDicono che lì dentro il vento\nnon si ferma mai. Mai."] }
+             "C'è una grotta sul Carso.\nDicono che lì dentro il vento\nnon si ferma mai. Mai."] },
+    { x:13, y:6, frame:10, name:'FACCI', ev:'facci' }
   ],
   gymts: [
     { x:5, y:2, frame:13, name:'GIGIO', ev:'gymLeader' },
@@ -490,5 +497,71 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'CUSTODE DELLA GARISENDA',
       lines:["Ci salgo ogni notte da quando ero\nragazzo. Questa torre pende per un\nmotivo, sai? Non è solo geometria.",
              "Lassù in cima si posa IL DIÂL.\nIl diavolo che, dice la leggenda,\naiutò a costruirla. Non disturbarlo."] }
+  ],
+
+  /* ========== TOSCANA (Firenze) ========== */
+  futa: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DEL VALICO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'fut1', team:[['strio',41],['borda',41]],
+        pre:["Il valico è nostro, o bischero.\nDi qua non si passa senza\nlasciare qualcosa alla Cosca."],
+        win:["Uffa. Passa, va'."], after:["Tira dritto verso Firenze."] } },
+    { x:20, y:7,  frame:14, name:'CORRIERE TOSCO-EMILIANO', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'fut2', team:[['lupomannaro',42],['civettona',42]],
+        pre:["Porto roba su e giù per l'Appennino\nda anni. Tu non eri in programma."],
+        win:["Maledetti tornanti e maledetto te."], after:["Scendi, scendi in Toscana."] } },
+    { x:14, y:13, frame:14, name:'CAPOVALICO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'fut3', team:[['strio',42],['farfarello',43]],
+        pre:["Ultimo prima di Firenze.\nE non sono gentile come quelli\ndi pianura, te lo dico."],
+        win:["...o bischero, sei forte davvero.\nFirenze ti aspetta."],
+        after:["Il Duomo si vede di là."] } }
+  ],
+  firenze: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'GUIDA TURISTICA',
+      lines:["Benvenuto a Firenze, culla del\nRinascimento! Il Duomo, gli Uffizi,\nil Ponte Vecchio... e il giglio.",
+             "Ma c'è una Firenze più antica,\nsotto. Gli Etruschi. E le loro\ntombe nascondono cose che vegliano."] },
+    { x:8,  y:14, frame:11, name:'ANTIQUARIA',
+      lines:["Vendo reperti etruschi, tutti veri\n(quasi). Gli Etruschi leggevano il\nfuturo nelle viscere degli animali.",
+             "Dicono che L'ARÙSPICE, il più grande\nindovino, dorma ancora in un ipogeo\ntra le colline del Chianti."] },
+    { x:18, y:16, frame:12, name:'STUDENTE DI STORIA',
+      lines:["Icché ti dico: Firenze è bella ma\nguardati le spalle. La Cosca compra\npalazzi e gallerie come noccioline.",
+             "L'ipogeo etrusco? Gli è tra le viti\ndel Chianti. Ma quel che c'è dentro\nti legge nel pensiero. Stai attento."] }
+  ],
+  gymfi: [
+    { x:5, y:2, frame:13, name:'CHECCONE', ev:'gymLeader' },
+    { x:3, y:5, frame:10, name:'RESTAURATORE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymfi1', team:[['strio',43],['civettona',43]],
+        pre:["Per arrivare a Checcone passi\nl'esame d'arte e di mente.\nComincia da me, o bischero."],
+        win:["Bravo! Checcone ti aspetta\nin fondo alla galleria."],
+        after:["Vai, gli è là che t'aspetta."] } },
+    { x:8, y:7, frame:11, name:'CARTOMANTE', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymfi2', team:[['strione',44],['farfarello',44]],
+        pre:["Leggo la mente e le carte da\ntrent'anni. So già come finisce\nquesta sfida. Ma facciamola lo stesso."],
+        win:["Le carte... mentivano. Sei degno\ndi Checcone."],
+        after:["Il capo è là. Concentrati."] } }
+  ],
+  ambfi: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA VESPUCCI', ev:'cura' }
+  ],
+  chianti: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DEL CHIANTI', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'chi1', team:[['strio',40],['borda',40]],
+        pre:["Queste colline le controlliamo noi.\nVino, ulivi e pizzo. Paga, forestiero."],
+        win:["Uffa. Passa."], after:["Non avvicinarti all'ipogeo."] } },
+    { x:14, y:13, frame:14, name:'CONTRABBANDIERA', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'chi2', team:[['lupomannaro',41],['strio',41]],
+        pre:["Porto bottiglie che non hanno\netichetta. Levati, o bischero."],
+        win:["Bah. Vada per stavolta."],
+        after:["Fatti i fatti tuoi e tira dritto."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DELL\'IPOGEO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'chi3', team:[['strione',42],['farfarello',42]],
+        pre:["L'ultimo prima della tomba etrusca\nsono io. E quel che dorme là sotto\nè meglio lasciarlo dormire."],
+        win:["...va bene, scendi pure. Ma non\ndire che non ti avevo avvisato."],
+        after:["La tomba è in fondo. In bocca al lupo."] } }
+  ],
+  ipogeo: [
+    { x:3, y:9, frame:12, name:'GUARDIANO ETRUSCO',
+      lines:["Parla piano, forestiero.\nQuesto ipogeo ha tremila anni e\nchi vi dorme è più vecchio ancora.",
+             "L'ARÙSPICE legge il futuro e il\npensiero. Se lo svegli, saprà ogni\ntua mossa prima di te. Buona fortuna."] }
   ]
 };

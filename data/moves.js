@@ -34,5 +34,11 @@ const MOVES = {
   codata:     { n:'Codata',       t:'Normale',    pow:0,  pp:40, fx:'def-' },
   filodiseta: { n:'Filo di Seta', t:'Coleottero', pow:0,  pp:40, fx:'spd-' },
   raffica:    { n:'Raffica',      t:'Vento',      pow:45, pp:25 },
-  ciclone:    { n:'Ciclone',      t:'Vento',      pow:90, pp:10 }
+  ciclone:    { n:'Ciclone',      t:'Vento',      pow:90, pp:10 },
+  psicobotta: { n:'Psicobotta',   t:'Psico',      pow:50, pp:25 },
+  psicoonda:  { n:'Psicoonda',    t:'Psico',      pow:90, pp:10 },
+  /* --- mosse-firma de "I tre soci" --- */
+  pivonata:   { n:'Pivonata',     t:'Elettro',    pow:90, pp:10 },
+  facciata:   { n:'Facciata',     t:'Fuoco',      pow:90, pp:10 },
+  licatonda:  { n:'Licatònda',    t:'Acqua',      pow:90, pp:10 }
 };

@@ -67,7 +67,10 @@ const STORY_EVENTS = {
   trainer: evTrainer,
   cura: evCura,
   negozio: evNegozio,
-  pescatore: evPescatore
+  pescatore: evPescatore,
+  piva: evPiva, pivanota: evPivanota,
+  licata: evLicata, licatamed: evLicatamed,
+  facci: evFacci
 };
 
 /* Una palestra è bloccata finché restano allievi da battere. */
@@ -246,7 +249,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -257,7 +260,8 @@ function evJohnny(town) {
     bolzano: [['croder', lv], ['lupomannaro', lv], ['crodon', lv + 2]],
     venezia: [['mazariol', lv], ['borda', lv + 1], ['mazarione', lv + 2]],
     trieste: [['cjalcjut', lv], ['ratapignata', lv + 1], ['cjalcjutone', lv + 2]],
-    bologna: [['foghin', lv], ['farfarello', lv + 1], ['fogaron', lv + 2]]
+    bologna: [['foghin', lv], ['farfarello', lv + 1], ['fogaron', lv + 2]],
+    firenze: [['strio', lv], ['civettona', lv + 1], ['strione', lv + 2]]
   };
   const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
@@ -621,7 +625,184 @@ function evAldial() {
     startBattle(makeMon('aldial', 40), null);
   });
 }
+/* Leggendario della Toscana: L'Arùspice, l'indovino etrusco dell'ipogeo. */
+function evAruspice() {
+  if (G.flags.aruspiceCaught) {
+    say(["L'ipogeo è muto e immobile.\nL'ARÙSPICE ti ha già letto il\nfuturo. Una volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nturbare il sonno dell'indovino."); return; }
+  say(["Nel buio dell'ipogeo, una figura\navvolta in bende si solleva tra gli\naffreschi etruschi.",
+       "Tre occhi si aprono sul suo volto.\nÈ L'ARÙSPICE, il veggente che leggeva\nil futuro nelle viscere.",
+       "«Ti aspettavo. Conosco già ogni tua\nmossa... ma battiti lo stesso.»",
+       "L'ARÙSPICE attacca!"], () => {
+    saveGame();
+    beep(220, .2, 'triangle'); beep(170, .25, 'triangle'); beep(130, .3, 'triangle');
+    startBattle(makeMon('aruspice', 44), null);
+  });
+}
+/* ================= "I TRE SOCI" — Leggende dedicate (Piva / Facci / Licata) ================= */
+/* Consegna una Leggenda speciale: in squadra se c'è posto, altrimenti nel deposito. */
+function giveSocio(id, lv, doneFlag, name, lines) {
+  const mon = makeMon(id, lv);
+  const toBox = G.party.length >= 6;
+  if (toBox) G.box.push(mon); else G.party.push(mon);
+  dexCatch(mon.id);
+  G.flags[doneFlag] = true;
+  saveGame();
+  beep(880, .1); beep(1175, .2);
+  let out = lines.concat(['Hai ricevuto ' + mon.name + '!']);
+  if (toBox) out = out.concat(['(Squadra piena: ' + mon.name + ' è\nfinito nel DEPOSITO.)']);
+  out = out.concat(sociComplete());
+  say(out, null, name);
+}
+/* Bonus una-tantum quando hai raccolto tutte e tre le Leggende dei soci. */
+function sociComplete() {
+  if (G.flags.piva_done && G.flags.facci_done && G.flags.licata_done && !G.flags.soci_reward) {
+    G.flags.soci_reward = true; G.money += 2000; saveGame();
+    return ['', '★ I TRE SOCI riuniti! ★',
+      'Hai radunato le Leggende di Piva,\nFacci e Licata. I tre soci ti fanno\nun applauso da lontano.',
+      'Ti lasciano 2000€ di mancia.\nGrandi i soci, neh.'];
+  }
+  return [];
+}
+
+/* --- PIVA (Milano): le tre note dei Navigli --- */
+function evPiva(n) {
+  if (G.flags.piva_done) {
+    say(["«Taaac! Il mio PIVÒT è in gamba, eh.»",
+         (G.flags.facci_done && G.flags.licata_done)
+           ? "«Coi miei soci ci hai dato dentro.\nGrazie, bagai.»"
+           : "«I miei soci FACCI (Trieste) e\nLICATA (Genova) t'aspettano ancora.»"], null, 'PIVA');
+    return;
+  }
+  if (!G.flags.starter || !G.party.length) {
+    say(["«Prima fatti dare una Leggenda dalla\nProf, poi parliamo di musica.»"], null, 'PIVA'); return;
+  }
+  const got = ['piva_n1','piva_n2','piva_n3'].filter(f => G.flags[f]).length;
+  if (got < 3) {
+    say(["«Uè! Sono PIVA, suono la piva — la\ncornamusa, mica la noia, neh.»",
+         "«Ti do una mia Leggenda speciale se\nsuoni la mia ninnananna. Ma ho perso\n3 NOTE in giro per Milano.»",
+         "«Una al PARCO, una ai NAVIGLI e una\nnella vecchia DARSENA segreta.\nTrovale e torna, bagai.»",
+         "Note trovate finora: " + got + "/3."], null, 'PIVA');
+    return;
+  }
+  say(["«Le hai tutte e tre! Adesso suonale\nnell'ORDINE giusto. Ricorda gli\nindizi scritti sopra ogni nota...»"], () => {
+    ask(['Alba · Ponte · Sera', 'Sera · Ponte · Alba', 'Ponte · Alba · Sera', 'Alba · Sera · Ponte'], sel => {
+      if (sel === 0) {
+        say(["Suoni le note nell'ordine giusto.\nPiva chiude gli occhi e sorride."], () => {
+          giveSocio('pivot', 8, 'piva_done', 'PIVA',
+            ["«Taaac! Quella era la mia ninnananna.»",
+             "«Tieni PIVÒT: cresce con te e diventa\nun fulmine. Letteralmente.»",
+             "«Cerca i miei soci: FACCI a Trieste e\nLICATA a Genova.»"]);
+        }, 'PIVA');
+      } else {
+        const fee = Math.min(G.money, 100); G.money -= fee; saveGame();
+        beep(200, .15, 'sawtooth');
+        say(["«STONATO! Così mi fai piangere la piva.»",
+             fee > 0 ? ('«E sono ' + fee + '€ per il disturbo\nalle orecchie. Riprova, neh.»')
+                     : "«Manco i danè per scusarti!\nRiprova quando vuoi.»"], null, 'PIVA');
+      }
+    });
+  }, 'PIVA');
+}
+function evPivanota(n) {
+  const f = 'piva_n' + n.note;
+  const clue = {
+    1: "Una NOTA di Piva!\nSopra c'è scritto: «Vengo per prima,\ncome l'ALBA.»",
+    2: "Una NOTA di Piva!\nSopra c'è scritto: «Sto nel mezzo,\ncome il PONTE sul Naviglio.»",
+    3: "Una NOTA di Piva!\nSopra c'è scritto: «Io chiudo, come\nla nebbia della SERA.»"
+  };
+  if (G.flags[f]) { say(["Questa NOTA ce l'hai già.\nRiportala a PIVA, in centro a Milano."]); return; }
+  G.flags[f] = true; saveGame();
+  beep(700, .08); beep(950, .12);
+  say([clue[n.note], "(Riportala a PIVA quando le hai\ntrovate tutte e tre.)"]);
+}
+
+/* --- LICATA (Genova): il relitto, da pescare alla Scogliera --- */
+function evLicata(n) {
+  if (G.flags.licata_done) {
+    say(["«Grazie ancora, picciotto. LICÀT ti\nporterà fortuna, in mare e in lotta.»",
+         (G.flags.piva_done && G.flags.facci_done)
+           ? "«Noi tre soci ti dobbiamo una cena.»"
+           : "«Visti gli altri? PIVA a Milano,\nFACCI a Trieste.»"], null, 'LICATA');
+    return;
+  }
+  if (!G.party.length) { say(["«Senza Leggende non si combina niente,\npicciotto.»"], null, 'LICATA'); return; }
+  if (G.flags.licata_med) {
+    say(["«Il mio MEDAGLIONE! L'hai ripescato\ndavvero. Sei uno di noi, picciotto.»"], () => {
+      giveSocio('licat', 22, 'licata_done', 'LICATA',
+        ["«Tieni LICÀT: creatura del mare del\nsud, testarda e fedele come un amico.»",
+         "«Se non l'hai fatto, trova PIVA a\nMilano e FACCI a Trieste.»"]);
+    }, 'LICATA');
+    return;
+  }
+  say(["«Ahù! Sono LICATA, di Sicilia, ma il\nmare m'ha portato fin qui a Genova.»",
+       "«Ti do una mia Leggenda speciale se mi\nrecuperi ciò che il mare m'ha preso:\nun vecchio MEDAGLIONE.»",
+       "«L'indizio è questo: dove il FARO\nveglia e l'onda batte più forte,\ncala la lenza. E porta la CANNA.»"], null, 'LICATA');
+}
+function evLicatamed(n) {
+  if (G.flags.licata_med) { say(["L'acqua qui è di nuovo calma.\nIl medaglione ce l'hai già."]); return; }
+  if (!G.items.canna) { say(["Qualcosa luccica sul fondo... ma senza\nuna CANNA DA PESCA non lo tiri su."]); return; }
+  beep(500, .1); beep(700, .12); beep(950, .15);
+  G.flags.licata_med = true; saveGame();
+  say(["Cali la lenza dove l'onda batte più\nforte e tiri su un vecchio MEDAGLIONE\nincrostato di sale!",
+       "(Riportalo a LICATA, al porto di Genova.)"]);
+}
+
+/* --- FACCI (Trieste): quiz a trabocchetto + prova senza cure --- */
+const FACCI_QUIZ = [
+  { q:"«Primo: che vento gelido scende dal\nCarso e spazza Trieste?»", a:['La BORA','Lo Scirocco','Il Maestrale'], ok:0 },
+  { q:"«Secondo: di quale impero faceva parte\nTrieste fino al 1918?»", a:['Austro-ungarico','Ottomano','Spagnolo'], ok:0 },
+  { q:"«Terzo: quale scrittore irlandese visse\na Trieste e ha una statua di bronzo\nsul Canal Grande?»", a:['James Joyce','Oscar Wilde','Lord Byron'], ok:0 }
+];
+function evFacci(n) {
+  if (G.flags.facci_done) {
+    say(["«Faccia tosta come la mia, eh!\nFACCÌN è in buone mani.»",
+         (G.flags.piva_done && G.flags.licata_done)
+           ? "«Noi tre soci ti dobbiamo un favore.»"
+           : "«Visti gli altri? PIVA a Milano,\nLICATA a Genova.»"], null, 'FACCI');
+    return;
+  }
+  if (!G.party.length) { say(["«E con cosa la combatti la mia faccia\ntosta, senza Leggende?»"], null, 'FACCI'); return; }
+  if (G.flags.facci_quiz) { facciChallenge(); return; }
+  say(["«Uè! Sono FACCI, il più sfacciato di\nTrieste. Vedi 'ste statue di bronzo?\nIo ho la faccia uguale.»",
+       "«Ti do una mia Leggenda speciale, ma\nprima dimostra di conoscere la mia\ncittà. Tre domande. Sbagli? Si paga.»"], () => facciQuiz(0), 'FACCI');
+}
+function facciQuiz(i) {
+  if (i >= FACCI_QUIZ.length) {
+    G.flags.facci_quiz = true; saveGame();
+    say(["«Muso duro e testa fina. Mi piaci.»",
+         "«Ora la prova vera: faccia tosta\ncontro faccia tosta. Le mie Leggende,\ntutte di fila e niente cure!»"], () => facciChallenge(), 'FACCI');
+    return;
+  }
+  const Q = FACCI_QUIZ[i];
+  say([Q.q], () => {
+    ask(Q.a, sel => {
+      if (sel === Q.ok) { beep(950, .1); facciQuiz(i + 1); }
+      else {
+        const fee = Math.min(G.money, 80); G.money -= fee; saveGame();
+        beep(200, .15, 'sawtooth');
+        say(["«SBAGLIATO! E giù multa.»",
+             fee > 0 ? ('«' + fee + '€ per l\'ignoranza. Si\nricomincia da capo, dai.»')
+                     : "«Manco i danè per la multa!\nSi ricomincia da capo.»"], () => facciQuiz(0), 'FACCI');
+      }
+    });
+  }, 'FACCI');
+}
+function facciChallenge() {
+  const team = [makeMon('faccin', 33), makeMon('civettona', 33), makeMon('ratapignata', 34)];
+  say(["«Faccia tosta... VAI!»"], () => {
+    startBattle(team[0], { name:'FACCI', team, idx:0,
+      winCb: () => giveSocio('faccin', 35, 'facci_done', 'FACCI',
+        ["«AAAH! Battuto in casa mia!\nFaccia tosta da vendere, ragazzo.»",
+         "«Tieni FACCÌN: diventa un dragone\nsfacciato come me. Trattalo bene.»",
+         "«Se non l'hai fatto, trova PIVA a\nMilano e LICATA a Genova.»"]),
+      loseCb: () => whiteout(() => say("Facci ride. «Ripassa quando hai un po'\ndi faccia tosta in più, pivello!»")) });
+  }, 'FACCI');
+}
+
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

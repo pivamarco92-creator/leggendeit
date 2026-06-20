@@ -1,8 +1,10 @@
 # ROADMAP — Leggende d'Italia
 
-Stato: **8 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
+Stato: **9 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
 Questa roadmap dice **cosa** costruire; CLAUDE.md dice **come**.
-Prossima da fare: **9 — Toscana / Firenze (Checcone, Psico — tipo NEW)**.
+Prossima da fare: **10 — Umbria / Perugia (Quirino, Terra — tipo NEW)**.
+Tipi già implementati: Normale, Fuoco, Acqua, Erba, Elettro, Volante, Coleottero, Veleno,
+Acciaio, Ghiaccio, Roccia, Spettro, Vento, **Psico**. Ancora da fare: Terra, Drago, Luce, Oscurità.
 
 ## Le 20 regioni (dal concept originale)
 ✓ = fatta. Tipi tra parentesi; (NEW) = tipo da implementare la prima volta che serve.
@@ -17,7 +19,7 @@ Prossima da fare: **9 — Toscana / Firenze (Checcone, Psico — tipo NEW)**.
 | 6 | Veneto | Venezia | Bepi | Acqua | ✓ |
 | 7 | Friuli-V.G. | Trieste | Gigio | Vento | ✓ |
 | 8 | Emilia-Romagna | Bologna | Dindo | Fuoco | ✓ |
-| 9 | Toscana | Firenze | Checcone | Psico (NEW) | da fare |
+| 9 | Toscana | Firenze | Checcone | Psico | ✓ |
 | 10 | Umbria | Perugia | Quirino | Terra (NEW) | da fare |
 | 11 | Marche | Ancona | Guerrino | Volante | da fare |
 | 12 | Lazio | Roma | Sor Alvaro | Drago (NEW) | da fare |

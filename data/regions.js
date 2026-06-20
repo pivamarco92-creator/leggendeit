@@ -334,12 +334,53 @@ const GYMS = {
       title:'★ FINE DEI CONTENUTI ★',
       medal:'MEDAGLIA DELLE DUE TORRI ottenuta!', region:'Regione 8 di 20 completata',
       next:'PROSSIMA TAPPA: TOSCANA<br>Checcone · Tipo Psico · Firenze',
-      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 8 regioni.',
+      footer:'Premi A: prosegui verso la TOSCANA<br>(valico della Futa da Bologna,<br>serve la Medaglia delle Due Torri).',
       goodAt:9, badAt:-8,
       verdict:{
         good:'Da Milano a Bologna, un nome che la\nCosca non può comprare a nessun prezzo.',
         bad:'La Cosca ti segue di regione in\nregione. Il conto, prima o poi, arriva.',
         neutral:'Otto medaglie. Il nord e il centro\nItalia conoscono il tuo nome.'}
+    }
+  },
+
+  gymfi: {
+    leader:'CHECCONE', type:'Psico', badge:'badge9', region:9,
+    team:[['strio',43],['civettona',44],['strione',46]],
+    challenge:'«Chi vince piglia la MEDAGLIA DEL\nGIGLIO. O bischero, fatti sotto!»',
+    intro:[
+      "La palestra di Firenze: una galleria\nrinascimentale, statue e affreschi\nche sembrano seguirti con lo sguardo.",
+      "In fondo, un uomo elegante con un\ntaccuino ti studia come fossi\nun'opera da catalogare."],
+    done:[
+      "«La Medaglia del Giglio ti dona,\ndavvero. Icché aspetti? Vai in\nUMBRIA, da QUIRINO, a Perugia.»",
+      "«E rifletti su quel che hai visto\nnell'ipogeo. Conta più di una medaglia.»"],
+    openers:{
+      good:[
+        "«To'! Sei tu il forestiero che la\nCosca non riesce a comprare. La\nmente sgombra si vede, sai.»",
+        "«Ma qui comanda la testa, non i\nmuscoli. Vediamo come ragioni.»"],
+      bad:[
+        "«Leggo nella gente come in un libro.\nE in te leggo certe... amicizie\nsbagliate, o bischero.»",
+        "«La mente non mente. Vediamo.»"],
+      neutral:[
+        "«Bongiorno! Gli è che sono CHECCONE,\ncapopalestra di Firenze.»",
+        "«Tipo PSICO: come questa città,\ntutta ingegno, arte e malizia.»"]
+    },
+    win:[
+      "Checcone richiama il suo STRIONE e\nchiude il taccuino, soddisfatto.",
+      "«O bischero, gli è stata una bella\nlotta. Te la sei meritata.»",
+      "Hai ottenuto la MEDAGLIA DEL GIGLIO!\n(9 di 20)",
+      "«La Cosca ha provato a comprarmi con\nun'intera collezione d'arte. Gli ho\nrisposto che la bellezza non si compra.»",
+      "«Tu va' avanti. L'Umbria ti aspetta,\ne poi il cuore dell'Italia. Vai,\no bischero!»"],
+    loseMsg:"Checcone ti aspetta in palestra.\n«Riordina le idee e torna.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL GIGLIO ottenuta!', region:'Regione 9 di 20 completata',
+      next:'PROSSIMA TAPPA: UMBRIA<br>Quirino · Tipo Terra · Perugia',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 9 regioni.',
+      goodAt:10, badAt:-9,
+      verdict:{
+        good:'Da Milano a Firenze, un nome che la\nCosca non può comprare a nessun prezzo.',
+        bad:'La Cosca ti segue di regione in\nregione, e compra tutto tranne te.',
+        neutral:'Nove medaglie. Mezza Italia conosce\nil tuo nome; l\'altra metà ti aspetta.'}
     }
   }
 };
@@ -397,11 +438,18 @@ const WORLD_MAP = [
     respawn:{ map:'trieste', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in piazza.\nLa BORA ti scompiglia i capelli.","La squadra è di nuovo in forze."] },
     link:'percorso lungo la Pianura Padana -> Bologna (con Medaglia della Bora)' },
   { city:'BOLOGNA', region:'Emilia-Romagna', leader:'Dindo', type:'Fuoco', badge:'badge8',
-    maps:['bologna','gymbo','ambbo','viaemilia','torri'],
+    maps:['bologna','gymbo','ambbo','viaemilia','torri','futa'],
     layout:[ { c:['bologna'] },
              { c:['gymbo','ambbo'] },
              { c:['viaemilia','torri'], j:'->' } ],
     respawn:{ map:'bologna', x:14, y:5, dir:'down', lines:["Ti svegli sotto un portico, all'ombra.\nUna AZDORA ti porge dei tortellini\nfumanti, scuotendo la testa.","La squadra è di nuovo in forze, ciò."] },
+    link:'valico della Futa -> Firenze (con Medaglia delle Due Torri)' },
+  { city:'FIRENZE', region:'Toscana', leader:'Checcone', type:'Psico', badge:'badge9',
+    maps:['firenze','gymfi','ambfi','chianti','ipogeo'],
+    layout:[ { c:['firenze'] },
+             { c:['gymfi','ambfi'] },
+             { c:['chianti','ipogeo'], j:'->' } ],
+    respawn:{ map:'firenze', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in piazza\ndella Signoria. Il David ti guarda\ndall'alto, impassibile.","La squadra è di nuovo in forze, o bischero."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -417,9 +465,11 @@ const AREA_LABELS = {
   venezia:'Centro', gymve:'Palestra', ambve:'Ambul.', laguna:'Laguna', calle:'Calle', isonzo:'Isonzo',
   trieste:'Centro', gymts:'Palestra', ambts:'Ambul.', carso:'Carso', grotta_bora:'Grotta',
   pianurapo:'Pianura',
-  bologna:'Centro', gymbo:'Palestra', ambbo:'Ambul.', viaemilia:'Via Emilia', torri:'Due Torri'
+  bologna:'Centro', gymbo:'Palestra', ambbo:'Ambul.', viaemilia:'Via Emilia', torri:'Due Torri',
+  futa:'Futa',
+  firenze:'Centro', gymfi:'Palestra', ambfi:'Ambul.', chianti:'Chianti', ipogeo:'Ipogeo'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

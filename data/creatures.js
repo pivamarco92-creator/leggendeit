@@ -33,6 +33,12 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'mazariol','mazarione','leon',
                         /* Emilia-Romagna — linea del Fuoco Fatuo + leggendario */
                         'foghin','fogaron','aldial',
+                        /* Toscana — linea della stregoneria + leggendario */
+                        'strio','strione','aruspice',
+                        /* "I tre soci" — Leggende speciali dedicate agli amici (quest dedicate) */
+                        'pivot','pivarol','pivon',
+                        'faccin','facciotto','faccion',
+                        'licat','licatone','licatass',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -263,6 +269,57 @@ const SPECIES = {
   aldial: { n:'AL DIÂL', types:['Fuoco','Spettro'], hp:92, atk:104, def:85, spd:92,
     learnset:[[1,'favilla'],[1,'malocchio'],[1,'vampata'],[1,'maledizione'],[50,'rogo']],
     dex:'Il diavolo delle Due Torri. La leggenda narra che aiutò a costruire la Garisenda in cambio di un\'anima: da allora veglia, storto, sui tetti di Bologna.' },
+
+  /* ---------- Toscana — linea della stregoneria + L'Arùspice ---------- */
+  strio: { n:'STRÌO', types:['Psico'], hp:45, atk:50, def:48, spd:58,
+    evolve:{ lv:30, to:'strione' },
+    learnset:[[1,'botta'],[1,'dispetto'],[7,'psicobotta'],[16,'morso'],[38,'psicoonda']],
+    dex:'Folletto-stregone delle campagne toscane. Legge nel pensiero dei viandanti e ne confonde la strada per gioco.' },
+  strione: { n:'STRIÒNE', types:['Psico'], hp:70, atk:80, def:70, spd:80,
+    learnset:[[1,'psicobotta'],[1,'morso'],[1,'sfondata'],[44,'psicoonda']],
+    dex:'Lo strìo cresciuto in mago vero e proprio. Si dice tenga corte tra le colline del Chianti e pieghi le menti deboli al suo volere.' },
+  aruspice: { n:'L\'ARÙSPICE', types:['Psico'], hp:90, atk:100, def:92, spd:96,
+    learnset:[[1,'psicobotta'],[1,'morso'],[1,'sfondata'],[1,'dispetto'],[50,'psicoonda']],
+    dex:'L\'indovino etrusco che leggeva il futuro nelle viscere e nel volo degli uccelli. Dorme da millenni in un ipogeo sotto Firenze, e vede già come finirà il tuo viaggio.' },
+
+  /* ---------- "I TRE SOCI" — Leggende speciali (Piva / Facci / Licata) ----------
+     Esclusive: non si trovano allo stato selvatico, si ottengono solo dalle quest
+     dei tre soci. Statistiche sopra uno starter, sotto un leggendario. */
+  pivot: { n:'PIVÒT', types:['Elettro'], hp:40, atk:45, def:40, spd:60,
+    evolve:{ lv:18, to:'pivarol' },
+    learnset:[[1,'scarica'],[1,'dispetto'],[8,'botta'],[18,'saetta']],
+    dex:'La Leggenda del socio Piva. Folletto-suonatore di piva (cornamusa): le sue note caricano l\'aria di elettricità. Piccolo, sveglio e dispettoso.' },
+  pivarol: { n:'PIVARÒL', types:['Elettro'], hp:55, atk:65, def:52, spd:82,
+    evolve:{ lv:36, to:'pivon' },
+    learnset:[[1,'scarica'],[1,'saetta'],[1,'dispetto'],[28,'morso'],[40,'fulmine']],
+    dex:'Il Pivòt cresciuto. Quando gonfia la piva, scarica saette a tempo di musica. Veloce come una battuta a fine serata.' },
+  pivon: { n:'PIVÓN', types:['Elettro'], hp:75, atk:88, def:68, spd:108,
+    learnset:[[1,'saetta'],[1,'morso'],[1,'sfondata'],[1,'fulmine'],[44,'pivonata']],
+    dex:'Lo stadio finale della Leggenda di Piva. Un fulmine con la cornamusa: la sua PIVONATA fa saltare i contatori di un quartiere intero.' },
+
+  faccin: { n:'FACCÌN', types:['Fuoco','Volante'], hp:45, atk:50, def:48, spd:45,
+    evolve:{ lv:40, to:'facciotto' },
+    learnset:[[1,'graffio'],[1,'favilla'],[8,'beccata'],[20,'vampata']],
+    dex:'La Leggenda del socio Facci. Draghetto sfacciato dalla faccia tosta: non arrossisce mai, neanche quando sbaglia. Sputa scintille per dispetto.' },
+  facciotto: { n:'FACCIÒTTO', types:['Fuoco','Volante'], hp:62, atk:70, def:62, spd:60,
+    evolve:{ lv:52, to:'faccion' },
+    learnset:[[1,'favilla'],[1,'beccata'],[1,'vampata'],[30,'tramontana'],[44,'rogo']],
+    dex:'Il Faccìn cresciuto. Ali robuste e faccia di bronzo: ti guarda dall\'alto e ti sfida con un ghigno. Difficile imbarazzarlo.' },
+  faccion: { n:'FACCIÓN', types:['Fuoco','Volante'], hp:82, atk:100, def:80, spd:84,
+    learnset:[[1,'vampata'],[1,'tramontana'],[1,'sfondata'],[1,'rogo'],[50,'facciata']],
+    dex:'Lo stadio finale della Leggenda di Facci. Un drago tutto faccia tosta: la sua FACCIATA incenerisce gli avversari mentre lui sorride impassibile.' },
+
+  licat: { n:'LICÀT', types:['Acqua'], hp:48, atk:48, def:52, spd:42,
+    evolve:{ lv:30, to:'licatone' },
+    learnset:[[1,'zampillo'],[1,'codata'],[8,'botta'],[20,'ondata']],
+    dex:'La Leggenda del socio Licata. Creatura di mare del sud, calma e testarda. Resta a galla in qualsiasi tempesta, come un buon amico.' },
+  licatone: { n:'LICATÒNE', types:['Acqua'], hp:64, atk:66, def:72, spd:56,
+    evolve:{ lv:44, to:'licatass' },
+    learnset:[[1,'zampillo'],[1,'ondata'],[1,'codata'],[30,'morso'],[44,'piena']],
+    dex:'Il Licàt cresciuto. Solido come uno scoglio e affidabile come la bassa marea. Quando si arrabbia, però, monta l\'onda.' },
+  licatass: { n:'LICATÀSS', types:['Acqua'], hp:86, atk:88, def:96, spd:70,
+    learnset:[[1,'ondata'],[1,'morso'],[1,'sfondata'],[1,'piena'],[48,'licatonda']],
+    dex:'Lo stadio finale della Leggenda di Licata. Un colosso del mare del sud: la sua LICATÒNDA spazza il molo. Lento ad arrabbiarsi, terribile quando lo fa.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).
