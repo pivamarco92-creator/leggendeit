@@ -563,5 +563,71 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'GUARDIANO ETRUSCO',
       lines:["Parla piano, forestiero.\nQuesto ipogeo ha tremila anni e\nchi vi dorme è più vecchio ancora.",
              "L'ARÙSPICE legge il futuro e il\npensiero. Se lo svegli, saprà ogni\ntua mossa prima di te. Buona fortuna."] }
+  ],
+
+  /* ========== UMBRIA (Perugia) ========== */
+  trasimeno: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DEL LAGO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'tra1', team:[['zollin',44],['borda',44]],
+        pre:["Le sponde del Trasimeno le batte\nla Cosca. Si paga il pedaggio,\nforestiero."],
+        win:["Mannaggia. Passa, va'."], after:["Tira dritto verso Perugia."] } },
+    { x:20, y:7,  frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'tra2', team:[['lupomannaro',45],['civettona',45]],
+        pre:["Porto roba tra le isole del lago.\nTu mi rallenti, e non mi va."],
+        win:["Maledetto ritardo."], after:["Vai, vai verso il Grifo."] } },
+    { x:14, y:13, frame:14, name:'CAPOLAGO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'tra3', team:[['zollin',45],['farfarello',46]],
+        pre:["Ultimo prima di Perugia.\nE non mi smonti facile come\ngli altri."],
+        win:["...sei tosto come la terra umbra.\nPerugia t'aspetta."],
+        after:["L'acquedotto si vede di là."] } }
+  ],
+  perugia: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'STUDENTE STRANIERO',
+      lines:["Benvenuto a Perugia! Università per\nstranieri, cioccolato e vicoli che\nsalgono sempre, mai che scendano.",
+             "Il GRIFO è il simbolo della città.\nMa il cuore verde d'Italia nasconde\nleggende ben più antiche."] },
+    { x:8,  y:14, frame:11, name:'NORCINO',
+      lines:["Salumi e tartufi di Norcia, i\nmigliori! La terra qui dà di tutto,\nperfino le Leggende.",
+             "Dicono che sui colli viva uno\nspiritello di terra, lo ZOLLÌN.\nProfuma di tartufo, giuro."] },
+    { x:18, y:16, frame:12, name:'FRATE',
+      lines:["Pace e bene, viandante. Qui vicino,\na Gubbio, San Francesco ammansì un\nlupo feroce che terrorizzava tutti.",
+             "Dicono che quel LUPO vegli ancora\nsui boschi. Forte come la terra,\nmite con chi ha cuore puro."] }
+  ],
+  gympg: [
+    { x:5, y:2, frame:13, name:'QUIRINO', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'CONTADINO', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gympg1', team:[['zollin',46],['lupomannaro',46]],
+        pre:["Per arrivare a Quirino passi da me.\nLa terra non si attraversa senza\nfaticare, sai?"],
+        win:["Eh, hai polso. Quirino t'aspetta\nin fondo."],
+        after:["Vai, vai. È là che ti aspetta."] } },
+    { x:8, y:7, frame:11, name:'TARTUFAIA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gympg2', team:[['zollone',47],['farfarello',47]],
+        pre:["Scavo tartufi da trent'anni, conosco\nla terra meglio di chiunque. Vediamo\nse reggi il colpo."],
+        win:["Bel carattere! Sei degno di Quirino."],
+        after:["Il capo è là. Tieni i piedi per terra."] } }
+  ],
+  ambpg: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA BACI', ev:'cura' }
+  ],
+  valnerina: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DELLA VALLE', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'val1', team:[['zollin',45],['borda',45]],
+        pre:["La Valnerina la controlliamo noi.\nOgni cascata, ogni eremo. Paga."],
+        win:["Mannaggia. Passa."], after:["Non avvicinarti ai boschi di Gubbio."] } },
+    { x:14, y:13, frame:14, name:'CONTRABBANDIERA', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'val2', team:[['lupomannaro',46],['zollin',46]],
+        pre:["Porto roba lungo il Nera, di notte.\nLevati di mezzo, viandante."],
+        win:["Bah. Vada per stavolta."],
+        after:["Tira dritto e taci."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DEI BOSCHI', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'val3', team:[['zollone',47],['farfarello',47]],
+        pre:["L'ultimo prima dei boschi di Gubbio\nsono io. E lassù dorme qualcosa che\nè meglio non svegliare."],
+        win:["...va bene, passa. Ma quel lupo non\nl'ho ammansito io. Buona fortuna."],
+        after:["La radura è in fondo. Cammina piano."] } }
+  ],
+  gubbio: [
+    { x:3, y:9, frame:12, name:'EREMITA DI GUBBIO',
+      lines:["Pace e bene. Qui, otto secoli fa,\nSan Francesco strinse la zampa al\nlupo feroce e fecero la pace.",
+             "Il LUPO DI GUBBIO veglia ancora\nquesta radura. Forte come la terra.\nSe ti misuri con lui, abbi cuore puro."] }
   ]
 };

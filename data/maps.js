@@ -1304,7 +1304,7 @@ const MAPS = {
   },
 
   firenze: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
@@ -1317,7 +1317,7 @@ const MAPS = {
       'T.##..####..####..####..##.T',
       'T.........................RT',
       'T..........................T',
-      'T..........................T',
+      'TB.........................T',
       'T..........................T',
       'T..........................T',
       'TV.........................T',
@@ -1394,6 +1394,155 @@ const MAPS = {
   },
   /* ---------- IPOGEO ETRUSCO (area segreta — X = L'Arùspice) ---------- */
   ipogeo: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== UMBRIA (Perugia) — regione 10 ========== */
+  /* ---------- TOSCANA → UMBRIA · sponde del Trasimeno (U = Firenze, Z = Perugia) ---------- */
+  trasimeno: {
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.TT.....GGGG....TT.GGGGT',
+      'T...GGG.....GGG.....GGG....T',
+      'T..........................T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..GGG...............GGG...T',
+      'T..........................T',
+      'T..........................T',
+      'T..WWWWWWWWWWWWWWWWWWWWWWWWT',
+      'T..WWWWWWWWWWWWWWWWWWWWWWWWT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'zollin',      min:44, max:47, w:30 },
+      { id:'civettona',   min:43, max:46, w:22 },
+      { id:'borda',       min:44, max:47, w:18 },
+      { id:'lupomannaro', min:44, max:47, w:16 },
+      { id:'farfarello',  min:44, max:47, w:14 }
+    ],
+    items: [
+      { x:6,  y:5,  item:'ampolla',    flag:'it_tra1' },
+      { x:20, y:13, item:'pizza',      flag:'it_tra2' }
+    ]
+  },
+
+  perugia: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'TB.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gympg: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambpg: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- VALNERINA (route della regione, verso Gubbio) ---------- */
+  valnerina: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'zollin',      min:45, max:48, w:30 },
+      { id:'lupomannaro', min:44, max:47, w:22 },
+      { id:'civettona',   min:44, max:47, w:18 },
+      { id:'borda',       min:45, max:48, w:16 },
+      { id:'farfarello',  min:45, max:48, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'panzerotto', flag:'it_val1' },
+      { x:22, y:10, item:'ampolla',    flag:'it_val2' }
+    ]
+  },
+  /* ---------- GUBBIO (area segreta — X = Lupo di Gubbio) ---------- */
+  gubbio: {
     t2i: { '.':13, '#':14, 'X':5, 'E':12 },
     indoor: true,
     tiles: [
@@ -1586,11 +1735,31 @@ const PORTALS = {
             Y: { map:'gymfi', x:5, y:9, dir:'up' },
             H: { map:'ambfi', x:3, y:3, dir:'up' },
             R: { map:'chianti', x:2, y:9, dir:'right',
-                 arriveMsg: ["LE COLLINE DEL CHIANTI. Filari di viti\na perdita d'occhio, cipressi e vecchie\ntombe etrusche tra gli ulivi."] } },
+                 arriveMsg: ["LE COLLINE DEL CHIANTI. Filari di viti\na perdita d'occhio, cipressi e vecchie\ntombe etrusche tra gli ulivi."] },
+            B: { map:'trasimeno', x:2, y:9, dir:'right',
+                 lock: () => !G.flags.badge9,
+                 msg: ["La strada verso l'UMBRIA e Perugia,\nlungo il lago Trasimeno.",
+                       "«Senza la Medaglia del Giglio di là\nnon si passa, o bischero.»"],
+                 arriveMsg: ["IL LAGO TRASIMENO. Acque larghe e\npiatte, isole e canneti. Di là\ncomincia il cuore verde d'Italia."] } },
   gymfi:{ E: { map:'firenze', x:4, y:4, dir:'down' } },
   ambfi:{ E: { map:'firenze', x:20, y:4, dir:'down' } },
   chianti:{ U: { map:'firenze', x:25, y:9, dir:'left' },
             Z: { map:'ipogeo', x:7, y:12, dir:'up',
                  arriveMsg: ["UN IPOGEO ETRUSCO. Scendi nel buio tra\naffreschi sbiaditi di banchetti e\ndemoni. Qualcosa, qui sotto, veglia."] } },
-  ipogeo:{ E: { map:'chianti', x:8, y:5, dir:'down' } }
+  ipogeo:{ E: { map:'chianti', x:8, y:5, dir:'down' } },
+  trasimeno:{ U: { map:'firenze', x:2, y:11, dir:'right' },
+              Z: { map:'perugia', x:2, y:14, dir:'right',
+                   arriveMsg: ["PERUGIA. Vicoli medievali in salita,\nl'acquedotto, il Grifo di pietra.\nIl cuore verde d'Italia."] } },
+  perugia:{ V: { map:'trasimeno', x:25, y:9, dir:'left',
+                 arriveMsg: ["IL TRASIMENO. Si torna verso la\nToscana, lungo le sponde del lago."] },
+            Y: { map:'gympg', x:5, y:9, dir:'up' },
+            H: { map:'ambpg', x:3, y:3, dir:'up' },
+            R: { map:'valnerina', x:2, y:9, dir:'right',
+                 arriveMsg: ["LA VALNERINA. La valle del Nera tra\nmonti boscosi, eremi e cascate.\nIn fondo, Gubbio."] } },
+  gympg:{ E: { map:'perugia', x:4, y:4, dir:'down' } },
+  ambpg:{ E: { map:'perugia', x:20, y:4, dir:'down' } },
+  valnerina:{ U: { map:'perugia', x:25, y:9, dir:'left' },
+              Z: { map:'gubbio', x:7, y:12, dir:'up',
+                   arriveMsg: ["I BOSCHI DI GUBBIO. Tra i faggi, una\nradura silenziosa. Qui San Francesco\nincontrò il lupo. Qualcosa si muove."] } },
+  gubbio:{ E: { map:'valnerina', x:8, y:5, dir:'down' } }
 };

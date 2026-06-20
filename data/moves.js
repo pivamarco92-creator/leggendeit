@@ -37,6 +37,8 @@ const MOVES = {
   ciclone:    { n:'Ciclone',      t:'Vento',      pow:90, pp:10 },
   psicobotta: { n:'Psicobotta',   t:'Psico',      pow:50, pp:25 },
   psicoonda:  { n:'Psicoonda',    t:'Psico',      pow:90, pp:10 },
+  fango:      { n:'Fango',        t:'Terra',      pow:50, pp:25 },
+  terremoto:  { n:'Terremoto',    t:'Terra',      pow:90, pp:10 },
   /* --- mosse-firma de "I tre soci" --- */
   pivonata:   { n:'Pivonata',     t:'Elettro',    pow:90, pp:10 },
   facciata:   { n:'Facciata',     t:'Fuoco',      pow:90, pp:10 },

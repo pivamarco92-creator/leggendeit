@@ -249,7 +249,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -261,7 +261,8 @@ function evJohnny(town) {
     venezia: [['mazariol', lv], ['borda', lv + 1], ['mazarione', lv + 2]],
     trieste: [['cjalcjut', lv], ['ratapignata', lv + 1], ['cjalcjutone', lv + 2]],
     bologna: [['foghin', lv], ['farfarello', lv + 1], ['fogaron', lv + 2]],
-    firenze: [['strio', lv], ['civettona', lv + 1], ['strione', lv + 2]]
+    firenze: [['strio', lv], ['civettona', lv + 1], ['strione', lv + 2]],
+    perugia: [['zollin', lv], ['lupomannaro', lv + 1], ['zollone', lv + 2]]
   };
   const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
@@ -802,7 +803,23 @@ function facciChallenge() {
   }, 'FACCI');
 }
 
+/* Leggendario dell'Umbria: il Lupo di Gubbio, ammansito da San Francesco. */
+function evLupogubbio() {
+  if (G.flags.lupogubbioCaught) {
+    say(["La radura è quieta. Il LUPO DI\nGUBBIO ti ha già concesso la\nsua fiducia. Una volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nturbare il lupo nella radura."); return; }
+  say(["Tra i faggi avanza un lupo enorme,\nil manto color terra, gli occhi\nantichi e calmi.",
+       "È il LUPO DI GUBBIO. Ti studia, poi\nabbassa il capo: non è un attacco,\nè una sfida leale.",
+       "«Misurati con me, se hai cuore puro.»",
+       "Il LUPO DI GUBBIO carica!"], () => {
+    saveGame();
+    beep(160, .22, 'triangle'); beep(120, .26, 'triangle');
+    startBattle(makeMon('lupogubbio', 46), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

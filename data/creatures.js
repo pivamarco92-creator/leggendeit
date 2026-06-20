@@ -39,6 +39,8 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'pivot','pivarol','pivon',
                         'faccin','facciotto','faccion',
                         'licat','licatone','licatass',
+                        /* Umbria — linea di Terra + leggendario */
+                        'zollin','zollone','lupogubbio',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -320,6 +322,18 @@ const SPECIES = {
   licatass: { n:'LICATÀSS', types:['Acqua'], hp:86, atk:88, def:96, spd:70,
     learnset:[[1,'ondata'],[1,'morso'],[1,'sfondata'],[1,'piena'],[48,'licatonda']],
     dex:'Lo stadio finale della Leggenda di Licata. Un colosso del mare del sud: la sua LICATÒNDA spazza il molo. Lento ad arrabbiarsi, terribile quando lo fa.' },
+
+  /* ---------- Umbria — linea di Terra + il Lupo di Gubbio ---------- */
+  zollin: { n:'ZOLLÌN', types:['Terra'], hp:50, atk:55, def:58, spd:35,
+    evolve:{ lv:32, to:'zollone' },
+    learnset:[[1,'botta'],[1,'fango'],[14,'morso'],[32,'terremoto']],
+    dex:'Spiritello di terra delle colline umbre, una zolla che ha preso vita. Profuma di tartufo e di pioggia. Lento ma cocciuto.' },
+  zollone: { n:'ZOLLÒNE', types:['Terra'], hp:80, atk:88, def:95, spd:45,
+    learnset:[[1,'fango'],[1,'morso'],[1,'sfondata'],[46,'terremoto']],
+    dex:'Golem di terra e radici del cuore verde d\'Italia. Quando cammina nei campi, dicono, le zolle si rivoltano da sole.' },
+  lupogubbio: { n:'LUPO DI GUBBIO', types:['Terra','Normale'], hp:92, atk:102, def:88, spd:86,
+    learnset:[[1,'morso'],[1,'fango'],[1,'sfondata'],[1,'terremoto'],[50,'terremoto']],
+    dex:'Il lupo feroce che terrorizzava Gubbio, ammansito da San Francesco. Da allora veglia sui colli umbri: forte come la terra, mite come un patto mai tradito.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).

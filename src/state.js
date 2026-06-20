@@ -15,6 +15,7 @@ const G = {
            badge7:false, boraCaught:false,
            badge8:false, aldialCaught:false,
            badge9:false, aruspiceCaught:false,
+           badge10:false, lupogubbioCaught:false,
            piva_n1:false, piva_n2:false, piva_n3:false, piva_done:false,
            licata_med:false, licata_done:false,
            facci_quiz:false, facci_done:false, soci_reward:false },
@@ -31,13 +32,14 @@ function dexCatch(id) { if (!G.dex) return;
    o vai KO, il leggendario torna disponibile al santuario. */
 const LEGENDARY_FLAG = { stambeco:'stamboCaught', scighera:'scigheraCaught',
   taurin:'taurinCaught', barry:'barryCaught', grifone:'grifoneCaught', laurino:'laurinoCaught',
-  leon:'leonCaught', bora:'boraCaught', aldial:'aldialCaught', aruspice:'aruspiceCaught' };
+  leon:'leonCaught', bora:'boraCaught', aldial:'aldialCaught', aruspice:'aruspiceCaught',
+  lupogubbio:'lupogubbioCaught' };
 /* Allenatori-rivincita già battuti in QUESTA visita alla mappa (azzerato al cambio mappa). */
 const BEATEN_VISIT = new Set();
 /* Mappe-percorso: i loro allenatori (Cosca) si ripresentano a ogni visita, sempre più forti. */
 const ROUTE_MAPS = ['navigli', 'murazzi', 'gransanbernardo', 'scogliera',
   'stradapo', 'valico', 'appennino', 'dolomiti', 'valdadige', 'brenta', 'isonzo', 'carso',
-  'viaemilia', 'pianurapo', 'chianti', 'futa'];
+  'viaemilia', 'pianurapo', 'chianti', 'futa', 'valnerina', 'trasimeno'];
 
 /* ---------------- SALVATAGGIO ---------------- */
 const SAVE_KEY = 'leggende-italia-save';

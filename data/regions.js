@@ -375,12 +375,53 @@ const GYMS = {
       title:'★ FINE DEI CONTENUTI ★',
       medal:'MEDAGLIA DEL GIGLIO ottenuta!', region:'Regione 9 di 20 completata',
       next:'PROSSIMA TAPPA: UMBRIA<br>Quirino · Tipo Terra · Perugia',
-      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 9 regioni.',
+      footer:'Premi A: prosegui verso l\'UMBRIA<br>(lungo il Trasimeno da Firenze,<br>serve la Medaglia del Giglio).',
       goodAt:10, badAt:-9,
       verdict:{
         good:'Da Milano a Firenze, un nome che la\nCosca non può comprare a nessun prezzo.',
         bad:'La Cosca ti segue di regione in\nregione, e compra tutto tranne te.',
         neutral:'Nove medaglie. Mezza Italia conosce\nil tuo nome; l\'altra metà ti aspetta.'}
+    }
+  },
+
+  gympg: {
+    leader:'QUIRINO', type:'Terra', badge:'badge10', region:10,
+    team:[['zollin',47],['lupomannaro',48],['zollone',50]],
+    challenge:'«Chi vince si piglia la MEDAGLIA DEL\nGRIFO. Coraggio, su!»',
+    intro:[
+      "La palestra di Perugia: una cantina\nin pietra sotto l'acquedotto, odore\ndi terra umida e tartufo.",
+      "In fondo, un omone tarchiato con gli\nscarponi infangati ti aspetta, calmo\ncome una collina."],
+    done:[
+      "«La Medaglia del Grifo è tua, e te la\nsei guadagnata con i piedi per terra.»",
+      "«Ora scendi nelle MARCHE, da GUERRINO,\nad Ancona. E saluta il mare per me.»"],
+    openers:{
+      good:[
+        "«Allora sei tu il ragazzo che la Cosca\nnon riesce a comprare. Buona terra,\nquella da cui vieni.»",
+        "«Ma qui comanda il suolo. Vediamo se\nresti in piedi quando trema.»"],
+      bad:[
+        "«Si dice che a valle tu abbia stretto\nmani sbagliate, ragazzo.»",
+        "«La terra ricopre tutto, col tempo.\nVediamo cosa resta di te.»"],
+      neutral:[
+        "«Benvenuto! Sono QUIRINO,\ncapopalestra di Perugia.»",
+        "«Tipo TERRA: come queste colline,\npaziente, solida e più forte di\nquanto sembri.»"]
+    },
+    win:[
+      "Quirino richiama il suo ZOLLÒNE e si\npulisce gli scarponi, soddisfatto.",
+      "«Bella lotta. Hai radici robuste,\nragazzo.»",
+      "Hai ottenuto la MEDAGLIA DEL GRIFO!\n(10 di 20)",
+      "«La Cosca ha provato a comprarsi mezza\nUmbria. Ma la terra non si vende:\nsi lavora.»",
+      "«Tu continua. Le Marche ti aspettano,\ne il mare. Sei a metà dell'Italia\normai. Tieni duro.»"],
+    loseMsg:"Quirino ti aspetta in palestra.\n«Rimettiti in piedi e torna.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL GRIFO ottenuta!', region:'Regione 10 di 20 completata',
+      next:'PROSSIMA TAPPA: MARCHE<br>Guerrino · Tipo Volante · Ancona',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 10 regioni.',
+      goodAt:11, badAt:-10,
+      verdict:{
+        good:'Da Milano a Perugia, metà Italia: un\nnome che la Cosca non può comprare.',
+        bad:'La Cosca ti segue di regione in\nregione. La terra ha memoria lunga.',
+        neutral:'Dieci medaglie, metà del cammino.\nL\'Italia intera ormai ti osserva.'}
     }
   }
 };
@@ -445,11 +486,18 @@ const WORLD_MAP = [
     respawn:{ map:'bologna', x:14, y:5, dir:'down', lines:["Ti svegli sotto un portico, all'ombra.\nUna AZDORA ti porge dei tortellini\nfumanti, scuotendo la testa.","La squadra è di nuovo in forze, ciò."] },
     link:'valico della Futa -> Firenze (con Medaglia delle Due Torri)' },
   { city:'FIRENZE', region:'Toscana', leader:'Checcone', type:'Psico', badge:'badge9',
-    maps:['firenze','gymfi','ambfi','chianti','ipogeo'],
+    maps:['firenze','gymfi','ambfi','chianti','ipogeo','trasimeno'],
     layout:[ { c:['firenze'] },
              { c:['gymfi','ambfi'] },
              { c:['chianti','ipogeo'], j:'->' } ],
     respawn:{ map:'firenze', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in piazza\ndella Signoria. Il David ti guarda\ndall'alto, impassibile.","La squadra è di nuovo in forze, o bischero."] },
+    link:'sponde del Trasimeno -> Perugia (con Medaglia del Giglio)' },
+  { city:'PERUGIA', region:'Umbria', leader:'Quirino', type:'Terra', badge:'badge10',
+    maps:['perugia','gympg','ambpg','valnerina','gubbio'],
+    layout:[ { c:['perugia'] },
+             { c:['gympg','ambpg'] },
+             { c:['valnerina','gubbio'], j:'->' } ],
+    respawn:{ map:'perugia', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina lungo\nl'acquedotto. Un gatto ti fissa dai\nvicoli in salita.","La squadra è di nuovo in forze."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -467,9 +515,11 @@ const AREA_LABELS = {
   pianurapo:'Pianura',
   bologna:'Centro', gymbo:'Palestra', ambbo:'Ambul.', viaemilia:'Via Emilia', torri:'Due Torri',
   futa:'Futa',
-  firenze:'Centro', gymfi:'Palestra', ambfi:'Ambul.', chianti:'Chianti', ipogeo:'Ipogeo'
+  firenze:'Centro', gymfi:'Palestra', ambfi:'Ambul.', chianti:'Chianti', ipogeo:'Ipogeo',
+  trasimeno:'Trasimeno',
+  perugia:'Centro', gympg:'Palestra', ambpg:'Ambul.', valnerina:'Valnerina', gubbio:'Gubbio'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */
