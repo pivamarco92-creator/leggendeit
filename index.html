@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Leggende d'Italia — Demo Milano</title>
+<title>Leggende d'Italia</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html,body { height:100%; background:#14141f; overflow:hidden;
@@ -337,7 +337,7 @@
       <div id="titleScr" class="overlay">
         <h1>LEGGENDE</h1>
         <h2>★ D'ITALIA ★</h2>
-        <div class="tri">Folklore, palestre e mala —<br>Demo · Regioni 1–3 di 20<br>Milano · Torino · Aosta<br><br>«Taaac.»</div>
+        <div class="tri">Folklore, palestre e mala —<br><span id="titleRegions">Regioni di 20</span><br>dal Duomo di Milano al Sud<br><br>«Taaac.»</div>
         <div class="blink">— PREMI INVIO o A —</div>
       </div>
       <div id="battleUI" class="overlay">
@@ -404,5 +404,15 @@
 <script src="src/menu.js"></script>
 <script src="src/box.js"></script>
 <script src="src/main.js"></script>
+<script>
+  /* Aggiorna il conteggio regioni nella schermata iniziale (da GYMS, così non resta mai vecchio). */
+  (function () {
+    try {
+      var n = (typeof GYMS !== 'undefined') ? Object.keys(GYMS).length : 0;
+      var el = document.getElementById('titleRegions');
+      if (el && n) el.textContent = n + ' regioni di 20 giocabili';
+    } catch (e) {}
+  })();
+</script>
 </body>
 </html>
