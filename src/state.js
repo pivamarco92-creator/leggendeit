@@ -17,6 +17,7 @@ const G = {
            badge9:false, aruspiceCaught:false,
            badge10:false, lupogubbioCaught:false,
            badge11:false, sibillaCaught:false,
+           badge12:false, draconeCaught:false,
            piva_n1:false, piva_n2:false, piva_n3:false, piva_done:false,
            licata_med:false, licata_done:false,
            facci_quiz:false, facci_done:false, soci_reward:false },
@@ -34,13 +35,14 @@ function dexCatch(id) { if (!G.dex) return;
 const LEGENDARY_FLAG = { stambeco:'stamboCaught', scighera:'scigheraCaught',
   taurin:'taurinCaught', barry:'barryCaught', grifone:'grifoneCaught', laurino:'laurinoCaught',
   leon:'leonCaught', bora:'boraCaught', aldial:'aldialCaught', aruspice:'aruspiceCaught',
-  lupogubbio:'lupogubbioCaught', sibilla:'sibillaCaught' };
+  lupogubbio:'lupogubbioCaught', sibilla:'sibillaCaught', dracone:'draconeCaught' };
 /* Allenatori-rivincita già battuti in QUESTA visita alla mappa (azzerato al cambio mappa). */
 const BEATEN_VISIT = new Set();
 /* Mappe-percorso: i loro allenatori (Cosca) si ripresentano a ogni visita, sempre più forti. */
 const ROUTE_MAPS = ['navigli', 'murazzi', 'gransanbernardo', 'scogliera',
   'stradapo', 'valico', 'appennino', 'dolomiti', 'valdadige', 'brenta', 'isonzo', 'carso',
-  'viaemilia', 'pianurapo', 'chianti', 'futa', 'valnerina', 'trasimeno', 'conero', 'furlo'];
+  'viaemilia', 'pianurapo', 'chianti', 'futa', 'valnerina', 'trasimeno', 'conero', 'furlo',
+  'appiaantica', 'salaria'];
 
 /* ---------------- SALVATAGGIO ---------------- */
 const SAVE_KEY = 'leggende-italia-save';

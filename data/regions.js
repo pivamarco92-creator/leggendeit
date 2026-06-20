@@ -457,12 +457,53 @@ const GYMS = {
       title:'★ FINE DEI CONTENUTI ★',
       medal:'MEDAGLIA DEL CONERO ottenuta!', region:'Regione 11 di 20 completata',
       next:'PROSSIMA TAPPA: LAZIO<br>Sor Alvaro · Tipo Drago · Roma',
-      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 11 regioni.',
+      footer:'Premi A: prosegui verso il LAZIO<br>(Via Salaria da Ancona,<br>serve la Medaglia del Conero).',
       goodAt:12, badAt:-11,
       verdict:{
         good:'Da Milano ad Ancona, un nome che vola\npiù in alto della Cosca.',
         bad:'La Cosca ti segue di regione in\nregione. Ma il vento è dalla tua.',
         neutral:'Undici medaglie. Il tuo nome corre\nsul vento dell\'Adriatico.'}
+    }
+  },
+
+  gymrm: {
+    leader:'SOR ALVARO', type:'Drago', badge:'badge12', region:12,
+    team:[['ruderin',53],['lupomannaro',54],['ruderone',56]],
+    challenge:'«Chi vince se piglia la MEDAGLIA DER\nCOLOSSEO. Daje, ahò!»',
+    intro:[
+      "La palestra di Roma: un'arena di\ntravertino sotto il livello della\nstrada, torce alle pareti.",
+      "In fondo, un omone in tunica con una\nsigaretta spenta in bocca ti squadra,\ncalmo come un imperatore."],
+    done:[
+      "«La Medaglia der Colosseo è tua, ahò.\nMo' scegni in ABRUZZO, da CARMINE,\na L'Aquila. E occhio a quello che t'ho detto.»"],
+    openers:{
+      good:[
+        "«Aò, sei tu quello che la Cosca nun\nriesce a comprà. Me piaci, daje.»",
+        "«Ma qua a Roma comanna er drago.\nVedemo se nun te bruci, ahò.»"],
+      bad:[
+        "«Se dice che a monte hai stretto certe\nmani, ahò. Brutte mani.»",
+        "«Er drago nun perdona i furbi.\nVedemo.»"],
+      neutral:[
+        "«Aò! So' SOR ALVARO, capopalestra\nde Roma, Caput Mundi.»",
+        "«Tipo DRAGO: come 'sta città. Antico,\nfiero e che nun more mai.»"]
+    },
+    win:[
+      "Sor Alvaro richiama er RUDERÒNE e\naccenne finalmente la sigaretta.",
+      "«Ammazza che lotta. Te la sei\nguadagnata, ahò.»",
+      "Hai ottenuto la MEDAGLIA DER COLOSSEO!\n(12 di 20)",
+      "«Mo' te dico 'na cosa seria, ahò.\nLa Cosca c'ha er quartier generale\nproprio qua a Roma.»",
+      "«Sotto a 'n monumento antico, nascosto.\nDe lì comannano tutta l'Italia.\nIo nun ce so' mai entrato.»",
+      "«Tu va' avanti, fatte le medaglie.\nMa quanno sarai pronto, è qua che\nse chiude 'sta storia. Ricordatelo.»"],
+    loseMsg:"Sor Alvaro t'aspetta in palestra.\n«Rifiatate e torna, ahò.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DER COLOSSEO ottenuta!', region:'Regione 12 di 20 completata',
+      next:'PROSSIMA TAPPA: ABRUZZO<br>Carmine · Tipo Roccia · L\'Aquila',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 12 regioni.',
+      goodAt:13, badAt:-12,
+      verdict:{
+        good:'Da Milano a Roma, capitale: un nome\nche la Cosca non può comprare.\nE ora sai dove si nascondono.',
+        bad:'La Cosca ti osserva dal suo covo\nromano. Conosci la loro tana, ma\nloro conoscono te.',
+        neutral:'Dodici medaglie, e un segreto:\nil cuore della Cosca batte sotto\nRoma. Prima o poi, ci tornerai.'}
     }
   }
 };
@@ -541,11 +582,18 @@ const WORLD_MAP = [
     respawn:{ map:'perugia', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina lungo\nl'acquedotto. Un gatto ti fissa dai\nvicoli in salita.","La squadra è di nuovo in forze."] },
     link:'Gola del Furlo -> Ancona (con Medaglia del Grifo)' },
   { city:'ANCONA', region:'Marche', leader:'Guerrino', type:'Volante', badge:'badge11',
-    maps:['ancona','gyman','amban','conero','sibillini'],
+    maps:['ancona','gyman','amban','conero','sibillini','salaria'],
     layout:[ { c:['ancona'] },
              { c:['gyman','amban'] },
              { c:['conero','sibillini'], j:'->' } ],
     respawn:{ map:'ancona', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina del porto.\nUn falco plana in alto, lento.","La squadra è di nuovo in forze."] },
+    link:'Via Salaria -> Roma (con Medaglia del Conero)' },
+  { city:'ROMA', region:'Lazio', leader:'Sor Alvaro', type:'Drago', badge:'badge12',
+    maps:['roma','gymrm','ambrm','appiaantica','catacombe'],
+    layout:[ { c:['roma'] },
+             { c:['gymrm','ambrm'] },
+             { c:['appiaantica','catacombe'], j:'->' } ],
+    respawn:{ map:'roma', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina ai Fori.\nUn gatto romano ti fissa dall'alto\ndi una colonna, regale.","La squadra è di nuovo in forze, ahò."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -567,9 +615,11 @@ const AREA_LABELS = {
   trasimeno:'Trasimeno',
   perugia:'Centro', gympg:'Palestra', ambpg:'Ambul.', valnerina:'Valnerina', gubbio:'Gubbio',
   furlo:'Furlo',
-  ancona:'Centro', gyman:'Palestra', amban:'Ambul.', conero:'Conero', sibillini:'Sibillini'
+  ancona:'Centro', gyman:'Palestra', amban:'Ambul.', conero:'Conero', sibillini:'Sibillini',
+  salaria:'Salaria',
+  roma:'Centro', gymrm:'Palestra', ambrm:'Ambul.', appiaantica:'Appia', catacombe:'Catacombe'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

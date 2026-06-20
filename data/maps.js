@@ -1602,7 +1602,7 @@ const MAPS = {
   },
 
   ancona: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
@@ -1615,7 +1615,7 @@ const MAPS = {
       'T.##..####..####..####..##.T',
       'T.........................RT',
       'T..........................T',
-      'T..........................T',
+      'TB.........................T',
       'T..........................T',
       'T..........................T',
       'TV.........................T',
@@ -1692,6 +1692,155 @@ const MAPS = {
   },
   /* ---------- MONTI SIBILLINI (area segreta — X = Sibilla) ---------- */
   sibillini: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== LAZIO (Roma) — regione 12 ========== */
+  /* ---------- MARCHE → LAZIO · Via Salaria (U = Ancona, Z = Roma) ---------- */
+  salaria: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TMM..GGG......GGG......MMMMT',
+      'TM...GGG......GGG......MMM.T',
+      'T....................MM....T',
+      'T..GG................MM....T',
+      'T..........................T',
+      'T..GGG.........GGG.........T',
+      'TMM........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T........MM......MM........T',
+      'T..GGG...MM......MM...GGG..T',
+      'T........MM......MM........T',
+      'T..........................T',
+      'T..GGG................GGG..T',
+      'TMMM....................MMMT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'ruderin',     min:50, max:53, w:26 },
+      { id:'lupomannaro', min:50, max:53, w:22 },
+      { id:'civettona',   min:49, max:52, w:18 },
+      { id:'borda',       min:50, max:53, w:18 },
+      { id:'farfarello',  min:50, max:53, w:16 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'ampolla',    flag:'it_sal1' },
+      { x:22, y:14, item:'pizza',      flag:'it_sal2' }
+    ]
+  },
+
+  roma: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gymrm: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambrm: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- VIA APPIA ANTICA (route della regione, verso le catacombe) ---------- */
+  appiaantica: {
+    t2i: { '.':0, 'G':3, 'T':4, '#':7, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.##....GGG....##.GGGGGGT',
+      'T....##....GGG....##.......T',
+      'T....##.ZG.GGG....##.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..##....GGG....##.........T',
+      'T..##....GGG....##.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'ruderin',     min:51, max:54, w:28 },
+      { id:'lupomannaro', min:50, max:53, w:20 },
+      { id:'civettona',   min:50, max:53, w:18 },
+      { id:'borda',       min:51, max:54, w:16 },
+      { id:'farfarello',  min:51, max:54, w:16 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'panzerotto', flag:'it_app1' },
+      { x:22, y:10, item:'ampolla',    flag:'it_app2' }
+    ]
+  },
+  /* ---------- CATACOMBE ROMANE (area segreta — X = Dracòne) ---------- */
+  catacombe: {
     t2i: { '.':13, '#':14, 'X':5, 'E':12 },
     indoor: true,
     tiles: [
@@ -1924,11 +2073,31 @@ const PORTALS = {
            Y: { map:'gyman', x:5, y:9, dir:'up' },
            H: { map:'amban', x:3, y:3, dir:'up' },
            R: { map:'conero', x:2, y:9, dir:'right',
-                arriveMsg: ["IL MONTE CONERO. La montagna a picco\nsul mare, leccete e calette bianche.\nIn alto, i Sibillini."] } },
+                arriveMsg: ["IL MONTE CONERO. La montagna a picco\nsul mare, leccete e calette bianche.\nIn alto, i Sibillini."] },
+           B: { map:'salaria', x:2, y:9, dir:'right',
+                lock: () => !G.flags.badge11,
+                msg: ["La Via Salaria, l'antica strada del\nsale verso ROMA.",
+                      "«Senza la Medaglia del Conero a Roma\nnon ci arrivi, bardascio.»"],
+                arriveMsg: ["LA VIA SALARIA. L'antica strada del\nsale taglia l'Appennino verso la\ncittà eterna."] } },
   gyman:{ E: { map:'ancona', x:4, y:4, dir:'down' } },
   amban:{ E: { map:'ancona', x:20, y:4, dir:'down' } },
   conero:{ U: { map:'ancona', x:25, y:9, dir:'left' },
            Z: { map:'sibillini', x:7, y:12, dir:'up',
                 arriveMsg: ["LA GROTTA DELLA SIBILLA. Cunicoli che\nsprofondano nel monte. Una luce fioca\npulsa in fondo, come un respiro."] } },
-  sibillini:{ E: { map:'conero', x:8, y:5, dir:'down' } }
+  sibillini:{ E: { map:'conero', x:8, y:5, dir:'down' } },
+  salaria:{ U: { map:'ancona', x:2, y:11, dir:'right' },
+            Z: { map:'roma', x:2, y:14, dir:'right',
+                 arriveMsg: ["ROMA. La città eterna: Colosseo, Fori,\ncupole. E sotto, catacombe e segreti\nche dormono da millenni."] } },
+  roma:{ V: { map:'salaria', x:25, y:9, dir:'left',
+              arriveMsg: ["LA VIA SALARIA. Si risale verso le\nMarche e l'Adriatico."] },
+         Y: { map:'gymrm', x:5, y:9, dir:'up' },
+         H: { map:'ambrm', x:3, y:3, dir:'up' },
+         R: { map:'appiaantica', x:2, y:9, dir:'right',
+              arriveMsg: ["LA VIA APPIA ANTICA. La regina delle\nstrade: basoli, pini marittimi e\nmausolei. Sotto, le catacombe."] } },
+  gymrm:{ E: { map:'roma', x:4, y:4, dir:'down' } },
+  ambrm:{ E: { map:'roma', x:20, y:4, dir:'down' } },
+  appiaantica:{ U: { map:'roma', x:25, y:9, dir:'left' },
+                Z: { map:'catacombe', x:7, y:12, dir:'up',
+                     arriveMsg: ["LE CATACOMBE. Scendi tra loculi e\naffreschi paleocristiani. Nel buio,\nin fondo, qualcosa di enorme respira."] } },
+  catacombe:{ E: { map:'appiaantica', x:8, y:5, dir:'down' } }
 };

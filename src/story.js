@@ -249,7 +249,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -263,7 +263,8 @@ function evJohnny(town) {
     bologna: [['foghin', lv], ['farfarello', lv + 1], ['fogaron', lv + 2]],
     firenze: [['strio', lv], ['civettona', lv + 1], ['strione', lv + 2]],
     perugia: [['zollin', lv], ['lupomannaro', lv + 1], ['zollone', lv + 2]],
-    ancona: [['falchin', lv], ['ratapignata', lv + 1], ['falchione', lv + 2]]
+    ancona: [['falchin', lv], ['ratapignata', lv + 1], ['falchione', lv + 2]],
+    roma: [['ruderin', lv], ['lupomannaro', lv + 1], ['ruderone', lv + 2]]
   };
   const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
@@ -836,7 +837,23 @@ function evSibilla() {
     startBattle(makeMon('sibilla', 48), null);
   });
 }
+/* Leggendario del Lazio: il Dracòne delle catacombe, sigillato da Papa Silvestro. */
+function evDracone() {
+  if (G.flags.draconeCaught) {
+    say(["Le catacombe sono di nuovo silenziose.\nIl DRACÒNE ti ha già riconosciuto.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nosi svegliare ciò che dorme\nsotto Roma."); return; }
+  say(["In fondo alle catacombe due fessure\nincandescenti si aprono nel buio:\nsono occhi. Enormi.",
+       "Il sigillo di Papa Silvestro si\nincrina. Il DRACÒNE, il drago di Roma,\nsolleva la testa dopo secoli.",
+       "«Chi turba il mio sonno millenario...\nche bruci.»",
+       "Il DRACÒNE attacca!"], () => {
+    saveGame();
+    beep(120, .26, 'triangle'); beep(90, .3, 'triangle'); beep(70, .34, 'triangle');
+    startBattle(makeMon('dracone', 50), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

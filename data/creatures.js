@@ -43,6 +43,8 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'zollin','zollone','lupogubbio',
                         /* Marche — linea Volante + leggendario */
                         'falchin','falchione','sibilla',
+                        /* Lazio — linea Drago + leggendario */
+                        'ruderin','ruderone','dracone',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -348,6 +350,18 @@ const SPECIES = {
   sibilla: { n:'SIBILLA', types:['Volante','Psico'], hp:88, atk:96, def:85, spd:100,
     learnset:[[1,'beccata'],[1,'psicobotta'],[1,'tramontana'],[1,'psicoonda'],[50,'tramontana']],
     dex:'La Sibilla Appenninica, la profetessa dei Monti Sibillini. Dalla sua grotta legge il vento e l\'avvenire. Le fate la servono al chiaro di luna.' },
+
+  /* ---------- Lazio — linea Drago + il Dracòne delle catacombe ---------- */
+  ruderin: { n:'RUDERÌN', types:['Drago'], hp:52, atk:58, def:52, spd:50,
+    evolve:{ lv:34, to:'ruderone' },
+    learnset:[[1,'morso'],[1,'dragobotta'],[14,'graffio'],[34,'furiadrago']],
+    dex:'Draghetto nato tra le rovine di Roma. Dorme negli archi del Foro e si scalda al sole sui sampietrini. Piccolo, ma già fumantino.' },
+  ruderone: { n:'RUDERÒNE', types:['Drago'], hp:82, atk:92, def:78, spd:68,
+    learnset:[[1,'dragobotta'],[1,'morso'],[1,'sfondata'],[48,'furiadrago']],
+    dex:'Il drago adulto delle rovine. Si aggira tra i Fori Imperiali al tramonto: i turisti lo scambiano per un\'ombra, finché non sbuffa fumo.' },
+  dracone: { n:'DRACÒNE', types:['Drago'], hp:95, atk:108, def:92, spd:92,
+    learnset:[[1,'morso'],[1,'dragobotta'],[1,'sfondata'],[1,'furiadrago'],[50,'furiadrago']],
+    dex:'Il grande drago delle catacombe romane. La leggenda narra che Papa Silvestro ne sigillò le fauci sotto il Foro. Da allora dorme nel buio, sotto la città eterna.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).

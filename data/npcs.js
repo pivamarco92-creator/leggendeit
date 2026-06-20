@@ -695,5 +695,70 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'CUSTODE DELLA GROTTA',
       lines:["Silenzio, viandante. Sei alla soglia\ndella grotta della SIBILLA, la\nprofetessa dei monti.",
              "Legge il vento e l'avvenire. Se la\nsfidi, saprà le tue mosse prima di\nte. Ma una sfida leale la rispetta."] }
+  ],
+
+  /* ========== LAZIO (Roma) ========== */
+  salaria: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DELLA SALARIA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'sal1', team:[['ruderin',50],['borda',50]],
+        pre:["Aò, la Salaria la tenemo noi.\nSe vòi entrà a Roma, se paga\ner pedaggio, ahò."],
+        win:["'Mbè. Passa, va'."], after:["Tira dritto verso Roma."] } },
+    { x:20, y:7,  frame:14, name:'CORRIERE DELLA CAPITALE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'sal2', team:[['lupomannaro',51],['civettona',51]],
+        pre:["Porto 'na consegna pe' la Cosca\nde Roma. Nun me rompe, ahò."],
+        win:["Ammazza che rottura."], after:["Daje, sparisci verso il centro."] } },
+    { x:14, y:13, frame:14, name:'CAPOZONA ROMANO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'sal3', team:[['ruderin',52],['farfarello',52]],
+        pre:["So' l'urtimo prima de Roma.\nE nun so' simpatico come quelli\nde fòri, ahò."],
+        win:["...ammazza, sei tosto. Roma\nt'aspetta. E pure la Cosca."],
+        after:["Er Colosseo se vede da qua."] } }
+  ],
+  roma: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'ROMANO DE ROMA',
+      lines:["Aò, benvenuto a Roma! Caput Mundi,\nahò. Qua c'è tremila anni de storia\nsotto le scarpe.",
+             "Dicono che 'n drago dorma sotto i\nFori da quanno Papa Silvestro je\nchiuse la bocca. Leggende, eh... forse."] },
+    { x:8,  y:14, frame:11, name:'GUIDA DEI FORI',
+      lines:["Er Colosseo, i Fori, l'Appia Antica...\ne sotto, le catacombe. Roma è doppia:\nsopra e sotto.",
+             "Ma occhio: girano tipi in gessato coi\nsoldi facili. Dicono che la Cosca\nc'abbia er quartier generale qua."] },
+    { x:18, y:16, frame:12, name:'ARCHEOLOGA',
+      lines:["Scavo sotto Roma da vent'anni. Ogni\npietra nasconde qualcosa. E non solo\nreperti, credimi.",
+             "C'è chi giura che sotto un monumento\nantico la Cosca tenga il suo covo\npiù grosso. Io non ho visto niente.\nPer ora."] }
+  ],
+  gymrm: [
+    { x:5, y:2, frame:13, name:'SOR ALVARO', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'GLADIATORE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymrm1', team:[['ruderin',53],['lupomannaro',53]],
+        pre:["Pe' arrivà a Sor Alvaro passi da me.\nNell'arena se suda, ahò."],
+        win:["Daje, hai vinto. Er capo t'aspetta\nin fondo."],
+        after:["Vai, vai. Nun lo fa' aspettà."] } },
+    { x:8, y:7, frame:11, name:'VESTALE', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymrm2', team:[['ruderone',54],['farfarello',54]],
+        pre:["Custodisco er fòco sacro e i draghi\nde Roma. Vedemo se reggi la fiamma."],
+        win:["Ammazza che lotta. Sei degno\nde Sor Alvaro."],
+        after:["Er capo è là. Portaje rispetto."] } }
+  ],
+  ambrm: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA COLONNA', ev:'cura' }
+  ],
+  appiaantica: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DELL\'APPIA', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'app1', team:[['ruderin',51],['borda',51]],
+        pre:["L'Appia Antica la gestimo noi,\nbasolo pe' basolo. Paga, ahò."],
+        win:["'Mbè. Passa."], after:["Nun te avvicinà alle catacombe."] } },
+    { x:14, y:13, frame:14, name:'TOMBAROLO', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'app2', team:[['lupomannaro',52],['ruderin',52]],
+        pre:["Scavo reperti che nun se dichiarano.\nLevate da 'n piede, ahò."],
+        win:["'Sti turisti..."], after:["Tira dritto e zitto."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DELLE CATACOMBE', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'app3', team:[['ruderone',53],['farfarello',53]],
+        pre:["L'urtimo prima delle catacombe\nso' io. E quello che dorme là sotto\nè mejo nun svejallo, ahò."],
+        win:["...va be', scendi. Ma quer drago\nnun l'ho svejato io, intesi?"],
+        after:["Le scale stanno in fondo. Auguri."] } }
+  ],
+  catacombe: [
+    { x:3, y:9, frame:12, name:'FRATE DELLE CATACOMBE',
+      lines:["Pax, viandante. Sei nelle catacombe\ndi Roma, dove riposano i primi\ncristiani. E qualcosa di più antico.",
+             "Sotto di noi dorme il DRACÒNE, il\ngran drago che Papa Silvestro sigillò.\nSe lo svegli, che Dio t'assista."] }
   ]
 };
