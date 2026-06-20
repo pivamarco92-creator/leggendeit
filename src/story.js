@@ -70,7 +70,8 @@ const STORY_EVENTS = {
   pescatore: evPescatore,
   piva: evPiva, pivanota: evPivanota,
   licata: evLicata, licatamed: evLicatamed,
-  facci: evFacci
+  facci: evFacci,
+  molisano: evMolisano, molprova: evMolprova
 };
 
 /* Una palestra è bloccata finché restano allievi da battere. */
@@ -249,7 +250,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true, campobasso:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -265,7 +266,8 @@ function evJohnny(town) {
     perugia: [['zollin', lv], ['lupomannaro', lv + 1], ['zollone', lv + 2]],
     ancona: [['falchin', lv], ['ratapignata', lv + 1], ['falchione', lv + 2]],
     roma: [['ruderin', lv], ['lupomannaro', lv + 1], ['ruderone', lv + 2]],
-    aquila: [['petrin', lv], ['cinghial', lv + 1], ['petrone', lv + 2]]
+    aquila: [['petrin', lv], ['cinghial', lv + 1], ['petrone', lv + 2]],
+    campobasso: [['svanin', lv], ['pantafica', lv + 1], ['svanone', lv + 2]]
   };
   const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
@@ -870,7 +872,58 @@ function evDormiente() {
     startBattle(makeMon('dormiente', 52), null);
   });
 }
+/* ===== MOLISE (segreta): la quest «il Molise non esiste» ===== */
+function evMolprova(n) {
+  const f = 'mol_p' + n.prova;
+  const found = {
+    1: "Una CAMPANA DI AGNONE in miniatura!\nFusa dove fanno le campane del Papa.\nProva che il Molise esiste. (1)",
+    2: "Un CARTELLO stradale: «MOLISE».\nQualcuno l'aveva staccato. Prova\nche il Molise esiste. (2)",
+    3: "Un TARTUFO molisano, profumatissimo.\nCresce solo da quelle parti. Prova\nche il Molise esiste. (3)"
+  };
+  if (G.flags[f]) { say(["Questa prova ce l'hai già.\nPortala a TONINO, a L'Aquila."]); return; }
+  G.flags[f] = true; saveGame();
+  beep(700, .08); beep(950, .12);
+  say([found[n.prova], "(Porta le 3 PROVE a TONINO, a L'Aquila.)"]);
+}
+function evMolisano(n) {
+  if (G.flags.molise_open) {
+    say(["«Te l'avevo detto che il Molise\nesisteva! Il passaggio è sul GRAN\nSASSO, tra i pascoli. Scendi di là.»",
+         "«E vienimi a sfidare in palestra,\na Campobasso. Se la trovi!»"], null, 'TONINO');
+    return;
+  }
+  const got = ['mol_p1', 'mol_p2', 'mol_p3'].filter(x => G.flags[x]).length;
+  if (got >= 3) {
+    say(["«La campana, il cartello, il tartufo...\nTUTTO! Hai le prove! IL MOLISE ESISTE!»",
+         "Tonino si commuove. «Grazie. Nessuno\nci aveva mai creduto davvero.»",
+         "«Ti apro il passaggio segreto: è sul\nGRAN SASSO, tra i pascoli, dove hai\ntrovato il cartello.»",
+         "«E senti: il capopalestra del Molise\nsono io. Vienimi a trovare a\nCampobasso, se ci riesci!»"], () => {
+      G.flags.molise_open = true; saveGame();
+      beep(659, .12); beep(784, .12); beep(1047, .25);
+    }, 'TONINO');
+    return;
+  }
+  say(["«Ehi, tu! Io vengo dal MOLISE. Sì,\nquella regione lì. Esiste, te lo\ngiuro sulla 'ndocciata!»",
+       "«Ma nessuno mi crede. Dicono che me\nla sono inventata. Mi serve una mano.»",
+       "«Trovami 3 PROVE che il Molise esiste:\nla CAMPANA di Agnone, un CARTELLO\nstradale e un TARTUFO molisano.»",
+       "«Sono qui in zona: sul Gran Sasso,\nlungo la Via Valeria, e qui a L'Aquila.\nProve trovate: " + got + "/3.»"], null, 'TONINO');
+}
+/* Leggendario del Molise: Il Dimenticato, lo spirito della regione scordata. */
+function evDimenticato() {
+  if (G.flags.dimenticatoCaught) {
+    say(["Il teatro sannita è silenzioso.\nIL DIMENTICATO ti ha già scelto.\nE tu, ora, lo ricordi."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nturbare ciò che è stato dimenticato."); return; }
+  say(["Tra le gradinate di pietra l'aria si\nfa densa. Una sagoma trasparente si\ncoagula dal nulla, coronata di nebbia.",
+       "È IL DIMENTICATO, lo spirito della\nregione che tutti scordano. Ti fissa:\nfinalmente qualcuno lo vede.",
+       "«Mi hai trovato. Ora ricordami...\no torna a dimenticarmi per sempre.»",
+       "IL DIMENTICATO attacca!"], () => {
+    saveGame();
+    beep(300, .2, 'triangle'); beep(220, .24, 'triangle'); beep(160, .3, 'triangle');
+    startBattle(makeMon('dimenticato', 54), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente, pietrabbondante: evDimenticato };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

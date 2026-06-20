@@ -1956,6 +1956,155 @@ const MAPS = {
   },
   /* ---------- GRAN SASSO (route della regione, verso il Corno Grande) ---------- */
   gransasso: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12, 'Q':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T............Q.............T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'petrin',      min:54, max:57, w:30 },
+      { id:'cinghial',    min:53, max:56, w:20 },
+      { id:'pantafica',   min:54, max:57, w:18 },
+      { id:'gazzot',      min:54, max:57, w:18 },
+      { id:'lupomannaro', min:54, max:57, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'panzerotto', flag:'it_grs1' },
+      { x:22, y:9,  item:'ampolla',    flag:'it_grs2' }
+    ]
+  },
+  /* ---------- CORNO GRANDE (area segreta — X = Il Dormiente) ---------- */
+  corno: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== MOLISE (Campobasso) — regione 14, SEGRETA ========== */
+  /* ---------- ABRUZZO → MOLISE · il Tratturo (U = Gran Sasso, Z = Campobasso) ---------- */
+  tratturo: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.MM....GGGG....MM.GGGGGT',
+      'T....MM....GGGG....MM......T',
+      'T..........................T',
+      'T..GGG.............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM..............MM......T',
+      'T..MM....GGGG......MM......T',
+      'T..........................T',
+      'T..GGG.............GGG.....T',
+      'T..........................T',
+      'TMMM....................MMMT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'svanin',      min:56, max:59, w:28 },
+      { id:'pantafica',   min:56, max:59, w:22 },
+      { id:'cinghial',    min:55, max:58, w:18 },
+      { id:'lupomannaro', min:56, max:59, w:16 },
+      { id:'gazzot',      min:56, max:59, w:16 }
+    ],
+    items: [
+      { x:6,  y:5,  item:'ampolla',    flag:'it_trt1' },
+      { x:20, y:14, item:'pizza',      flag:'it_trt2' }
+    ]
+  },
+
+  campobasso: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gymcb: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambcb: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- MONTI DEL MATESE (route della regione, verso Pietrabbondante) ---------- */
+  matese: {
     t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
@@ -1978,19 +2127,19 @@ const MAPS = {
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
     ],
     encounters: [
-      { id:'petrin',      min:54, max:57, w:30 },
-      { id:'cinghial',    min:53, max:56, w:20 },
-      { id:'pantafica',   min:54, max:57, w:18 },
-      { id:'gazzot',      min:54, max:57, w:18 },
-      { id:'lupomannaro', min:54, max:57, w:14 }
+      { id:'svanin',      min:57, max:60, w:30 },
+      { id:'pantafica',   min:56, max:59, w:20 },
+      { id:'cinghial',    min:56, max:59, w:18 },
+      { id:'gazzot',      min:57, max:60, w:18 },
+      { id:'lupomannaro', min:57, max:60, w:14 }
     ],
     items: [
-      { x:5,  y:5,  item:'panzerotto', flag:'it_grs1' },
-      { x:22, y:9,  item:'ampolla',    flag:'it_grs2' }
+      { x:5,  y:5,  item:'panzerotto', flag:'it_mat1' },
+      { x:22, y:9,  item:'ampolla',    flag:'it_mat2' }
     ]
   },
-  /* ---------- CORNO GRANDE (area segreta — X = Il Dormiente) ---------- */
-  corno: {
+  /* ---------- PIETRABBONDANTE (area segreta — X = Il Dimenticato) ---------- */
+  pietrabbondante: {
     t2i: { '.':13, '#':14, 'X':5, 'E':12 },
     indoor: true,
     tiles: [
@@ -2268,6 +2417,26 @@ const PORTALS = {
   ambaq:{ E: { map:'aquila', x:20, y:4, dir:'down' } },
   gransasso:{ U: { map:'aquila', x:25, y:9, dir:'left' },
               Z: { map:'corno', x:7, y:12, dir:'up',
-                   arriveMsg: ["IL CORNO GRANDE. La vetta più alta\ndell'Appennino. Una grotta si apre\nnella roccia. Dentro, qualcosa respira\nlentissimo."] } },
-  corno:{ E: { map:'gransasso', x:8, y:4, dir:'down' } }
+                   arriveMsg: ["IL CORNO GRANDE. La vetta più alta\ndell'Appennino. Una grotta si apre\nnella roccia. Dentro, qualcosa respira\nlentissimo."] },
+              Q: { map:'tratturo', x:2, y:8, dir:'right',
+                   lock: () => !G.flags.molise_open,
+                   msg: ["Qui tra i pascoli non c'è niente.\nDicono che oltre ci sia il MOLISE.",
+                         "Ma il Molise non esiste. Lo sanno\ntutti. ...O no?"],
+                   arriveMsg: ["UN ANTICO TRATTURO. Una pista erbosa\nche nessuna mappa segna. Eppure è qui.\nIl Molise, eccome se esiste."] } },
+  corno:{ E: { map:'gransasso', x:8, y:4, dir:'down' } },
+  tratturo:{ U: { map:'gransasso', x:13, y:15, dir:'up' },
+             Z: { map:'campobasso', x:2, y:14, dir:'right',
+                  arriveMsg: ["CAMPOBASSO. La città che non c'è\nsulle cartoline. Eppure ha vicoli,\ngente e una palestra. Esiste."] } },
+  campobasso:{ V: { map:'tratturo', x:25, y:8, dir:'left',
+                    arriveMsg: ["IL TRATTURO. Si torna verso il\nGran Sasso, lungo l'erba antica."] },
+               Y: { map:'gymcb', x:5, y:9, dir:'up' },
+               H: { map:'ambcb', x:3, y:3, dir:'up' },
+               R: { map:'matese', x:2, y:8, dir:'right',
+                    arriveMsg: ["I MONTI DEL MATESE. Faggete, doline\ne silenzio assoluto. In fondo, le\nrovine sannite di Pietrabbondante."] } },
+  gymcb:{ E: { map:'campobasso', x:4, y:4, dir:'down' } },
+  ambcb:{ E: { map:'campobasso', x:20, y:4, dir:'down' } },
+  matese:{ U: { map:'campobasso', x:25, y:9, dir:'left' },
+           Z: { map:'pietrabbondante', x:7, y:12, dir:'up',
+                arriveMsg: ["PIETRABBONDANTE. Il teatro sannita\nscolpito nella montagna. Tra le gradinate\ndi pietra, un'ombra dimenticata veglia."] } },
+  pietrabbondante:{ E: { map:'matese', x:8, y:4, dir:'down' } }
 };

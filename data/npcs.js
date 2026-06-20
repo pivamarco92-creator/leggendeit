@@ -776,7 +776,8 @@ const NPCS = {
       trainer:{ id:'vle3', team:[['petrin',55],['gazzot',55]],
         pre:["L'urtimo prima de L'Aquila so' io.\nE so' duro come la roccia\nde 'sti monti."],
         win:["...sì tosto pure tu. L'Aquila\nt'aspetta."],
-        after:["I 99 castelli stanno di là."] } }
+        after:["I 99 castelli stanno di là."] } },
+    { x:12, y:5, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:3 }
   ],
   aquila: [
     { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
@@ -788,7 +789,9 @@ const NPCS = {
              "C'è una grotta in cima al Corno\nGrande. Mio nonno diceva: 'Non\nsvegliare ciò che dorme nel monte.'"] },
     { x:18, y:16, frame:12, name:'STUDIOSA DI FOLKLORE',
       lines:["Studio le leggende d'Abruzzo. La\nPantàfica che opprime nel sonno, il\nmazzamurello che bussa nei muri...",
-             "Ma la più grande è IL DORMIENTE:\nil profilo del Gran Sasso è il suo\ncorpo. Se si sveglia, trema tutto."] }
+             "Ma la più grande è IL DORMIENTE:\nil profilo del Gran Sasso è il suo\ncorpo. Se si sveglia, trema tutto."] },
+    { x:13, y:6, frame:9, name:'TONINO', ev:'molisano' },
+    { x:5,  y:6, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:1 }
   ],
   gymaq: [
     { x:5, y:2, frame:13, name:'CARMINE', ev:'gymLeader' },
@@ -819,11 +822,62 @@ const NPCS = {
       trainer:{ id:'grs3', team:[['petrone',56],['pantafica',56]],
         pre:["L'urtimo prima della grotta so' io.\nE quello che dorme lassù è mejo\nlasciallo dormì."],
         win:["...va be', sali. Ma quer gigante\nnun l'ho svejato io, intesi?"],
-        after:["La grotta è in cima. Forza."] } }
+        after:["La grotta è in cima. Forza."] } },
+    { x:10, y:7, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:2 }
   ],
   corno: [
     { x:3, y:9, frame:12, name:'EREMITA DEL CORNO',
       lines:["Silenzio, viandante. Sei in cima al\nCorno Grande, il tetto dell'Appennino.\nQui l'aria è sottile e antica.",
              "Nel cuore del monte dorme IL\nDORMIENTE, il gigante di pietra. Se\nlo svegli, l'Abruzzo intero tremerà."] }
+  ],
+
+  /* ========== MOLISE (segreta) ========== */
+  campobasso: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'CAMPOBASSANO',
+      lines:["Ce l'hai fatta! Sei arrivato in MOLISE!\nLo sapevo che esistevamo, ostia.",
+             "Qui ci sono i Misteri di Campobasso,\nle campane di Agnone, i tratturi.\nSolo che... nessuno se lo ricorda."] },
+    { x:8,  y:14, frame:11, name:'SIGNORA DI AGNONE',
+      lines:["Ad Agnone fondiamo le campane da mille\nanni, pure quelle del Papa! Eppure\nin TV dicono che non esistiamo.",
+             "Più ci dimenticano, più nei boschi\ncresce un'ombra: IL DIMENTICATO.\nSi nutre dell'oblio, poveretto."] },
+    { x:18, y:16, frame:12, name:'TONINO (a casa)',
+      lines:["Eh sì, sono sempre io. Qua tutti mi\nconoscono. È solo fuori che faccio\nfatica a esistere.",
+             "Vienimi a sfidare in palestra. Tipo\nSPETTRO: noi molisani siamo bravi a\nnon farci vedere, sai?"] }
+  ],
+  gymcb: [
+    { x:5, y:2, frame:13, name:'TONINO', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'PASTORE DEL TRATTURO', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymcb1', team:[['svanin',58],['pantafica',58]],
+        pre:["Per sfidare Tonino passi da me.\nE attento: qui le Leggende\nspariscono quando meno te l'aspetti."],
+        win:["Toh, mi hai battuto. Esisti davvero.\nTonino t'aspetta."],
+        after:["Vai, è in fondo. Se lo vedi."] } },
+    { x:8, y:7, frame:11, name:'SUONATRICE DI ZAMPOGNA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymcb2', team:[['svanone',59],['svanin',59]],
+        pre:["Suono la zampogna molisana. La\nsenti? No? Strano, esiste pure questa."],
+        win:["Brava gente. Vai da Tonino."],
+        after:["Il capo è là. Forse."] } }
+  ],
+  ambcb: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA IAPPONE', ev:'cura' }
+  ],
+  matese: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DEL MATESE', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'mat1', team:[['svanin',57],['pantafica',57]],
+        pre:["Pure qua, dove non ci trova nessuno,\nla Cosca ci ha messo le mani.\nPaga, e zitto."],
+        win:["Uff. Passa."], after:["Non salire a Pietrabbondante."] } },
+    { x:14, y:12, frame:14, name:'BRACCONIERE', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'mat2', team:[['lupomannaro',58],['svanin',58]],
+        pre:["Caccio in pace, tanto qui non\nviene mai nessuno. Levati."],
+        win:["Mannaggia."], after:["Tira dritto e taci."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO SANNITA', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'mat3', team:[['svanone',59],['pantafica',59]],
+        pre:["L'ultimo prima del teatro sannita\nsono io. E quel che veglia lassù\nè dimenticato da tutti tranne me."],
+        win:["...va bene, sali. Ma ricordatelo,\nquel che troverai. Te lo chiede."],
+        after:["Il teatro è in fondo. Ricorda."] } }
+  ],
+  pietrabbondante: [
+    { x:3, y:9, frame:12, name:'CUSTODE SANNITA',
+      lines:["Silenzio. Sei nel teatro sannita di\nPietrabbondante, scavato nella roccia\nduemila anni fa. Esiste, eccome.",
+             "Tra le gradinate veglia IL DIMENTICATO.\nPiù il mondo scorda il Molise, più lui\nè forte. Ricordalo, e affrontalo."] }
   ]
 };

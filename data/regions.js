@@ -537,13 +537,54 @@ const GYMS = {
     end:{
       title:'★ FINE DEI CONTENUTI ★',
       medal:'MEDAGLIA DEL GRAN SASSO ottenuta!', region:'Regione 13 di 20 completata',
-      next:'PROSSIMA TAPPA: MOLISE<br>Campobasso · «il Molise non esiste»',
-      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 13 regioni.',
+      next:'PROSSIMA TAPPA: MOLISE (?)<br>Campobasso · «il Molise non esiste»',
+      footer:'Premi A: cerca TONINO a L\'Aquila.<br>Dice di venire dal Molise...<br>e che esiste davvero.',
       goodAt:14, badAt:-13,
       verdict:{
         good:'Da Milano al Gran Sasso, un nome duro\ncome la roccia: la Cosca non lo piega.',
         bad:'La Cosca ti segue di regione in\nregione. Ma la montagna è dalla tua.',
         neutral:'Tredici medaglie. Forte come la\npietra degli Appennini, ormai.'}
+    }
+  },
+
+  gymcb: {
+    leader:'TONINO', type:'Spettro', badge:'badge14', region:14,
+    team:[['svanin',58],['pantafica',59],['svanone',61]],
+    challenge:'«Chi vince piglia la MEDAGLIA\nINESISTENTE. Esiste solo se vinci!»',
+    intro:[
+      "La palestra di Campobasso: una sala\nche sulle piantine non c'è. Eppure\neccola, con tanto di tabellone.",
+      "In fondo, TONINO ti aspetta sorridendo.\n«Sapevo che ce l'avresti fatta a\ntrovarmi.»"],
+    done:[
+      "«La Medaglia Inesistente è tua! Una\ndelle poche cose molisane che la gente\nammette di aver visto, ahah.»",
+      "«Mo' scendi in CAMPANIA, da CIRUZZO,\na Napoli. E grazie d'esserci creduto.»"],
+    openers:{
+      good:[
+        "«Sei tu quello che la Cosca non può\ncomprare! E pure uno che crede nel\nMolise. Doppio rispetto.»",
+        "«Ma qui comanda lo Spettro: ci vediamo\ne non ci vediamo. Vediamo te.»"],
+      bad:[
+        "«So che a valle hai stretto mani\nsbagliate. Pure quaggiù arrivano\nle voci, sai?»",
+        "«Lo Spettro smaschera tutti. Vediamo.»"],
+      neutral:[
+        "«Servito! Sono TONINO, capopalestra\ndel Molise. Sì, esiste. Sei qui, no?»",
+        "«Tipo SPETTRO: noi molisani siamo\nmaestri nel non farci vedere. Per\nforza, con la pubblicità che abbiamo.»"]
+    },
+    win:[
+      "Tonino richiama il suo SVANÒNE, che\nsvanisce con un sorriso.",
+      "«Gran bella lotta! E grazie: oggi il\nMolise è esistito un po' di più.»",
+      "Hai ottenuto la MEDAGLIA INESISTENTE!\n(14 di 20)",
+      "«La Cosca? Ci ha provato pure qui.\nMa come fai a ricattare una regione\nche ufficialmente non c'è? Ahah.»",
+      "«Tu va' avanti, scendi a Sud. E ogni\ntanto, sulla cartina, cercaci.\nNoi ci siamo.»"],
+    loseMsg:"Tonino ti aspetta in palestra.\n«Riprenditi e torna. Noi non\nspariamo... o quasi.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA INESISTENTE ottenuta!', region:'Regione 14 di 20 completata',
+      next:'PROSSIMA TAPPA: CAMPANIA<br>Ciruzzo · Tipo Fuoco · Napoli',
+      footer:'Hai sbloccato la regione SEGRETA!<br>Premi A: puoi esplorare liberamente<br>le 14 regioni. (Sì, Molise incluso.)',
+      goodAt:15, badAt:-14,
+      verdict:{
+        good:'Hai dato al Molise ciò che nessuno gli\ndà: di esistere. Un eroe, dentro e\nfuori dalle cartine.',
+        bad:'Persino il Molise dimenticato ha\nsentito parlare delle tue amicizie\nsbagliate. Non è un bel segno.',
+        neutral:'Quattordici medaglie, una segreta.\nHai trovato la regione che non c\'è.'}
     }
   }
 };
@@ -636,11 +677,18 @@ const WORLD_MAP = [
     respawn:{ map:'roma', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina ai Fori.\nUn gatto romano ti fissa dall'alto\ndi una colonna, regale.","La squadra è di nuovo in forze, ahò."] },
     link:'Via Valeria -> L\'Aquila (con Medaglia der Colosseo)' },
   { city:'L\'AQUILA', region:'Abruzzo', leader:'Carmine', type:'Roccia', badge:'badge13',
-    maps:['aquila','gymaq','ambaq','gransasso','corno'],
+    maps:['aquila','gymaq','ambaq','gransasso','corno','tratturo'],
     layout:[ { c:['aquila'] },
              { c:['gymaq','ambaq'] },
              { c:['gransasso','corno'], j:'->' } ],
     respawn:{ map:'aquila', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in centro.\nIl Gran Sasso domina l'orizzonte,\nimmobile.","La squadra è di nuovo in forze, uagliò."] },
+    link:'passaggio segreto -> Molise (trova TONINO e le 3 prove)' },
+  { city:'CAMPOBASSO', region:'Molise', leader:'Tonino', type:'Spettro', badge:'badge14',
+    maps:['campobasso','gymcb','ambcb','matese','pietrabbondante'],
+    layout:[ { c:['campobasso'] },
+             { c:['gymcb','ambcb'] },
+             { c:['matese','pietrabbondante'], j:'->' } ],
+    respawn:{ map:'campobasso', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina a Campobasso.\nIl Molise esiste, e qui te lo ricordano\nvolentieri.","La squadra è di nuovo in forze."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -666,9 +714,11 @@ const AREA_LABELS = {
   salaria:'Salaria',
   roma:'Centro', gymrm:'Palestra', ambrm:'Ambul.', appiaantica:'Appia', catacombe:'Catacombe',
   valeria:'Valeria',
-  aquila:'Centro', gymaq:'Palestra', ambaq:'Ambul.', gransasso:'Gran Sasso', corno:'Corno Grande'
+  aquila:'Centro', gymaq:'Palestra', ambaq:'Ambul.', gransasso:'Gran Sasso', corno:'Corno Grande',
+  tratturo:'Tratturo',
+  campobasso:'Centro', gymcb:'Palestra', ambcb:'Ambul.', matese:'Matese', pietrabbondante:'Pietrabbondante'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno', 'pietrabbondante'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

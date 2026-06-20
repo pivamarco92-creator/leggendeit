@@ -51,6 +51,8 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'pantegana','ranot','gazzot',
                         /* Abruzzo — linea Roccia + leggendario */
                         'petrin','petrone','dormiente',
+                        /* Molise (segreta) — linea Spettro + leggendario */
+                        'svanin','svanone','dimenticato',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -402,6 +404,18 @@ const SPECIES = {
   dormiente: { n:'IL DORMIENTE', types:['Roccia'], hp:104, atk:104, def:110, spd:58,
     learnset:[[1,'sassata'],[1,'morso'],[1,'sfondata'],[1,'frana'],[50,'frana']],
     dex:'Il gigante di pietra del Gran Sasso: il profilo del massiccio è il suo corpo addormentato da millenni. Se si desta, l\'Abruzzo intero trema.' },
+
+  /* ---------- Molise (segreta) — linea Spettro + Il Dimenticato ---------- */
+  svanin: { n:'SVANÌN', types:['Spettro'], hp:48, atk:54, def:50, spd:62,
+    evolve:{ lv:34, to:'svanone' },
+    learnset:[[1,'malocchio'],[1,'dispetto'],[14,'morso'],[34,'maledizione']],
+    dex:'Spiritello che svanisce quando lo guardi, proprio come il Molise. Più nessuno crede di averlo visto: e così diventa sempre più trasparente.' },
+  svanone: { n:'SVANÒNE', types:['Spettro'], hp:72, atk:88, def:70, spd:84,
+    learnset:[[1,'malocchio'],[1,'morso'],[1,'sfondata'],[48,'maledizione']],
+    dex:'Lo Svanìn cresciuto: ormai esiste solo a metà. Aleggia sui tratturi molisani al tramonto, dove un tempo passavano le greggi.' },
+  dimenticato: { n:'IL DIMENTICATO', types:['Spettro'], hp:96, atk:104, def:92, spd:96,
+    learnset:[[1,'malocchio'],[1,'morso'],[1,'sfondata'],[1,'maledizione'],[50,'maledizione']],
+    dex:'Lo spirito della regione che tutti scordano. Più il Molise viene dimenticato, più lui diventa potente. Veglia tra le rovine sannite di Pietrabbondante, in attesa di essere ricordato.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).
