@@ -1562,6 +1562,155 @@ const MAPS = {
       '######EE########'
     ],
     encounters: null
+  },
+
+  /* ========== MARCHE (Ancona) — regione 11 ========== */
+  /* ---------- UMBRIA → MARCHE · Gola del Furlo (U = Perugia, Z = Ancona) ---------- */
+  furlo: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TMM..GGG......GGG......MMMMT',
+      'TM...GGG......GGG......MMM.T',
+      'T....................MM....T',
+      'T..GG................MM....T',
+      'T..........................T',
+      'T..GGG.........GGG.........T',
+      'TMM........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T........MM......MM........T',
+      'T..GGG...MM......MM...GGG..T',
+      'T........MM......MM........T',
+      'T..........................T',
+      'T..GGG................GGG..T',
+      'TMMM....................MMMT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'falchin',     min:47, max:50, w:28 },
+      { id:'civettona',   min:46, max:49, w:22 },
+      { id:'ratapignata', min:47, max:50, w:18 },
+      { id:'borda',       min:47, max:50, w:16 },
+      { id:'lupomannaro', min:47, max:50, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'ampolla',    flag:'it_fur1' },
+      { x:22, y:14, item:'panzerotto', flag:'it_fur2' }
+    ]
+  },
+
+  ancona: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gyman: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  amban: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- MONTE CONERO (route della regione, verso i Sibillini) ---------- */
+  conero: {
+    t2i: { '.':0, 'G':3, 'T':4, '#':7, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.##....GGG....##.GGGGGGT',
+      'T....##....GGG....##.......T',
+      'T....##.ZG.GGG....##.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..##....GGG....##.........T',
+      'T..##....GGG....##.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'falchin',     min:48, max:51, w:30 },
+      { id:'civettona',   min:47, max:50, w:20 },
+      { id:'ratapignata', min:48, max:51, w:18 },
+      { id:'borda',       min:48, max:51, w:16 },
+      { id:'lupomannaro', min:48, max:51, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'pizza',      flag:'it_con1' },
+      { x:22, y:10, item:'ampolla',    flag:'it_con2' }
+    ]
+  },
+  /* ---------- MONTI SIBILLINI (area segreta — X = Sibilla) ---------- */
+  sibillini: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
   }
 };
 
@@ -1755,11 +1904,31 @@ const PORTALS = {
             Y: { map:'gympg', x:5, y:9, dir:'up' },
             H: { map:'ambpg', x:3, y:3, dir:'up' },
             R: { map:'valnerina', x:2, y:9, dir:'right',
-                 arriveMsg: ["LA VALNERINA. La valle del Nera tra\nmonti boscosi, eremi e cascate.\nIn fondo, Gubbio."] } },
+                 arriveMsg: ["LA VALNERINA. La valle del Nera tra\nmonti boscosi, eremi e cascate.\nIn fondo, Gubbio."] },
+            B: { map:'furlo', x:2, y:9, dir:'right',
+                 lock: () => !G.flags.badge10,
+                 msg: ["La strada verso le MARCHE e Ancona,\nattraverso la Gola del Furlo.",
+                       "«Senza la Medaglia del Grifo di là\nnon si passa, ragazzo.»"],
+                 arriveMsg: ["LA GOLA DEL FURLO. Pareti a strapiombo\nsul fiume e una vecchia galleria\nromana. Di là, l'Adriatico."] } },
   gympg:{ E: { map:'perugia', x:4, y:4, dir:'down' } },
   ambpg:{ E: { map:'perugia', x:20, y:4, dir:'down' } },
   valnerina:{ U: { map:'perugia', x:25, y:9, dir:'left' },
               Z: { map:'gubbio', x:7, y:12, dir:'up',
                    arriveMsg: ["I BOSCHI DI GUBBIO. Tra i faggi, una\nradura silenziosa. Qui San Francesco\nincontrò il lupo. Qualcosa si muove."] } },
-  gubbio:{ E: { map:'valnerina', x:8, y:5, dir:'down' } }
+  gubbio:{ E: { map:'valnerina', x:8, y:5, dir:'down' } },
+  furlo:{ U: { map:'perugia', x:2, y:11, dir:'right' },
+          Z: { map:'ancona', x:2, y:14, dir:'right',
+               arriveMsg: ["ANCONA. Il porto dorico sull'Adriatico,\nil Duomo sul colle, l'odore di mare\ne di brodetto."] } },
+  ancona:{ V: { map:'furlo', x:25, y:9, dir:'left',
+                arriveMsg: ["LA GOLA DEL FURLO. Si risale verso\nl'Umbria, tra le pareti di roccia."] },
+           Y: { map:'gyman', x:5, y:9, dir:'up' },
+           H: { map:'amban', x:3, y:3, dir:'up' },
+           R: { map:'conero', x:2, y:9, dir:'right',
+                arriveMsg: ["IL MONTE CONERO. La montagna a picco\nsul mare, leccete e calette bianche.\nIn alto, i Sibillini."] } },
+  gyman:{ E: { map:'ancona', x:4, y:4, dir:'down' } },
+  amban:{ E: { map:'ancona', x:20, y:4, dir:'down' } },
+  conero:{ U: { map:'ancona', x:25, y:9, dir:'left' },
+           Z: { map:'sibillini', x:7, y:12, dir:'up',
+                arriveMsg: ["LA GROTTA DELLA SIBILLA. Cunicoli che\nsprofondano nel monte. Una luce fioca\npulsa in fondo, come un respiro."] } },
+  sibillini:{ E: { map:'conero', x:8, y:5, dir:'down' } }
 };

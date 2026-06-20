@@ -629,5 +629,71 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'EREMITA DI GUBBIO',
       lines:["Pace e bene. Qui, otto secoli fa,\nSan Francesco strinse la zampa al\nlupo feroce e fecero la pace.",
              "Il LUPO DI GUBBIO veglia ancora\nquesta radura. Forte come la terra.\nSe ti misuri con lui, abbi cuore puro."] }
+  ],
+
+  /* ========== MARCHE (Ancona) ========== */
+  furlo: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DELLA GOLA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'fur1', team:[['falchin',47],['borda',47]],
+        pre:["La Gola del Furlo la teniamo noi.\nPedaggio, forestiero, o niente mare."],
+        win:["Uff. Passa."], after:["Tira dritto verso Ancona."] } },
+    { x:20, y:7,  frame:14, name:'CORRIERE ADRIATICO', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'fur2', team:[['lupomannaro',48],['ratapignata',48]],
+        pre:["Porto merce su per la gola di notte.\nTu non eri previsto."],
+        win:["Maledetto imprevisto."], after:["Scendi al porto e sparisci."] } },
+    { x:14, y:13, frame:14, name:'CAPOGOLA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'fur3', team:[['falchin',49],['civettona',49]],
+        pre:["Ultimo prima di Ancona. E io non\nmollo come gli altri della gola."],
+        win:["...sei rapido come un falco.\nAncona t'aspetta."],
+        after:["Il mare si vede di là."] } }
+  ],
+  ancona: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'PESCATORE DORICO',
+      lines:["Benvenuto ad Ancona! Il porto è a\nforma di gomito, da qui il nome.\nE il brodetto qui è il migliore.",
+             "Sul Conero volano i falchi.\nE sui Sibillini, dicono, abita\nancora la SIBILLA. Quella vera."] },
+    { x:8,  y:14, frame:11, name:'SIGNORA DEL CONERO',
+      lines:["Il Monte Conero è a picco sul mare,\nun gioiello. Ci vivono falchi che\nnon trovi da nessun'altra parte.",
+             "Ma è ai SIBILLINI il mistero: la\ngrotta della Sibilla, la profetessa.\nChi entra, dicono, conosce il futuro."] },
+    { x:18, y:16, frame:12, name:'STUDIOSO DI LEGGENDE',
+      lines:["Studio la SIBILLA APPENNINICA da una\nvita. Profetessa, regina delle fate,\nmaledetta dalla Chiesa di Norcia.",
+             "La sua grotta è sui Monti Sibillini.\nDi notte le fate uscivano a ballare\nnei paesi. Avevano zampe di capra."] }
+  ],
+  gyman: [
+    { x:5, y:2, frame:13, name:'GUERRINO', ev:'gymLeader' },
+    { x:3, y:5, frame:10, name:'FALCONIERE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gyman1', team:[['falchin',49],['civettona',49]],
+        pre:["Per arrivare a Guerrino voli alto.\nMa prima passi da me e dai miei\nfalchi, ragazzo."],
+        win:["Bel volo! Guerrino t'aspetta in fondo."],
+        after:["Vai, vai. È là sul trespolo."] } },
+    { x:8, y:7, frame:11, name:'VELISTA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gyman2', team:[['falchione',50],['ratapignata',50]],
+        pre:["Veleggio sull'Adriatico col vento in\npoppa. Vediamo se reggi la raffica."],
+        win:["Vento giusto, hai vinto. Vai dal capo."],
+        after:["Guerrino non perde l'equilibrio mai."] } }
+  ],
+  amban: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA MERLONI', ev:'cura' }
+  ],
+  conero: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DEL CONERO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'con1', team:[['falchin',48],['borda',48]],
+        pre:["Il Conero e le sue calette le\ngestiamo noi. Paga il pedaggio,\nforestiero."],
+        win:["Uff. Passa."], after:["Non salire ai Sibillini."] } },
+    { x:14, y:13, frame:14, name:'CONTRABBANDIERA', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'con2', team:[['lupomannaro',49],['falchin',49]],
+        pre:["Sbarco roba nelle calette di notte.\nLevati di mezzo, viandante."],
+        win:["Bah. Vada per stavolta."],
+        after:["Tira dritto e taci."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DEI SIBILLINI', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'con3', team:[['falchione',50],['civettona',50]],
+        pre:["L'ultimo prima della grotta della\nSibilla sono io. E quel che c'è\nlassù conosce già il tuo futuro."],
+        win:["...va bene, sali. Ma non dire che\nnon ti avevo avvisato, eh."],
+        after:["La grotta è in fondo. Coraggio."] } }
+  ],
+  sibillini: [
+    { x:3, y:9, frame:12, name:'CUSTODE DELLA GROTTA',
+      lines:["Silenzio, viandante. Sei alla soglia\ndella grotta della SIBILLA, la\nprofetessa dei monti.",
+             "Legge il vento e l'avvenire. Se la\nsfidi, saprà le tue mosse prima di\nte. Ma una sfida leale la rispetta."] }
   ]
 };

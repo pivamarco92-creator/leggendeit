@@ -416,12 +416,53 @@ const GYMS = {
       title:'★ FINE DEI CONTENUTI ★',
       medal:'MEDAGLIA DEL GRIFO ottenuta!', region:'Regione 10 di 20 completata',
       next:'PROSSIMA TAPPA: MARCHE<br>Guerrino · Tipo Volante · Ancona',
-      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 10 regioni.',
+      footer:'Premi A: prosegui verso le MARCHE<br>(Gola del Furlo da Perugia,<br>serve la Medaglia del Grifo).',
       goodAt:11, badAt:-10,
       verdict:{
         good:'Da Milano a Perugia, metà Italia: un\nnome che la Cosca non può comprare.',
         bad:'La Cosca ti segue di regione in\nregione. La terra ha memoria lunga.',
         neutral:'Dieci medaglie, metà del cammino.\nL\'Italia intera ormai ti osserva.'}
+    }
+  },
+
+  gyman: {
+    leader:'GUERRINO', type:'Volante', badge:'badge11', region:11,
+    team:[['falchin',50],['ratapignata',51],['falchione',53]],
+    challenge:'«Chi vince si piglia la MEDAGLIA DEL\nCONERO. Su, prendi il volo!»',
+    intro:[
+      "La palestra di Ancona: una vecchia\ntorre del porto aperta sul mare,\npiena di trespoli e di falchi.",
+      "In cima, un uomo asciutto con un\nguanto da falconiere ti osserva,\nun rapace fermo sul braccio."],
+    done:[
+      "«La Medaglia del Conero ti sta bene.\nOra punta a ROMA, da SOR ALVARO. E\nocchio: laggiù volano i draghi.»",
+      "«Buon vento, bardascio.»"],
+    openers:{
+      good:[
+        "«Sei tu il ragazzo che la Cosca non\nriesce a comprare. Vola alto, mi\npiace.»",
+        "«Ma quassù decide il vento. Vediamo\nse reggi la raffica del Conero.»"],
+      bad:[
+        "«Si dice che a valle tu abbia stretto\nmani sbagliate, bardascio.»",
+        "«Il vento porta via tutto. Anche\ni furbi. Vediamo.»"],
+      neutral:[
+        "«Benvenuto! Sono GUERRINO,\ncapopalestra di Ancona.»",
+        "«Tipo VOLANTE: come i falchi del\nConero. Liberi, rapidi e senza\npadroni.»"]
+    },
+    win:[
+      "Guerrino richiama il suo FALCHIÒNE\nsul guanto e annuisce, soddisfatto.",
+      "«Gran bel volo, bardascio.»",
+      "Hai ottenuto la MEDAGLIA DEL CONERO!\n(11 di 20)",
+      "«La Cosca ha provato a tarpare le ali\nanche a me. Ma un falco in gabbia\nnon serve a nessuno.»",
+      "«Tu vola avanti. Roma t'aspetta, e\nlì la partita si fa grossa. Tieni\ngli occhi aperti, ragazzo.»"],
+    loseMsg:"Guerrino ti aspetta in palestra.\n«Riprendi quota e torna.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL CONERO ottenuta!', region:'Regione 11 di 20 completata',
+      next:'PROSSIMA TAPPA: LAZIO<br>Sor Alvaro · Tipo Drago · Roma',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 11 regioni.',
+      goodAt:12, badAt:-11,
+      verdict:{
+        good:'Da Milano ad Ancona, un nome che vola\npiù in alto della Cosca.',
+        bad:'La Cosca ti segue di regione in\nregione. Ma il vento è dalla tua.',
+        neutral:'Undici medaglie. Il tuo nome corre\nsul vento dell\'Adriatico.'}
     }
   }
 };
@@ -493,11 +534,18 @@ const WORLD_MAP = [
     respawn:{ map:'firenze', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in piazza\ndella Signoria. Il David ti guarda\ndall'alto, impassibile.","La squadra è di nuovo in forze, o bischero."] },
     link:'sponde del Trasimeno -> Perugia (con Medaglia del Giglio)' },
   { city:'PERUGIA', region:'Umbria', leader:'Quirino', type:'Terra', badge:'badge10',
-    maps:['perugia','gympg','ambpg','valnerina','gubbio'],
+    maps:['perugia','gympg','ambpg','valnerina','gubbio','furlo'],
     layout:[ { c:['perugia'] },
              { c:['gympg','ambpg'] },
              { c:['valnerina','gubbio'], j:'->' } ],
     respawn:{ map:'perugia', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina lungo\nl'acquedotto. Un gatto ti fissa dai\nvicoli in salita.","La squadra è di nuovo in forze."] },
+    link:'Gola del Furlo -> Ancona (con Medaglia del Grifo)' },
+  { city:'ANCONA', region:'Marche', leader:'Guerrino', type:'Volante', badge:'badge11',
+    maps:['ancona','gyman','amban','conero','sibillini'],
+    layout:[ { c:['ancona'] },
+             { c:['gyman','amban'] },
+             { c:['conero','sibillini'], j:'->' } ],
+    respawn:{ map:'ancona', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina del porto.\nUn falco plana in alto, lento.","La squadra è di nuovo in forze."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -517,9 +565,11 @@ const AREA_LABELS = {
   futa:'Futa',
   firenze:'Centro', gymfi:'Palestra', ambfi:'Ambul.', chianti:'Chianti', ipogeo:'Ipogeo',
   trasimeno:'Trasimeno',
-  perugia:'Centro', gympg:'Palestra', ambpg:'Ambul.', valnerina:'Valnerina', gubbio:'Gubbio'
+  perugia:'Centro', gympg:'Palestra', ambpg:'Ambul.', valnerina:'Valnerina', gubbio:'Gubbio',
+  furlo:'Furlo',
+  ancona:'Centro', gyman:'Palestra', amban:'Ambul.', conero:'Conero', sibillini:'Sibillini'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

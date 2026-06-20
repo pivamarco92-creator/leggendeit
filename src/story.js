@@ -249,7 +249,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -262,7 +262,8 @@ function evJohnny(town) {
     trieste: [['cjalcjut', lv], ['ratapignata', lv + 1], ['cjalcjutone', lv + 2]],
     bologna: [['foghin', lv], ['farfarello', lv + 1], ['fogaron', lv + 2]],
     firenze: [['strio', lv], ['civettona', lv + 1], ['strione', lv + 2]],
-    perugia: [['zollin', lv], ['lupomannaro', lv + 1], ['zollone', lv + 2]]
+    perugia: [['zollin', lv], ['lupomannaro', lv + 1], ['zollone', lv + 2]],
+    ancona: [['falchin', lv], ['ratapignata', lv + 1], ['falchione', lv + 2]]
   };
   const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
@@ -819,7 +820,23 @@ function evLupogubbio() {
     startBattle(makeMon('lupogubbio', 46), null);
   });
 }
+/* Leggendario delle Marche: la Sibilla Appenninica, profetessa dei Sibillini. */
+function evSibilla() {
+  if (G.flags.sibillaCaught) {
+    say(["La grotta è silenziosa. La SIBILLA\nha già letto il tuo destino.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nentrare nella grotta della Sibilla."); return; }
+  say(["In fondo alla grotta, tra ali e veli,\nsi leva una figura regale dagli occhi\nche brillano nel buio.",
+       "È la SIBILLA APPENNINICA, profetessa\ndei monti. Le fate danzano intorno\na lei nell'ombra.",
+       "«Conosco già l'esito di questo\nincontro... ma il vento vuole che\nci battiamo. E così sia.»",
+       "La SIBILLA spicca il volo!"], () => {
+    saveGame();
+    beep(240, .2, 'triangle'); beep(180, .24, 'triangle'); beep(300, .2, 'triangle');
+    startBattle(makeMon('sibilla', 48), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

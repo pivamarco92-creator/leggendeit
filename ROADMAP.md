@@ -1,8 +1,8 @@
 # ROADMAP — Leggende d'Italia
 
-Stato: **10 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
+Stato: **11 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
 Questa roadmap dice **cosa** costruire; CLAUDE.md dice **come**.
-Prossima da fare: **11 — Marche / Ancona (Guerrino, Volante — tipo già esistente)**.
+Prossima da fare: **12 — Lazio / Roma (Sor Alvaro, Drago — tipo NEW)**.
 Tipi già implementati: Normale, Fuoco, Acqua, Erba, Elettro, Volante, Coleottero, Veleno,
 Acciaio, Ghiaccio, Roccia, Spettro, Vento, Psico, **Terra**. Ancora da fare: Drago, Luce, Oscurità.
 Extra fatto: **"I tre soci"** (Pivòt/Faccìn/Licàt) — 3 linee speciali con quest dedicate.
@@ -22,7 +22,7 @@ Extra fatto: **"I tre soci"** (Pivòt/Faccìn/Licàt) — 3 linee speciali con q
 | 8 | Emilia-Romagna | Bologna | Dindo | Fuoco | ✓ |
 | 9 | Toscana | Firenze | Checcone | Psico | ✓ |
 | 10 | Umbria | Perugia | Quirino | Terra | ✓ |
-| 11 | Marche | Ancona | Guerrino | Volante | da fare |
+| 11 | Marche | Ancona | Guerrino | Volante | ✓ |
 | 12 | Lazio | Roma | Sor Alvaro | Drago (NEW) | da fare |
 | 13 | Abruzzo | L'Aquila | Carmine | Roccia | da fare |
 | 14 | Molise | Campobasso | ??? | Spettro | da fare (gym nascosta) |

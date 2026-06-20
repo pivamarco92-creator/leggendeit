@@ -41,6 +41,8 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'licat','licatone','licatass',
                         /* Umbria — linea di Terra + leggendario */
                         'zollin','zollone','lupogubbio',
+                        /* Marche — linea Volante + leggendario */
+                        'falchin','falchione','sibilla',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -334,6 +336,18 @@ const SPECIES = {
   lupogubbio: { n:'LUPO DI GUBBIO', types:['Terra','Normale'], hp:92, atk:102, def:88, spd:86,
     learnset:[[1,'morso'],[1,'fango'],[1,'sfondata'],[1,'terremoto'],[50,'terremoto']],
     dex:'Il lupo feroce che terrorizzava Gubbio, ammansito da San Francesco. Da allora veglia sui colli umbri: forte come la terra, mite come un patto mai tradito.' },
+
+  /* ---------- Marche — linea Volante + la Sibilla Appenninica ---------- */
+  falchin: { n:'FALCHÌN', types:['Volante'], hp:45, atk:55, def:42, spd:70,
+    evolve:{ lv:30, to:'falchione' },
+    learnset:[[1,'beccata'],[1,'dispetto'],[8,'graffio'],[20,'tramontana'],[40,'sfondata']],
+    dex:'Falchetto dei Monti Sibillini. Plana sulle gole marchigiane cercando le correnti calde. Occhio rapido, artiglio più rapido.' },
+  falchione: { n:'FALCHIÒNE', types:['Volante'], hp:70, atk:85, def:60, spd:100,
+    learnset:[[1,'beccata'],[1,'tramontana'],[1,'graffio'],[34,'morso'],[46,'sfondata']],
+    dex:'Il falco adulto del Conero. Domina i cieli dell\'Adriatico: quando chiude le ali e piomba, non sbaglia un colpo.' },
+  sibilla: { n:'SIBILLA', types:['Volante','Psico'], hp:88, atk:96, def:85, spd:100,
+    learnset:[[1,'beccata'],[1,'psicobotta'],[1,'tramontana'],[1,'psicoonda'],[50,'tramontana']],
+    dex:'La Sibilla Appenninica, la profetessa dei Monti Sibillini. Dalla sua grotta legge il vento e l\'avvenire. Le fate la servono al chiaro di luna.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).
