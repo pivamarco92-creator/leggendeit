@@ -424,5 +424,71 @@ const NPCS = {
       lines:["Shhh...",
              "La BORA dorme qui dentro.\nDopo secoli, dorme.\nNon svegliarla.",
              "Se la svegli... beh.\nSarà colpa tua. Io te l'ho detto."] }
+  ],
+
+  /* ========== EMILIA-ROMAGNA (Bologna) ========== */
+  pianurapo: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DELLA PIANURA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'pia1', team:[['foghin',37],['borda',37]],
+        pre:["Pianura Padana, zona Cosca.\nQui la nebbia copre tutto.\nAnche te, se non paghi."],
+        win:["Tch. Passa, va'."], after:["Sparisci nella nebbia."] } },
+    { x:20, y:7,  frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'pia2', team:[['lupomannaro',38],['civettona',38]],
+        pre:["Porto roba lungo la Via Emilia\nda anni. Tu non sei previsto."],
+        win:["Maledetto ritardo."], after:["Tira dritto verso Bologna."] } },
+    { x:14, y:13, frame:14, name:'CAPOZONA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'pia3', team:[['foghin',38],['ratapignata',39]],
+        pre:["Ultimo prima di Bologna.\nE non sono gentile come i\ncolleghi della pianura."],
+        win:["...soccia, sei forte.\nBologna ti aspetta."],
+        after:["Le Due Torri si vedono di là."] } }
+  ],
+  bologna: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'STUDENTE FUORISEDE',
+      lines:["Soccia, benvenuto a Bologna!\nLa Dotta, la Grassa, la Rossa.\nUniversità più antica del mondo.",
+             "Le Due Torri pendono da secoli.\nDicono che la Garisenda l'abbia\ntirata su il diavolo in persona."] },
+    { x:8,  y:14, frame:11, name:'AZDORA',
+      lines:["Ciò, mangia qualcosa che sei secco!\nQui si fanno tortellini, tagliatelle\ne ragù. Mica come al nord, neh.",
+             "Di notte, lungo il Reno, si vedono\nfiammelle che ballano. Fuochi fatui,\nli chiamano. O qualcosa di peggio."] },
+    { x:18, y:16, frame:12, name:'PROFESSORE',
+      lines:["Studio le leggende bolognesi da\nquarant'anni. La più oscura?\nIL DIÂL. Il diavolo delle Torri.",
+             "Si dice abiti ancora lassù, in cima\nalla Garisenda. Ride, quando il\nvento fischia tra i mattoni."] }
+  ],
+  gymbo: [
+    { x:5, y:2, frame:13, name:'DINDO', ev:'gymLeader' },
+    { x:3, y:5, frame:10, name:'GOLIARDO', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymbo1', team:[['foghin',38],['civettona',38]],
+        pre:["Per arrivare a Dindo devi passare\nl'esame. E io sono severo, matricola."],
+        win:["Promosso! Dindo ti aspetta\nin fondo all'aula."],
+        after:["Vai, vai. È in cattedra."] } },
+    { x:8, y:7, frame:11, name:'CUOCA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymbo2', team:[['fogaron',39],['farfarello',39]],
+        pre:["Il fuoco lo conosco: ci cucino\nda trent'anni. Vediamo se reggi\nil calore."],
+        win:["Soccia, che lotta! Sei degno\ndi sfidare Dindo."],
+        after:["Il capo è là. Non bruciarti."] } }
+  ],
+  ambbo: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA MORANDI', ev:'cura' }
+  ],
+  viaemilia: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DELLA VIA', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'vem1', team:[['foghin',36],['borda',36]],
+        pre:["La Via Emilia è nostra, dalla\nprima all'ultima pietra romana.\nPaga il pedaggio."],
+        win:["Tch. Passa."], after:["Non avvicinarti alle Torri."] } },
+    { x:14, y:13, frame:14, name:'CORRIERE NOTTURNO', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'vem2', team:[['lupomannaro',37],['foghin',37]],
+        pre:["Consegno roba che non si dichiara.\nLevati di mezzo, forestiero."],
+        win:["Bene. Potresti servirci."],
+        after:["Tira dritto e zitto."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DELLE TORRI', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'vem3', team:[['fogaron',38],['farfarello',38]],
+        pre:["L'ultimo prima delle Due Torri\nsono io. E lassù non ci sali\nsenza il mio permesso."],
+        win:["...va bene, va bene. Sali pure.\nMa quello che c'è in cima\nnon l'ho svegliato io."],
+        after:["La scala è in fondo. Buona\nfortuna, ti servirà."] } }
+  ],
+  torri: [
+    { x:3, y:9, frame:12, name:'CUSTODE DELLA GARISENDA',
+      lines:["Ci salgo ogni notte da quando ero\nragazzo. Questa torre pende per un\nmotivo, sai? Non è solo geometria.",
+             "Lassù in cima si posa IL DIÂL.\nIl diavolo che, dice la leggenda,\naiutò a costruirla. Non disturbarlo."] }
   ]
 };

@@ -26,10 +26,13 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'grifone',
                         /* Trentino-A.A. — linea di Roccia + leggendario */
                         'croder','crodon','laurino',
-                        /* Veneto — linea del Mazariol + leggendario */
-                        'mazariol','mazarione','leon',
                         /* Friuli-V.G. — linea del Cjalcjut + leggendario */
                         'cjalcjut','cjalcjutone','bora',
+                        /* Veneto — linea del Mazariol + leggendario
+                           (NB: l'ordine Friuli->Veneto qui DEVE combaciare con gen_assets.py) */
+                        'mazariol','mazarione','leon',
+                        /* Emilia-Romagna — linea del Fuoco Fatuo + leggendario */
+                        'foghin','fogaron','aldial',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -248,6 +251,18 @@ const SPECIES = {
   laurino: { n:'RE LAURINO', types:['Roccia'], hp:90, atk:98, def:95, spd:62,
     learnset:[[1,'sassata'],[1,'morso'],[1,'sfondata'],[1,'maledizione'],[50,'frana']],
     dex:'Il re dei nani del Catinaccio. La sua maledizione tinge le Dolomiti di rosso al tramonto: l’enrosadira.' },
+
+  /* ---------- Emilia-Romagna — linea del Fuoco Fatuo + Al Diâl ---------- */
+  foghin: { n:'FOGHÌN', types:['Fuoco'], hp:44, atk:52, def:40, spd:62,
+    evolve:{ lv:30, to:'fogaron' },
+    learnset:[[1,'botta'],[1,'dispetto'],[7,'favilla'],[16,'morso'],[28,'vampata'],[42,'rogo']],
+    dex:'Fuoco fatuo della pianura padana. Una fiammella vagante che di notte danza sugli argini del Reno e svia i viandanti.' },
+  fogaron: { n:'FOGARÒN', types:['Fuoco'], hp:68, atk:84, def:58, spd:86,
+    learnset:[[1,'favilla'],[1,'morso'],[1,'vampata'],[34,'sfondata'],[48,'rogo']],
+    dex:'Lo spirito del grande falò emiliano. Cresciuto dal fuoco fatuo, arde come i roghi delle feste di paese e non si lascia spegnere.' },
+  aldial: { n:'AL DIÂL', types:['Fuoco','Spettro'], hp:92, atk:104, def:85, spd:92,
+    learnset:[[1,'favilla'],[1,'malocchio'],[1,'vampata'],[1,'maledizione'],[50,'rogo']],
+    dex:'Il diavolo delle Due Torri. La leggenda narra che aiutò a costruire la Garisenda in cambio di un\'anima: da allora veglia, storto, sui tetti di Bologna.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).

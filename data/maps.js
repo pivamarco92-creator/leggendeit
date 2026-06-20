@@ -1003,7 +1003,7 @@ const MAPS = {
   },
 
   trieste: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
@@ -1016,7 +1016,7 @@ const MAPS = {
       'T.##..####..####..####..##.T',
       'T.........................RT',
       'T..........................T',
-      'T..........................T',
+      'TB.........................T',
       'T..........................T',
       'T..........................T',
       'TV.........................T',
@@ -1096,6 +1096,155 @@ const MAPS = {
 
   /* ---------- GROTTA DELLA BORA (area segreta) ---------- */
   grotta_bora: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== EMILIA-ROMAGNA (Bologna) — regione 8 ========== */
+  /* ---------- FRIULI → EMILIA · percorso della Pianura Padana (U = Trieste, Z = Bologna) ---------- */
+  pianurapo: {
+    t2i: { '.':0, 'G':3, 'T':4, 'W':5, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.TT.....GGGG....TT.GGGGT',
+      'T...GGG.....GGG.....GGG....T',
+      'T..........................T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..GGG...............GGG...T',
+      'T..........................T',
+      'T..........................T',
+      'T..WWWWWWWWWWWWWWWWWWWWWWWWT',
+      'T..WWWWWWWWWWWWWWWWWWWWWWWWT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'foghin',      min:37, max:40, w:30 },
+      { id:'borda',       min:37, max:40, w:24 },
+      { id:'civettona',   min:36, max:39, w:20 },
+      { id:'ratapignata', min:37, max:40, w:14 },
+      { id:'lupomannaro', min:37, max:40, w:12 }
+    ],
+    items: [
+      { x:6,  y:5,  item:'panzerotto', flag:'it_pia1' },
+      { x:20, y:13, item:'ampolla',    flag:'it_pia2' }
+    ]
+  },
+
+  bologna: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gymbo: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambbo: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- VIA EMILIA (route della regione, verso le Due Torri) ---------- */
+  viaemilia: {
+    t2i: { '.':0, 'G':3, 'T':4, '#':7, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.##....GGG....##.GGGGGGT',
+      'T....##....GGG....##.......T',
+      'T....##.ZG.GGG....##.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..##....GGG....##.........T',
+      'T..##....GGG....##.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'foghin',      min:36, max:39, w:30 },
+      { id:'civettona',   min:35, max:38, w:22 },
+      { id:'borda',       min:36, max:39, w:20 },
+      { id:'farfarello',  min:36, max:39, w:16 },
+      { id:'lupomannaro', min:36, max:39, w:12 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'ampolla',    flag:'it_vem1' },
+      { x:22, y:10, item:'panzerotto', flag:'it_vem2' }
+    ]
+  },
+  /* ---------- LE DUE TORRI (area segreta — X = Al Diâl) ---------- */
+  torri: {
     t2i: { '.':13, '#':14, 'X':5, 'E':12 },
     indoor: true,
     tiles: [
@@ -1248,11 +1397,31 @@ const PORTALS = {
              Y: { map:'gymts', x:5, y:9, dir:'up' },
              H: { map:'ambts', x:3, y:3, dir:'up' },
              R: { map:'carso', x:14, y:9, dir:'right',
-                  arriveMsg: ["IL CARSO. Il vento sibila\ntra i sassi. La bora è padrona."] } },
+                  arriveMsg: ["IL CARSO. Il vento sibila\ntra i sassi. La bora è padrona."] },
+             B: { map:'pianurapo', x:2, y:9, dir:'right',
+                  lock: () => !G.flags.badge7,
+                  msg: ["La strada verso l'EMILIA e Bologna.",
+                        "«Senza la Medaglia della Bora\nnon si scende in pianura, mulo.»"],
+                  arriveMsg: ["LA PIANURA PADANA. Nebbia bassa,\ncampi a perdita d'occhio e la\nVia Emilia dritta verso sud."] } },
   gymts:{ E: { map:'trieste', x:4, y:4, dir:'down' } },
   ambts:{ E: { map:'trieste', x:20, y:4, dir:'down' } },
   carso:{ U: { map:'trieste', x:25, y:9, dir:'left' },
           Z: { map:'grotta_bora', x:7, y:12, dir:'up',
                arriveMsg: ["GROTTA DEL VENTO. Il buio risuona\ndi un sibilo profondo."] } },
-  grotta_bora:{ E: { map:'carso', x:8, y:5, dir:'down' } }
+  grotta_bora:{ E: { map:'carso', x:8, y:5, dir:'down' } },
+  pianurapo:{ U: { map:'trieste', x:2, y:11, dir:'right' },
+              Z: { map:'bologna', x:2, y:14, dir:'right',
+                   arriveMsg: ["BOLOGNA LA DOTTA, LA GRASSA, LA ROSSA.\nPortici a perdita d'occhio e le Due\nTorri che pendono nel cielo."] } },
+  bologna:{ V: { map:'pianurapo', x:25, y:9, dir:'left',
+                 arriveMsg: ["LA PIANURA. Si risale verso nord-est,\nverso il Friuli e il vento."] },
+            Y: { map:'gymbo', x:5, y:9, dir:'up' },
+            H: { map:'ambbo', x:3, y:3, dir:'up' },
+            R: { map:'viaemilia', x:2, y:9, dir:'right',
+                 arriveMsg: ["LA VIA EMILIA. La strada romana che\ntaglia dritta la pianura. In fondo,\nle Due Torri."] } },
+  gymbo:{ E: { map:'bologna', x:4, y:4, dir:'down' } },
+  ambbo:{ E: { map:'bologna', x:20, y:4, dir:'down' } },
+  viaemilia:{ U: { map:'bologna', x:25, y:9, dir:'left' },
+              Z: { map:'torri', x:7, y:12, dir:'up',
+                   arriveMsg: ["LE DUE TORRI. Dentro la Garisenda, una\nscala a chiocciola sale nel buio. In\ncima, qualcosa ride piano."] } },
+  torri:{ E: { map:'viaemilia', x:8, y:5, dir:'down' } }
 };

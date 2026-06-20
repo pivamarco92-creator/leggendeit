@@ -246,7 +246,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -256,7 +256,8 @@ function evJohnny(town) {
     genova:  [['borda', lv], ['ratapignata', lv + 1], ['bissone', lv + 2]],
     bolzano: [['croder', lv], ['lupomannaro', lv], ['crodon', lv + 2]],
     venezia: [['mazariol', lv], ['borda', lv + 1], ['mazarione', lv + 2]],
-    trieste: [['cjalcjut', lv], ['ratapignata', lv + 1], ['cjalcjutone', lv + 2]]
+    trieste: [['cjalcjut', lv], ['ratapignata', lv + 1], ['cjalcjutone', lv + 2]],
+    bologna: [['foghin', lv], ['farfarello', lv + 1], ['fogaron', lv + 2]]
   };
   const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
@@ -604,7 +605,23 @@ function evBora() {
     startBattle(makeMon('bora', 36), null);
   });
 }
+/* Leggendario dell'Emilia: Al Diâl, il diavolo delle Due Torri. */
+function evAldial() {
+  if (G.flags.aldialCaught) {
+    say(["In cima alla Garisenda c'è solo\nvento e silenzio. AL DIÂL si è\ngià mostrato a te."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nosi salire in cima alla torre."); return; }
+  say(["In cima alla Garisenda, tra i mattoni\nche pendono, due occhi gialli si\naprono nel buio.",
+       "Una risata profonda riempie la torre.\nAL DIÂL, il diavolo che la costruì,\nsi alza tra fiamme e ombra.",
+       "«Chi sale fin quassù, si diverta\ncon me. O bruci provandoci.»",
+       "AL DIÂL attacca!"], () => {
+    saveGame();
+    beep(180, .2, 'triangle'); beep(120, .28, 'triangle');
+    startBattle(makeMon('aldial', 40), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

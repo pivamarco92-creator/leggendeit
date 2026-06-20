@@ -1,7 +1,8 @@
 # ROADMAP — Leggende d'Italia
 
-Stato: **5 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
+Stato: **8 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
 Questa roadmap dice **cosa** costruire; CLAUDE.md dice **come**.
+Prossima da fare: **9 — Toscana / Firenze (Checcone, Psico — tipo NEW)**.
 
 ## Le 20 regioni (dal concept originale)
 ✓ = fatta. Tipi tra parentesi; (NEW) = tipo da implementare la prima volta che serve.
@@ -13,9 +14,9 @@ Questa roadmap dice **cosa** costruire; CLAUDE.md dice **come**.
 | 3 | Valle d'Aosta | Aosta | Felicino | Ghiaccio | ✓ |
 | 4 | Liguria | Genova | Barbagialla | Acqua | ✓ |
 | 5 | Trentino-A.A. | Bolzano | Hans | Ghiaccio/Roccia | ✓ |
-| 6 | Veneto | Venezia | Bepi | Acqua | da fare |
-| 7 | Friuli-V.G. | Trieste | Gigio | Vento (NEW) | da fare |
-| 8 | Emilia-Romagna | Bologna | Dindo | Fuoco | da fare |
+| 6 | Veneto | Venezia | Bepi | Acqua | ✓ |
+| 7 | Friuli-V.G. | Trieste | Gigio | Vento | ✓ |
+| 8 | Emilia-Romagna | Bologna | Dindo | Fuoco | ✓ |
 | 9 | Toscana | Firenze | Checcone | Psico (NEW) | da fare |
 | 10 | Umbria | Perugia | Quirino | Terra (NEW) | da fare |
 | 11 | Marche | Ancona | Guerrino | Volante | da fare |
