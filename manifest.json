@@ -1,0 +1,16 @@
+{
+  "name": "Leggende d'Italia",
+  "short_name": "Leggende",
+  "description": "RPG di folklore italiano: 20 regioni, palestre e mala. Cattura le Leggende d'Italia.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#14141f",
+  "theme_color": "#14302a",
+  "lang": "it",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

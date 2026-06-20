@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Leggende d'Italia</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#14302a">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Leggende">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html,body { height:100%; background:#14141f; overflow:hidden;
@@ -381,7 +388,7 @@
       <button class="padBtn" data-k="z">A</button>
     </div>
   </div>
-  <div id="hint">Frecce/WASD: muoviti · Z/INVIO: A · X/ESC: B / Menù &nbsp;|&nbsp; Serve internet (Phaser via CDN)</div>
+  <div id="hint">Frecce/WASD: muoviti · Z/INVIO: A · X/ESC: B / Menù &nbsp;|&nbsp; Prima apertura online, poi giochi anche offline</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
@@ -413,6 +420,12 @@
       if (el && n) el.textContent = n + ' regioni di 20 giocabili';
     } catch (e) {}
   })();
+  /* PWA: registra il service worker per giocare offline (dopo la prima apertura online). */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('service-worker.js').catch(function () {});
+    });
+  }
 </script>
 </body>
 </html>
