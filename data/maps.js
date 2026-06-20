@@ -271,9 +271,9 @@ const MAPS = {
     encounters: [
       { id:'merlotta',  min:3, max:6, w:28 },
       { id:'mazapegul', min:3, max:6, w:24 },
-      { id:'bigatto',   min:3, max:6, w:20 },
-      { id:'civettona', min:4, max:7, w:16 },
-      { id:'bisso',     min:5, max:7, w:12 }
+      { id:'ranot',     min:3, max:6, w:20 },
+      { id:'pantegana', min:4, max:7, w:16 },
+      { id:'bigatto',   min:3, max:6, w:12 }
     ],
     items: [
       { x:3,  y:8,  item:'ampolla',    flag:'it_nav1' },
@@ -304,9 +304,9 @@ const MAPS = {
     encounters: [
       { id:'bisso',        min:8, max:11, w:30 },
       { id:'munaciello',   min:9, max:12, w:22 },
-      { id:'gattomammone', min:9, max:12, w:20 },
-      { id:'anguanella',   min:8, max:10, w:18 },
-      { id:'mazapegul',    min:8, max:10, w:10 }
+      { id:'pantegana',    min:9, max:12, w:20 },
+      { id:'ranot',        min:8, max:10, w:18 },
+      { id:'gattomammone', min:8, max:10, w:10 }
     ],
     items: [
       { x:12, y:1, item:'pizza', flag:'it_seg1' }
@@ -352,9 +352,9 @@ const MAPS = {
     ],
     encounters: [
       { id:'merlotta',  min:7, max:10, w:28 },
-      { id:'mazapegul', min:7, max:10, w:24 },
-      { id:'bisso',     min:8, max:11, w:20 },
-      { id:'borda',     min:8, max:11, w:16 },
+      { id:'ranot',     min:7, max:10, w:24 },
+      { id:'pantegana', min:8, max:11, w:20 },
+      { id:'bisso',     min:8, max:11, w:16 },
       { id:'masca',     min:9, max:11, w:12 }
     ],
     items: [
@@ -389,9 +389,9 @@ const MAPS = {
     encounters: [
       { id:'masca',     min:9,  max:12, w:30 },
       { id:'servanot',  min:9,  max:12, w:25 },
-      { id:'bisso',     min:10, max:13, w:20 },
-      { id:'mazapegul', min:10, max:12, w:15 },
-      { id:'borda',     min:10, max:13, w:10 }
+      { id:'pantegana', min:10, max:13, w:20 },
+      { id:'bisso',     min:10, max:12, w:15 },
+      { id:'mazapegul', min:10, max:13, w:10 }
     ],
     items: [ { x:12, y:1, item:'pizza', flag:'it_sot1' } ]
   },
@@ -423,7 +423,7 @@ const MAPS = {
       { id:'civettona',   min:13, max:16, w:22 },
       { id:'lupomannaro', min:14, max:18, w:18 },
       { id:'brinassa',    min:16, max:19, w:14 },
-      { id:'merlotta',    min:13, max:16, w:12 }
+      { id:'gazzot',      min:13, max:16, w:12 }
     ],
     items: [
       { x:2,  y:7,  item:'ampolla',    flag:'it_gsb1' },
@@ -538,10 +538,10 @@ const MAPS = {
     ],
     encounters: [
       { id:'ratapignata', min:17, max:20, w:28 },
-      { id:'merlotta',    min:17, max:20, w:22 },
+      { id:'gazzot',      min:17, max:20, w:22 },
       { id:'civettona',   min:18, max:21, w:18 },
       { id:'anguanella',  min:17, max:20, w:18 },
-      { id:'borda',       min:19, max:22, w:14 }
+      { id:'pantegana',   min:19, max:22, w:14 }
     ],
     items: [
       { x:2, y:5,  item:'ampolla',    flag:'it_sco1' },
@@ -600,10 +600,11 @@ const MAPS = {
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
     ],
     encounters: [
-      { id:'merlotta',  min:8, max:11, w:30 },
-      { id:'mazapegul', min:8, max:11, w:26 },
-      { id:'servanot',  min:9, max:12, w:24 },
-      { id:'bisso',     min:9, max:12, w:20 }
+      { id:'merlotta',  min:8, max:11, w:28 },
+      { id:'ranot',     min:8, max:11, w:26 },
+      { id:'gazzot',    min:8, max:11, w:22 },
+      { id:'servanot',  min:9, max:12, w:20 },
+      { id:'bisso',     min:9, max:12, w:16 }
     ]
   },
   valico: {
@@ -634,7 +635,7 @@ const MAPS = {
       { id:'masca',       min:12, max:15, w:28 },
       { id:'servanot',    min:12, max:15, w:24 },
       { id:'neiot',       min:13, max:16, w:26 },
-      { id:'lupomannaro', min:13, max:16, w:22 }
+      { id:'gazzot',      min:13, max:16, w:22 }
     ]
   },
   appennino: {
@@ -664,7 +665,7 @@ const MAPS = {
     encounters: [
       { id:'lupomannaro', min:16, max:19, w:28 },
       { id:'civettona',   min:16, max:19, w:24 },
-      { id:'borda',       min:17, max:20, w:26 },
+      { id:'gazzot',      min:17, max:20, w:26 },
       { id:'ratapignata', min:17, max:20, w:22 }
     ]
   },
@@ -749,7 +750,7 @@ const MAPS = {
     encounters: [
       { id:'croder',      min:24, max:27, w:30 },
       { id:'neiot',       min:24, max:27, w:24 },
-      { id:'civettona',   min:24, max:27, w:20 },
+      { id:'gazzot',      min:24, max:27, w:20 },
       { id:'brinassa',    min:26, max:28, w:14 },
       { id:'lupomannaro', min:25, max:28, w:12 }
     ],
@@ -807,7 +808,7 @@ const MAPS = {
     encounters: [
       { id:'civettona',   min:20, max:23, w:28 },
       { id:'lupomannaro', min:20, max:23, w:24 },
-      { id:'borda',       min:21, max:24, w:22 },
+      { id:'gazzot',      min:21, max:24, w:22 },
       { id:'ratapignata', min:21, max:24, w:18 },
       { id:'croder',      min:22, max:24, w:14 }
     ]
@@ -894,8 +895,8 @@ const MAPS = {
     encounters: [
       { id:'mazariol',    min:28, max:31, w:28 },
       { id:'anguanella',  min:27, max:30, w:24 },
-      { id:'borda',       min:28, max:31, w:20 },
-      { id:'ratapignata', min:28, max:31, w:16 },
+      { id:'pantegana',   min:28, max:31, w:20 },
+      { id:'ranot',       min:28, max:31, w:16 },
       { id:'civettona',   min:27, max:30, w:12 }
     ],
     items: [
@@ -927,7 +928,7 @@ const MAPS = {
     encounters: [
       { id:'mazariol',    min:30, max:33, w:30 },
       { id:'anguanella',  min:30, max:33, w:26 },
-      { id:'borda',       min:31, max:34, w:20 },
+      { id:'pantegana',   min:31, max:34, w:20 },
       { id:'ratapignata', min:30, max:33, w:14 }
     ],
     items: [ { x:12, y:1, item:'pizza', flag:'it_cal1' } ]
@@ -960,8 +961,8 @@ const MAPS = {
     encounters: [
       { id:'civettona',   min:25, max:28, w:28 },
       { id:'lupomannaro', min:25, max:28, w:24 },
-      { id:'borda',       min:26, max:29, w:22 },
-      { id:'ratapignata', min:26, max:29, w:18 },
+      { id:'ranot',       min:26, max:29, w:22 },
+      { id:'pantegana',   min:26, max:29, w:18 },
       { id:'croder',      min:25, max:28, w:14 },
       { id:'mazariol',    min:27, max:29, w:10 }
     ]
@@ -992,8 +993,8 @@ const MAPS = {
     ],
     encounters: [
       { id:'cjalcjut',   min:30, max:33, w:35 },
-      { id:'borda',      min:29, max:32, w:25 },
-      { id:'ratapignata',min:30, max:33, w:25 },
+      { id:'ranot',      min:29, max:32, w:25 },
+      { id:'pantegana',  min:30, max:33, w:25 },
       { id:'mazariol',   min:29, max:31, w:15 }
     ],
     items: [
@@ -1085,7 +1086,7 @@ const MAPS = {
     encounters: [
       { id:'cjalcjut',   min:32, max:35, w:35 },
       { id:'ratapignata',min:32, max:35, w:28 },
-      { id:'lupomannaro',min:32, max:35, w:22 },
+      { id:'gazzot',     min:32, max:35, w:22 },
       { id:'cjalcjutone',min:33, max:36, w:15 }
     ],
     items: [
@@ -1143,8 +1144,8 @@ const MAPS = {
     ],
     encounters: [
       { id:'foghin',      min:37, max:40, w:30 },
-      { id:'borda',       min:37, max:40, w:24 },
-      { id:'civettona',   min:36, max:39, w:20 },
+      { id:'luccicola',   min:36, max:39, w:22 },
+      { id:'cinghial',    min:37, max:40, w:20 },
       { id:'ratapignata', min:37, max:40, w:14 },
       { id:'lupomannaro', min:37, max:40, w:12 }
     ],
@@ -1233,10 +1234,10 @@ const MAPS = {
     ],
     encounters: [
       { id:'foghin',      min:36, max:39, w:30 },
-      { id:'civettona',   min:35, max:38, w:22 },
-      { id:'borda',       min:36, max:39, w:20 },
-      { id:'farfarello',  min:36, max:39, w:16 },
-      { id:'lupomannaro', min:36, max:39, w:12 }
+      { id:'luccicola',   min:35, max:38, w:22 },
+      { id:'cinghial',    min:36, max:39, w:20 },
+      { id:'civettona',   min:35, max:38, w:16 },
+      { id:'farfarello',  min:36, max:39, w:12 }
     ],
     items: [
       { x:5,  y:5,  item:'ampolla',    flag:'it_vem1' },
@@ -1292,9 +1293,9 @@ const MAPS = {
     ],
     encounters: [
       { id:'strio',       min:41, max:44, w:28 },
-      { id:'civettona',   min:40, max:43, w:22 },
-      { id:'borda',       min:41, max:44, w:20 },
-      { id:'farfarello',  min:41, max:44, w:16 },
+      { id:'cinghial',    min:40, max:43, w:22 },
+      { id:'civettona',   min:40, max:43, w:18 },
+      { id:'pantafica',   min:41, max:44, w:16 },
       { id:'lupomannaro', min:41, max:44, w:14 }
     ],
     items: [
@@ -1382,8 +1383,8 @@ const MAPS = {
     ],
     encounters: [
       { id:'strio',       min:40, max:43, w:30 },
-      { id:'civettona',   min:39, max:42, w:22 },
-      { id:'borda',       min:40, max:43, w:20 },
+      { id:'cinghial',    min:39, max:42, w:22 },
+      { id:'luccicola',   min:40, max:43, w:18 },
       { id:'farfarello',  min:40, max:43, w:16 },
       { id:'lupomannaro', min:40, max:43, w:12 }
     ],
@@ -1441,10 +1442,10 @@ const MAPS = {
     ],
     encounters: [
       { id:'zollin',      min:44, max:47, w:30 },
-      { id:'civettona',   min:43, max:46, w:22 },
-      { id:'borda',       min:44, max:47, w:18 },
+      { id:'cinghial',    min:43, max:46, w:22 },
+      { id:'luccicola',   min:44, max:47, w:18 },
       { id:'lupomannaro', min:44, max:47, w:16 },
-      { id:'farfarello',  min:44, max:47, w:14 }
+      { id:'pantafica',   min:44, max:47, w:14 }
     ],
     items: [
       { x:6,  y:5,  item:'ampolla',    flag:'it_tra1' },
@@ -1531,10 +1532,10 @@ const MAPS = {
     ],
     encounters: [
       { id:'zollin',      min:45, max:48, w:30 },
-      { id:'lupomannaro', min:44, max:47, w:22 },
-      { id:'civettona',   min:44, max:47, w:18 },
-      { id:'borda',       min:45, max:48, w:16 },
-      { id:'farfarello',  min:45, max:48, w:14 }
+      { id:'cinghial',    min:44, max:47, w:22 },
+      { id:'lupomannaro', min:44, max:47, w:18 },
+      { id:'pantafica',   min:45, max:48, w:16 },
+      { id:'luccicola',   min:45, max:48, w:14 }
     ],
     items: [
       { x:5,  y:5,  item:'panzerotto', flag:'it_val1' },
@@ -1590,9 +1591,9 @@ const MAPS = {
     ],
     encounters: [
       { id:'falchin',     min:47, max:50, w:28 },
-      { id:'civettona',   min:46, max:49, w:22 },
-      { id:'ratapignata', min:47, max:50, w:18 },
-      { id:'borda',       min:47, max:50, w:16 },
+      { id:'pantafica',   min:46, max:49, w:22 },
+      { id:'cinghial',    min:47, max:50, w:18 },
+      { id:'civettona',   min:46, max:49, w:16 },
       { id:'lupomannaro', min:47, max:50, w:14 }
     ],
     items: [
@@ -1680,9 +1681,9 @@ const MAPS = {
     ],
     encounters: [
       { id:'falchin',     min:48, max:51, w:30 },
-      { id:'civettona',   min:47, max:50, w:20 },
-      { id:'ratapignata', min:48, max:51, w:18 },
-      { id:'borda',       min:48, max:51, w:16 },
+      { id:'pantafica',   min:47, max:50, w:20 },
+      { id:'cinghial',    min:48, max:51, w:18 },
+      { id:'ratapignata', min:48, max:51, w:16 },
       { id:'lupomannaro', min:48, max:51, w:14 }
     ],
     items: [
@@ -1739,10 +1740,10 @@ const MAPS = {
     ],
     encounters: [
       { id:'ruderin',     min:50, max:53, w:26 },
-      { id:'lupomannaro', min:50, max:53, w:22 },
-      { id:'civettona',   min:49, max:52, w:18 },
-      { id:'borda',       min:50, max:53, w:18 },
-      { id:'farfarello',  min:50, max:53, w:16 }
+      { id:'cinghial',    min:50, max:53, w:22 },
+      { id:'pantafica',   min:49, max:52, w:18 },
+      { id:'civettona',   min:50, max:53, w:18 },
+      { id:'lupomannaro', min:50, max:53, w:16 }
     ],
     items: [
       { x:5,  y:5,  item:'ampolla',    flag:'it_sal1' },
@@ -1829,9 +1830,9 @@ const MAPS = {
     ],
     encounters: [
       { id:'ruderin',     min:51, max:54, w:28 },
-      { id:'lupomannaro', min:50, max:53, w:20 },
-      { id:'civettona',   min:50, max:53, w:18 },
-      { id:'borda',       min:51, max:54, w:16 },
+      { id:'cinghial',    min:50, max:53, w:20 },
+      { id:'pantafica',   min:50, max:53, w:18 },
+      { id:'lupomannaro', min:51, max:54, w:16 },
       { id:'farfarello',  min:51, max:54, w:16 }
     ],
     items: [

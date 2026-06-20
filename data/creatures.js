@@ -45,6 +45,10 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'falchin','falchione','sibilla',
                         /* Lazio — linea Drago + leggendario */
                         'ruderin','ruderone','dracone',
+                        /* Comuni selvatiche del centro-sud (per varietà incontri) */
+                        'cinghial','pantafica','luccicola',
+                        /* Comuni selvatiche del nord (per varietà incontri) */
+                        'pantegana','ranot','gazzot',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -362,6 +366,28 @@ const SPECIES = {
   dracone: { n:'DRACÒNE', types:['Drago'], hp:95, atk:108, def:92, spd:92,
     learnset:[[1,'morso'],[1,'dragobotta'],[1,'sfondata'],[1,'furiadrago'],[50,'furiadrago']],
     dex:'Il grande drago delle catacombe romane. La leggenda narra che Papa Silvestro ne sigillò le fauci sotto il Foro. Da allora dorme nel buio, sotto la città eterna.' },
+
+  /* ---------- Comuni selvatiche del centro-sud (varietà incontri) ---------- */
+  cinghial: { n:'CINGHIÀL', types:['Normale'], hp:58, atk:64, def:56, spd:44,
+    learnset:[[1,'botta'],[1,'codata'],[12,'morso'],[28,'sfondata']],
+    dex:'Cinghiale dei boschi dell\'Italia centrale. Scava radici e devasta gli orti. Caparbio, irascibile e di pessimo carattere.' },
+  pantafica: { n:'PANTÀFICA', types:['Spettro'], hp:48, atk:62, def:48, spd:66,
+    learnset:[[1,'malocchio'],[1,'dispetto'],[16,'morso'],[30,'maledizione']],
+    dex:'La Pantàfica del folklore abruzzese e marchigiano. Di notte si siede sul petto di chi dorme e ne opprime il respiro, finché non dici il suo nome.' },
+  luccicola: { n:'LUCCICÒLA', types:['Coleottero'], hp:46, atk:52, def:46, spd:62,
+    learnset:[[1,'sciame'],[1,'filodiseta'],[18,'morso']],
+    dex:'Lucciola gigante delle notti d\'estate del centro-sud. La sua luce verde ipnotizza gli insetti — e gli allenatori distratti.' },
+
+  /* ---------- Comuni selvatiche del nord (varietà incontri) ---------- */
+  pantegana: { n:'PANTEGÀNA', types:['Veleno'], hp:52, atk:56, def:48, spd:58,
+    learnset:[[1,'botta'],[1,'morso'],[14,'velenovivo'],[28,'sfondata']],
+    dex:'Il grosso ratto dei canali e delle fogne (la «pantegana» veneta). Infesta i Navigli, gli argini del Po e le rive della laguna.' },
+  ranot: { n:'RANÒT', types:['Acqua'], hp:50, atk:48, def:52, spd:44,
+    learnset:[[1,'zampillo'],[1,'codata'],[12,'botta'],[26,'ondata']],
+    dex:'Rana gigante delle risaie e dei canali del nord. Gracida tutta la notte nella nebbia padana: smettere è un\'altra storia.' },
+  gazzot: { n:'GAZZÒT', types:['Volante'], hp:46, atk:54, def:44, spd:66,
+    learnset:[[1,'beccata'],[1,'dispetto'],[12,'graffio'],[26,'tramontana']],
+    dex:'Gazza ladra del settentrione. Ruba tutto ciò che luccica: monete, orecchini e, se ti distrai, pure le Ampolle.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).
