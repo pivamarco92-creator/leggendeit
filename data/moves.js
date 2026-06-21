@@ -44,5 +44,6 @@ const MOVES = {
   /* --- mosse-firma de "I tre soci" --- */
   pivonata:   { n:'Pivonata',     t:'Elettro',    pow:90, pp:10 },
   facciata:   { n:'Facciata',     t:'Fuoco',      pow:90, pp:10 },
-  licatonda:  { n:'Licatònda',    t:'Acqua',      pow:90, pp:10 }
+  licatonda:  { n:'Licatònda',    t:'Acqua',      pow:90, pp:10 },
+  tirapacchi: { n:'Tirapacchi',   t:'Normale',    pow:85, pp:10 }
 };

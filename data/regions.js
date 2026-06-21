@@ -13,7 +13,7 @@
 const GYMS = {
   gym: {
     leader:'CARLETTO', type:'Normale', badge:'badge', region:1,
-    team:[['mazapegul',9],['gattomammone',11]],
+    team:[['mazapegul',9],['bisso',10],['gattomammone',12]],
     challenge:"Regola della casa: chi vince piglia\nla MEDAGLIA MADONNINA. Si va!",
     intro:[
       "La palestra del Duomo.\nPavimento in marmo, eco solenne.",
@@ -56,7 +56,7 @@ const GYMS = {
 
   gymto: {
     leader:'GIANDUIOTTO', type:'Acciaio', badge:'badge2', region:2,
-    team:[['fusinot',14],['toret',16]],
+    team:[['servanot',14],['fusinot',15],['masca',16],['toret',18]],
     challenge:"«Chi vince piglia la MEDAGLIA\nDELLA MOLE. Bogia!»",
     intro:[
       "La palestra di Torino: una vecchia\nofficina riconvertita.",
@@ -99,7 +99,7 @@ const GYMS = {
 
   gymao: {
     leader:'FELICINO', type:'Ghiaccio', badge:'badge3', region:3,
-    team:[['neiot',18],['brinassa',21]],
+    team:[['neiot',18],['merlona',19],['neiot',21],['brinassa',24]],
     challenge:"«Chi vince piglia la MEDAGLIA DEL\nMONTE BIANCO. Forza, vah!»",
     intro:[
       "La palestra di Aosta: una baita\ndi pietra, ghiaccioli al soffitto.",
@@ -142,7 +142,7 @@ const GYMS = {
 
   gymge: {
     leader:'BARBAGIALLA', type:'Acqua', badge:'badge4', region:4,
-    team:[['borda',24],['anguanaregina',27]],
+    team:[['anguanella',24],['borda',25],['anguana',26],['anguanaregina',29]],
     challenge:'«Chi vince si piglia la MEDAGLIA\nDELLA LANTERNA. Forza, belin!»',
     intro:[
       "La palestra di Genova: una darsena\ncoperta, odore di salsedine e catrame.",
@@ -183,7 +183,7 @@ const GYMS = {
 
   gymts: {
     leader:'GIGIO', type:'Vento', badge:'badge7', region:7,
-    team:[['cjalcjut',34],['cjalcjutone',37]],
+    team:[['cjalcjut',34],['ratapignata',35],['gazzot',36],['cjalcjutone',39]],
     challenge:'«A Trieste si combatte con la BORA\nnei polmoni. Tieni duro!»',
     intro:[
       "La palestra di Trieste: una vecchia\nstazione della tramvia sul Carso,\npiena di correnti d'aria.",
@@ -224,7 +224,7 @@ const GYMS = {
 
   gymve: {
     leader:'BEPI', type:'Acqua', badge:'badge6', region:6,
-    team:[['mazarione',32],['borda',34],['anguanaregina',36]],
+    team:[['mazariol',32],['borda',33],['mazarione',35],['anguanaregina',38]],
     challenge:'«Chi vince piglia la MEDAGLIA DEL LEONE.\nVoga! Voga!»',
     intro:[
       "La palestra di Venezia: una vecchia\nrimessa per gondole, profumo di\nsalsedine e legno antico.",
@@ -265,7 +265,7 @@ const GYMS = {
 
   gymtr: {
     leader:'HANS', type:'Ghiaccio/Roccia', badge:'badge5', region:5,
-    team:[['croder',27],['brinassa',28],['crodon',30]],
+    team:[['croder',27],['neiot',28],['brinassa',30],['crodon',32]],
     challenge:'«Chi vince prende la MEDAGLIA DELLE\nDOLOMITI. Auf geht\'s!»',
     intro:[
       "La palestra di Bolzano: legno di malga,\ntrofei di roccia e ghiaccio.",
@@ -304,7 +304,7 @@ const GYMS = {
 
   gymbo: {
     leader:'DINDO', type:'Fuoco', badge:'badge8', region:8,
-    team:[['farfarello',40],['malebranca',41],['fogaron',43]],
+    team:[['foghin',39],['farfarello',41],['malebranca',42],['fogaron',45]],
     challenge:'«Chi vince piglia la MEDAGLIA DELLE\nDUE TORRI. Soccia, dai!»',
     intro:[
       "La palestra di Bologna: una vecchia\naula universitaria sotto i portici,\ncalda come un forno.",
@@ -345,7 +345,7 @@ const GYMS = {
 
   gymfi: {
     leader:'CHECCONE', type:'Psico', badge:'badge9', region:9,
-    team:[['strio',43],['civettona',44],['strione',46]],
+    team:[['strio',43],['civettona',44],['pantafica',45],['strione',48]],
     challenge:'«Chi vince piglia la MEDAGLIA DEL\nGIGLIO. O bischero, fatti sotto!»',
     intro:[
       "La palestra di Firenze: una galleria\nrinascimentale, statue e affreschi\nche sembrano seguirti con lo sguardo.",
@@ -386,7 +386,7 @@ const GYMS = {
 
   gympg: {
     leader:'QUIRINO', type:'Terra', badge:'badge10', region:10,
-    team:[['zollin',47],['lupomannaro',48],['zollone',50]],
+    team:[['zollin',47],['cinghial',48],['lupomannaro',49],['pantafica',50],['zollone',53]],
     challenge:'«Chi vince si piglia la MEDAGLIA DEL\nGRIFO. Coraggio, su!»',
     intro:[
       "La palestra di Perugia: una cantina\nin pietra sotto l'acquedotto, odore\ndi terra umida e tartufo.",
@@ -427,7 +427,7 @@ const GYMS = {
 
   gyman: {
     leader:'GUERRINO', type:'Volante', badge:'badge11', region:11,
-    team:[['falchin',50],['ratapignata',51],['falchione',53]],
+    team:[['falchin',50],['gazzot',51],['ratapignata',52],['civettona',53],['falchione',56]],
     challenge:'«Chi vince si piglia la MEDAGLIA DEL\nCONERO. Su, prendi il volo!»',
     intro:[
       "La palestra di Ancona: una vecchia\ntorre del porto aperta sul mare,\npiena di trespoli e di falchi.",
@@ -468,7 +468,7 @@ const GYMS = {
 
   gymrm: {
     leader:'SOR ALVARO', type:'Drago', badge:'badge12', region:12,
-    team:[['ruderin',53],['lupomannaro',54],['ruderone',56]],
+    team:[['ruderin',53],['lupomannaro',54],['pantafica',55],['cinghial',56],['ruderone',59]],
     challenge:'«Chi vince se piglia la MEDAGLIA DER\nCOLOSSEO. Daje, ahò!»',
     intro:[
       "La palestra di Roma: un'arena di\ntravertino sotto il livello della\nstrada, torce alle pareti.",
@@ -509,7 +509,7 @@ const GYMS = {
 
   gymaq: {
     leader:'CARMINE', type:'Roccia', badge:'badge13', region:13,
-    team:[['petrin',55],['cinghial',56],['petrone',58]],
+    team:[['petrin',55],['cinghial',56],['gazzot',57],['lupomannaro',58],['petrone',61]],
     challenge:'«Chi vince si piglia la MEDAGLIA DEL\nGRAN SASSO. Dai, uagliò!»',
     intro:[
       "La palestra di L'Aquila: un cortile\ndi pietra tra i 99 castelli, blocchi\ndi roccia ovunque.",
@@ -537,8 +537,8 @@ const GYMS = {
     end:{
       title:'★ FINE DEI CONTENUTI ★',
       medal:'MEDAGLIA DEL GRAN SASSO ottenuta!', region:'Regione 13 di 20 completata',
-      next:'PROSSIMA TAPPA: MOLISE (?)<br>Campobasso · «il Molise non esiste»',
-      footer:'Premi A: cerca TONINO a L\'Aquila.<br>Dice di venire dal Molise...<br>e che esiste davvero.',
+      next:'PROSSIMA TAPPA: CAMPANIA<br>Ciruzzo · Tipo Fuoco · Napoli',
+      footer:'Premi A: scendi in CAMPANIA (monti del<br>Sannio). E c\'è un certo TONINO, qui a<br>L\'Aquila, che giura esista il Molise...',
       goodAt:14, badAt:-13,
       verdict:{
         good:'Da Milano al Gran Sasso, un nome duro\ncome la roccia: la Cosca non lo piega.',
@@ -549,7 +549,7 @@ const GYMS = {
 
   gymcb: {
     leader:'TONINO', type:'Spettro', badge:'badge14', region:14,
-    team:[['svanin',58],['pantafica',59],['svanone',61]],
+    team:[['svanin',58],['pantafica',59],['lupomannaro',60],['gazzot',61],['svanone',64]],
     challenge:'«Chi vince piglia la MEDAGLIA\nINESISTENTE. Esiste solo se vinci!»',
     intro:[
       "La palestra di Campobasso: una sala\nche sulle piantine non c'è. Eppure\neccola, con tanto di tabellone.",
@@ -585,6 +585,46 @@ const GYMS = {
         good:'Hai dato al Molise ciò che nessuno gli\ndà: di esistere. Un eroe, dentro e\nfuori dalle cartine.',
         bad:'Persino il Molise dimenticato ha\nsentito parlare delle tue amicizie\nsbagliate. Non è un bel segno.',
         neutral:'Quattordici medaglie, una segreta.\nHai trovato la regione che non c\'è.'}
+    }
+  },
+
+  gymna: {
+    leader:'CIRUZZO', type:'Fuoco', badge:'badge15', region:15,
+    team:[['vesuvin',60],['malebranca',61],['farfarello',62],['cinghial',63],['vesuvione',66]],
+    challenge:'«Chi vince se piglia \'a MEDAGLIA D\'\'O\nVESUVIO. Jamm, uagliò!»',
+    intro:[
+      "La palestra di Napoli: un cortile di\ntufo coi panni stesi sopra, caldo\ncome il fianco del Vesuvio.",
+      "In fondo, un omone in canottiera con\nun ventaglio ti squadra. «Te staje\nsudanno già? E mo' viene 'o bello.»"],
+    done:[
+      "«'A Medaglia d'o Vesuvio è 'a toia,\nuagliò. Mo' va' in PUGLIA, da MIMMO,\na Bari. E statte accuorto.»"],
+    openers:{
+      good:[
+        "«Ué, sì tu chillo ca 'a Cosca nun\nriesce a accattà! Me piaci, uagliò.»",
+        "«Ma cca cumanna 'o fuoco. Vedimm'\nsi nun te struje.»"],
+      bad:[
+        "«Se dice ca a monte hê stretto mane\nstorte, uagliò.»",
+        "«'O fuoco purifica tutto. Vedimmo\nche resta 'e te.»"],
+      neutral:[
+        "«Servito! Songo CIRUZZO, capopalestra\n'e Napule.»",
+        "«Tipo FUOCO: comm'o Vesuvio e comm'a\nnuje. Ce putimmo arrabbià, ma\npo' se fa pace cu 'na pizza.»"]
+    },
+    win:[
+      "Ciruzzo richiama 'o VESUVIÒNE e\ns'asciuga 'a fronte cu 'o ventaglio.",
+      "«Uà, che bella lotta! Te la sì\nguadagnata, uagliò.»",
+      "Hai ottenuto la MEDAGLIA DEL VESUVIO!\n(15 di 20)",
+      "«'A Cosca? Ha pruvato pure cca. Ma\nNapule nun se vénne: se regala, e\nsolo a chi se 'o merita.»",
+      "«Tu va' avanti, scinni 'o tacco e 'a\npunta d'o Stivale. E ricuordate 'e\nRoma: è lla ca fernesce 'a storia.»"],
+    loseMsg:"Ciruzzo t'aspetta in palestra.\n«Pìgliate 'o cafè e torna, uagliò.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL VESUVIO ottenuta!', region:'Regione 15 di 20 completata',
+      next:'PROSSIMA TAPPA: PUGLIA<br>Mimmo · Tipo Luce · Bari',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 15 regioni.',
+      goodAt:16, badAt:-15,
+      verdict:{
+        good:'Da Milano a Napoli, tutto il Tirreno:\nun nome che la Cosca non può comprare.',
+        bad:'La Cosca ti segue fin sotto il Vesuvio.\nMa il fuoco, certe cose, le purifica.',
+        neutral:'Quindici medaglie. Mezzo Stivale\nconosce il tuo nome, ormai.'}
     }
   }
 };
@@ -677,18 +717,25 @@ const WORLD_MAP = [
     respawn:{ map:'roma', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina ai Fori.\nUn gatto romano ti fissa dall'alto\ndi una colonna, regale.","La squadra è di nuovo in forze, ahò."] },
     link:'Via Valeria -> L\'Aquila (con Medaglia der Colosseo)' },
   { city:'L\'AQUILA', region:'Abruzzo', leader:'Carmine', type:'Roccia', badge:'badge13',
-    maps:['aquila','gymaq','ambaq','gransasso','corno','tratturo'],
+    maps:['aquila','gymaq','ambaq','gransasso','corno','tratturo','sannio'],
     layout:[ { c:['aquila'] },
              { c:['gymaq','ambaq'] },
              { c:['gransasso','corno'], j:'->' } ],
     respawn:{ map:'aquila', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in centro.\nIl Gran Sasso domina l'orizzonte,\nimmobile.","La squadra è di nuovo in forze, uagliò."] },
-    link:'passaggio segreto -> Molise (trova TONINO e le 3 prove)' },
+    link:'monti del Sannio -> Napoli (con Medaglia del Gran Sasso) · passaggio segreto -> Molise' },
   { city:'CAMPOBASSO', region:'Molise', leader:'Tonino', type:'Spettro', badge:'badge14',
     maps:['campobasso','gymcb','ambcb','matese','pietrabbondante'],
     layout:[ { c:['campobasso'] },
              { c:['gymcb','ambcb'] },
              { c:['matese','pietrabbondante'], j:'->' } ],
     respawn:{ map:'campobasso', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina a Campobasso.\nIl Molise esiste, e qui te lo ricordano\nvolentieri.","La squadra è di nuovo in forze."] },
+    link:'regione segreta (torna al Gran Sasso)' },
+  { city:'NAPOLI', region:'Campania', leader:'Ciruzzo', type:'Fuoco', badge:'badge15',
+    maps:['napoli','gymna','ambna','vesuvio','castelovo'],
+    layout:[ { c:['napoli'] },
+             { c:['gymna','ambna'] },
+             { c:['vesuvio','castelovo'], j:'->' } ],
+    respawn:{ map:'napoli', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina sul lungomare.\nIl Vesuvio fuma piano all'orizzonte.","La squadra è di nuovo in forze, uagliò."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -716,9 +763,11 @@ const AREA_LABELS = {
   valeria:'Valeria',
   aquila:'Centro', gymaq:'Palestra', ambaq:'Ambul.', gransasso:'Gran Sasso', corno:'Corno Grande',
   tratturo:'Tratturo',
-  campobasso:'Centro', gymcb:'Palestra', ambcb:'Ambul.', matese:'Matese', pietrabbondante:'Pietrabbondante'
+  campobasso:'Centro', gymcb:'Palestra', ambcb:'Ambul.', matese:'Matese', pietrabbondante:'Pietrabbondante',
+  sannio:'Sannio',
+  napoli:'Centro', gymna:'Palestra', ambna:'Ambul.', vesuvio:'Vesuvio', castelovo:"Castel dell'Ovo"
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno', 'pietrabbondante'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno', 'pietrabbondante', 'castelovo'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

@@ -1901,7 +1901,7 @@ const MAPS = {
   },
 
   aquila: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
@@ -1914,7 +1914,7 @@ const MAPS = {
       'T.##..####..####..####..##.T',
       'T.........................RT',
       'T..........................T',
-      'T..........................T',
+      'TB.........................T',
       'T..........................T',
       'T..........................T',
       'TV.........................T',
@@ -2140,6 +2140,156 @@ const MAPS = {
   },
   /* ---------- PIETRABBONDANTE (area segreta — X = Il Dimenticato) ---------- */
   pietrabbondante: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== CAMPANIA (Napoli) — regione 15 ========== */
+  /* ---------- ABRUZZO → CAMPANIA · i monti del Sannio (U = L'Aquila, Z = Napoli) ---------- */
+  sannio: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TMM..GGG......GGG......MMMMT',
+      'TM...GGG......GGG......MMM.T',
+      'T....................MM....T',
+      'T..GG................MM....T',
+      'T..........................T',
+      'T..GGG.........GGG.........T',
+      'TMM........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T........MM......MM........T',
+      'T..GGG...MM......MM...GGG..T',
+      'T........MM......MM........T',
+      'T..........................T',
+      'T..GGG................GGG..T',
+      'TMMM....................MMMT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'vesuvin',     min:58, max:61, w:28 },
+      { id:'cinghial',    min:57, max:60, w:20 },
+      { id:'pantafica',   min:58, max:61, w:18 },
+      { id:'lupomannaro', min:58, max:61, w:18 },
+      { id:'gazzot',      min:58, max:61, w:16 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'ampolla',    flag:'it_san1' },
+      { x:22, y:14, item:'pizza',      flag:'it_san2' }
+    ]
+  },
+
+  napoli: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T.WWWWWWWWWWWWWWWWWWWWWWWW.T',
+      'T.WWWWWWWWWWWWWWWWWWWWWWWW.T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null,
+    fish: [ { id:'anguanella', min:58, max:61, w:70 }, { id:'ranot', min:58, max:61, w:30 } ]
+  },
+  gymna: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambna: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- IL VESUVIO (route della regione, verso il Castel dell'Ovo) ---------- */
+  vesuvio: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'vesuvin',     min:59, max:62, w:30 },
+      { id:'cinghial',    min:58, max:61, w:18 },
+      { id:'pantafica',   min:59, max:62, w:18 },
+      { id:'gazzot',      min:59, max:62, w:18 },
+      { id:'lupomannaro', min:59, max:62, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'panzerotto', flag:'it_ves1' },
+      { x:22, y:9,  item:'ampolla',    flag:'it_ves2' }
+    ]
+  },
+  /* ---------- CASTEL DELL'OVO (area segreta — X = Partenope) ---------- */
+  castelovo: {
     t2i: { '.':13, '#':14, 'X':5, 'E':12 },
     indoor: true,
     tiles: [
@@ -2412,7 +2562,12 @@ const PORTALS = {
            Y: { map:'gymaq', x:5, y:9, dir:'up' },
            H: { map:'ambaq', x:3, y:3, dir:'up' },
            R: { map:'gransasso', x:2, y:8, dir:'right',
-                arriveMsg: ["IL GRAN SASSO. Praterie d'alta quota\ne pareti di roccia. Lassù, dicono,\ndorme un gigante di pietra."] } },
+                arriveMsg: ["IL GRAN SASSO. Praterie d'alta quota\ne pareti di roccia. Lassù, dicono,\ndorme un gigante di pietra."] },
+           B: { map:'sannio', x:2, y:9, dir:'right',
+                lock: () => !G.flags.badge13,
+                msg: ["La strada verso la CAMPANIA e Napoli,\ngiù per i monti del Sannio.",
+                      "«Senza la Medaglia del Gran Sasso\nlaggiù non ci scendi, uagliò.»"],
+                arriveMsg: ["I MONTI DEL SANNIO. Boschi e paesi\nappollaiati sui crinali. Più giù,\nl'odore del mare di Napoli."] } },
   gymaq:{ E: { map:'aquila', x:4, y:4, dir:'down' } },
   ambaq:{ E: { map:'aquila', x:20, y:4, dir:'down' } },
   gransasso:{ U: { map:'aquila', x:25, y:9, dir:'left' },
@@ -2438,5 +2593,20 @@ const PORTALS = {
   matese:{ U: { map:'campobasso', x:25, y:9, dir:'left' },
            Z: { map:'pietrabbondante', x:7, y:12, dir:'up',
                 arriveMsg: ["PIETRABBONDANTE. Il teatro sannita\nscolpito nella montagna. Tra le gradinate\ndi pietra, un'ombra dimenticata veglia."] } },
-  pietrabbondante:{ E: { map:'matese', x:8, y:4, dir:'down' } }
+  pietrabbondante:{ E: { map:'matese', x:8, y:4, dir:'down' } },
+  sannio:{ U: { map:'aquila', x:2, y:11, dir:'right' },
+           Z: { map:'napoli', x:2, y:12, dir:'right',
+                arriveMsg: ["NAPOLI. Vicoli, panni stesi, il golfo\ne il Vesuvio che fuma piano. Caos\nsplendido, uagliò."] } },
+  napoli:{ V: { map:'sannio', x:25, y:9, dir:'left',
+                arriveMsg: ["I MONTI DEL SANNIO. Si risale verso\nl'Abruzzo, tra i boschi."] },
+           Y: { map:'gymna', x:5, y:9, dir:'up' },
+           H: { map:'ambna', x:3, y:3, dir:'up' },
+           R: { map:'vesuvio', x:2, y:8, dir:'right',
+                arriveMsg: ["IL VESUVIO. Sentieri di lava nera e\nginestre. In basso il golfo, in cima\nil cratere che borbotta."] } },
+  gymna:{ E: { map:'napoli', x:4, y:4, dir:'down' } },
+  ambna:{ E: { map:'napoli', x:20, y:4, dir:'down' } },
+  vesuvio:{ U: { map:'napoli', x:25, y:9, dir:'left' },
+            Z: { map:'castelovo', x:7, y:12, dir:'up',
+                 arriveMsg: ["IL CASTEL DELL'OVO. Sotto le mura, una\ngrotta marina. Si dice che qui Virgilio\nnascose un uovo magico... e qualcos'altro."] } },
+  castelovo:{ E: { map:'vesuvio', x:8, y:4, dir:'down' } }
 };

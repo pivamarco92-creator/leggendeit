@@ -53,6 +53,10 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'petrin','petrone','dormiente',
                         /* Molise (segreta) — linea Spettro + leggendario */
                         'svanin','svanone','dimenticato',
+                        /* Campania — linea Fuoco + leggendario */
+                        'vesuvin','vesuvione','partenope',
+                        /* Asso di Johnny Lametta — creatura speciale (cognome Tuttobene) */
+                        'tuttobene',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -416,6 +420,23 @@ const SPECIES = {
   dimenticato: { n:'IL DIMENTICATO', types:['Spettro'], hp:96, atk:104, def:92, spd:96,
     learnset:[[1,'malocchio'],[1,'morso'],[1,'sfondata'],[1,'maledizione'],[50,'maledizione']],
     dex:'Lo spirito della regione che tutti scordano. Più il Molise viene dimenticato, più lui diventa potente. Veglia tra le rovine sannite di Pietrabbondante, in attesa di essere ricordato.' },
+
+  /* ---------- Campania — linea Fuoco + Partenope ---------- */
+  vesuvin: { n:'VESUVÌN', types:['Fuoco'], hp:50, atk:58, def:48, spd:56,
+    evolve:{ lv:34, to:'vesuvione' },
+    learnset:[[1,'favilla'],[1,'dispetto'],[14,'morso'],[34,'vampata']],
+    dex:'Spiritello di lava dei Campi Flegrei. Sonnecchia sotto la cenere del Vesuvio e si scalda al primo brontolìo del vulcano.' },
+  vesuvione: { n:'VESUVIÒNE', types:['Fuoco'], hp:78, atk:92, def:66, spd:80,
+    learnset:[[1,'favilla'],[1,'vampata'],[1,'morso'],[48,'rogo']],
+    dex:'Il Vesuvìn cresciuto: un cuore di magma con le gambe. Quando sbuffa, a Napoli dicono «o\' vulcano fa \'e capricci».' },
+  partenope: { n:'PARTENOPE', types:['Acqua'], hp:94, atk:98, def:90, spd:92,
+    learnset:[[1,'zampillo'],[1,'ondata'],[1,'sfondata'],[1,'piena'],[50,'piena']],
+    dex:'La sirena che, secondo la leggenda, si arenò nel golfo e diede origine a Napoli. Veglia sulle acque dal Castel dell\'Ovo: il suo canto fonda città e affonda navi.' },
+
+  /* ---------- Asso di Johnny Lametta — TUTTOBÈNE (non selvatica) ---------- */
+  tuttobene: { n:'TUTTOBÈNE', types:['Normale','Veleno'], hp:85, atk:102, def:82, spd:96,
+    learnset:[[1,'morso'],[1,'velenovivo'],[1,'dispetto'],[1,'tirapacchi']],
+    dex:'L\'asso della Cosca, fedele a Johnny Lametta. Sorride sempre e dice che «va tutto bene», mentre ti tira il pacco. Un favore tira l\'altro, e ti ritrovi in debito per sempre.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).

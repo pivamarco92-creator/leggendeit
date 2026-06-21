@@ -7,7 +7,7 @@ const G = {
   items: { panzerotto:2, pizza:1, ampolla:5 },
   money: 0,                // € guadagnati nelle battaglie, spesi al negozio
   dex: { seen: [], caught: [] },   // id specie viste / catturate
-  flags: { starter:false, cosca:false, badge:false, badge2:false, badge3:false,
+  flags: { starter:false, starterId:null, cosca:false, badge:false, badge2:false, badge3:false,
            coscaChoice:null, torinoIntro:false, archivioDone:false,
            stamboCaught:false, scigheraCaught:false, taurinCaught:false, barryCaught:false,
            badge4:false, grifoneCaught:false, badge5:false, laurinoCaught:false,
@@ -20,6 +20,7 @@ const G = {
            badge12:false, draconeCaught:false,
            badge13:false, dormienteCaught:false,
            badge14:false, dimenticatoCaught:false,
+           badge15:false, partenopeCaught:false,
            mol_p1:false, mol_p2:false, mol_p3:false, molise_open:false,
            piva_n1:false, piva_n2:false, piva_n3:false, piva_done:false,
            licata_med:false, licata_done:false,
@@ -39,14 +40,14 @@ const LEGENDARY_FLAG = { stambeco:'stamboCaught', scighera:'scigheraCaught',
   taurin:'taurinCaught', barry:'barryCaught', grifone:'grifoneCaught', laurino:'laurinoCaught',
   leon:'leonCaught', bora:'boraCaught', aldial:'aldialCaught', aruspice:'aruspiceCaught',
   lupogubbio:'lupogubbioCaught', sibilla:'sibillaCaught', dracone:'draconeCaught',
-  dormiente:'dormienteCaught', dimenticato:'dimenticatoCaught' };
+  dormiente:'dormienteCaught', dimenticato:'dimenticatoCaught', partenope:'partenopeCaught' };
 /* Allenatori-rivincita già battuti in QUESTA visita alla mappa (azzerato al cambio mappa). */
 const BEATEN_VISIT = new Set();
 /* Mappe-percorso: i loro allenatori (Cosca) si ripresentano a ogni visita, sempre più forti. */
 const ROUTE_MAPS = ['navigli', 'murazzi', 'gransanbernardo', 'scogliera',
   'stradapo', 'valico', 'appennino', 'dolomiti', 'valdadige', 'brenta', 'isonzo', 'carso',
   'viaemilia', 'pianurapo', 'chianti', 'futa', 'valnerina', 'trasimeno', 'conero', 'furlo',
-  'appiaantica', 'salaria', 'gransasso', 'valeria', 'tratturo', 'matese'];
+  'appiaantica', 'salaria', 'gransasso', 'valeria', 'tratturo', 'matese', 'vesuvio', 'sannio'];
 
 /* ---------------- SALVATAGGIO ---------------- */
 const SAVE_KEY = 'leggende-italia-save';

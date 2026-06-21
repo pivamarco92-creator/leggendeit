@@ -221,6 +221,7 @@ function chooseStarter() {
         G.party.push(mon);
         dexCatch(mon.id);
         G.flags.starter = true;
+        G.flags.starterId = ids[sel];   // serve a Johnny Lametta (starter opposto)
         G.money = 500;
         saveGame();
         beep(880, .1); beep(1175, .2);
@@ -250,7 +251,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true, campobasso:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true, campobasso:true, napoli:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -267,9 +268,22 @@ function evJohnny(town) {
     ancona: [['falchin', lv], ['ratapignata', lv + 1], ['falchione', lv + 2]],
     roma: [['ruderin', lv], ['lupomannaro', lv + 1], ['ruderone', lv + 2]],
     aquila: [['petrin', lv], ['cinghial', lv + 1], ['petrone', lv + 2]],
-    campobasso: [['svanin', lv], ['pantafica', lv + 1], ['svanone', lv + 2]]
+    campobasso: [['svanin', lv], ['pantafica', lv + 1], ['svanone', lv + 2]],
+    napoli: [['vesuvin', lv], ['malebranca', lv + 1], ['vesuvione', lv + 2]]
   };
-  const team = teams[town].map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
+  // Starter OPPOSTO a quello del giocatore (triangolo Erba->Acqua->Fuoco->Erba), stadio in base al livello.
+  const OPP_STARTER = { salvanello:'tarantasino', tarantasino:'anguanella', anguanella:'salvanello' };
+  const STARTER_LINE = {
+    tarantasino:['tarantasino','tarantas','tarantasio'],
+    anguanella:['anguanella','anguana','anguanaregina'],
+    salvanello:['salvanello','salvan','gransalvan']
+  };
+  const oppBase = OPP_STARTER[G.flags.starterId] || 'tarantasino';
+  const oppLine = STARTER_LINE[oppBase];
+  const oppId = lv >= 36 ? oppLine[2] : lv >= 16 ? oppLine[1] : oppLine[0];
+  // Squadra: mostri della zona + starter opposto + ASSO TUTTOBÈNE (l'ultimo, il più forte).
+  const roster = teams[town].concat([[oppId, lv + 1], ['tuttobene', lv + 3]]);
+  const team = roster.map(([id, l]) => makeMon(id, Math.min(MAX_LEVEL, l)));
   say(["Un tizio magro in gessato, un rasoio\ntra le dita, ti taglia la strada.",
        "«Johnny Lametta. La Cosca mi manda a\nfarti un... ritocchino, bagai.»",
        "«Da queste parti il pizzo si paga.\nO si lotta. Indovina un po'.»"], () => {
@@ -923,7 +937,23 @@ function evDimenticato() {
     startBattle(makeMon('dimenticato', 54), null);
   });
 }
+/* Leggendario della Campania: Partenope, la sirena fondatrice di Napoli. */
+function evPartenope() {
+  if (G.flags.partenopeCaught) {
+    say(["La grotta marina è quieta.\nPARTENOPE ti ha già cantato.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nturbare le acque del Castello."); return; }
+  say(["Nella grotta sotto il Castel dell'Ovo\nl'acqua si illumina. Dal fondo sale un\ncanto antico, dolcissimo e terribile.",
+       "È PARTENOPE, la sirena che diede vita\na Napoli. Emerge dall'acqua, occhi\ncolor del golfo al tramonto.",
+       "«Chi vuole il mio canto, se lo\nguadagni nell'onda.»",
+       "PARTENOPE attacca!"], () => {
+    saveGame();
+    beep(280, .2, 'triangle'); beep(360, .18, 'triangle'); beep(240, .26, 'triangle');
+    startBattle(makeMon('partenope', 56), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente, pietrabbondante: evDimenticato };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente, pietrabbondante: evDimenticato, castelovo: evPartenope };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

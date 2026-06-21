@@ -30,7 +30,7 @@ const NPCS = {
         win:["Ahia. Vabbè, vai pure.\nMa con Carletto non è mica\ncosì facile, neh."],
         after:["Vai, vai. Carletto ti aspetta\nin fondo alla sala."] } },
     { x:8, y:7, frame:11, name:'ALLIEVA RACHELE', ev:'trainer', look:'left', sight:6,
-      trainer:{ id:'gymmi2', team:[['mazapegul',9]],
+      trainer:{ id:'gymmi2', team:[['mazapegul',9],['merlotta',9]],
         pre:["Il mio Mazapégul è piccolo ma\ncattivissimo. Come me."],
         win:["Ok ok, sei forte. Però il Gatto\nMammone di Carletto graffia,\nti avviso."],
         after:["In bocca al lupo col capo!"] } }
@@ -39,7 +39,7 @@ const NPCS = {
     { x:10, y:6, frame:12, name:'BOGIANEN',
       lines:["Esageruma nen, giovnot.\nQui a Torino si fa tutto con\ncalma. Ma si fa bene.",
              "Il Valentino, oltre il Po, è\npieno di Leggende. Anche di\nMASCHE. Brr."] },
-    { x:18, y:9, frame:10, name:'BARISTA',
+    { x:15, y:9, frame:10, name:'BARISTA',
       lines:["Un bicerin? Caffè, cioccolato\ne crema. Altro che il vostro\ncaffè milanese al volo.",
              "GIANDUIOTTO? Il capopalestra.\nTipo ACCIAIO, come le vecchie\nofficine. Tosto ma giusto."] },
     { x:8, y:13, frame:11, name:'TIFOSO GRANATA',
@@ -51,7 +51,7 @@ const NPCS = {
   gymto: [
     { x:5, y:2, frame:13, name:'GIANDUIOTTO', ev:'gymLeader' },
     { x:3, y:5, frame:14, name:'OPERAIO', ev:'trainer', look:'right', sight:6,
-      trainer:{ id:'gymto1', team:[['fusinot',12]],
+      trainer:{ id:'gymto1', team:[['servanot',12],['fusinot',13]],
         pre:["In questa palestra si suda,\ngiovnot. Il mio Fusinot esce\ndal turno di notte."],
         win:["Bogia... niente male.\nIl Ferroviere è più tosto di me."],
         after:["Avanti, avanti. E saluta il capo."] } },
@@ -59,7 +59,12 @@ const NPCS = {
       trainer:{ id:'gymto2', team:[['servanot',13],['fusinot',14]],
         pre:["Ho passato trent'anni sui binari.\nI miei colpi arrivano puntuali,\nmica come i treni."],
         win:["In orario e pure forte. Vai da\nGianduiotto, te lo sei meritato."],
-        after:["Binario uno per Gianduiotto.\nSenza fermate intermedie."] } }
+        after:["Binario uno per Gianduiotto.\nSenza fermate intermedie."] } },
+    { x:8, y:4, frame:14, name:'MECCANICA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymto3', team:[['toret',14],['masca',15]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambmi: [
     { x:3, y:1, frame:8, name:'DOTTORESSA ROSSI', ev:'cura' }
@@ -79,7 +84,7 @@ const NPCS = {
   gymao: [
     { x:5, y:2, frame:13, name:'FELICINO', ev:'gymLeader' },
     { x:3, y:5, frame:12, name:'GUARDIAPARCO', ev:'trainer', look:'right', sight:6,
-      trainer:{ id:'gymao1', team:[['neiot',17]],
+      trainer:{ id:'gymao1', team:[['neiot',17],['merlotta',17]],
         pre:["Su queste vette ci si tempra,\ngiovnot. Il mio NEIÒT non sente\nil freddo. E nemmeno la pietà."],
         win:["Brrr... battuto in casa mia.\nFelicino sarà un osso più duro."],
         after:["Avanti. Felicino ti aspetta\nin fondo, al gelo."] } },
@@ -87,7 +92,12 @@ const NPCS = {
       trainer:{ id:'gymao2', team:[['civettona',17],['neiot',19]],
         pre:["Scendo a novanta all'ora e non\nsbaglio un palo. Vediamo se reggi\nil freddo, eh."],
         win:["Niente male! Vai dal capo. Ma\ncopriti: là dentro gela davvero."],
-        after:["Il capo è in fondo. Porta\npazienza e maglione."] } }
+        after:["Il capo è in fondo. Porta\npazienza e maglione."] } },
+    { x:8, y:4, frame:14, name:'ALPINISTA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymao3', team:[['brinassa',19],['gazzot',19]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambao: [
     { x:3, y:1, frame:8, name:'DOTTORESSA MENABREA', ev:'cura' }
@@ -182,7 +192,7 @@ const NPCS = {
   gymge: [
     { x:5, y:2, frame:13, name:'BARBAGIALLA', ev:'gymLeader' },
     { x:3, y:5, frame:11, name:'MOZZO', ev:'trainer', look:'right', sight:6,
-      trainer:{ id:'gymge1', team:[['anguanella',21]],
+      trainer:{ id:'gymge1', team:[['anguanella',21],['merlotta',21]],
         pre:["Prima di Barbagialla passi da me,\nmussu. Ordini del capo."],
         win:["Uff. Va', va'. Ti aspetta in fondo."],
         after:["Il capo è là. Non farlo arrabbiare."] } },
@@ -190,7 +200,12 @@ const NPCS = {
       trainer:{ id:'gymge2', team:[['borda',22],['anguanella',23]],
         pre:["Belin, un altro per la medaglia.\nVediamo se reggi l'onda."],
         win:["Brava gente. Vai dal vecchio."],
-        after:["Barbagialla non perde spesso, eh."] } }
+        after:["Barbagialla non perde spesso, eh."] } },
+    { x:8, y:4, frame:14, name:'MOZZO ANZIANO', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymge3', team:[['borda',23],['anguanella',23]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambge: [
     { x:3, y:1, frame:8, name:'DOTTORESSA SCIORBA', ev:'cura' }
@@ -269,7 +284,12 @@ const NPCS = {
         pre:["Prima di Hans, una sciata con me.\nReggi la discesa?"], win:["Bravo, gambe buone. Vai dal capo."], after:["Hans è in fondo, ja."] } },
     { x:8, y:7, frame:11, name:'GUARDIA FORESTALE', ev:'trainer', look:'left', sight:6,
       trainer:{ id:'gymtr2', team:[['croder',26],['brinassa',27]],
-        pre:["Proteggo queste montagne. Anche da\nte, se serve."], win:["Bene. Hans ti aspetta."], after:["Rispetta la montagna, lassù."] } }
+        pre:["Proteggo queste montagne. Anche da\nte, se serve."], win:["Bene. Hans ti aspetta."], after:["Rispetta la montagna, lassù."] } },
+    { x:8, y:4, frame:14, name:'BOSCAIOLO', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymtr3', team:[['croder',26],['neiot',27]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambtr: [
     { x:3, y:1, frame:8, name:'DOTTORESSA GRUBER', ev:'cura' }
@@ -325,7 +345,12 @@ const NPCS = {
       trainer:{ id:'gymve2', team:[['mazarione',31],['borda',32]],
         pre:["Vengo da Murano: lavoro il vetro\ne l'acqua da vent'anni. Vediamo\nse sai lavorare te."],
         win:["Ostrega! Sei bravo davvero.\nBepi sarà contento, veh."],
-        after:["Il capo è in fondo. Rispettalo."] } }
+        after:["Il capo è in fondo. Rispettalo."] } },
+    { x:8, y:4, frame:14, name:'GONDOLIERA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymve3', team:[['borda',32],['mazariol',32]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambve: [
     { x:3, y:1, frame:8, name:'DOTTORESSA MALIPIERO', ev:'cura' }
@@ -405,7 +430,12 @@ const NPCS = {
       trainer:{ id:'gymts2', team:[['cjalcjutone',35],['borda',35]],
         pre:["La BORA mi ha insegnato la forza.\nNon mi passi davanti così."],
         win:["Buono a sapersi. Sei degno\ndi sfidare GIGIO."],
-        after:["Tieni duro là dentro."] } }
+        after:["Tieni duro là dentro."] } },
+    { x:8, y:4, frame:14, name:'NOCCHIERO', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymts3', team:[['ratapignata',35],['cjalcjut',36]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambts: [
     { x:3, y:1, frame:8, name:'DOTTOR SVEVO', ev:'cura' }
@@ -472,7 +502,12 @@ const NPCS = {
       trainer:{ id:'gymbo2', team:[['fogaron',39],['farfarello',39]],
         pre:["Il fuoco lo conosco: ci cucino\nda trent'anni. Vediamo se reggi\nil calore."],
         win:["Soccia, che lotta! Sei degno\ndi sfidare Dindo."],
-        after:["Il capo è là. Non bruciarti."] } }
+        after:["Il capo è là. Non bruciarti."] } },
+    { x:8, y:4, frame:14, name:'GOLIARDA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymbo3', team:[['farfarello',39],['foghin',40]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambbo: [
     { x:3, y:1, frame:8, name:'DOTTORESSA MORANDI', ev:'cura' }
@@ -538,7 +573,12 @@ const NPCS = {
       trainer:{ id:'gymfi2', team:[['strione',44],['farfarello',44]],
         pre:["Leggo la mente e le carte da\ntrent'anni. So già come finisce\nquesta sfida. Ma facciamola lo stesso."],
         win:["Le carte... mentivano. Sei degno\ndi Checcone."],
-        after:["Il capo è là. Concentrati."] } }
+        after:["Il capo è là. Concentrati."] } },
+    { x:8, y:4, frame:14, name:'GUIDA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymfi3', team:[['civettona',44],['strio',45]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambfi: [
     { x:3, y:1, frame:8, name:'DOTTORESSA VESPUCCI', ev:'cura' }
@@ -604,7 +644,12 @@ const NPCS = {
       trainer:{ id:'gympg2', team:[['zollone',47],['farfarello',47]],
         pre:["Scavo tartufi da trent'anni, conosco\nla terra meglio di chiunque. Vediamo\nse reggi il colpo."],
         win:["Bel carattere! Sei degno di Quirino."],
-        after:["Il capo è là. Tieni i piedi per terra."] } }
+        after:["Il capo è là. Tieni i piedi per terra."] } },
+    { x:8, y:4, frame:14, name:'CACCIATORE', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gympg3', team:[['cinghial',48],['zollin',48]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambpg: [
     { x:3, y:1, frame:8, name:'DOTTORESSA BACI', ev:'cura' }
@@ -670,7 +715,12 @@ const NPCS = {
       trainer:{ id:'gyman2', team:[['falchione',50],['ratapignata',50]],
         pre:["Veleggio sull'Adriatico col vento in\npoppa. Vediamo se reggi la raffica."],
         win:["Vento giusto, hai vinto. Vai dal capo."],
-        after:["Guerrino non perde l'equilibrio mai."] } }
+        after:["Guerrino non perde l'equilibrio mai."] } },
+    { x:8, y:4, frame:14, name:'MARINAIO', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gyman3', team:[['ratapignata',51],['falchin',52]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   amban: [
     { x:3, y:1, frame:8, name:'DOTTORESSA MERLONI', ev:'cura' }
@@ -736,7 +786,12 @@ const NPCS = {
       trainer:{ id:'gymrm2', team:[['ruderone',54],['farfarello',54]],
         pre:["Custodisco er fòco sacro e i draghi\nde Roma. Vedemo se reggi la fiamma."],
         win:["Ammazza che lotta. Sei degno\nde Sor Alvaro."],
-        after:["Er capo è là. Portaje rispetto."] } }
+        after:["Er capo è là. Portaje rispetto."] } },
+    { x:8, y:4, frame:14, name:'CENTURIONE', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymrm3', team:[['lupomannaro',54],['ruderin',55]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambrm: [
     { x:3, y:1, frame:8, name:'DOTTORESSA COLONNA', ev:'cura' }
@@ -804,7 +859,12 @@ const NPCS = {
       trainer:{ id:'gymaq2', team:[['petrone',56],['gazzot',56]],
         pre:["Custodisco il Parco del Gran Sasso\ne i suoi orsi. La montagna non\nperdona i deboli."],
         win:["Hai spina dorsale. Vai da Carmine."],
-        after:["Il capo è là. Reggi l'urto."] } }
+        after:["Il capo è là. Reggi l'urto."] } },
+    { x:8, y:4, frame:14, name:'MONTANARO', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymaq3', team:[['cinghial',56],['petrin',57]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambaq: [
     { x:3, y:1, frame:8, name:'DOTTORESSA DE CECCO', ev:'cura' }
@@ -855,7 +915,12 @@ const NPCS = {
       trainer:{ id:'gymcb2', team:[['svanone',59],['svanin',59]],
         pre:["Suono la zampogna molisana. La\nsenti? No? Strano, esiste pure questa."],
         win:["Brava gente. Vai da Tonino."],
-        after:["Il capo è là. Forse."] } }
+        after:["Il capo è là. Forse."] } },
+    { x:8, y:4, frame:14, name:'STREGA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymcb3', team:[['pantafica',59],['svanin',60]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
   ],
   ambcb: [
     { x:3, y:1, frame:8, name:'DOTTORESSA IAPPONE', ev:'cura' }
@@ -879,5 +944,75 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'CUSTODE SANNITA',
       lines:["Silenzio. Sei nel teatro sannita di\nPietrabbondante, scavato nella roccia\nduemila anni fa. Esiste, eccome.",
              "Tra le gradinate veglia IL DIMENTICATO.\nPiù il mondo scorda il Molise, più lui\nè forte. Ricordalo, e affrontalo."] }
+  ],
+
+  /* ========== CAMPANIA (Napoli) ========== */
+  sannio: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DEL SANNIO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'san1', team:[['vesuvin',58],['pantafica',58]],
+        pre:["'Sti monti so' nuosti, uagliò.\nO pavi o nun passi."],
+        win:["Uffà. Passa, va'."], after:["Scinni a Napule, tira deritto."] } },
+    { x:20, y:7,  frame:14, name:'CORRIERE CAMPANO', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'san2', team:[['lupomannaro',59],['cinghial',59]],
+        pre:["Porto 'a robba pe' tutta 'a Campania.\nLevate 'a miezo."],
+        win:["Mannaggia 'o ritardo."], after:["Jamm, scinni al golfo."] } },
+    { x:14, y:13, frame:14, name:'CAPOZONA CAMPANO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'san3', team:[['vesuvin',60],['gazzot',60]],
+        pre:["L'urdemo prima 'e Napule so' io.\nE nun so' bbuono comm'a chilli\nllà ngoppa."],
+        win:["...ué, sì tuosto overo. Napule\nt'aspetta, uagliò."],
+        after:["'O Vesuvio se vede 'a lloco."] } }
+  ],
+  napoli: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'NAPOLETANO DOC',
+      lines:["Ué, bemmenuto a Napule! 'O golfo, 'o\nVesuvio, 'a pizza. Cca se campa\nmagnanno e ridenno, uagliò.",
+             "'O Munaciello porta fortuna o guaie,\ndipende. E giù al mare, dicono, ce sta\n'a SIRENA. Partenope, chella overa."] },
+    { x:8,  y:14, frame:11, name:'PIZZAIOLO',
+      lines:["Margherita, marinara e ddoje\nbirre! Cca 'a pizza è religione.",
+             "'O Vesuvio dorme, ma tene 'e capricci.\nE 'e creature 'e lava, 'e vesuvìn,\nse sceriano sotto 'a cenere."] },
+    { x:18, y:16, frame:12, name:'STUDIOSO DI SIRENE',
+      lines:["Napoli nasce da PARTENOPE, 'a sirena\nche s'arenaie int'o golfo. 'O nomme\nantico d'a città è 'o suio: Partènope.",
+             "Dicono ca s'annasconne int'a grotta\nsotto 'o Castel dell'Ovo. 'O canto\nsuio fonna città... e affonna varche."] }
+  ],
+  gymna: [
+    { x:5, y:2, frame:13, name:'CIRUZZO', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'GUAGLIONE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymna1', team:[['vesuvin',60],['cinghial',60]],
+        pre:["Pe' arrivà a Ciruzzo passi primm'a\nmme, uagliò. Cca se suda, comm'o\nVesuvio."],
+        win:["Uà, m'hê fottuto. Ciruzzo t'aspetta\nlla 'nfunno."],
+        after:["Va', va'. Nun 'o fa' aspettà."] } },
+    { x:8, y:7, frame:11, name:'PIZZAIOLA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymna2', team:[['vesuvione',61],['malebranca',61]],
+        pre:["'O furno mio sta a 400 gradi.\nVedimm' si rieggi 'o calore, uagliò."],
+        win:["Bravo 'o guaglione! Sì degno 'e Ciruzzo."],
+        after:["'O capo sta lla. Nun te fà arrustì."] } },
+    { x:8, y:4, frame:14, name:'SCUGNIZZO', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymna3', team:[['malebranca',61],['vesuvin',62]],
+        pre:["Prima del capo passi pure da me!"],
+        win:["Uff, sei in gamba. Vai avanti."],
+        after:["Il capo ti aspetta in fondo."] } }
+  ],
+  ambna: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA ESPOSITO', ev:'cura' }
+  ],
+  vesuvio: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DEL VESUVIO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'ves1', team:[['vesuvin',59],['pantafica',59]],
+        pre:["'O Vesuvio 'o cuntrullamm' nuje.\nPava 'o pedaggio, uagliò."],
+        win:["Uffà. Passa."], after:["Nun saglì 'o Castello."] } },
+    { x:14, y:12, frame:14, name:'CONTRABBANDIERA', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'ves2', team:[['lupomannaro',60],['vesuvin',60]],
+        pre:["Porto 'a robba 'e notte ngoppa 'o monte.\nLevate 'a miezo."],
+        win:["Mannaggia."], after:["Tira deritto e statte zitto."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DEL GOLFO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'ves3', team:[['vesuvione',61],['gazzot',61]],
+        pre:["L'urdemo prima d'a grotta so' io.\nE chella ca canta lla sotto è mejo\nnun 'a scetà."],
+        win:["...va buo', scinni. Ma chella sirena\nnun l'aggio scetata io, 'ntiso?"],
+        after:["'A grotta sta abbascio. Auguri."] } }
+  ],
+  castelovo: [
+    { x:3, y:9, frame:12, name:'GUARDIANO DEL CASTELLO',
+      lines:["Chiano, viaggiatore. Sì sotto 'o Castel\ndell'Ovo, addò Virgilio mago annasconnette\n'o suo uovo magico.",
+             "Int'a grotta canta PARTENOPE, 'a sirena\nca fundaie Napule. Si 'a sfide, fallo\ncon rispetto: tene 'o mare dint'a voce."] }
   ]
 };
