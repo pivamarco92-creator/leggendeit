@@ -27,14 +27,21 @@ data/   (SOLO dati: qui si aggiungono contenuti, niente logica)
   npcs.js         NPCS per mappa (x,y,frame,name, ev|lines, trainer, look/sight)
   regions.js      GYMS (palestre+fine-regione), WORLD_MAP (mappa+respawn+layout), AREA_LABELS, SECRET_AREAS
 src/    (engine: di norma non si tocca per aggiungere contenuti)
-  state.js        G (stato globale), save/load, dex, LEGENDARY_FLAG, BEATEN_VISIT, ROUTE_MAPS
+  state.js        G (stato globale), save/load a 3 SLOT (G.slot, slotKey/loadSlot/slotSummary,
+                  migrateLegacy dal vecchio salvataggio singolo), dex, LEGENDARY_FLAG, BEATEN_VISIT, ROUTE_MAPS
   dialog.js       say()/ask() (overlay DOM), scrollSelIntoView
   world.js        WorldScene: tilemap, movimento, portali, NPC, item, interact, afterStep
   battlescene.js  BattleScene: solo presentazione (sprite/animazioni)
   battle.js       logica turni; B = stato battaglia; promptSwitch; cattura→deposito/box
+                  STATI: m.status psn/brn/par/slp (+m.slp turni). brn dimezza danno, par spd/4,
+                  veleno 1/8 e scottatura 1/16 a fine turno, sonno 2-4 turni, par 25% blocco.
+                  Mosse: fx (atk-/def-/spd- o psn/brn/par/slp); pow:0=stato puro; pow>0+fxp=secondario;
+                  acc=prob. di colpire. Stati azzerati a fine battaglia e in healParty.
   story.js        eventi: starter, Cosca, capipalestra (evGymLeader), trainer (LoS+rivincita),
                   negozio/laptop, pesca, leggendari, Johnny Lametta, whiteout, fine-regione
   menu.js         menù di pausa (SQUADRA/BORSA/MAPPA/PIVADEX/PROGRESSI/SALVA)
+                  MAPPA = viaggio rapido: A su una città visitata (flag ft_<map>, set in world.loadMap)
+                  teletrasporta al respawn di quella regione (ftRegions/fastTravel).
   box.js          laptop del deposito (sposta tra squadra e box)
   main.js         boot Phaser + input globale (dispatch per G.mode)
 tools/  gen_assets.py · import_kenney.py · import_hexany.py · import_tiny.py · embed_assets.py

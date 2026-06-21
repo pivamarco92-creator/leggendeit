@@ -5,13 +5,21 @@ const B = { on:false, enemy:null, trainer:null, pm:null, phase:'msg',
   participants:[], mustSwitch:false };
 
 function hpColor(r) { return r > .5 ? '#30c020' : r > .2 ? '#e8a020' : '#e03030'; }
+/* Stati alterati (uno alla volta per Leggenda, stile Gen-1). */
+const STATUS_INFO = {
+  psn: { tag:'VEL', verb:'è avvelenat', name:'veleno' },
+  brn: { tag:'UST', verb:'si scotta',  name:'scottatura' },
+  par: { tag:'PAR', verb:'è paralizzat', name:'paralisi' },
+  slp: { tag:'SON', verb:'si addormenta', name:'sonno' }
+};
+function statusBadge(m) { return (m && m.status && STATUS_INFO[m.status]) ? ' [' + STATUS_INFO[m.status].tag + ']' : ''; }
 function updateBars() {
   const e = B.enemy, p = B.pm;
   if (!e || !p) return;
-  $('eName').textContent = e.name; $('eLv').textContent = 'L' + e.lv;
+  $('eName').textContent = e.name + statusBadge(e); $('eLv').textContent = 'L' + e.lv;
   const er = Math.max(0, e.hp / e.maxhp);
   $('eHp').style.width = (er*100) + '%'; $('eHp').style.background = hpColor(er);
-  $('pName').textContent = p.name; $('pLv').textContent = 'L' + p.lv;
+  $('pName').textContent = p.name + statusBadge(p); $('pLv').textContent = 'L' + p.lv;
   const pr = Math.max(0, p.hp / p.maxhp);
   $('pHp').style.width = (pr*100) + '%'; $('pHp').style.background = hpColor(pr);
   $('pHpNum').textContent = Math.max(0, p.hp) + '/' + p.maxhp;
@@ -171,26 +179,46 @@ function calcDamage(att, dif, mv) {
   const stab = att.types.includes(M.t) ? 1.5 : 1;
   const eff = typeMult(M.t, dif.types);
   const crit = Math.random() < 0.0625;
+  const burn = att.status === 'brn' ? 0.5 : 1;   // scottatura: danni dimezzati
   const dmg = Math.floor((((2*att.lv/5 + 2) * M.pow * atk/def) / 50 + 2)
-              * stab * eff * (crit ? 1.5 : 1) * (0.85 + Math.random()*0.15));
+              * stab * eff * burn * (crit ? 1.5 : 1) * (0.85 + Math.random()*0.15));
   return { dmg: Math.max(1, dmg), eff, crit };
 }
-function fxLines(target, fx, targetIsEnemy) {
-  const stat = fx.slice(0, 3);
+function effSpd(m) {
+  return m.spd * stageMult(m.stages.spd) * (m.status === 'par' ? 0.25 : 1);
+}
+/* Applica l'effetto fx di una mossa: cali di statistica (atk-/def-/spd-) oppure
+   stato alterato (psn/brn/par/slp). Ritorna le righe di messaggio. */
+function applyFx(target, fx, targetIsEnemy) {
   const who = targetIsEnemy ? B.enemy.name + ' nemico' : B.pm.name;
-  const names = { atk:'Attacco', def:'Difesa', spd:'Velocità' };
-  if (target.stages[stat] <= -6) return ['Non può scendere di più!'];
-  target.stages[stat]--;
-  return [names[stat] + ' di ' + who + '\ndiminuisce!'];
+  if (fx.endsWith('-')) {                       // calo di statistica
+    const stat = fx.slice(0, 3);
+    const names = { atk:'Attacco', def:'Difesa', spd:'Velocità' };
+    if (target.stages[stat] <= -6) return ['Non può scendere di più!'];
+    target.stages[stat]--;
+    return [names[stat] + ' di ' + who + '\ndiminuisce!'];
+  }
+  const info = STATUS_INFO[fx];                 // stato alterato
+  if (!info) return ['Ma non succede nulla.'];
+  if (target.status) return [who + ' ha già un\nproblema di stato!'];
+  if (fx === 'brn' && target.types.includes('Fuoco')) return [who + ' non si scotta!'];
+  if (fx === 'psn' && target.types.includes('Veleno')) return [who + ' non si avvelena!'];
+  target.status = fx;
+  if (fx === 'slp') target.slp = 2 + Math.floor(Math.random() * 3);   // dorme 2-4 turni
+  beep(180, .18, 'square');
+  const verb = info.verb + (fx === 'psn' || fx === 'par' ? 'o' : '');
+  return [who + ' ' + verb + '!'];
 }
 function execMove(att, dif, mvRef, attIsPlayer, done) {
   const M = MOVES[mvRef.id];
   mvRef.pp--;
   const who = attIsPlayer ? B.pm.name : B.enemy.name + ' nemico';
   const lines = [who + ' usa ' + M.n + '!'];
-  if (M.fx) {
-    lines.push(...fxLines(dif, M.fx, attIsPlayer));
-    bSay(lines, done);
+  // precisione: alcune mosse (soprattutto di stato) possono mancare
+  if (M.acc && Math.random() > M.acc) { bSay([...lines, 'Ma ha mancato il bersaglio!'], done); return; }
+  if (M.fx && !M.pow) {                          // mossa di puro stato
+    lines.push(...applyFx(dif, M.fx, attIsPlayer));
+    bSay(lines, () => { updateBars(); done(); });
     return;
   }
   const { dmg, eff, crit } = calcDamage(att, dif, mvRef);
@@ -200,7 +228,40 @@ function execMove(att, dif, mvRef, attIsPlayer, done) {
   else if (eff < 1) lines.push('Non è molto efficace...');
   beep(eff > 1 ? 200 : 300, .15, 'sawtooth');
   if (BSCENE) BSCENE.hit(attIsPlayer ? 'enemy' : 'player', eff > 1 || crit);
+  // effetto secondario su mossa da danno (fx + fxp = probabilità)
+  if (M.fx && M.pow && dif.hp > 0 && Math.random() < (M.fxp || 0)) lines.push(...applyFx(dif, M.fx, attIsPlayer));
   bSay(lines, () => { updateBars(); done(); });
+}
+/* Controllo pre-mossa: sonno e paralisi possono impedire l'azione.
+   Ritorna true se la Leggenda PUÒ agire (eventuali messaggi via bSay+cb). */
+function canAct(m, isPlayer, proceed, skip) {
+  const who = isPlayer ? m.name : B.enemy.name + ' nemico';
+  if (m.status === 'slp') {
+    if (m.slp > 0) m.slp--;
+    if (m.slp <= 0) { m.status = null; updateBars(); bSay(who + ' si sveglia!', proceed); return; }
+    bSay(who + ' dorme della grossa.', skip); return;
+  }
+  if (m.status === 'par' && Math.random() < 0.25) { bSay(who + ' è paralizzato!\nNon riesce a muoversi!', skip); return; }
+  proceed();
+}
+/* Danno di fine turno (veleno 1/8, scottatura 1/16). */
+function residualOne(m, isPlayer, after) {
+  if (m.hp <= 0 || (m.status !== 'psn' && m.status !== 'brn')) { after(); return; }
+  const who = isPlayer ? m.name : B.enemy.name + ' nemico';
+  const frac = m.status === 'psn' ? 8 : 16;
+  m.hp -= Math.max(1, Math.floor(m.maxhp / frac));
+  beep(140, .14, 'square');
+  bSay(who + (m.status === 'psn' ? ' soffre il veleno!' : ' soffre la scottatura!'),
+    () => { updateBars(); after(); });
+}
+function endOfTurn(after) {
+  residualOne(B.pm, true, () => {
+    if (B.pm.hp <= 0) { onPlayerFaint(); return; }
+    residualOne(B.enemy, false, () => {
+      if (B.enemy.hp <= 0) { onEnemyFaint(); return; }
+      after();
+    });
+  });
 }
 function enemyPickMove() {
   const usable = B.enemy.moves.filter(m => m.pp > 0);
@@ -210,20 +271,19 @@ function enemyPickMove() {
 
 function playerTurn(mvRef) {
   B.phase = 'msg'; showPanels();
-  const pFirst = (B.pm.spd * stageMult(B.pm.stages.spd)) >=
-                 (B.enemy.spd * stageMult(B.enemy.stages.spd));
-  const pAct = done => execMove(B.pm, B.enemy, mvRef, true, done);
-  const eAct = done => execMove(B.enemy, B.pm, enemyPickMove(), false, done);
+  const pFirst = effSpd(B.pm) >= effSpd(B.enemy);
+  const pAct = done => canAct(B.pm, true, () => execMove(B.pm, B.enemy, mvRef, true, done), done);
+  const eAct = done => canAct(B.enemy, false, () => execMove(B.enemy, B.pm, enemyPickMove(), false, done), done);
   const seq = pFirst ? [pAct, eAct] : [eAct, pAct];
   seq[0](() => {
     if (checkFaint()) return;
-    seq[1](() => { if (!checkFaint()) openMenu(); });
+    seq[1](() => { if (checkFaint()) return; endOfTurn(openMenu); });
   });
 }
 function enemyFreeTurn(after) {
-  execMove(B.enemy, B.pm, enemyPickMove(), false, () => {
-    if (!checkFaint()) after();
-  });
+  canAct(B.enemy, false,
+    () => execMove(B.enemy, B.pm, enemyPickMove(), false, () => { if (checkFaint()) return; endOfTurn(after); }),
+    () => endOfTurn(after));
 }
 
 function checkFaint() {
@@ -365,7 +425,7 @@ function endBattle(won, caught) {
   const tr = B.trainer;
   $('battleUI').style.display = 'none';
   B.on = false; B.trainer = null;
-  for (const m of G.party) m.stages = { atk:0, def:0, spd:0 };
+  for (const m of G.party) { m.stages = { atk:0, def:0, spd:0 }; m.status = null; m.slp = 0; }
   GAME.scene.stop('Battle');
   GAME.scene.resume('World');
   G.mode = 'walk';

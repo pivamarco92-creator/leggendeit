@@ -1,6 +1,7 @@
 /* Stato globale di gioco + helper. */
 const G = {
   mode: 'title',           // title | walk | dialog | choice | battle | menu | end
+  slot: 1,                 // slot di salvataggio attivo (1..3)
   mapId: 'lab', px: 4, py: 5, dir: 'down',
   party: [],
   box: [],                 // deposito: Leggende oltre la 6a, gestibili dal laptop
@@ -57,24 +58,47 @@ const ROUTE_MAPS = ['navigli', 'murazzi', 'gransanbernardo', 'scogliera',
   'viaemilia', 'pianurapo', 'chianti', 'futa', 'valnerina', 'trasimeno', 'conero', 'furlo',
   'appiaantica', 'salaria', 'gransasso', 'valeria', 'tratturo', 'matese', 'vesuvio', 'sannio', 'murgia', 'tavoliere', 'calanchi', 'bradano', 'aspromonte', 'pollino', 'madonie', 'traghetto', 'barbagia', 'nave'];
 
-/* ---------------- SALVATAGGIO ---------------- */
-const SAVE_KEY = 'leggende-italia-save';
+/* ---------------- SALVATAGGIO (3 slot) ---------------- */
+const SAVE_BASE = 'leggende-italia-save';
+const SAVE_SLOTS = 3;
+function slotKey(n) { return SAVE_BASE + ':' + n; }
+/* Migra il vecchio salvataggio singolo nello slot 1 (una tantum). */
+function migrateLegacy() {
+  try {
+    const legacy = localStorage.getItem(SAVE_BASE);
+    if (!legacy) return;
+    if (!localStorage.getItem(slotKey(1))) localStorage.setItem(slotKey(1), legacy);
+    localStorage.removeItem(SAVE_BASE);
+  } catch (e) {}
+}
 function saveGame() {
   try {
     const { mapId, px, py, dir, party, box, items, money, dex, flags, morale } = G;
-    localStorage.setItem(SAVE_KEY,
+    localStorage.setItem(slotKey(G.slot || 1),
       JSON.stringify({ v:1, mapId, px, py, dir, party, box, items, money, dex, flags, morale }));
   } catch (e) {}
 }
-function loadSave() {
+function loadSlot(n) {
   try {
-    const raw = localStorage.getItem(SAVE_KEY);
+    const raw = localStorage.getItem(slotKey(n));
     if (!raw) return null;
     const s = JSON.parse(raw);
     return (s && s.v === 1 && Array.isArray(s.party)) ? s : null;
   } catch (e) { return null; }
 }
-function clearSave() { try { localStorage.removeItem(SAVE_KEY); } catch (e) {} }
+function clearSlot(n) { try { localStorage.removeItem(slotKey(n)); } catch (e) {} }
+/* Riepilogo breve di uno slot per la schermata titolo. */
+function slotSummary(n) {
+  const s = loadSlot(n);
+  if (!s) return '— vuoto —';
+  const f = s.flags || {};
+  const badges = Object.keys(f).filter(k => /^badge\d*$/.test(k) && f[k]).length;
+  const reg = (typeof WORLD_MAP !== 'undefined') ? WORLD_MAP.find(r => r.maps.includes(s.mapId)) : null;
+  return badges + '/20 med · ' + (reg ? reg.city : s.mapId);
+}
+/* Alias retro-compatibili (slot attivo). */
+function loadSave() { return loadSlot(G.slot || 1); }
+function clearSave() { clearSlot(G.slot || 1); }
 
 let WORLD = null;   // istanza WorldScene
 let BSCENE = null;  // istanza BattleScene
@@ -89,6 +113,7 @@ function healParty() {
     m.hp = m.maxhp;
     for (const mv of m.moves) mv.pp = MOVES[mv.id].pp;
     m.stages = { atk:0, def:0, spd:0 };
+    m.status = null; m.slp = 0;
   }
 }
 function applyExp(mon, gained, done) {

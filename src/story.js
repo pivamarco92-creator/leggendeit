@@ -1,19 +1,30 @@
 /* Storia della demo: starter, evento Cosca (scelta morale), palestra di Carletto. */
 
-/* Schermata titolo: Continua / Nuova partita se esiste un salvataggio. */
+/* Schermata titolo: scelta dello slot (3), poi Continua / Nuova partita. */
 function titleConfirm() {
   $('titleScr').style.display = 'none';
-  const sv = loadSave();
-  if (!sv) { startGame(); return; }
   G.mode = 'walk';
-  ask(['Continua', 'Nuova partita'], sel => {
-    if (sel === 0) continueGame(sv);
-    else {
-      ask(['Sì, ricomincia da zero', 'No, torna indietro'], ok => {
-        if (ok === 0) { clearSave(); startGame(); }
-        else { $('titleScr').style.display = 'block'; G.mode = 'title'; }
-      });
-    }
+  migrateLegacy();
+  chooseSlot();
+}
+function backToTitle() { $('titleScr').style.display = 'block'; G.mode = 'title'; }
+function chooseSlot() {
+  const opts = [];
+  for (let n = 1; n <= SAVE_SLOTS; n++) opts.push('Slot ' + n + ': ' + slotSummary(n));
+  opts.push('Annulla');
+  ask(opts, sel => {
+    if (sel >= SAVE_SLOTS) { backToTitle(); return; }
+    const n = sel + 1; G.slot = n;
+    const sv = loadSlot(n);
+    if (!sv) { startGame(); return; }                 // slot vuoto: nuova partita
+    ask(['Continua', 'Nuova partita', 'Indietro'], a => {
+      if (a === 0) continueGame(sv);
+      else if (a === 1)
+        ask(['Sì, cancella e ricomincia', 'No'], ok => {
+          if (ok === 0) { clearSlot(n); startGame(); } else chooseSlot();
+        });
+      else chooseSlot();
+    });
   });
 }
 function continueGame(sv) {

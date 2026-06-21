@@ -13,17 +13,17 @@ const MOVES = {
   /* --- mosse avanzate (apprese a livelli alti) --- */
   fogliolame:  { n:'Fogliolame',    t:'Erba',       pow:70, pp:20 },
   querciasacra:{ n:'Quercia Sacra', t:'Erba',       pow:95, pp:10 },
-  vampata:     { n:'Vampata',       t:'Fuoco',      pow:70, pp:20 },
-  rogo:        { n:'Rogo',          t:'Fuoco',      pow:95, pp:10 },
+  vampata:     { n:'Vampata',       t:'Fuoco',      pow:70, pp:20, fx:'brn', fxp:0.2 },
+  rogo:        { n:'Rogo',          t:'Fuoco',      pow:95, pp:10, fx:'brn', fxp:0.3 },
   ondata:      { n:'Ondata',        t:'Acqua',      pow:70, pp:20 },
   piena:       { n:'Piena',         t:'Acqua',      pow:95, pp:10 },
-  saetta:      { n:'Saetta',        t:'Elettro',    pow:70, pp:20 },
-  fulmine:     { n:'Fulmine',       t:'Elettro',    pow:95, pp:10 },
+  saetta:      { n:'Saetta',        t:'Elettro',    pow:70, pp:20, fx:'par', fxp:0.2 },
+  fulmine:     { n:'Fulmine',       t:'Elettro',    pow:95, pp:10, fx:'par', fxp:0.3 },
   tramontana:  { n:'Tramontana',    t:'Volante',    pow:65, pp:20 },
   sciame:      { n:'Sciame',        t:'Coleottero', pow:65, pp:20 },
-  tossico:     { n:'Tossico',       t:'Veleno',     pow:40, pp:30 },
-  velenovivo:  { n:'Veleno Vivo',   t:'Veleno',     pow:65, pp:20 },
-  flagello:    { n:'Flagello',      t:'Veleno',     pow:90, pp:10 },
+  tossico:     { n:'Tossico',       t:'Veleno',     pow:40, pp:30, fx:'psn', fxp:0.2 },
+  velenovivo:  { n:'Veleno Vivo',   t:'Veleno',     pow:65, pp:20, fx:'psn', fxp:0.3 },
+  flagello:    { n:'Flagello',      t:'Veleno',     pow:90, pp:10, fx:'psn', fxp:0.3 },
   sfondata:    { n:'Sfondata',      t:'Normale',    pow:80, pp:15 },
   pressa:      { n:'Pressa',        t:'Acciaio',    pow:80, pp:15 },
   maledizione: { n:'Maledizione',   t:'Spettro',    pow:75, pp:15 },
@@ -51,5 +51,11 @@ const MOVES = {
   bagliore:   { n:'Bagliore',     t:'Luce',       pow:50, pp:25 },
   raggiosole: { n:'Raggio di Sole', t:'Luce',     pow:90, pp:10 },
   sgambetto:  { n:'Sgambetto',    t:'Oscurità',   pow:50, pp:25 },
-  boccone:    { n:'Boccone',      t:'Oscurità',   pow:90, pp:10 }
+  boccone:    { n:'Boccone',      t:'Oscurità',   pow:90, pp:10 },
+  /* --- mosse di stato (pow:0 + fx stato; acc = probabilità di colpire) --- */
+  ipnosi:      { n:'Ipnosi',        t:'Psico',    pow:0, pp:15, fx:'slp', acc:0.7 },
+  sonnifero:   { n:'Sonnifero',     t:'Erba',     pow:0, pp:15, fx:'slp', acc:0.75 },
+  velenospora: { n:'Velenospora',   t:'Veleno',   pow:0, pp:20, fx:'psn', acc:0.85 },
+  elettrorete: { n:'Elettrorete',   t:'Elettro',  pow:0, pp:20, fx:'par', acc:0.9 },
+  sguardobrace:{ n:'Sguardo Brace', t:'Fuoco',    pow:0, pp:15, fx:'brn', acc:0.85 }
 };

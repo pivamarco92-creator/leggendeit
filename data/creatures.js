@@ -84,7 +84,7 @@ const SPECIES = {
     learnset:[[1,'botta'],[1,'dispetto'],[1,'sferzata'],[16,'morso'],[24,'fogliolame'],[40,'querciasacra']],
     dex:'Salvanèl adulto. Conosce ogni sentiero del bosco e non perdona chi lo sporca.' },
   gransalvan: { n:'GRANSALVAN', types:['Erba'], hp:80, atk:83, def:83, spd:80,
-    learnset:[[1,'sferzata'],[1,'morso'],[1,'fogliolame'],[44,'querciasacra'],[50,'sfondata']],
+    learnset:[[1,'sferzata'],[1,'morso'],[1,'fogliolame'],[24,'sonnifero'],[44,'querciasacra'],[50,'sfondata']],
     dex:'Patriarca dei boschi. Gli alberi più antichi si inchinano al suo passaggio.' },
 
   tarantasino: { n:'TARANTASINO', types:['Fuoco'], hp:39, atk:52, def:43, spd:65,
@@ -205,10 +205,10 @@ const SPECIES = {
     learnset:[[1,'graffio'],[1,'morso'],[1,'malocchio'],[1,'sfondata'],[40,'maledizione']],
     dex:'Il Re dei Gatti, sovrano dei tetti di Brera. Cammina anche dove non c’è più tetto.' },
   bissone: { n:'BISSONE', types:['Veleno'], evolve:{ lv:54, to:'basilisso' }, hp:62, atk:88, def:66, spd:72,
-    learnset:[[1,'morso'],[1,'velenovivo'],[1,'codata'],[1,'sfondata'],[42,'velenovivo']],
+    learnset:[[1,'morso'],[1,'velenovivo'],[1,'codata'],[24,'velenospora'],[1,'sfondata'],[42,'velenovivo']],
     dex:'Il biscione visconteo nella sua forma piena: come nello stemma, inghiotte un uomo intero.' },
   munacione: { n:'MUNACIÒNE', types:['Elettro'], hp:55, atk:78, def:58, spd:112,
-    learnset:[[1,'scarica'],[1,'saetta'],[1,'dispetto'],[1,'morso'],[46,'fulmine']],
+    learnset:[[1,'scarica'],[1,'saetta'],[1,'dispetto'],[1,'morso'],[28,'elettrorete'],[46,'fulmine']],
     dex:'Il Munaciello cresciuto: ora fa saltare la corrente di interi quartieri, per dispetto.' },
 
   /* ---------- EVOLUZIONI · blocco 2 (Piemonte) ---------- */
@@ -294,7 +294,7 @@ const SPECIES = {
     learnset:[[1,'botta'],[1,'dispetto'],[7,'favilla'],[16,'morso'],[28,'vampata'],[42,'rogo']],
     dex:'Fuoco fatuo della pianura padana. Una fiammella vagante che di notte danza sugli argini del Reno e svia i viandanti.' },
   fogaron: { n:'FOGARÒN', types:['Fuoco'], evolve:{ lv:52, to:'fogherone' }, hp:68, atk:84, def:58, spd:86,
-    learnset:[[1,'favilla'],[1,'morso'],[1,'vampata'],[34,'sfondata'],[48,'rogo']],
+    learnset:[[1,'favilla'],[1,'morso'],[1,'vampata'],[28,'sguardobrace'],[34,'sfondata'],[48,'rogo']],
     dex:'Lo spirito del grande falò emiliano. Cresciuto dal fuoco fatuo, arde come i roghi delle feste di paese e non si lascia spegnere.' },
   aldial: { n:'AL DIÂL', types:['Fuoco','Spettro'], hp:92, atk:104, def:85, spd:92,
     learnset:[[1,'favilla'],[1,'malocchio'],[1,'vampata'],[1,'maledizione'],[50,'rogo']],
@@ -306,7 +306,7 @@ const SPECIES = {
     learnset:[[1,'botta'],[1,'dispetto'],[7,'psicobotta'],[16,'morso'],[38,'psicoonda']],
     dex:'Folletto-stregone delle campagne toscane. Legge nel pensiero dei viandanti e ne confonde la strada per gioco.' },
   strione: { n:'STRIÒNE', types:['Psico'], evolve:{ lv:52, to:'striastrale' }, hp:70, atk:80, def:70, spd:80,
-    learnset:[[1,'psicobotta'],[1,'morso'],[1,'sfondata'],[44,'psicoonda']],
+    learnset:[[1,'psicobotta'],[1,'morso'],[1,'sfondata'],[26,'ipnosi'],[44,'psicoonda']],
     dex:'Lo strìo cresciuto in mago vero e proprio. Si dice tenga corte tra le colline del Chianti e pieghi le menti deboli al suo volere.' },
   aruspice: { n:'L\'ARÙSPICE', types:['Psico'], hp:90, atk:100, def:92, spd:96,
     learnset:[[1,'psicobotta'],[1,'morso'],[1,'sfondata'],[1,'dispetto'],[50,'psicoonda']],
@@ -504,7 +504,7 @@ const SPECIES = {
     learnset:[[1,'psicobotta'],[1,'dispetto'],[14,'malocchio'],[34,'psicoonda']],
     dex:'Una piccola fata delle domus de janas, le «case delle fate» scavate nella roccia. Tesse al telaio d\'oro nelle notti senza luna e si dice porti fortuna a chi la rispetta.' },
   jana: { n:'JANA', types:['Psico'], hp:74, atk:72, def:74, spd:92,
-    learnset:[[1,'psicobotta'],[1,'malocchio'],[1,'sfondata'],[46,'psicoonda']],
+    learnset:[[1,'psicobotta'],[1,'malocchio'],[1,'sfondata'],[28,'ipnosi'],[46,'psicoonda']],
     dex:'La fata adulta dei nuraghi, custode di soglie e di sogni. Conosce il filo che lega il sonno alla morte, e lo intreccia con dita di luce nella pietra antica.' },
   prama: { n:'GIGANTE DI PRAMA', types:['Roccia','Psico'], hp:100, atk:104, def:104, spd:70,
     learnset:[[1,'sassata'],[1,'psicobotta'],[1,'frana'],[1,'psicoonda'],[50,'frana']],
@@ -594,5 +594,5 @@ function makeMon(id, lv) {
   return { id, name: sp.n, types: sp.types, lv, ...st, hp: st.maxhp,
     exp: 0, expNext: expToNext(lv),
     moves: movesAtLevel(sp, lv).map(m => ({ id: m, pp: MOVES[m].pp })),
-    stages: { atk:0, def:0, spd:0 } };
+    stages: { atk:0, def:0, spd:0 }, status: null, slp: 0 };
 }

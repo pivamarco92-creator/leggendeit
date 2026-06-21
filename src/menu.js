@@ -134,16 +134,26 @@ function menuMsg(text) {
   $('menuPanel').innerHTML = '<h3>' + text + '</h3><div class="hintbar">Premi A o B per tornare.</div>';
 }
 
+/* Regioni raggiungibili col viaggio rapido: città già visitate (o palestra battuta). */
+function ftRegions() {
+  if (typeof WORLD_MAP === 'undefined') return [];
+  return WORLD_MAP.filter(r => G.flags[r.badge] ||
+    (r.respawn && G.flags['ft_' + r.respawn.map]) || r.maps.includes(G.mapId));
+}
 function menuRenderMap() {
   $('menuPanel').style.display = 'block';
   const L = (typeof AREA_LABELS !== 'undefined') ? AREA_LABELS : {};
   const SEC = (typeof SECRET_AREAS !== 'undefined') ? SECRET_AREAS : [];
+  const FT = ftRegions();
   let h = '<h3>MAPPA · LEGGENDE D\'ITALIA</h3>';
   (typeof WORLD_MAP !== 'undefined' ? WORLD_MAP : []).forEach(r => {
     const earned = G.flags[r.badge];
     const inRegion = r.maps.includes(G.mapId);
-    h += '<div class="regttl' + (inRegion ? ' regnow' : '') + '">' + r.city +
-         (earned ? ' ✓' : '') +
+    const ftIdx = FT.indexOf(r);
+    const selHere = ftIdx >= 0 && ftIdx === MENU.sel;
+    h += '<div class="regttl' + (inRegion ? ' regnow' : '') + (selHere ? ' sel' : '') + '">' +
+         (selHere ? '▶ ' : '') + r.city +
+         (earned ? ' ✓' : '') + (ftIdx >= 0 && !inRegion ? ' ✈' : '') +
          ' <span style="color:#888;font-weight:normal">' + r.region + ' · ' + r.type + '</span></div>';
     (r.layout || []).forEach(row => {
       h += '<div class="maprow">';
@@ -158,8 +168,20 @@ function menuRenderMap() {
     });
     h += '<div class="maplink">' + r.link + '</div>';
   });
-  h += '<div class="hintbar">riquadro giallo = sei qui · ★ = area segreta · ✓ = medaglia · B: indietro</div>';
+  h += '<div class="hintbar">✈ = viaggio rapido · ▶ scelta · ↑↓ scorri · A: viaggia · B: indietro</div>';
   $('menuPanel').innerHTML = h;
+  scrollSelIntoView($('menuPanel'));
+}
+/* Teletrasporto al capoluogo di una regione visitata. */
+function fastTravel(r) {
+  const rp = r.respawn;
+  $('menuScr').style.display = 'none'; $('menuPanel').style.display = 'none';
+  G.mode = 'walk';
+  G.px = rp.x; G.py = rp.y; G.dir = rp.dir;
+  WORLD.loadMap(rp.map);
+  saveGame();
+  beep(659, .08); beep(880, .12);
+  say(['Viaggio rapido:\n' + r.city + '!']);
 }
 
 /* ---- PIVADEX ---- */
@@ -221,6 +243,7 @@ function menuDir(d) {
   else if (MENU.view === 'bag') n = menuBagEntries().length;
   else if (MENU.view === 'bagtarget') n = G.party.length;
   else if (MENU.view === 'pivadex') n = CREATURE_ORDER.length;
+  else if (MENU.view === 'map') n = ftRegions().length;
   else return;
   if (!n) return;
   if (d === 'up')   MENU.sel = (MENU.sel + n - 1) % n;
@@ -247,6 +270,13 @@ function menuA() {
     menuB(); return;   // ampolla/canna: non usabili dal menù
   }
   if (MENU.view === 'bagtarget') { menuUseOnTarget(); return; }
+  if (MENU.view === 'map') {
+    const list = ftRegions();
+    if (!list.length) { menuB(); return; }
+    const r = list[MENU.sel];
+    if (r.maps.includes(G.mapId)) { beep(300, .1); menuMsg('Sei già qui!'); return; }
+    beep(880, .06); fastTravel(r); return;
+  }
   menuB();   // progress / msg: A torna al menù
 }
 function menuB() {

@@ -26,6 +26,9 @@ class WorldScene extends Phaser.Scene {
 
   loadMap(id) {
     G.mapId = id;
+    // viaggio rapido: marca come "visitata" ogni città-capoluogo (punto di respawn di una regione)
+    if (typeof WORLD_MAP !== 'undefined' && WORLD_MAP.some(r => r.respawn && r.respawn.map === id))
+      G.flags['ft_' + id] = true;
     if (typeof BEATEN_VISIT !== 'undefined') BEATEN_VISIT.clear();   // gli allenatori-rivincita ti risfidano
     const def = MAPS[id];
     if (this.layer) { this.layer.destroy(); this.map.destroy(); }

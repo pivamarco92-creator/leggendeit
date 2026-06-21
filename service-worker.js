@@ -5,7 +5,7 @@
      - Phaser dalla CDN: CACHE-FIRST → non cambia mai, lo serviamo dalla cache.
    NB: per forzare il refresh totale della cache dopo grandi aggiornamenti,
    basta cambiare CACHE_VERSION qui sotto. */
-const CACHE_VERSION = 'leggende-v7';
+const CACHE_VERSION = 'leggende-v9';
 const PHASER_URL = 'https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js';
 
 const CORE = [
