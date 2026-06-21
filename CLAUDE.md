@@ -22,7 +22,7 @@ data/   (SOLO dati: qui si aggiungono contenuti, niente logica)
   types.js        TYPE_EFF (tabella efficacia) + typeMult()
   moves.js        MOVES (pow:0 + fx = mossa di stato)
   creatures.js    SPECIES, CREATURE_ORDER, makeMon/applyExp helpers, MAX_LEVEL=100
-  items.js        ITEMS (heal | ball | rod | price) + SHOP_STOCK
+  items.js        ITEMS (heal | ball | rod | revive | price) + SHOP_STOCK
   maps.js         MAPS (t2i + tiles ASCII + encounters/fish/items), SOLID, DELTA, PORTALS
   npcs.js         NPCS per mappa (x,y,frame,name, ev|lines, trainer, look/sight)
   regions.js      GYMS (palestre+fine-regione), WORLD_MAP (mappa+respawn+layout), AREA_LABELS, SECRET_AREAS

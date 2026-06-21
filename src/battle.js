@@ -87,11 +87,14 @@ function listEntries() {
     return B.pm.moves.map(m => ({ label: MOVES[m.id].n,
       meta: MOVES[m.id].t + ' PP ' + m.pp + '/' + MOVES[m.id].pp, ref: m }));
   if (B.listKind === 'bag')
-    return Object.entries(G.items).filter(([k, v]) => v > 0 && (ITEMS[k].heal || ITEMS[k].ball))
+    return Object.entries(G.items).filter(([k, v]) => v > 0 && (ITEMS[k].heal || ITEMS[k].ball || ITEMS[k].revive))
       .map(([k, v]) => ({ label: ITEMS[k].n + ' ×' + v, meta: ITEMS[k].desc, ref: k }));
   if (B.listKind === 'party')
     return G.party.map((m, i) => ({ label: m.name + ' L' + m.lv,
       meta: 'PS ' + Math.max(0, m.hp) + '/' + m.maxhp, ref: i }));
+  if (B.listKind === 'revive')   // solo le Leggende KO
+    return G.party.map((m, i) => [m, i]).filter(([m]) => m.hp <= 0)
+      .map(([m, i]) => ({ label: m.name + ' L' + m.lv, meta: 'KO · PS 0/' + m.maxhp, ref: i }));
   return [];
 }
 function renderList() {
@@ -151,6 +154,7 @@ function listPick() {
     B.lastMoveId = e.ref.id;        // ricorda per preselezionarla al turno dopo
     playerTurn(e.ref);
   } else if (B.listKind === 'bag') useItem(e.ref);
+  else if (B.listKind === 'revive') reviveMon(e.ref);
   else if (B.listKind === 'party') {
     if (B.mustSwitch) forcedSwitch(e.ref);   // dopo un KO: scelta obbligata, niente turno nemico
     else switchMon(e.ref);
@@ -233,18 +237,20 @@ function onEnemyFaint() {
   const gained = Math.floor(7 * B.enemy.lv * (B.trainer ? 1.5 : 1));
   const cash = Math.floor(B.enemy.lv * (B.trainer ? 8 : 4));
   G.money += cash;
-  // esperienza a TUTTE le Leggende che hanno partecipato e sono ancora vive
+  // esperienza DIVISA tra le Leggende che hanno affrontato QUESTO nemico e sono vive
   const winners = (B.participants && B.participants.length ? B.participants : [B.pm])
     .filter(m => m && m.hp > 0);
-  const expLines = winners.map(m => m.name + ' guadagna\n' + gained + ' Punti Esp.!');
+  const share = Math.max(1, Math.floor(gained / Math.max(1, winners.length)));
+  const expLines = winners.map(m => m.name + ' guadagna\n' + share + ' Punti Esp.!');
   bSay([B.enemy.name + (B.trainer ? '' : ' selvatico') + ' è KO!',
         ...expLines,
         'Raccogli ' + cash + '€ dalla lotta.'], () => {
-    awardExp(winners, gained, () => {
+    awardExp(winners, share, () => {
       if (B.trainer && ++B.trainer.idx < B.trainer.team.length) {
         B.enemy = B.trainer.team[B.trainer.idx];
         dexSee(B.enemy.id);
         if (BSCENE) BSCENE.setEnemy(B.enemy.id, true);
+        B.participants = [B.pm];   // il prossimo nemico premia solo chi lo affronta davvero
         updateBars();
         bSay(B.trainer.name + ' manda in campo\n' + B.enemy.name + '!', promptSwitch);
       } else endBattle(true);
@@ -295,12 +301,28 @@ function useItem(key) {
     });
     return;
   }
+  if (it.revive) {
+    if (!G.party.some(m => m.hp <= 0)) { bSay('Nessuna Leggenda KO\nda rianimare!', openMenu); return; }
+    B.reviveKey = key; openList('revive'); return;
+  }
   if (G.items[key] <= 0) { openMenu(); return; }
   if (B.pm.hp >= B.pm.maxhp) { bSay('Ha già tutti i PS!', openMenu); return; }
   G.items[key]--;
   B.pm.hp = Math.min(B.pm.maxhp, B.pm.hp + it.heal);
   updateBars();
   bSay(B.pm.name + ' recupera PS\ncon ' + it.n + '!', () => enemyFreeTurn(openMenu));
+}
+
+function reviveMon(idx) {
+  const m = G.party[idx];
+  B.phase = 'msg'; showPanels();
+  if (m.hp > 0) { bSay(m.name + ' non è KO!', () => openList('revive')); return; }
+  const key = B.reviveKey, it = ITEMS[key];
+  if (!it || G.items[key] <= 0) { openMenu(); return; }
+  G.items[key]--;
+  m.hp = Math.max(1, Math.floor(m.maxhp * it.revive));
+  updateBars();
+  bSay(m.name + ' torna in forze\ncon ' + it.n + '!', () => enemyFreeTurn(openMenu));
 }
 
 function switchMon(idx) {

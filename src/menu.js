@@ -74,9 +74,38 @@ function menuRenderBag() {
     const cls = i === MENU.sel ? ' sel' : '';
     h += `<div class="row${cls}">${ITEMS[k].n} ×${v}<span class="meta">${ITEMS[k].desc}</span></div>`;
   });
-  h += '<div class="hintbar">€ in cassa: ' + G.money + ' · B: indietro</div>';
+  h += '<div class="hintbar">A: usa (cure/rianima) · € in cassa: ' + G.money + ' · B: indietro</div>';
   $('menuPanel').innerHTML = h;
   scrollSelIntoView($('menuPanel'));
+}
+
+/* Scelta del bersaglio quando si usa un oggetto dalla borsa fuori battaglia. */
+function menuRenderBagTarget() {
+  $('menuPanel').style.display = 'block';
+  const it = ITEMS[MENU.bagKey];
+  let h = '<h3>' + it.n + ' · su chi?</h3>';
+  G.party.forEach((m, i) => {
+    const cls = i === MENU.sel ? ' sel' : '';
+    h += `<div class="row${cls}">${i + 1}. ${m.name}<span class="meta">L${m.lv} · PS ${Math.max(0, m.hp)}/${m.maxhp}${m.hp <= 0 ? ' · KO' : ''}</span></div>`;
+  });
+  h += '<div class="hintbar">A: usa · B: indietro</div>';
+  $('menuPanel').innerHTML = h;
+  scrollSelIntoView($('menuPanel'));
+}
+function menuUseOnTarget() {
+  const key = MENU.bagKey, it = ITEMS[key], m = G.party[MENU.sel];
+  if (!it || G.items[key] <= 0) { MENU.view = 'bag'; MENU.sel = 0; menuRenderSection(); return; }
+  if (it.revive) {
+    if (m.hp > 0) { beep(300, .1); menuMsg(m.name + ' non è KO!'); return; }
+    m.hp = Math.max(1, Math.floor(m.maxhp * it.revive));
+  } else {
+    if (m.hp <= 0) { beep(300, .1); menuMsg(m.name + ' è KO!\nServe un rianimante.'); return; }
+    if (m.hp >= m.maxhp) { beep(300, .1); menuMsg(m.name + ' ha già tutti i PS!'); return; }
+    m.hp = Math.min(m.maxhp, m.hp + it.heal);
+  }
+  G.items[key]--;
+  beep(880, .08); saveGame();
+  menuMsg(it.n + ' usato su ' + m.name + '!');
 }
 
 function menuRenderProgress() {
@@ -174,6 +203,7 @@ function menuRenderSection() {
   menuRenderBox();
   if (MENU.view === 'party') menuRenderParty();
   else if (MENU.view === 'bag') menuRenderBag();
+  else if (MENU.view === 'bagtarget') menuRenderBagTarget();
   else if (MENU.view === 'map') menuRenderMap();
   else if (MENU.view === 'pivadex') menuRenderPiva();
   else if (MENU.view === 'progress') menuRenderProgress();
@@ -189,6 +219,7 @@ function menuDir(d) {
   let n = 0;
   if (MENU.view === 'party') n = G.party.length;
   else if (MENU.view === 'bag') n = menuBagEntries().length;
+  else if (MENU.view === 'bagtarget') n = G.party.length;
   else if (MENU.view === 'pivadex') n = CREATURE_ORDER.length;
   else return;
   if (!n) return;
@@ -205,11 +236,23 @@ function menuA() {
     MENU.view = key; MENU.sel = 0; MENU.moveIdx = -1; menuRenderSection(); return;
   }
   if (MENU.view === 'party') { menuPartyAction(); return; }
-  menuB();   // bag / progress / msg: A torna al menù
+  if (MENU.view === 'bag') {
+    const es = menuBagEntries();
+    if (!es.length) { menuB(); return; }
+    const k = es[MENU.sel][0], it = ITEMS[k];
+    if (it.heal || it.revive) {
+      if (!G.party.length) { menuB(); return; }
+      MENU.bagKey = k; MENU.view = 'bagtarget'; MENU.sel = 0; beep(700, .05); menuRenderSection(); return;
+    }
+    menuB(); return;   // ampolla/canna: non usabili dal menù
+  }
+  if (MENU.view === 'bagtarget') { menuUseOnTarget(); return; }
+  menuB();   // progress / msg: A torna al menù
 }
 function menuB() {
   if (MENU.view === 'root') return closePauseMenu();
   if (MENU.view === 'party' && MENU.moveIdx >= 0) { MENU.moveIdx = -1; menuRenderParty(); return; }
+  if (MENU.view === 'bagtarget') { MENU.view = 'bag'; MENU.sel = 0; menuRenderSection(); beep(440, .05); return; }
   MENU.view = 'root';
   $('menuPanel').style.display = 'none';
   menuRenderBox();
