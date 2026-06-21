@@ -99,7 +99,7 @@ const GYMS = {
 
   gymao: {
     leader:'FELICINO', type:'Ghiaccio', badge:'badge3', region:3,
-    team:[['neiot',18],['merlona',19],['neiot',21],['brinassa',24]],
+    team:[['neiot',18],['merlona',19],['brinassa',21],['brinassa',24]],
     challenge:"«Chi vince piglia la MEDAGLIA DEL\nMONTE BIANCO. Forza, vah!»",
     intro:[
       "La palestra di Aosta: una baita\ndi pietra, ghiaccioli al soffitto.",
@@ -142,7 +142,7 @@ const GYMS = {
 
   gymge: {
     leader:'BARBAGIALLA', type:'Acqua', badge:'badge4', region:4,
-    team:[['anguanella',24],['borda',25],['anguana',26],['anguanaregina',29]],
+    team:[['toron',24],['borda',25],['anguana',26],['anguanaregina',29]],
     challenge:'«Chi vince si piglia la MEDAGLIA\nDELLA LANTERNA. Forza, belin!»',
     intro:[
       "La palestra di Genova: una darsena\ncoperta, odore di salsedine e catrame.",
@@ -183,7 +183,7 @@ const GYMS = {
 
   gymts: {
     leader:'GIGIO', type:'Vento', badge:'badge7', region:7,
-    team:[['cjalcjut',34],['ratapignata',35],['gazzot',36],['cjalcjutone',39]],
+    team:[['falchin',34],['ratavolora',35],['falchione',36],['cjalcjutone',39]],
     challenge:'«A Trieste si combatte con la BORA\nnei polmoni. Tieni duro!»',
     intro:[
       "La palestra di Trieste: una vecchia\nstazione della tramvia sul Carso,\npiena di correnti d'aria.",
@@ -224,7 +224,7 @@ const GYMS = {
 
   gymve: {
     leader:'BEPI', type:'Acqua', badge:'badge6', region:6,
-    team:[['mazariol',32],['borda',33],['mazarione',35],['anguanaregina',38]],
+    team:[['mazarione',32],['bordona',33],['toron',35],['anguanaregina',38]],
     challenge:'«Chi vince piglia la MEDAGLIA DEL LEONE.\nVoga! Voga!»',
     intro:[
       "La palestra di Venezia: una vecchia\nrimessa per gondole, profumo di\nsalsedine e legno antico.",
@@ -265,7 +265,7 @@ const GYMS = {
 
   gymtr: {
     leader:'HANS', type:'Ghiaccio/Roccia', badge:'badge5', region:5,
-    team:[['croder',27],['neiot',28],['brinassa',30],['crodon',32]],
+    team:[['croder',27],['brinassa',28],['petrone',30],['crodon',32]],
     challenge:'«Chi vince prende la MEDAGLIA DELLE\nDOLOMITI. Auf geht\'s!»',
     intro:[
       "La palestra di Bolzano: legno di malga,\ntrofei di roccia e ghiaccio.",
@@ -304,7 +304,7 @@ const GYMS = {
 
   gymbo: {
     leader:'DINDO', type:'Fuoco', badge:'badge8', region:8,
-    team:[['foghin',39],['farfarello',41],['malebranca',42],['fogaron',45]],
+    team:[['vesuvione',39],['farfarello',41],['malebranca',42],['fogaron',45]],
     challenge:'«Chi vince piglia la MEDAGLIA DELLE\nDUE TORRI. Soccia, dai!»',
     intro:[
       "La palestra di Bologna: una vecchia\naula universitaria sotto i portici,\ncalda come un forno.",
@@ -345,7 +345,7 @@ const GYMS = {
 
   gymfi: {
     leader:'CHECCONE', type:'Psico', badge:'badge9', region:9,
-    team:[['strio',43],['civettona',44],['pantafica',45],['strione',48]],
+    team:[['jana',43],['civettona',44],['strigone',45],['strione',48]],
     challenge:'«Chi vince piglia la MEDAGLIA DEL\nGIGLIO. O bischero, fatti sotto!»',
     intro:[
       "La palestra di Firenze: una galleria\nrinascimentale, statue e affreschi\nche sembrano seguirti con lo sguardo.",
@@ -386,7 +386,7 @@ const GYMS = {
 
   gympg: {
     leader:'QUIRINO', type:'Terra', badge:'badge10', region:10,
-    team:[['zollin',47],['cinghial',48],['lupomannaro',49],['pantafica',50],['zollone',53]],
+    team:[['zollin',47],['monachione',48],['lupomannaro',49],['mannarone',50],['zollone',53]],
     challenge:'«Chi vince si piglia la MEDAGLIA DEL\nGRIFO. Coraggio, su!»',
     intro:[
       "La palestra di Perugia: una cantina\nin pietra sotto l'acquedotto, odore\ndi terra umida e tartufo.",
@@ -427,7 +427,7 @@ const GYMS = {
 
   gyman: {
     leader:'GUERRINO', type:'Volante', badge:'badge11', region:11,
-    team:[['falchin',50],['gazzot',51],['ratapignata',52],['civettona',53],['falchione',56]],
+    team:[['falchin',50],['strigone',51],['ratavolora',52],['civettona',53],['falchione',56]],
     challenge:'«Chi vince si piglia la MEDAGLIA DEL\nCONERO. Su, prendi il volo!»',
     intro:[
       "La palestra di Ancona: una vecchia\ntorre del porto aperta sul mare,\npiena di trespoli e di falchi.",
@@ -468,7 +468,7 @@ const GYMS = {
 
   gymrm: {
     leader:'SOR ALVARO', type:'Drago', badge:'badge12', region:12,
-    team:[['ruderin',53],['lupomannaro',54],['pantafica',55],['cinghial',56],['ruderone',59]],
+    team:[['ruderin',53],['lupomannaro',54],['mannarone',55],['strigone',56],['ruderone',59]],
     challenge:'«Chi vince se piglia la MEDAGLIA DER\nCOLOSSEO. Daje, ahò!»',
     intro:[
       "La palestra di Roma: un'arena di\ntravertino sotto il livello della\nstrada, torce alle pareti.",
@@ -509,7 +509,7 @@ const GYMS = {
 
   gymaq: {
     leader:'CARMINE', type:'Roccia', badge:'badge13', region:13,
-    team:[['petrin',55],['cinghial',56],['gazzot',57],['lupomannaro',58],['petrone',61]],
+    team:[['petrin',55],['crodon',56],['mannarone',57],['lupomannaro',58],['petrone',61]],
     challenge:'«Chi vince si piglia la MEDAGLIA DEL\nGRAN SASSO. Dai, uagliò!»',
     intro:[
       "La palestra di L'Aquila: un cortile\ndi pietra tra i 99 castelli, blocchi\ndi roccia ovunque.",
@@ -549,7 +549,7 @@ const GYMS = {
 
   gymcb: {
     leader:'TONINO', type:'Spettro', badge:'badge14', region:14,
-    team:[['svanin',58],['pantafica',59],['lupomannaro',60],['gazzot',61],['svanone',64]],
+    team:[['svanin',58],['mascagna',59],['lupomannaro',60],['bordona',61],['svanone',64]],
     challenge:'«Chi vince piglia la MEDAGLIA\nINESISTENTE. Esiste solo se vinci!»',
     intro:[
       "La palestra di Campobasso: una sala\nche sulle piantine non c'è. Eppure\neccola, con tanto di tabellone.",
@@ -590,7 +590,7 @@ const GYMS = {
 
   gymna: {
     leader:'CIRUZZO', type:'Fuoco', badge:'badge15', region:15,
-    team:[['vesuvin',60],['malebranca',61],['farfarello',62],['cinghial',63],['vesuvione',66]],
+    team:[['vesuvin',60],['malebranca',61],['farfarello',62],['fogaron',63],['vesuvione',66]],
     challenge:'«Chi vince se piglia \'a MEDAGLIA D\'\'O\nVESUVIO. Jamm, uagliò!»',
     intro:[
       "La palestra di Napoli: un cortile di\ntufo coi panni stesi sopra, caldo\ncome il fianco del Vesuvio.",
@@ -630,7 +630,7 @@ const GYMS = {
 
   gymba: {
     leader:'MIMMO', type:'Luce', badge:'badge16', region:16,
-    team:[['lumin',64],['cinghial',65],['pantafica',66],['gazzot',67],['luminone',69]],
+    team:[['lumin',64],['mannarone',65],['strigone',66],['gattore',67],['luminone',69]],
     challenge:"«Cce vince se pìghe 'a MEDAGLIA D''U\nSOLE. Forze, uagnò!»",
     intro:[
       "La palestra di Bari: una corte della\ncittà vecchia, bianca di calce e\naccecante di sole a mezzogiorno.",
@@ -670,7 +670,7 @@ const GYMS = {
 
   gympz: {
     leader:'ROCCHINO', type:'Terra', badge:'badge17', region:17,
-    team:[['monachin',66],['cinghial',67],['pantafica',68],['gazzot',69],['monachione',71]],
+    team:[['monachin',66],['zollone',67],['mannarone',68],['petrone',69],['monachione',71]],
     challenge:'«Chi vince si piglia la MEDAGLIA DEI\nSASSI. Forza, e tieni duro!»',
     intro:[
       "La palestra di Potenza: una grotta\nscavata nel tufo, fresca e silenziosa,\nilluminata da poche torce.",
@@ -710,7 +710,7 @@ const GYMS = {
 
   gymrc: {
     leader:'CARMELO', type:'Veleno', badge:'badge18', region:18,
-    team:[['scursune',72],['ratavolora',73],['basiliscu',74],['lupomannaro',75],['scursone',77]],
+    team:[['scursune',72],['ratavolora',73],['basilisso',74],['basiliscu',75],['lupomannaro',76],['scursone',77]],
     challenge:"«Cu vinci si pìglia 'a MEDAGLIA DU\nBERGAMOTTO. Forza, e nun ti scantari!»",
     intro:[
       "La palestra di Reggio: un giardino di\nbergamotto sul lungomare, l'aria dolce\ne pungente, lo Stretto che luccica.",
@@ -750,7 +750,7 @@ const GYMS = {
 
   gympa: {
     leader:'TOTÒ', type:'Oscurità', badge:'badge19', region:19,
-    team:[['mammucca',76],['lupomannaro',77],['basiliscu',78],['farfarello',79],['mammadraga',81]],
+    team:[['mammucca',76],['lupomannaro',77],['mascaria',78],['farfarello',79],['malebranca',80],['mammadraga',81]],
     challenge:"«Cu vinci si pìglia 'a MEDAGLIA DU\nGATTOPARDO. Amunì, e nun ti scantari!»",
     intro:[
       "La palestra di Palermo: un palazzo\nbarocco dalle persiane chiuse, fresco\ne in penombra anche a mezzogiorno.",
@@ -790,7 +790,7 @@ const GYMS = {
 
   gymca: {
     leader:'ANTIOGU', type:'Psico/Roccia', badge:'badge20', region:20,
-    team:[['janedda',80],['scultone',81],['striastrale',82],['jana',83],['prama',86]],
+    team:[['janedda',80],['crodon',81],['striastrale',82],['jana',83],['petrone',84],['prama',86]],
     challenge:"«Chie bincit si leat sa MEDAGLIA DE\nSU NURAGHE. Forza, e no ti assustes!»",
     intro:[
       "La palestra di Cagliari: una camera\nnuragica di pietra a secco, fresca e\nin penombra, con un'unica feritoia di luce.",
