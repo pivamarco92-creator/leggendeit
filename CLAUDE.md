@@ -47,11 +47,15 @@ vendor/ pack CC0: kenney_tiny-town/ · hexany/ (Monster Menagerie) · tiny-creat
 ## Pipeline asset (eseguire SEMPRE in quest'ordine)
 ```
 python3 tools/gen_assets.py && python3 tools/import_kenney.py \
-  && python3 tools/import_hexany.py && python3 tools/import_tiny.py \
-  && python3 tools/embed_assets.py
+  && python3 tools/import_sproutlands.py \
+  && python3 tools/import_hexany.py && python3 tools/embed_assets.py
 ```
 - `gen_assets.py` genera tileset/creatures/chars (sprite procedurali base) e scrive `assets/.proc_count`.
 - `import_kenney.py` sovrappone i tile di Kenney (lascia intatti gli indici non coperti).
+- `import_sproutlands.py` sovrascrive i tile **città/natura** con Sprout Lands (suolo, erba, erba alta,
+  alberi, acqua, edificio, porte, sentiero) ed estende il tileset a 25 tile aggiungendo 3 decorazioni
+  (22 fiori, 23 cespuglio, 24 girasole). Lascia intatti i monumenti italiani (8 duomo, 11 edicola,
+  16 Mole, 17 portici), interni (13/14), neve (19), montagna (20), laptop (21).
 - `import_hexany.py` **override per-id**: sostituisce gli sprite di alcuni leggendari con creature
   Hexany (32x32, tintate per tipo). Mappa `HEXANY = {id:(num,colore)}`.
 - `import_tiny.py` **override per-id**: sostituisce la maggior parte delle creature con sprite COLORATI
