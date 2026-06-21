@@ -1518,18 +1518,29 @@ NPCS = [
 for n in NPCS:
     frames.append(person(n['shirt'], n['hat'], 'down', 0, coat=n.get('coat')))
 
-# Frame 16: oggetto raccoglibile (sferina rossa/bianca, stile contenitore)
-def make_item():
+# Frame 16/17/18: OGGETTO DI CATTURA — design originale (NO franchise).
+# "Cella di contenimento": anello scuro + campo chiaro + nucleo a rombo + tacche
+# cardinali. Flat, alto contrasto, leggibile a 16px. Varianti per rarità (colore nucleo).
+def make_capture(main, dark, light=(236, 240, 248, 255)):
     im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    d.ellipse([4, 12, 11, 14], fill=(0, 0, 0, 50))                   # ombra
-    d.ellipse([4, 3, 11, 10], fill=(238, 238, 238, 255))            # base bianca
-    d.pieslice([4, 3, 11, 10], 180, 360, fill=(214, 64, 56, 255))   # metà superiore rossa
-    d.line([(4, 6), (11, 6)], fill=(30, 26, 32, 255))
-    d.line([(4, 7), (11, 7)], fill=(30, 26, 32, 255))
-    d.rectangle([7, 6, 8, 7], fill=(240, 240, 240, 255))            # bottone centrale
-    return outline(im)
-frames.append(make_item())
+    d.ellipse([4, 13, 11, 15], fill=(0, 0, 0, 60))          # ombra
+    d.ellipse([3, 2, 12, 11], fill=dark + (255,))           # anello (disco esterno)
+    d.ellipse([5, 4, 10, 9],  fill=light)                   # campo interno chiaro
+    d.polygon([(8, 4), (11, 6), (8, 9), (5, 6)], fill=main + (255,))   # nucleo a rombo
+    hi = tuple(min(255, c + 55) for c in main)
+    d.polygon([(8, 5), (9, 6), (8, 8), (7, 6)], fill=hi + (255,))      # luce sul nucleo
+    for (x, y) in [(8, 2), (8, 11), (3, 6), (12, 6)]:        # tacche cardinali sull'anello
+        d.point((x, y), fill=main + (255,))
+    return im
+
+CAPTURE_VARIANTS = [
+    ((40, 190, 170), (22, 64, 66)),     # 16 · normale  (teal)
+    ((74, 134, 234), (26, 48, 104)),    # 17 · raro     (blu)
+    ((242, 192, 46), (118, 84, 18)),    # 18 · leggendario (oro)
+]
+for main, dark in CAPTURE_VARIANTS:
+    frames.append(make_capture(main, dark))
 
 psheet = Image.new('RGBA', (16*len(frames), 16), (0, 0, 0, 0))
 for i, f in enumerate(frames):

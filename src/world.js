@@ -1,7 +1,7 @@
 /* WorldScene — esplorazione: tilemap, movimento a griglia con tween,
    animazioni di camminata, camera, NPC, portali, erba alta. */
 const IDLE_FRAME = { down:0, up:2, left:4, right:6 };
-const ITEM_FRAME = 16;   // sferina raccoglibile in assets/chars.png
+const ITEM_FRAME = 16;   // icona "oggetto di cattura" (cella di contenimento) in assets/chars.png
 
 class WorldScene extends Phaser.Scene {
   constructor() { super('World'); }
@@ -34,7 +34,7 @@ class WorldScene extends Phaser.Scene {
     this.map = this.make.tilemap({ data: grid, tileWidth: 16, tileHeight: 16 });
     const ts = this.map.addTilesetImage('tiles');
     this.layer = this.map.createLayer(0, ts, 0, 0).setDepth(0);
-    this.npcSprites = (NPCS[id] || []).map(n => {
+    this.npcSprites = (NPCS[id] || []).filter(n => !(n.gone && G.flags[n.gone])).map(n => {
       const s = this.add.sprite(n.x*16 + 8, n.y*16 + 8, 'chars', n.frame).setDepth(5).setOrigin(0.5, 0.65);
       s.npcRef = n; return s;
     });
@@ -57,10 +57,14 @@ cam.startFollow(this.player, true, 0.2, 0.2);
     if (y < 0 || y >= rows.length || x < 0 || x >= rows[0].length) return '#';
     return rows[y][x];
   }
-  npcAt(x, y) { return (NPCS[G.mapId] || []).find(n => n.x === x && n.y === y); }
+  npcAt(x, y) { return (NPCS[G.mapId] || []).find(n => n.x === x && n.y === y && !(n.gone && G.flags[n.gone])); }
   repositionNpc(n) {
     const s = this.npcSprites.find(sp => sp.npcRef === n);
     if (s) s.setPosition(n.x*16 + 8, n.y*16 + 8);
+  }
+  hideNpc(n) {   // rimuove subito lo sprite di un oggetto raccolto (riappare mai: filtrato in loadMap)
+    const s = this.npcSprites.find(sp => sp.npcRef === n);
+    if (s) { s.destroy(); this.npcSprites = this.npcSprites.filter(sp => sp !== s); }
   }
 
   update() {

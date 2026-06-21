@@ -737,6 +737,7 @@ function evPivanota(n) {
   };
   if (G.flags[f]) { say(["Questa NOTA ce l'hai già.\nRiportala a PIVA, in centro a Milano."]); return; }
   G.flags[f] = true; saveGame();
+  if (typeof WORLD !== 'undefined' && WORLD) WORLD.hideNpc(n);
   beep(700, .08); beep(950, .12);
   say([clue[n.note], "(Riportala a PIVA quando le hai\ntrovate tutte e tre.)"]);
 }
@@ -768,6 +769,7 @@ function evLicatamed(n) {
   if (!G.items.canna) { say(["Qualcosa luccica sul fondo... ma senza\nuna CANNA DA PESCA non lo tiri su."]); return; }
   beep(500, .1); beep(700, .12); beep(950, .15);
   G.flags.licata_med = true; saveGame();
+  if (typeof WORLD !== 'undefined' && WORLD) WORLD.hideNpc(n);
   say(["Cali la lenza dove l'onda batte più\nforte e tiri su un vecchio MEDAGLIONE\nincrostato di sale!",
        "(Riportalo a LICATA, al porto di Genova.)"]);
 }
@@ -898,6 +900,7 @@ function evMolprova(n) {
   };
   if (G.flags[f]) { say(["Questa prova ce l'hai già.\nPortala a TONINO, a L'Aquila."]); return; }
   G.flags[f] = true; saveGame();
+  if (typeof WORLD !== 'undefined' && WORLD) WORLD.hideNpc(n);
   beep(700, .08); beep(950, .12);
   say([found[n.prova], "(Porta le 3 PROVE a TONINO, a L'Aquila.)"]);
 }

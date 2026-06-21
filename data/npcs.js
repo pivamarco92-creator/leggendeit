@@ -20,7 +20,7 @@ const NPCS = {
     { x:14, y:13, frame:12, name:'VECCHIETTO',
       lines:["Nell'erba alta vivono le\nLeggende, fioeu. Quelle vere.",
              "Pare ci sia anche un MUNACIELLO.\nRaro come un parcheggio gratis."] },
-    { x:5, y:5, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:1 }
+    { x:5, y:5, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:1, gone:'piva_n1' }
   ],
   gym: [
     { x:5, y:2, frame:13, name:'CARLETTO', ev:'gymLeader' },
@@ -119,13 +119,13 @@ const NPCS = {
         win:["Ok, ok! Non rubo più... per oggi."],
         after:["Tieni stretto lo zaino, bagai."] } },
     { x:4, y:8, frame:12, name:'PESCATORE', ev:'pescatore' },
-    { x:12, y:8, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:2 }
+    { x:12, y:8, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:2, gone:'piva_n2' }
   ],
   segreto: [
     { x:8, y:7, frame:9, name:'VECCHIA DEL NAVIGLIO',
       lines:["Sei arrivato fin qui, eh.\nIn pochi ci riescono.",
              "Quella sull'acqua non è nebbia.\nÈ la SCIGHÉRA. Se si mostra,\nsalutala con rispetto."] },
-    { x:5, y:10, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:3 }
+    { x:5, y:10, frame:16, name:'NOTA SMARRITA', ev:'pivanota', note:3, gone:'piva_n3' }
   ],
   shopmi: [
     { x:3, y:1, frame:15, name:'COMMESSO', ev:'negozio' },
@@ -229,7 +229,7 @@ const NPCS = {
     { x:2, y:8, frame:9, name:'BAGNINO',
       lines:["Più giù c'è la vecchia LANTERNA.\nIn cima dicono si posi il GRIFONE,\nquello dello stemma di Genova.",
              "Si mostra a chi se lo merita. O a\nchi è abbastanza matto da salire."] },
-    { x:11, y:8, frame:16, name:'RIFLESSO NELL\'ACQUA', ev:'licatamed' }
+    { x:11, y:8, frame:16, name:'RIFLESSO NELL\'ACQUA', ev:'licatamed', gone:'licata_med' }
   ],
   lanterna: [
     { x:3, y:9, frame:12, name:'GUARDIANO DEL FARO',
@@ -832,7 +832,7 @@ const NPCS = {
         pre:["L'urtimo prima de L'Aquila so' io.\nE so' duro come la roccia\nde 'sti monti."],
         win:["...sì tosto pure tu. L'Aquila\nt'aspetta."],
         after:["I 99 castelli stanno di là."] } },
-    { x:12, y:5, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:3 }
+    { x:12, y:5, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:3, gone:'mol_p3' }
   ],
   aquila: [
     { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
@@ -846,7 +846,7 @@ const NPCS = {
       lines:["Studio le leggende d'Abruzzo. La\nPantàfica che opprime nel sonno, il\nmazzamurello che bussa nei muri...",
              "Ma la più grande è IL DORMIENTE:\nil profilo del Gran Sasso è il suo\ncorpo. Se si sveglia, trema tutto."] },
     { x:13, y:6, frame:9, name:'TONINO', ev:'molisano' },
-    { x:5,  y:6, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:1 }
+    { x:5,  y:6, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:1, gone:'mol_p1' }
   ],
   gymaq: [
     { x:5, y:2, frame:13, name:'CARMINE', ev:'gymLeader' },
@@ -883,7 +883,7 @@ const NPCS = {
         pre:["L'urtimo prima della grotta so' io.\nE quello che dorme lassù è mejo\nlasciallo dormì."],
         win:["...va be', sali. Ma quer gigante\nnun l'ho svejato io, intesi?"],
         after:["La grotta è in cima. Forza."] } },
-    { x:10, y:7, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:2 }
+    { x:10, y:7, frame:16, name:'OGGETTO STRANO', ev:'molprova', prova:2, gone:'mol_p2' }
   ],
   corno: [
     { x:3, y:9, frame:12, name:'EREMITA DEL CORNO',
