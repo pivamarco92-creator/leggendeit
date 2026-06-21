@@ -21,7 +21,9 @@ const MOVES = {
   fulmine:     { n:'Fulmine',       t:'Elettro',    pow:95, pp:10 },
   tramontana:  { n:'Tramontana',    t:'Volante',    pow:65, pp:20 },
   sciame:      { n:'Sciame',        t:'Coleottero', pow:65, pp:20 },
+  tossico:     { n:'Tossico',       t:'Veleno',     pow:40, pp:30 },
   velenovivo:  { n:'Veleno Vivo',   t:'Veleno',     pow:65, pp:20 },
+  flagello:    { n:'Flagello',      t:'Veleno',     pow:90, pp:10 },
   sfondata:    { n:'Sfondata',      t:'Normale',    pow:80, pp:15 },
   pressa:      { n:'Pressa',        t:'Acciaio',    pow:80, pp:15 },
   maledizione: { n:'Maledizione',   t:'Spettro',    pow:75, pp:15 },
@@ -47,5 +49,7 @@ const MOVES = {
   licatonda:  { n:'Licatònda',    t:'Acqua',      pow:90, pp:10 },
   tirapacchi: { n:'Tirapacchi',   t:'Normale',    pow:85, pp:10 },
   bagliore:   { n:'Bagliore',     t:'Luce',       pow:50, pp:25 },
-  raggiosole: { n:'Raggio di Sole', t:'Luce',     pow:90, pp:10 }
+  raggiosole: { n:'Raggio di Sole', t:'Luce',     pow:90, pp:10 },
+  sgambetto:  { n:'Sgambetto',    t:'Oscurità',   pow:50, pp:25 },
+  boccone:    { n:'Boccone',      t:'Oscurità',   pow:90, pp:10 }
 };

@@ -4,8 +4,8 @@ RPG stile Pokémon Rosso ambientato in un'Italia moderna, con creature originali
 **folklore italiano** (niente IP Nintendo). Phaser 3 via CDN, dati separati dal codice,
 asset pixel-art procedurali. Tutto il testo di gioco è in **italiano**.
 
-Stato attuale: **4 regioni** (Milano, Torino, Valle d'Aosta, Genova/Liguria), **26 mappe**,
-**50 creature**. Si gioca aprendo `index.html` (serve internet per Phaser; asset in base64).
+Stato attuale: **20 regioni** (tutte e 20 le regioni d'Italia), **124 creature** (16 linee a
+3 stadi). Si gioca aprendo `index.html` (serve internet per Phaser; asset in base64).
 
 ## Preferenze di lavoro (Marco)
 - Partner critico: sfida le premesse, proponi alternative, dì se qualcosa è debole. (Vedi
@@ -115,8 +115,8 @@ LEGEND_SPOTS/flag. I file `tools/_*.js` sono temporanei: cancellarli a fine veri
 Creature, nomi e storia originali (folklore di pubblico dominio). Niente asset/nomi Nintendo:
 il progetto è distribuibile. Pack di terze parti tutti CC0 (Kenney, Hexany).
 
-## Backlog / prossime regioni
-Fatte 5/20 regioni. La pipeline delle prossime (regioni 6–20: città, capopalestra, tipo,
-proposte di leggendario/linea/tipi-nuovi, e la checklist passo-passo) è in **`ROADMAP.md`**.
-La prossima è la **6 — Veneto / Venezia (Bepi, Acqua)**.
-Altro: terzi stadi per le linee a 2 stadi; bilanciamento Johnny Lametta/palestre da testare giocando.
+## Backlog / prossimi lavori
+**Tutte e 20 le regioni sono fatte.** Non restano regioni da costruire (vedi `ROADMAP.md`).
+Backlog non-regioni: terzi stadi per le linee a 2 stadi; bilanciamento Johnny Lametta/palestre
+da testare giocando; la resa dei conti finale con la Cosca a Roma (HQ sotto un monumento romano);
+sostituire gli sprite "programmer art" con pack CC0 migliori.

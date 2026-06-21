@@ -1,8 +1,13 @@
 # ROADMAP — Leggende d'Italia
 
-Stato: **17 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
+Stato: **20 / 20 regioni** fatte. 🎉 TUTTE LE REGIONI COMPLETATE. Schema, pipeline e verifica in `CLAUDE.md`.
 Questa roadmap dice **cosa** costruire; CLAUDE.md dice **come**.
-Prossima da fare: **18 — Calabria / Reggio Calabria (Carmelo, Veleno — tipo già esistente)**.
+Prossimo lavoro: non più regioni. Resa dei conti finale con la Cosca **FATTA** (covo sotto
+il Parlamento a Montecitorio, boss L'ONOREVOLE, sblocco con tutte e 20 le Medaglie).
+Vedi "Backlog non-regioni" in fondo (bilanciamento, sprite migliori).
+Terzi stadi: FATTI 10 (linee di prestigio: gattorco, lupercone, mascaria, basilisso, fogherone,
+brinalpino, mazarselva, striastrale, cjargane, rudimpero — evoluzione a lv 52-54). Restano a
+2 stadi le comuni minori e le 6 riciclate da Hexany: scelta voluta, non tutte devono evolvere.
 Nota: il Molise (14) è SEGRETO — si sblocca con la quest di Tonino (3 prove) a L'Aquila → passaggio Q sul Gran Sasso.
 Tipi già implementati: Normale, Fuoco, Acqua, Erba, Elettro, Volante, Coleottero, Veleno,
 Acciaio, Ghiaccio, Roccia, Spettro, Vento, Psico, Terra, **Drago**. Ancora da fare: Luce, Oscurità.
@@ -31,8 +36,8 @@ Extra fatto: **"I tre soci"** (Pivòt/Faccìn/Licàt) — 3 linee speciali con q
 | 15 | Campania | Napoli | Ciruzzo | Fuoco | ✓ |
 | 16 | Puglia | Bari | Mimmo | Luce | ✓ |
 | 17 | Basilicata | Potenza | Rocchino | Terra | ✓ |
-| 18 | Calabria | Reggio C. | Carmelo | Veleno | da fare |
-| 19 | Sicilia | Palermo | Totò | Oscurità (NEW) | da fare |
+| 18 | Calabria | Reggio C. | Carmelo | Veleno | ✓ |
+| 19 | Sicilia | Palermo | Totò | Oscurità (NEW) | ✓ |
 | 20 | Sardegna | Cagliari | Antiogu | Psico/Roccia | da fare |
 
 L'ultima regione costruita è sempre quella "finale" (mostra la schermata fine-contenuti);

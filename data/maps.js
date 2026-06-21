@@ -1752,14 +1752,14 @@ const MAPS = {
   },
 
   roma: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12, 'M':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
       'T.##..####..####..####..##.T',
       'T.#Y..####..####..#H#...##.T',
       'T..........................T',
-      'T..........................T',
+      'T............MM............T',
       'T..........................T',
       'T.##..####..####..####..##.T',
       'T.##..####..####..####..##.T',
@@ -2499,7 +2499,7 @@ const MAPS = {
   },
 
   potenza: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
@@ -2513,7 +2513,7 @@ const MAPS = {
       'T.........................RT',
       'T..........................T',
       'T..........................T',
-      'T..........................T',
+      'T.........................BT',
       'T..........................T',
       'TV.........................T',
       'T..........................T',
@@ -2597,6 +2597,474 @@ const MAPS = {
       '#..............#',
       '#..............#',
       '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== CALABRIA (Reggio Calabria) — regione 18 ========== */
+  /* ---------- BASILICATA → CALABRIA · massiccio del Pollino (U = Potenza, Z = Reggio) ---------- */
+  pollino: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TMMM..GGG......GGG.....MMMMT',
+      'TMM...GGG......GGG......MM.T',
+      'T..GG.................MM...T',
+      'T.....................MM...T',
+      'T..GGG.......GGG...........T',
+      'TMM........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T........MM......MM........T',
+      'T..GGG...MM......MM...GGG..T',
+      'T........MM......MM........T',
+      'T..........................T',
+      'T..GGG................GGG..T',
+      'T..........................T',
+      'TMMM....................MMMT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'scursune',    min:68, max:71, w:28 },
+      { id:'cinghial',    min:67, max:70, w:20 },
+      { id:'pantafica',   min:68, max:71, w:18 },
+      { id:'gazzot',      min:68, max:71, w:18 },
+      { id:'lupomannaro', min:68, max:71, w:16 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'pizza',   flag:'it_pol1' },
+      { x:22, y:14, item:'ampolla', flag:'it_pol2' }
+    ]
+  },
+  /* ---------- REGGIO CALABRIA (città) ---------- */
+  reggio: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T.........................BT',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gymrc: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambrc: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- L'ASPROMONTE (route della regione, verso lo Stretto) ---------- */
+  aspromonte: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'scursune',    min:69, max:72, w:26 },
+      { id:'scursone',    min:70, max:73, w:14 },
+      { id:'cinghial',    min:68, max:71, w:18 },
+      { id:'pantafica',   min:69, max:72, w:18 },
+      { id:'lupomannaro', min:69, max:72, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'caffe',   flag:'it_asp1' },
+      { x:22, y:9,  item:'ampolla', flag:'it_asp2' }
+    ]
+  },
+  /* ---------- LO STRETTO (area segreta — X = Fata Morgana) ---------- */
+  stretto: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== SICILIA (Palermo) — regione 19 ========== */
+  /* ---------- CALABRIA → SICILIA · traghetto dello Stretto (U = Reggio, Z = Palermo) ---------- */
+  traghetto: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T..GGG..........GGG........T',
+      'T..........................T',
+      'T....MM..........MM........T',
+      'T....MM..........MM........T',
+      'T..........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T..........................T',
+      'T....MM..........MM........T',
+      'T....MM..........MM........T',
+      'T..........................T',
+      'T..GGG..........GGG........T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  /* ---------- PALERMO (città) ---------- */
+  palermo: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T.........................BT',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gympa: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambpa: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- LE MADONIE (route della regione, verso l'Abisso) ---------- */
+  madonie: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'mammucca',    min:72, max:75, w:26 },
+      { id:'mammadraga',  min:73, max:76, w:14 },
+      { id:'cinghial',    min:71, max:74, w:18 },
+      { id:'pantafica',   min:72, max:75, w:18 },
+      { id:'lupomannaro', min:72, max:75, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'brodo',   flag:'it_mad1' },
+      { x:22, y:9,  item:'ampolla', flag:'it_mad2' }
+    ]
+  },
+  /* ---------- L'ABISSO (area segreta — X = Colapesce) ---------- */
+  abisso: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== SARDEGNA (Cagliari) — regione 20 (ultima) ========== */
+  /* ---------- SICILIA → SARDEGNA · la nave per Cagliari (U = Palermo, Z = Cagliari) ---------- */
+  nave: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T..GGG..........GGG........T',
+      'T..........................T',
+      'T....MM..........MM........T',
+      'T....MM..........MM........T',
+      'T..........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T..........................T',
+      'T....MM..........MM........T',
+      'T....MM..........MM........T',
+      'T..........................T',
+      'T..GGG..........GGG........T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  /* ---------- CAGLIARI (città) ---------- */
+  cagliari: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gymca: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambca: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- LA BARBAGIA (route della regione, verso Mont'e Prama) ---------- */
+  barbagia: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'janedda',     min:74, max:77, w:24 },
+      { id:'jana',        min:75, max:78, w:14 },
+      { id:'basiliscu',   min:74, max:77, w:16 },
+      { id:'cinghial',    min:73, max:76, w:18 },
+      { id:'pantafica',   min:74, max:77, w:16 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'brodo',   flag:'it_brb1' },
+      { x:22, y:9,  item:'ampolla', flag:'it_brb2' }
+    ]
+  },
+  /* ---------- MONT'E PRAMA (area segreta — X = Gigante di Prama) ---------- */
+  prama: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== FINALE — RESA DEI CONTI CON LA COSCA (Roma) ========== */
+  /* ---------- PIAZZA MONTECITORIO (sopra il Parlamento) ---------- */
+  montecitorio: {
+    t2i: { '.':0, 'T':4, '#':7, 'Z':12, 'E':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTT',
+      'T..................T',
+      'T...##########.....T',
+      'T...##########.....T',
+      'T...####ZZ####.....T',
+      'T..................T',
+      'T..................T',
+      'T..................T',
+      'T.........E........T',
+      'T..................T',
+      'T..................T',
+      'TTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  /* ---------- IL COVO (bunker sotto il Parlamento — boss finale) ---------- */
+  covo: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
       '#..............#',
       '#..............#',
       '#..............#',
@@ -2846,7 +3314,12 @@ const PORTALS = {
               lock: () => !G.flags.badge12,
               msg: ["La Via Valeria, verso l'ABRUZZO e\nL'Aquila, tra i monti.",
                     "«Senza la Medaglia der Colosseo de\nlà nun ce vai, ahò.»"],
-              arriveMsg: ["LA VIA VALERIA. L'antica strada romana\nsale verso l'Appennino abruzzese.\nIn fondo, il Gran Sasso."] } },
+              arriveMsg: ["LA VIA VALERIA. L'antica strada romana\nsale verso l'Appennino abruzzese.\nIn fondo, il Gran Sasso."] },
+         M: { map:'montecitorio', x:9, y:8, dir:'up',
+              lock: () => Object.keys(G.flags).filter(k => /^badge\d*$/.test(k) && G.flags[k]).length < 20,
+              msg: ["Un tombino di servizio accanto a un\npalazzo del centro. Una N dorata, minuscola,\nè incisa sul ferro.",
+                    "«Per scendere qua sotto», dice l'eco di\nSor Alvaro nella tua testa, «devi avere\ntutte e venti le Medaglie. Tutta l'Italia\ndalla tua. Sennò non torni su.»"],
+              arriveMsg: ["PIAZZA MONTECITORIO. Il palazzo del\nParlamento ti sovrasta. Il tombino con la\nN dorata porta esattamente lì sotto: il\ncuore della Cosca batte sotto le istituzioni."] } },
   gymrm:{ E: { map:'roma', x:4, y:4, dir:'down' } },
   ambrm:{ E: { map:'roma', x:20, y:4, dir:'down' } },
   appiaantica:{ U: { map:'roma', x:25, y:9, dir:'left' },
@@ -2941,11 +3414,86 @@ const PORTALS = {
             Y: { map:'gympz', x:5, y:9, dir:'up' },
             H: { map:'ambpz', x:3, y:3, dir:'up' },
             R: { map:'calanchi', x:2, y:8, dir:'right',
-                 arriveMsg: ["I CALANCHI. Creste d'argilla erose dal\ntempo, lunari e silenziose. In fondo,\nscavata nella pietra, Matera."] } },
+                 arriveMsg: ["I CALANCHI. Creste d'argilla erose dal\ntempo, lunari e silenziose. In fondo,\nscavata nella pietra, Matera."] },
+            B: { map:'pollino', x:2, y:8, dir:'right',
+                 lock: () => !G.flags.badge17,
+                 msg: ["La strada verso la CALABRIA e Reggio,\ngiù per il massiccio del Pollino.",
+                       "«Senza 'a Medaglia d'i Sassi nun se\nscénne 'nfunne, uagliò.»"],
+                 arriveMsg: ["IL MASSICCIO DEL POLLINO. Faggi enormi,\npini loricati e silenzio. La Calabria\ncomincia da quassù."] } },
   gympz:{ E: { map:'potenza', x:4, y:4, dir:'down' } },
   ambpz:{ E: { map:'potenza', x:20, y:4, dir:'down' } },
   calanchi:{ U: { map:'potenza', x:25, y:9, dir:'left' },
              Z: { map:'sassi', x:7, y:12, dir:'up',
                   arriveMsg: ["I SASSI DI MATERA. Grotte e chiese\nrupestri scavate nel tufo, abitate da\nmillenni. Qualcosa, qui, è più antico."] } },
-  sassi:{ E: { map:'calanchi', x:8, y:4, dir:'down' } }
+  sassi:{ E: { map:'calanchi', x:8, y:4, dir:'down' } },
+
+  /* ---------- CALABRIA (regione 18) ---------- */
+  pollino:{ U: { map:'potenza', x:25, y:12, dir:'left' },
+            Z: { map:'reggio', x:2, y:14, dir:'right',
+                 arriveMsg: ["REGGIO CALABRIA. Il lungomare più bello\nd'Italia, i Bronzi di Riace e, di là\ndallo Stretto, la Sicilia che luccica."] } },
+  reggio:{ V: { map:'pollino', x:25, y:8, dir:'left',
+                arriveMsg: ["IL POLLINO. Si risale verso la\nBasilicata, tra i faggi."] },
+           Y: { map:'gymrc', x:5, y:9, dir:'up' },
+           H: { map:'ambrc', x:3, y:3, dir:'up' },
+           R: { map:'aspromonte', x:2, y:8, dir:'right',
+                arriveMsg: ["L'ASPROMONTE. Boschi fitti, fiumare\nsecche e il profumo del bergamotto.\nLo Stretto brilla in lontananza."] },
+           B: { map:'traghetto', x:2, y:8, dir:'right',
+                lock: () => !G.flags.badge18,
+                msg: ["L'imbarcadero per la SICILIA: il\ntraghetto per Messina e poi Palermo.",
+                      "Un mozzo ti ferma:\n«Senza 'a Medaglia du Bergamotto nun\nt'imbarchi, cumpà.»"],
+                arriveMsg: ["IL TRAGHETTO DELLO STRETTO. Sotto la\nchiglia, l'acqua è nera e profonda.\nDavanti, la Sicilia che cresce."] } },
+  gymrc:{ E: { map:'reggio', x:4, y:4, dir:'down' } },
+  ambrc:{ E: { map:'reggio', x:20, y:4, dir:'down' } },
+  aspromonte:{ U: { map:'reggio', x:25, y:9, dir:'left' },
+               Z: { map:'stretto', x:7, y:12, dir:'up',
+                    arriveMsg: ["LO STRETTO DI MESSINA. L'acqua è uno\nspecchio. Sopra il mare, sospesa,\ngalleggia una città capovolta..."] } },
+  stretto:{ E: { map:'aspromonte', x:8, y:4, dir:'down' } },
+
+  /* ---------- SICILIA (regione 19) ---------- */
+  traghetto:{ U: { map:'reggio', x:25, y:12, dir:'left',
+                   arriveMsg: ["Si sbarca a Reggio. Lo Stretto\nresta alle spalle."] },
+              Z: { map:'palermo', x:2, y:14, dir:'right',
+                   arriveMsg: ["PALERMO. Mercati che gridano, palme,\nbarocco e mare. Pani ca' meusa all'angolo\ne il Monte Pellegrino che veglia. La Sicilia."] } },
+  palermo:{ V: { map:'traghetto', x:25, y:8, dir:'left',
+                 arriveMsg: ["IL TRAGHETTO. Si riparte verso lo\nStretto e il continente."] },
+            Y: { map:'gympa', x:5, y:9, dir:'up' },
+            H: { map:'ambpa', x:3, y:3, dir:'up' },
+            R: { map:'madonie', x:2, y:8, dir:'right',
+                 arriveMsg: ["LE MADONIE. Faggete, neve d'inverno e\nborghi di pietra. Il tetto della Sicilia,\nlontano dal mare e dal suo chiasso."] },
+            B: { map:'nave', x:2, y:8, dir:'right',
+                 lock: () => !G.flags.badge19,
+                 msg: ["Il porto di Palermo: la nave della notte\nper la SARDEGNA e Cagliari.",
+                       "Un marinaio ti ferma:\n«Senza 'a Medaglia du Gattopardo nun\nsi sàgghi a bordu, picciottu.»"],
+                 arriveMsg: ["LA NAVE PER CAGLIARI. Una notte intera\nin mezzo al mare aperto. All'alba, bassa\nsull'acqua, comparirà la Sardegna."] } },
+  gympa:{ E: { map:'palermo', x:4, y:4, dir:'down' } },
+  ambpa:{ E: { map:'palermo', x:20, y:4, dir:'down' } },
+  madonie:{ U: { map:'palermo', x:25, y:9, dir:'left' },
+            Z: { map:'abisso', x:7, y:12, dir:'up',
+                 arriveMsg: ["L'ABISSO. Scendi dove il mare non ha\npiù luce, fino alle tre colonne su cui\nposa l'isola. Qualcosa, quaggiù, regge."] } },
+  abisso:{ E: { map:'madonie', x:8, y:4, dir:'down' } },
+
+  /* ---------- SARDEGNA (regione 20, ultima) ---------- */
+  nave:{ U: { map:'palermo', x:25, y:12, dir:'left',
+              arriveMsg: ["Si sbarca a Palermo. La Sardegna\nresta alle spalle, oltre il mare."] },
+         Z: { map:'cagliari', x:2, y:14, dir:'right',
+              arriveMsg: ["CAGLIARI. Il Castello arroccato, i\nfenicotteri rosa nello stagno, il sole\nche batte sul calcare. La Sardegna."] } },
+  cagliari:{ V: { map:'nave', x:25, y:8, dir:'left',
+                  arriveMsg: ["IL PORTO. La nave riparte verso la\nSicilia e il continente."] },
+             Y: { map:'gymca', x:5, y:9, dir:'up' },
+             H: { map:'ambca', x:3, y:3, dir:'up' },
+             R: { map:'barbagia', x:2, y:8, dir:'right',
+                  arriveMsg: ["LA BARBAGIA. Il cuore di pietra\ndell'isola: montagne aspre, nuraghi e\nun silenzio antico di tremila anni."] } },
+  gymca:{ E: { map:'cagliari', x:4, y:4, dir:'down' } },
+  ambca:{ E: { map:'cagliari', x:20, y:4, dir:'down' } },
+  barbagia:{ U: { map:'cagliari', x:25, y:9, dir:'left' },
+             Z: { map:'prama', x:7, y:12, dir:'up',
+                  arriveMsg: ["MONT'E PRAMA. File di colossi di pietra\nriemergono dalla terra. Occhi a doppio\ncerchio ti fissano. Uno di loro respira."] } },
+  prama:{ E: { map:'barbagia', x:8, y:4, dir:'down' } },
+
+  /* ---------- FINALE: Montecitorio + covo ---------- */
+  montecitorio:{ E: { map:'roma', x:13, y:6, dir:'down',
+                      arriveMsg: ["Risali dal tombino. Roma, in superficie,\nfa finta di niente."] },
+                 Z: { map:'covo', x:7, y:10, dir:'up',
+                      arriveMsg: ["IL COVO. Scendi sotto il Parlamento:\nun bunker di marmo e faldoni, telecamere\ne facce in gessato. Qui comanda la Cosca."] } },
+  covo:{ E: { map:'montecitorio', x:8, y:5, dir:'down' } }
 };

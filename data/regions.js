@@ -491,8 +491,8 @@ const GYMS = {
       "«Ammazza che lotta. Te la sei\nguadagnata, ahò.»",
       "Hai ottenuto la MEDAGLIA DER COLOSSEO!\n(12 di 20)",
       "«Mo' te dico 'na cosa seria, ahò.\nLa Cosca c'ha er quartier generale\nproprio qua a Roma.»",
-      "«Sotto a 'n monumento antico, nascosto.\nDe lì comannano tutta l'Italia.\nIo nun ce so' mai entrato.»",
-      "«Tu va' avanti, fatte le medaglie.\nMa quanno sarai pronto, è qua che\nse chiude 'sta storia. Ricordatelo.»"],
+      "«Sotto er Parlamento, a Montecitorio.\nProprio lì, sotto le istituzioni, c'hanno\ner covo. De lì comannano tutta l'Italia.»",
+      "«Tu fatte tutte e venti le Medaglie.\nQuanno le hai tutte, torna a Roma: in\npiazza c'è 'n tombino co' la N dorata.\nSe te se apre, è lì che se chiude 'sta storia.»"],
     loseMsg:"Sor Alvaro t'aspetta in palestra.\n«Rifiatate e torna, ahò.»",
     end:{
       title:'★ FINE DEI CONTENUTI ★',
@@ -706,6 +706,126 @@ const GYMS = {
         bad:'La Cosca ti insegue anche tra i Sassi.\nMa questa terra antica sta dalla tua.',
         neutral:'Diciassette medaglie. Manca poco alla\npunta dello Stivale, ormai.'}
     }
+  },
+
+  gymrc: {
+    leader:'CARMELO', type:'Veleno', badge:'badge18', region:18,
+    team:[['scursune',72],['ratavolora',73],['basiliscu',74],['lupomannaro',75],['scursone',77]],
+    challenge:"«Cu vinci si pìglia 'a MEDAGLIA DU\nBERGAMOTTO. Forza, e nun ti scantari!»",
+    intro:[
+      "La palestra di Reggio: un giardino di\nbergamotto sul lungomare, l'aria dolce\ne pungente, lo Stretto che luccica.",
+      "In fondo, all'ombra di un albero, un\nuomo magro dagli occhi calmi ti talìa.\n«Arrivasti 'nfunne allu Stivale, eh.»"],
+    done:[
+      "«'A Medaglia du Bergamotto è 'a toja, e\nt'a guadagnasti. Mò passa u Stretto e\nvattini 'n SICILIA, da TOTÒ, a Palermo.»"],
+    openers:{
+      good:[
+        "«Si tu chiddu ca 'a Cosca nun po'\naccattari. Ccà 'n Calabria genti accussì\n'a rispettamu.»",
+        "«Ma ccà cumannu u veleno. Vidìmu si\nrièggi quannu mùzzica.»"],
+      bad:[
+        "«Dìcinu ca a munti strincisti mani\nstorti, figghiu.»",
+        "«U veleno nun perdona i furbi. Vidìmu.»"],
+      neutral:[
+        "«Servutu! Sugnu CARMELO, capupalestra\ndi Reggio.»",
+        "«Tipu VELENO: comu u scurzune tra i\npetri. Nun fa rumuri, ma quannu mùzzica\nt'addùni ca è troppu tardu.»"]
+    },
+    win:[
+      "Carmelo richiama u so SCURSÒNE e\nannuisce calmu, comu u mari fermu.",
+      "«Gran bella lotta, figghiu. Tieni u\nvelenu giustu 'nta li vini.»",
+      "Hai ottenuto la MEDAGLIA DEL BERGAMOTTO!\n(18 di 20)",
+      "«'A Cosca s'arrampica fina a ccà, allu\nStretto. Ma 'a punta du Stivale è dura,\ne nuàtri cchiù ancora.»",
+      "«Tu passa u mari, vattini 'n Sicilia.\nE ricòrdati di Roma: è ddà ca tuttu\nchistu havi a finiri.»"],
+    loseMsg:"Carmelo t'aspetta in palestra.\n«Pìgliati 'nu bergamotto e torna, figghiu.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL BERGAMOTTO ottenuta!', region:'Regione 18 di 20 completata',
+      next:'PROSSIMA TAPPA: SICILIA<br>Totò · Tipo Oscurità · Palermo',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 18 regioni.',
+      goodAt:19, badAt:-18,
+      verdict:{
+        good:'Da Milano alla punta dello Stivale:\nun nome che la Cosca non è mai riuscita\na comprare, da un mare all\'altro.',
+        bad:'La Cosca ti insegue fino allo Stretto.\nMa di qua dal mare, certe radici non\nsi strappano.',
+        neutral:'Diciotto medaglie. Oltre lo Stretto\nc\'è solo il mare, e due isole.'}
+    }
+  },
+
+  gympa: {
+    leader:'TOTÒ', type:'Oscurità', badge:'badge19', region:19,
+    team:[['mammucca',76],['lupomannaro',77],['basiliscu',78],['farfarello',79],['mammadraga',81]],
+    challenge:"«Cu vinci si pìglia 'a MEDAGLIA DU\nGATTOPARDO. Amunì, e nun ti scantari!»",
+    intro:[
+      "La palestra di Palermo: un palazzo\nbarocco dalle persiane chiuse, fresco\ne in penombra anche a mezzogiorno.",
+      "In fondo, su una poltrona logora, un\nuomo elegante dagli occhi scuri ti\ntalìa. «Arrivasti 'nsìnu a ccà, eh.»"],
+    done:[
+      "«'A Medaglia du Gattopardo è 'a toja, e\nt'a guadagnasti. Mò resta sulu 'a\nSARDEGNA, da ANTIOGU, a Cagliari.»"],
+    openers:{
+      good:[
+        "«Si tu chiddu ca 'a Cosca nun arrinèsci\na accattari. 'N Sicilia genti accussì 'a\ntenìmu cara, picciottu.»",
+        "«Ma ccà cumanna u scuru. Vidìmu si nun\nti perdi 'nta l'ùmmira.»"],
+      bad:[
+        "«Dìcinu ca a munti strincisti 'a manu\nsbagghiata, carusu.»",
+        "«U scuru sapi tutti cosi. Vidìmu.»"],
+      neutral:[
+        "«Servutu! Sugnu TOTÒ, capupalestra\ndi Palermu.»",
+        "«Tipu OSCURITÀ: comu 'a notti siciliana.\nNun grida, nun s'affaccia. Ti talìa di\nlatu, e quannu t'addùni è troppu tardu.»"]
+    },
+    win:[
+      "Totò richiama 'a so MAMMADRAGA e si\nsistema 'a giacca, calmu comu l'ùmmira.",
+      "«Gran bella lotta, carusu. Tieni u\nscuru giustu 'nta l'occhi.»",
+      "Hai ottenuto la MEDAGLIA DEL GATTOPARDO!\n(19 di 20)",
+      "«'A Cosca cumannava ccà quannu manco\ntu eri natu. Ma 'u scuru veru nun s'accatta:\ns'eredita, o nun si tene affattu.»",
+      "«Resta sulu un mari di traversari, e 'na\nterra antica. E poi Roma: è ddà ca tuttu\nchistu havi a finiri, ricòrdatillu.»"],
+    loseMsg:"Totò t'aspetta in palestra.\n«Pìgliati 'na granita e torna, carusu.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL GATTOPARDO ottenuta!', region:'Regione 19 di 20 completata',
+      next:'PROSSIMA TAPPA: SARDEGNA<br>Antiogu · Tipo Psico/Roccia · Cagliari',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 19 regioni.',
+      goodAt:20, badAt:-19,
+      verdict:{
+        good:'Da Milano alla Sicilia: un nome che la\nCosca non è riuscita a comprare in tutto\nlo Stivale, e nemmeno di là dal mare.',
+        bad:'La Cosca ti insegue fin oltre lo Stretto.\nMa quest\'isola antica sa tenersi i suoi\nsegreti, e qualcuno dei tuoi.',
+        neutral:'Diciannove medaglie. Resta solo un mare\nda attraversare: la Sardegna, e poi il\nritorno a Roma.'}
+    }
+  },
+
+  gymca: {
+    leader:'ANTIOGU', type:'Psico/Roccia', badge:'badge20', region:20,
+    team:[['janedda',80],['scultone',81],['striastrale',82],['jana',83],['prama',86]],
+    challenge:"«Chie bincit si leat sa MEDAGLIA DE\nSU NURAGHE. Forza, e no ti assustes!»",
+    intro:[
+      "La palestra di Cagliari: una camera\nnuragica di pietra a secco, fresca e\nin penombra, con un'unica feritoia di luce.",
+      "In fondo, seduto su un trono di basalto,\nun uomo anziano dagli occhi chiari ti\nfissa immobile. «Sett'arribbadu a s'ùrtimu, eh.»"],
+    done:[
+      "«Sa Medaglia de su Nuraghe est sa tua,\ne ti l'as bòddida. Las as totus, como:\nbinti medàglias. Torra a Roma, fìgiu.»"],
+    openers:{
+      good:[
+        "«Ses tue cussu chi sa Cosca non podet\ncomporare. In Sardìnnia gente gasi la\ntenimus a contu, fìgiu.»",
+        "«Ma inoghe cumandat sa pedra e su sognu.\nApproemus si abbarras sàvviu.»"],
+      bad:[
+        "«Narant chi a susu as istrintu manos\nistortas, fìgiu.»",
+        "«Sa pedra antiga no perdonat sos abbistos.\nApproemus.»"],
+      neutral:[
+        "«Bénnidu! Seo ANTIOGU, mere 'e palestra\nde Casteddu.»",
+        "«Tipu PSICO e ROCCIA: comente sas janas\ne sos nuraghes. Sognu e pedra, su chi\nsi bidet e su chi abarrat. Inoghe, totu duos.»"]
+    },
+    win:[
+      "Antiogu pesat su GIGANTE DE PRAMA e\nannuit abbellu, fritu comente sa pedra.",
+      "«Bella gherra, fìgiu. Tenes su sognu\ne sa pedra giustos in coro.»",
+      "Hai ottenuto la MEDAGLIA DEL NURAGHE!\n(20 di 20 — LE HAI TUTTE!)",
+      "«Sa Cosca creiat de comporare finas\ns'ùrtima ìsula. Ma custa terra antiga\nnon si bendet: si bardat, e basta.»",
+      "«As fatu totu su Stivale e sas duas\nìsulas. Como torra a Roma: est inìe\nchi totu custu depet acabbare.»"],
+    loseMsg:"Antiogu t'isettat in palestra.\n«Léadi una pàrdula e torra, fìgiu.»",
+    end:{
+      title:'★ COMPLIMENTI! 20/20 MEDAGLIE ★',
+      medal:'MEDAGLIA DEL NURAGHE ottenuta!', region:'Tutte le 20 regioni completate!',
+      next:'Hai conquistato tutte le 20 Medaglie<br>d\'Italia! Ora la resa dei conti con la<br>Cosca ti aspetta a Roma.',
+      footer:'★ HAI FINITO IL VIAGGIO! ★<br>Premi A: continua a esplorare<br>liberamente tutte le 20 regioni.',
+      goodAt:21, badAt:-20,
+      verdict:{
+        good:'Da Milano a Cagliari, da un mare all\'altro:\nun nome che la Cosca non è mai riuscita a\ncomprare. L\'Italia intera lo conosce.',
+        bad:'La Cosca ti ha inseguito fino all\'ultima\nisola. Ma non ti ha mai piegato: venti\nmedaglie lo gridano da Nord a Sud.',
+        neutral:'Venti medaglie su venti. Il viaggio è\ncompiuto: dalle Alpi alla Sardegna, tutta\nl\'Italia ha imparato il tuo nome.'}
+    }
   }
 };
 
@@ -790,7 +910,7 @@ const WORLD_MAP = [
     respawn:{ map:'ancona', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina del porto.\nUn falco plana in alto, lento.","La squadra è di nuovo in forze."] },
     link:'Via Salaria -> Roma (con Medaglia del Conero)' },
   { city:'ROMA', region:'Lazio', leader:'Sor Alvaro', type:'Drago', badge:'badge12',
-    maps:['roma','gymrm','ambrm','appiaantica','catacombe','valeria'],
+    maps:['roma','gymrm','ambrm','appiaantica','catacombe','valeria','montecitorio','covo'],
     layout:[ { c:['roma'] },
              { c:['gymrm','ambrm'] },
              { c:['appiaantica','catacombe'], j:'->' } ],
@@ -825,12 +945,33 @@ const WORLD_MAP = [
     respawn:{ map:'bari', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina sul lungomare\ndi Bari. Il sole acceca, il mare luccica.","La squadra è di nuovo in forze, uagnò."] },
     link:'valle del Bradano -> Potenza (con Medaglia del Sole)' },
   { city:'POTENZA', region:'Basilicata', leader:'Rocchino', type:'Terra', badge:'badge17',
-    maps:['potenza','gympz','ambpz','calanchi','sassi'],
+    maps:['potenza','gympz','ambpz','calanchi','sassi','pollino'],
     layout:[ { c:['potenza'] },
              { c:['gympz','ambpz'] },
              { c:['calanchi','sassi'], j:'->' } ],
     respawn:{ map:'potenza', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in salita.\nPotenza ti guarda dall'alto dei suoi monti.","La squadra è di nuovo in forze."] },
-    link:'ultima regione disponibile' }
+    link:'massiccio del Pollino -> Reggio (con Medaglia dei Sassi)' },
+  { city:'REGGIO CALABRIA', region:'Calabria', leader:'Carmelo', type:'Veleno', badge:'badge18',
+    maps:['reggio','gymrc','ambrc','aspromonte','stretto','traghetto'],
+    layout:[ { c:['reggio'] },
+             { c:['gymrc','ambrc'] },
+             { c:['aspromonte','stretto'], j:'->' } ],
+    respawn:{ map:'reggio', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina del lungomare.\nLo Stretto luccica, la Sicilia di fronte.","La squadra è di nuovo in forze, cumpà."] },
+    link:'traghetto -> Palermo (con Medaglia del Bergamotto)' },
+  { city:'PALERMO', region:'Sicilia', leader:'Totò', type:'Oscurità', badge:'badge19',
+    maps:['palermo','gympa','ambpa','madonie','abisso','nave'],
+    layout:[ { c:['palermo'] },
+             { c:['gympa','ambpa'] },
+             { c:['madonie','abisso'], j:'->' } ],
+    respawn:{ map:'palermo', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina davanti al mare.\nMonte Pellegrino veglia su Palermo.","La squadra è di nuovo in forze, picciottu."] },
+    link:'nave -> Cagliari (con Medaglia del Gattopardo)' },
+  { city:'CAGLIARI', region:'Sardegna', leader:'Antiogu', type:'Psico/Roccia', badge:'badge20',
+    maps:['cagliari','gymca','ambca','barbagia','prama'],
+    layout:[ { c:['cagliari'] },
+             { c:['gymca','ambca'] },
+             { c:['barbagia','prama'], j:'->' } ],
+    respawn:{ map:'cagliari', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina al porto di\nCagliari. I fenicotteri rosa ti osservano.","La squadra è di nuovo in forze, oh."] },
+    link:'ultima regione — tutte e 20 le Medaglie!' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
 const AREA_LABELS = {
@@ -854,6 +995,7 @@ const AREA_LABELS = {
   ancona:'Centro', gyman:'Palestra', amban:'Ambul.', conero:'Conero', sibillini:'Sibillini',
   salaria:'Salaria',
   roma:'Centro', gymrm:'Palestra', ambrm:'Ambul.', appiaantica:'Appia', catacombe:'Catacombe',
+  montecitorio:'Montecitorio', covo:'Covo Cosca',
   valeria:'Valeria',
   aquila:'Centro', gymaq:'Palestra', ambaq:'Ambul.', gransasso:'Gran Sasso', corno:'Corno Grande',
   tratturo:'Tratturo',
@@ -863,9 +1005,15 @@ const AREA_LABELS = {
   tavoliere:'Tavoliere',
   bari:'Centro', gymba:'Palestra', ambba:'Ambul.', murgia:'Murgia', castelmonte:'Castel del Monte',
   bradano:'Bradano',
-  potenza:'Centro', gympz:'Palestra', ambpz:'Ambul.', calanchi:'Calanchi', sassi:'Sassi di Matera'
+  potenza:'Centro', gympz:'Palestra', ambpz:'Ambul.', calanchi:'Calanchi', sassi:'Sassi di Matera',
+  pollino:'Pollino',
+  reggio:'Centro', gymrc:'Palestra', ambrc:'Ambul.', aspromonte:'Aspromonte', stretto:'Stretto',
+  traghetto:'Traghetto',
+  palermo:'Centro', gympa:'Palestra', ambpa:'Ambul.', madonie:'Madonie', abisso:'Abisso',
+  nave:'Nave',
+  cagliari:'Centro', gymca:'Palestra', ambca:'Ambul.', barbagia:'Barbagia', prama:"Mont'e Prama"
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno', 'pietrabbondante', 'castelovo', 'castelmonte', 'sassi'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno', 'pietrabbondante', 'castelovo', 'castelmonte', 'sassi', 'stretto', 'abisso', 'prama'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

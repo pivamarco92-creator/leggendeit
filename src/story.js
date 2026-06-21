@@ -71,7 +71,8 @@ const STORY_EVENTS = {
   piva: evPiva, pivanota: evPivanota,
   licata: evLicata, licatamed: evLicatamed,
   facci: evFacci,
-  molisano: evMolisano, molprova: evMolprova
+  molisano: evMolisano, molprova: evMolprova,
+  coscaBoss: evCoscaBoss   // finale: L'ONOREVOLE, capo della Cosca, nel covo sotto il Parlamento
 };
 
 /* Una palestra è bloccata finché restano allievi da battere. */
@@ -251,7 +252,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true, campobasso:true, napoli:true, bari:true, potenza:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true, campobasso:true, napoli:true, bari:true, potenza:true, reggio:true, palermo:true, cagliari:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -271,7 +272,10 @@ function evJohnny(town) {
     campobasso: [['svanin', lv], ['pantafica', lv + 1], ['svanone', lv + 2]],
     napoli: [['vesuvin', lv], ['malebranca', lv + 1], ['vesuvione', lv + 2]],
     bari: [['lumin', lv], ['cinghial', lv + 1], ['luminone', lv + 2]],
-    potenza: [['monachin', lv], ['cinghial', lv + 1], ['monachione', lv + 2]]
+    potenza: [['monachin', lv], ['cinghial', lv + 1], ['monachione', lv + 2]],
+    reggio: [['scursune', lv], ['lupomannaro', lv + 1], ['scursone', lv + 2]],
+    palermo: [['mammucca', lv], ['basiliscu', lv + 1], ['mammadraga', lv + 2]],
+    cagliari: [['janedda', lv], ['scultone', lv + 1], ['jana', lv + 2]]
   };
   // Starter OPPOSTO a quello del giocatore (triangolo Erba->Acqua->Fuoco->Erba), stadio in base al livello.
   const OPP_STARTER = { salvanello:'tarantasino', tarantasino:'anguanella', anguanella:'salvanello' };
@@ -990,7 +994,105 @@ function evCalanco() {
     startBattle(makeMon('calanco', 60), null);
   });
 }
+/* Leggendaria della Calabria: Fata Morgana, il miraggio dello Stretto di Messina. */
+function evFataMorgana() {
+  if (G.flags.fataCaught) {
+    say(["Lo Stretto è di nuovo solo acqua e luce.\nLA FATA MORGANA ti ha già concesso\nil suo riflesso. Una volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nseguire ciò che galleggia sul mare:\nti porterebbe a fondo."); return; }
+  say(["Sopra lo Stretto, capovolta sull'acqua,\nuna città di torri e cupole galleggia\nnell'aria immobile.",
+       "Dal miraggio prende forma una figura\nd'acqua e di luce: è LA FATA MORGANA,\nl'incanto che inganna gli occhi.",
+       "«Chi insegue il riflesso annega.\nVediamo se sai distinguere il vero.»",
+       "LA FATA MORGANA ti avvolge nel miraggio!"], () => {
+    saveGame();
+    beep(523, .18, 'sine'); beep(659, .2, 'sine'); beep(784, .26, 'sine');
+    startBattle(makeMon('fatamorgana', 62), null);
+  });
+}
+/* Leggendario della Sicilia: Colapesce, il ragazzo-pesce che regge l'isola dagli abissi. */
+function evColapesce() {
+  if (G.flags.colapesceCaught) {
+    say(["L'abisso è di nuovo buio e silenzioso.\nCOLAPESCE ti ha già riconosciuto.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nscendere dove il mare non ha luce."); return; }
+  say(["Nel buio dell'abisso, abbracciato a una\ncolonna di roccia, un ragazzo dagli occhi\nantichi e dalla pelle d'acqua ti fissa.",
+       "È COLAPESCE, che si tuffò e non tornò\npiù: regge una delle tre colonne su cui\nposa la Sicilia. Se ti affronta, lascia\nla presa per un istante.",
+       "«Chi vuole il mio posto... che ne\nregga prima il peso.»",
+       "COLAPESCE scatena la furia degli abissi!"], () => {
+    saveGame();
+    beep(196, .26, 'sine'); beep(147, .3, 'sine'); beep(110, .36, 'sine');
+    startBattle(makeMon('colapesce', 64), null);
+  });
+}
+/* Leggendario della Sardegna: il Gigante di Mont'e Prama, colosso di pietra millenario. */
+function evPrama() {
+  if (G.flags.pramaCaught) {
+    say(["Le file di Giganti sono di nuovo immobili.\nIL GIGANTE DI PRAMA ti ha già riconosciuto.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\ndestare ciò che dorme nella pietra\nda tremila anni."); return; }
+  say(["Tra le file di colossi sepolti, uno si\nsolleva: spalle di calcare, occhi a doppio\ncerchio che si accendono di una luce fredda.",
+       "È IL GIGANTE DI PRAMA, guerriero di pietra\ndi tremila anni fa. Ha vegliato l'isola\nda sotto la terra; ora si erge, e l'aria\ntrema.",
+       "«Chi vuole svegliare i Giganti...\nche ne regga lo sguardo.»",
+       "IL GIGANTE DI PRAMA fa tremare la terra!"], () => {
+    saveGame();
+    beep(110, .32, 'triangle'); beep(82, .36, 'triangle'); beep(65, .44, 'triangle');
+    startBattle(makeMon('prama', 66), null);
+  });
+}
+/* ---------------- FINALE: RESA DEI CONTI CON LA COSCA ----------------
+   L'ONOREVOLE è il capo della Cosca, nel covo sotto il Parlamento (Montecitorio).
+   Accessibile solo con tutte e 20 le Medaglie (lock sul portale 'M' a Roma). */
+function evCoscaBoss() {
+  if (G.flags.finaleDone) {
+    say(["Dove sedeva l'Onorevole resta una poltrona\nvuota e una pila di faldoni sequestrati.\nSotto il Parlamento, la Cosca non comanda più."], null, "L'ONOREVOLE");
+    return;
+  }
+  const left = gymStudentsLeft('covo');   // prima si battono Johnny e gli altri guardiani
+  if (left.length) {
+    say(["«Prima i miei uomini, eroe. Se passi\nloro, allora ci sediamo a parlare.»",
+         'Uomini ancora in piedi: ' + left.length + '.'], null, "L'ONOREVOLE");
+    return;
+  }
+  const moraleLine = G.flags.coscaChoice === 'bribe'
+    ? "«Ti conosco. Quel giorno, a Milano,\nscegliesti noi. Poi cambiasti idea.\nChe spreco di un buon elemento.»"
+    : "«Sei quello che non si è mai piegato,\nda Milano fin quaggiù. Sai quanto mi sei\ncostato in mazzette buttate via?»";
+  say(["In fondo alla sala, dietro una scrivania\ndi mogano, un uomo elegante posa la penna.\nSulla giacca, una N dorata grande così.",
+       "«Benvenuto nel vero centro dell'Italia.\nNon il Parlamento là sopra: questo, qua\nsotto. Io sono L'ONOREVOLE. Io firmo,\ne l'Italia obbedisce.»",
+       moraleLine,
+       "«Venti Medaglie, bel curriculum. Ma\nquaggiù le Medaglie non contano: conta\nchi resta in piedi. Vediamo, eroe.»"], () => {
+    const roster = [['lupercone',85],['ratavolora',86],['malebranca',86],['basilisso',87],['mascaria',88],['tuttobene',89]];
+    const team = roster.map(([id, lv]) => makeMon(id, Math.min(MAX_LEVEL, lv)));
+    startBattle(team[0], { name:"L'ONOREVOLE", team, idx:0,
+      winCb: evFinaleWin,
+      loseCb: () => whiteout(() => say("L'Onorevole si aggiusta la cravatta.\n«La seduta è tolta. Torni quando conta\nqualcosa, eroe.»")) });
+  }, "L'ONOREVOLE");
+}
+function evFinaleWin() {
+  G.flags.finaleDone = true; G.morale += 3; saveGame();
+  beep(659, .12); beep(784, .12); beep(988, .12); beep(1319, .3);
+  const good = G.morale >= 2;
+  say(["L'Onorevole fissa la sua squadra a terra.\nPer la prima volta non ha una battuta\npronta. Solo silenzio, e faldoni.",
+       "«...e va bene. Hai vinto tu, ragazzo.\nMa la Cosca è un'idea. E le idee non\nsi battono in un sottoscala.»",
+       "Eppure, di sopra, il cronista sta già\nfotografando tutto: i registri, i nomi,\nla N dorata sotto il Parlamento. Domani\nlo saprà l'Italia intera.",
+       good
+         ? "Non hai mai accettato una mazzetta, non\nhai mai voltato la faccia. Per questo sei\narrivato fin qui — e per questo, stavolta,\nla Cosca cade davvero."
+         : "Lungo la strada non sei stato un eroe\nperfetto. Ma quaggiù, alla fine, hai\nscelto la parte giusta. E basta quella\na far crollare tutto.",
+       "Risali dal tombino. Roma è uguale a\nsempre — eppure qualcosa, sotto, si è\nrotto per sempre. Da Milano alla Sardegna:\nce l'hai fatta."], () => {
+    $('endScr').innerHTML =
+      '<h1>★ FINE ★</h1>' +
+      'Hai sconfitto L\'ONOREVOLE e la Cosca Nazionale,<br>nel covo sotto il Parlamento.<br><br>' +
+      '20 Medaglie · ' + (G.dex ? G.dex.caught.length : 0) + ' Leggende catturate<br><br>' +
+      '<span style="font-size:11px">Premi A: continua a esplorare liberamente<br>l\'Italia. Grazie per aver giocato a<br>LEGGENDE D\'ITALIA!</span>';
+    $('endScr').style.display = 'block';
+    const prevA = onA;
+    onA = () => { $('endScr').style.display = 'none'; onA = prevA; G.mode = 'walk'; };
+    G.mode = 'end';
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente, pietrabbondante: evDimenticato, castelovo: evPartenope, castelmonte: evSolleone, sassi: evCalanco };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente, pietrabbondante: evDimenticato, castelovo: evPartenope, castelmonte: evSolleone, sassi: evCalanco, stretto: evFataMorgana, abisso: evColapesce, prama: evPrama };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

@@ -61,6 +61,14 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'lumin','luminone','solleone',
                         /* Basilicata — linea Terra + leggendario */
                         'monachin','monachione','calanco',
+                        /* Calabria — linea Veleno + leggendario */
+                        'scursune','scursone','fatamorgana',
+                        /* Sicilia — linea Oscurità + leggendario */
+                        'mammucca','mammadraga','colapesce',
+                        /* Sardegna — linea Psico + leggendario */
+                        'janedda','jana','prama',
+                        /* Terzi stadi (linee di prestigio) */
+                        'gattorco','lupercone','mascaria','basilisso','fogherone','brinalpino','mazarselva','striastrale','cjargane','rudimpero',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -170,7 +178,7 @@ const SPECIES = {
     evolve:{ lv:30, to:'brinassa' },
     learnset:[[1,'botta'],[1,'dispetto'],[6,'brinata'],[16,'morso'],[26,'gelata'],[42,'bufera']],
     dex:'Spiritello della neve valdostana («neio» in patois). Gioca a seppellire i sentieri.' },
-  brinassa: { n:'BRINASSA', types:['Ghiaccio'], hp:68, atk:70, def:74, spd:60,
+  brinassa: { n:'BRINASSA', types:['Ghiaccio'], evolve:{ lv:52, to:'brinalpino' }, hp:68, atk:70, def:74, spd:60,
     learnset:[[1,'brinata'],[1,'morso'],[1,'gelata'],[34,'sfondata'],[46,'bufera']],
     dex:'Strega della brina dei ghiacciai. Dove passa, le pozze diventano specchi.' },
   stambeco: { n:'STAMBÉCO', types:['Ghiaccio'], hp:90, atk:95, def:85, spd:80,
@@ -193,10 +201,10 @@ const SPECIES = {
     dex:'Il leggendario San Bernardo del Gran San Bernardo: ha tratto in salvo più alpinisti di chiunque. Fiuta i dispersi sotto la neve.' },
 
   /* ---------- EVOLUZIONI · blocco 1 ---------- */
-  gattore: { n:'GATTORÈ', types:['Normale','Spettro'], hp:65, atk:75, def:55, spd:105,
+  gattore: { n:'GATTORÈ', types:['Normale','Spettro'], evolve:{ lv:52, to:'gattorco' }, hp:65, atk:75, def:55, spd:105,
     learnset:[[1,'graffio'],[1,'morso'],[1,'malocchio'],[1,'sfondata'],[40,'maledizione']],
     dex:'Il Re dei Gatti, sovrano dei tetti di Brera. Cammina anche dove non c’è più tetto.' },
-  bissone: { n:'BISSONE', types:['Veleno'], hp:62, atk:88, def:66, spd:72,
+  bissone: { n:'BISSONE', types:['Veleno'], evolve:{ lv:54, to:'basilisso' }, hp:62, atk:88, def:66, spd:72,
     learnset:[[1,'morso'],[1,'velenovivo'],[1,'codata'],[1,'sfondata'],[42,'velenovivo']],
     dex:'Il biscione visconteo nella sua forma piena: come nello stemma, inghiotte un uomo intero.' },
   munacione: { n:'MUNACIÒNE', types:['Elettro'], hp:55, atk:78, def:58, spd:112,
@@ -207,7 +215,7 @@ const SPECIES = {
   granservan: { n:'GRAN SERVAN', types:['Normale'], hp:62, atk:78, def:58, spd:82,
     learnset:[[1,'morso'],[1,'sfondata'],[1,'dispetto'],[1,'codata']],
     dex:'Il Servan anziano, patriarca delle stalle. Decide lui quali cavalli avranno fortuna.' },
-  mascagna: { n:'MASCAGNA', types:['Spettro'], hp:60, atk:85, def:65, spd:80,
+  mascagna: { n:'MASCAGNA', types:['Spettro'], evolve:{ lv:52, to:'mascaria' }, hp:60, atk:85, def:65, spd:80,
     learnset:[[1,'malocchio'],[1,'morso'],[1,'maledizione'],[1,'dispetto']],
     dex:'Masca anziana e potentissima. Quando vola sul Po, la nebbia la segue.' },
   fusinon: { n:'FUSINÒN', types:['Acciaio','Fuoco'], hp:65, atk:82, def:85, spd:58,
@@ -224,7 +232,7 @@ const SPECIES = {
   bordona: { n:'BORDÒNA', types:['Acqua','Spettro'], hp:70, atk:82, def:70, spd:72,
     learnset:[[1,'zampillo'],[1,'malocchio'],[1,'ondata'],[1,'maledizione'],[46,'piena']],
     dex:'La Borda regina della nebbia: inghiotte interi argini del Po in un sospiro grigio.' },
-  mannarone: { n:'MANNARÒNE', types:['Normale'], hp:85, atk:102, def:72, spd:92,
+  mannarone: { n:'MANNARÒNE', types:['Normale'], evolve:{ lv:52, to:'lupercone' }, hp:85, atk:102, def:72, spd:92,
     learnset:[[1,'morso'],[1,'graffio'],[1,'sfondata'],[1,'dispetto']],
     dex:'Il lupo mannaro nella forma di luna piena: tutto zanne, muscoli e ululato.' },
 
@@ -249,7 +257,7 @@ const SPECIES = {
     evolve:{ lv:28, to:'mazarione' },
     learnset:[[1,'botta'],[1,'dispetto'],[7,'sferzata'],[16,'morso'],[26,'fogliolame'],[42,'querciasacra']],
     dex:'Il folletto rosso dei boschi veneti. Sposta le pietre del sentiero e gioca scherzi agli escursionisti. Veloce e sfuggente.' },
-  mazarione: { n:'MAZARIONE', types:['Erba','Acqua'], hp:68, atk:76, def:65, spd:72,
+  mazarione: { n:'MAZARIONE', types:['Erba','Acqua'], evolve:{ lv:54, to:'mazarselva' }, hp:68, atk:76, def:65, spd:72,
     learnset:[[1,'sferzata'],[1,'morso'],[1,'fogliolame'],[30,'ondata'],[44,'querciasacra'],[52,'piena']],
     dex:'Il Mazariol adulto, signore delle barene veneziane. Guida le maree della laguna a suo piacimento e affoga chi lo disturba.' },
   leon: { n:'LEON DE SAN MARCO', types:['Acqua','Volante'], hp:92, atk:100, def:90, spd:88,
@@ -261,7 +269,7 @@ const SPECIES = {
     evolve:{ lv:28, to:'cjalcjutone' },
     learnset:[[1,'botta'],[1,'dispetto'],[7,'raffica'],[16,'morso'],[26,'tramontana'],[40,'ciclone']],
     dex:'Folletto friulano che vaga nelle notti di vento e svia i viandanti dai sentieri. Imprendibile come una folata.' },
-  cjalcjutone: { n:'CJALCJUTONE', types:['Vento'], hp:65, atk:76, def:56, spd:92,
+  cjalcjutone: { n:'CJALCJUTONE', types:['Vento'], evolve:{ lv:52, to:'cjargane' }, hp:65, atk:76, def:56, spd:92,
     learnset:[[1,'raffica'],[1,'morso'],[1,'tramontana'],[30,'dispetto'],[44,'sfondata'],[52,'ciclone']],
     dex:'Il Cjalcjut cresciuto. Ha imparato a cavalcare la Bora: la sua velocità supera quella del vento e non lascia tracce nel carso.' },
   bora: { n:'BORA', types:['Vento'], hp:95, atk:105, def:80, spd:115,
@@ -285,7 +293,7 @@ const SPECIES = {
     evolve:{ lv:30, to:'fogaron' },
     learnset:[[1,'botta'],[1,'dispetto'],[7,'favilla'],[16,'morso'],[28,'vampata'],[42,'rogo']],
     dex:'Fuoco fatuo della pianura padana. Una fiammella vagante che di notte danza sugli argini del Reno e svia i viandanti.' },
-  fogaron: { n:'FOGARÒN', types:['Fuoco'], hp:68, atk:84, def:58, spd:86,
+  fogaron: { n:'FOGARÒN', types:['Fuoco'], evolve:{ lv:52, to:'fogherone' }, hp:68, atk:84, def:58, spd:86,
     learnset:[[1,'favilla'],[1,'morso'],[1,'vampata'],[34,'sfondata'],[48,'rogo']],
     dex:'Lo spirito del grande falò emiliano. Cresciuto dal fuoco fatuo, arde come i roghi delle feste di paese e non si lascia spegnere.' },
   aldial: { n:'AL DIÂL', types:['Fuoco','Spettro'], hp:92, atk:104, def:85, spd:92,
@@ -297,7 +305,7 @@ const SPECIES = {
     evolve:{ lv:30, to:'strione' },
     learnset:[[1,'botta'],[1,'dispetto'],[7,'psicobotta'],[16,'morso'],[38,'psicoonda']],
     dex:'Folletto-stregone delle campagne toscane. Legge nel pensiero dei viandanti e ne confonde la strada per gioco.' },
-  strione: { n:'STRIÒNE', types:['Psico'], hp:70, atk:80, def:70, spd:80,
+  strione: { n:'STRIÒNE', types:['Psico'], evolve:{ lv:52, to:'striastrale' }, hp:70, atk:80, def:70, spd:80,
     learnset:[[1,'psicobotta'],[1,'morso'],[1,'sfondata'],[44,'psicoonda']],
     dex:'Lo strìo cresciuto in mago vero e proprio. Si dice tenga corte tra le colline del Chianti e pieghi le menti deboli al suo volere.' },
   aruspice: { n:'L\'ARÙSPICE', types:['Psico'], hp:90, atk:100, def:92, spd:96,
@@ -372,7 +380,7 @@ const SPECIES = {
     evolve:{ lv:34, to:'ruderone' },
     learnset:[[1,'morso'],[1,'dragobotta'],[14,'graffio'],[34,'furiadrago']],
     dex:'Draghetto nato tra le rovine di Roma. Dorme negli archi del Foro e si scalda al sole sui sampietrini. Piccolo, ma già fumantino.' },
-  ruderone: { n:'RUDERÒNE', types:['Drago'], hp:82, atk:92, def:78, spd:68,
+  ruderone: { n:'RUDERÒNE', types:['Drago'], evolve:{ lv:54, to:'rudimpero' }, hp:82, atk:92, def:78, spd:68,
     learnset:[[1,'dragobotta'],[1,'morso'],[1,'sfondata'],[48,'furiadrago']],
     dex:'Il drago adulto delle rovine. Si aggira tra i Fori Imperiali al tramonto: i turisti lo scambiano per un\'ombra, finché non sbuffa fumo.' },
   dracone: { n:'DRACÒNE', types:['Drago'], hp:95, atk:108, def:92, spd:92,
@@ -466,6 +474,42 @@ const SPECIES = {
     learnset:[[1,'fango'],[1,'morso'],[1,'sfondata'],[1,'terremoto'],[50,'terremoto']],
     dex:'Il gigante d\'argilla nato dai calanchi lucani e dalla pietra antichissima di Matera. Dorme dentro i Sassi da prima della storia: quando si muove, la terra si scolpisce da sé.' },
 
+  /* ---------- Calabria — linea Veleno + Fata Morgana ---------- */
+  scursune: { n:'SCURSÙNE', types:['Veleno'], hp:50, atk:62, def:46, spd:60,
+    evolve:{ lv:32, to:'scursone' },
+    learnset:[[1,'botta'],[1,'tossico'],[12,'morso'],[24,'velenovivo'],[32,'sfondata']],
+    dex:'Il serpe della tradizione calabrese (lo «scurzune»). Si dice strisci nei seminati e morda le caviglie dei contadini distratti. Più dispettoso che mortale, ma meglio non scoprirlo.' },
+  scursone: { n:'SCURSÒNE', types:['Veleno'], hp:80, atk:94, def:70, spd:80,
+    learnset:[[1,'tossico'],[1,'morso'],[1,'velenovivo'],[1,'sfondata'],[42,'flagello']],
+    dex:'Lo scurzune cresciuto in un serpentone grosso come un braccio. Si arrotola sugli alberi di bergamotto della Locride e cala sulle prede dall\'alto.' },
+  fatamorgana: { n:'FATA MORGANA', types:['Acqua','Spettro'], hp:92, atk:96, def:86, spd:104,
+    learnset:[[1,'zampillo'],[1,'malocchio'],[1,'ondata'],[1,'maledizione'],[50,'piena']],
+    dex:'Il miraggio dello Stretto di Reggio: castelli e città capovolte che galleggiano sull\'acqua nei giorni di bonaccia. Chi la insegue annega; chi la lascia andare, la rivede al tramonto.' },
+
+  /* ---------- Sicilia — linea Oscurità + Colapesce ---------- */
+  mammucca: { n:'MAMMUCCA', types:['Oscurità'], hp:50, atk:60, def:50, spd:56,
+    evolve:{ lv:33, to:'mammadraga' },
+    learnset:[[1,'botta'],[1,'sgambetto'],[14,'morso'],[26,'dispetto'],[33,'sfondata']],
+    dex:'Il «babbau» delle ninne nanne siciliane: un\'ombra piccola che si nasconde sotto il letto. Si nutre della paura del buio dei bambini, ma in fondo è più dispettosa che cattiva.' },
+  mammadraga: { n:'MAMMADRAGA', types:['Oscurità'], hp:80, atk:96, def:74, spd:70,
+    learnset:[[1,'sgambetto'],[1,'morso'],[1,'sfondata'],[42,'boccone']],
+    dex:'L\'orchessa delle fiabe siciliane, cresciuta dall\'ombra del Mammucca. Vive nelle grotte dell\'entroterra e custodisce tesori che nessuno osa reclamare.' },
+  colapesce: { n:'COLAPESCE', types:['Acqua','Oscurità'], hp:95, atk:100, def:94, spd:86,
+    learnset:[[1,'zampillo'],[1,'sgambetto'],[1,'ondata'],[1,'boccone'],[50,'piena']],
+    dex:'Il ragazzo-pesce che si tuffò negli abissi e non tornò più: regge da solo una delle tre colonne su cui poggia la Sicilia. Se mai lasciasse la presa, l\'isola sprofonderebbe.' },
+
+  /* ---------- Sardegna — linea Psico + Gigante di Prama ---------- */
+  janedda: { n:'JANEDDA', types:['Psico'], hp:48, atk:52, def:50, spd:64,
+    evolve:{ lv:34, to:'jana' },
+    learnset:[[1,'psicobotta'],[1,'dispetto'],[14,'malocchio'],[34,'psicoonda']],
+    dex:'Una piccola fata delle domus de janas, le «case delle fate» scavate nella roccia. Tesse al telaio d\'oro nelle notti senza luna e si dice porti fortuna a chi la rispetta.' },
+  jana: { n:'JANA', types:['Psico'], hp:74, atk:72, def:74, spd:92,
+    learnset:[[1,'psicobotta'],[1,'malocchio'],[1,'sfondata'],[46,'psicoonda']],
+    dex:'La fata adulta dei nuraghi, custode di soglie e di sogni. Conosce il filo che lega il sonno alla morte, e lo intreccia con dita di luce nella pietra antica.' },
+  prama: { n:'GIGANTE DI PRAMA', types:['Roccia','Psico'], hp:100, atk:104, def:104, spd:70,
+    learnset:[[1,'sassata'],[1,'psicobotta'],[1,'frana'],[1,'psicoonda'],[50,'frana']],
+    dex:'Uno dei Giganti di Mont\'e Prama: colossi di pietra scolpiti tremila anni fa, dagli occhi a doppio cerchio. Sepolti e dimenticati, vegliano ancora; quando uno si rialza, l\'isola intera lo sente nelle ossa.' },
+
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).
      RISERVATE alle regioni future per coerenza geografica:
@@ -493,7 +537,38 @@ const SPECIES = {
   scultone: { n:'SCULTONE', types:['Veleno'], hp:60, atk:70, def:60, spd:50,
     evolve:{ lv:30, to:'basiliscu' },
     learnset:[[1,'botta'],[1,'morso'],[14,'velenovivo'],[28,'sfondata']],
-    dex:'Serpente mortale della Sardegna, custode dei nuraghi. Lo si incontra una volta sola.' }
+    dex:'Serpente mortale della Sardegna, custode dei nuraghi. Lo si incontra una volta sola.' },
+  /* ---------- Terzi stadi (linee di prestigio) ---------- */
+  gattorco: { n:'GATTORCO', types:['Normale','Spettro'], hp:82, atk:100, def:72, spd:120,
+    learnset:[[1,'graffio'],[1,'morso'],[1,'malocchio'],[1,'sfondata'],[1,'maledizione'],[56,'maledizione']],
+    dex:'Il Re dei Gatti asceso a sovrano d\'ombra: un gatto-orco enorme che cammina ritto sui tetti di notte. Dicono abbia nove vite, e le abbia spese tutte tranne una.' },
+  lupercone: { n:'LUPERCONE', types:['Normale'], hp:100, atk:122, def:88, spd:100,
+    learnset:[[1,'morso'],[1,'graffio'],[1,'sfondata'],[1,'dispetto'],[56,'sfondata']],
+    dex:'Il lupo mannaro divenuto alfa del branco, grande come un orso. Nelle notti dei Lupercali ulula, e perfino la luna piena sembra abbassare lo sguardo.' },
+  mascaria: { n:'MASCARÌA', types:['Spettro'], hp:78, atk:108, def:82, spd:98,
+    learnset:[[1,'malocchio'],[1,'morso'],[1,'maledizione'],[1,'dispetto'],[56,'maledizione']],
+    dex:'La Masca suprema, regina delle streghe del Monferrato. La sua nebbia copre intere vallate, e nessun gallo all\'alba osa cantare finché lei non se n\'è andata.' },
+  basilisso: { n:'BASILISSO', types:['Veleno'], hp:84, atk:112, def:88, spd:84,
+    learnset:[[1,'morso'],[1,'velenovivo'],[1,'codata'],[1,'sfondata'],[54,'flagello']],
+    dex:'Il Biscione visconteo nella forma definitiva: un basilisco il cui sguardo, si dice, impietrisce chi mente. Domina dall\'alto della guglia più alta.' },
+  fogherone: { n:'FOGHERONE', types:['Fuoco'], hp:88, atk:106, def:76, spd:100,
+    learnset:[[1,'favilla'],[1,'vampata'],[1,'morso'],[1,'sfondata'],[54,'rogo']],
+    dex:'Il grande falò della tradizione fatto creatura: una colonna di fuoco vivo che cammina. Dove passa d\'inverno, la brina si ritira e l\'aria sa di festa.' },
+  brinalpino: { n:'BRINALPINO', types:['Ghiaccio'], hp:92, atk:92, def:98, spd:76,
+    learnset:[[1,'brinata'],[1,'gelata'],[1,'morso'],[1,'sfondata'],[54,'bufera']],
+    dex:'La strega della brina divenuta spirito del ghiacciaio perenne. Dove posa lo sguardo l\'acqua diventa cristallo, e l\'estate dimentica di salire lassù.' },
+  mazarselva: { n:'MAZARSELVA', types:['Erba','Acqua'], hp:90, atk:98, def:86, spd:92,
+    learnset:[[1,'sferzata'],[1,'fogliolame'],[1,'ondata'],[1,'morso'],[54,'querciasacra'],[58,'piena']],
+    dex:'Il Mazariol fatto signore di laguna e bosco insieme: canne, alghe e rami vivi gli crescono addosso. Guida i pesci e difende gli argini dai prepotenti.' },
+  striastrale: { n:'STRIASTRALE', types:['Psico'], hp:90, atk:104, def:88, spd:100,
+    learnset:[[1,'psicobotta'],[1,'malocchio'],[1,'morso'],[1,'sfondata'],[54,'psicoonda']],
+    dex:'Lo stregone toscano che ha imparato a leggere le stelle e i sogni altrui. Tiene corte in una stanza che non esiste, raggiungibile solo dormendo.' },
+  cjargane: { n:'CJARGANEO', types:['Vento'], hp:84, atk:98, def:74, spd:116,
+    learnset:[[1,'raffica'],[1,'tramontana'],[1,'morso'],[1,'sfondata'],[54,'ciclone']],
+    dex:'L\'incubo friulano divenuto tempesta vivente. Cavalca la bora dai monti al mare; chi lo sogna si sveglia col fiato corto e le imposte spalancate.' },
+  rudimpero: { n:'RUDIMPERO', types:['Drago'], hp:104, atk:116, def:96, spd:82,
+    learnset:[[1,'dragobotta'],[1,'morso'],[1,'sfondata'],[1,'furiadrago'],[56,'furiadrago']],
+    dex:'Il drago dei Fori asceso a imperatore di pietra e fiamma. Dorme avvolto a una colonna spezzata; quando si desta, Roma intera trema di nostalgia.' },
 };
 
 const MAX_LEVEL = 100;

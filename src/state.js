@@ -23,6 +23,10 @@ const G = {
            badge15:false, partenopeCaught:false,
            badge16:false, solleoneCaught:false,
            badge17:false, calancoCaught:false,
+           badge18:false, fataCaught:false,
+           badge19:false, colapesceCaught:false,
+           badge20:false, pramaCaught:false,
+           finaleDone:false,
            mol_p1:false, mol_p2:false, mol_p3:false, molise_open:false,
            piva_n1:false, piva_n2:false, piva_n3:false, piva_done:false,
            licata_med:false, licata_done:false,
@@ -43,14 +47,15 @@ const LEGENDARY_FLAG = { stambeco:'stamboCaught', scighera:'scigheraCaught',
   leon:'leonCaught', bora:'boraCaught', aldial:'aldialCaught', aruspice:'aruspiceCaught',
   lupogubbio:'lupogubbioCaught', sibilla:'sibillaCaught', dracone:'draconeCaught',
   dormiente:'dormienteCaught', dimenticato:'dimenticatoCaught', partenope:'partenopeCaught',
-  solleone:'solleoneCaught', calanco:'calancoCaught' };
+  solleone:'solleoneCaught', calanco:'calancoCaught', fatamorgana:'fataCaught',
+  colapesce:'colapesceCaught', prama:'pramaCaught' };
 /* Allenatori-rivincita già battuti in QUESTA visita alla mappa (azzerato al cambio mappa). */
 const BEATEN_VISIT = new Set();
 /* Mappe-percorso: i loro allenatori (Cosca) si ripresentano a ogni visita, sempre più forti. */
 const ROUTE_MAPS = ['navigli', 'murazzi', 'gransanbernardo', 'scogliera',
   'stradapo', 'valico', 'appennino', 'dolomiti', 'valdadige', 'brenta', 'isonzo', 'carso',
   'viaemilia', 'pianurapo', 'chianti', 'futa', 'valnerina', 'trasimeno', 'conero', 'furlo',
-  'appiaantica', 'salaria', 'gransasso', 'valeria', 'tratturo', 'matese', 'vesuvio', 'sannio', 'murgia', 'tavoliere', 'calanchi', 'bradano'];
+  'appiaantica', 'salaria', 'gransasso', 'valeria', 'tratturo', 'matese', 'vesuvio', 'sannio', 'murgia', 'tavoliere', 'calanchi', 'bradano', 'aspromonte', 'pollino', 'madonie', 'traghetto', 'barbagia', 'nave'];
 
 /* ---------------- SALVATAGGIO ---------------- */
 const SAVE_KEY = 'leggende-italia-save';

@@ -1154,5 +1154,250 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'EREMITA RUPESTRE',
       lines:["Pace, viandante. Sei nei Sassi di Matera,\ntra chiese rupestri e grotte abitate da\nventimila anni. Cammina piano.",
              "Nel ventre della pietra dorme CALANCO,\nil gigante d'argilla. Più antico di\nogni storia. Se lo desti, abbi rispetto."] }
+  ],
+
+  /* ========== CALABRIA (Reggio Calabria) ========== */
+  pollino: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DEL POLLINO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'pol1', team:[['scursune',68],['cinghial',68]],
+        pre:["'Stu massiccio u cuntrolla a Cosca.\nPaghi u pizzu e passi, cumpà."],
+        win:["Mmh. Scinni, va'."], after:["Reggio è giù, verso u mari."] } },
+    { x:20, y:7,  frame:14, name:'BRACCONIERE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'pol2', team:[['lupomannaro',69],['pantafica',69]],
+        pre:["Caccio nei boschi del Pollino da sempre.\nLèvati di mezzo, forestiero."],
+        win:["Mannaggia 'a malasorti."], after:["Scinni a valle, cumpà."] } },
+    { x:14, y:13, frame:14, name:'CAPOZONA CALABRESE', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'pol3', team:[['scursune',70],['gazzot',70]],
+        pre:["L'urtimu prima di Reggio sugnu ìu.\nE ccà 'a terra mùzzica, comu i serpi."],
+        win:["...si tostu. Reggio t'aspetta."],
+        after:["U lungomari è ddà sutta."] } }
+  ],
+  reggio: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'REGGINO',
+      lines:["Benvenutu a Reggio! U lungomari più\nbellu d'Italia, dicìa u poeta. E di\nlà ddu Stretto, a Sicilia ti talìa.",
+             "Ccà tenìmu i Bronzi di Riace e u\nbergamotto. E sull'acqua, certi jorna,\nspunta 'a Fata Morgana. Talìala e basta."] },
+    { x:8,  y:14, frame:11, name:'PESCATORE DELLO STRETTO',
+      lines:["Pisco u pisci spada nello Stretto da\ntrent'anni. L'acqua ccà gira storta,\nha 'na forza ca nun ti dicu.",
+             "Certi matini si vidi 'na città\ncapovolta supra u mari. Idda è: 'a\nFata Morgana. Miraggio, o quasi."] },
+    { x:18, y:16, frame:12, name:'GUIDA DELL\'ASPROMONTE',
+      lines:["L'Aspromonte è aspru di nomu e di\nfattu: boschi fitti, fiumare e u\nprofumu du bergamotto ca nun ti molla.",
+             "Nello Stretto vive 'a FATA MORGANA,\nu miraggiu. Affrontala se si prontu:\nti fa vidiri cose ca nun ci sunnu."] }
+  ],
+  gymrc: [
+    { x:5, y:2, frame:13, name:'CARMELO', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'ERBORISTA', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymrc1', team:[['scursune',71],['ratavolora',71]],
+        pre:["Pi arrivari a Carmelo passi di mia.\nConosciu ogni erba ca avvelena, cumpà."],
+        win:["Bonu. Carmelo t'aspetta."],
+        after:["U capu è 'nfunne. Tieni l'occhi aperti."] } },
+    { x:8, y:7, frame:11, name:'INCANTATRICE', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymrc2', team:[['scursone',72],['basiliscu',72]],
+        pre:["I serpi mi ubbidiscunu. U vìulinu d'a\nfattura calabrisi è cosa seria."],
+        win:["Si forti. Vai di Carmelo."],
+        after:["Là 'nfunne, u capu. Curaggiu."] } },
+    { x:8, y:4, frame:10, name:'CACCIATORE DI VIPERE', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymrc3', team:[['scursune',72],['scursone',72]],
+        pre:["Caccio scurzuni tra i petri d'a fiumara.\nU veleno nun mi fa paura cchiù."],
+        win:["Mmh. Tostu. Passa."],
+        after:["Carmelo è ddà. Nun u fari aspittari."] } }
+  ],
+  ambrc: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA NAVA', ev:'cura' }
+  ],
+  aspromonte: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DELLA FIUMARA', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'asp1', team:[['scursune',69],['cinghial',69]],
+        pre:["L'Aspromonte u tenìmu nuàtri.\nOgni fiumara, ogni passu. Paga."],
+        win:["Uff. Passa."], after:["Nun acchianari allu Stretto."] } },
+    { x:14, y:12, frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'asp2', team:[['lupomannaro',70],['scursune',70]],
+        pre:["Portu robba ca nun si dichiara.\nLèvati 'i mezzu, forestiero."],
+        win:["Mannaggia. Va'."], after:["Tira drittu e statti mutu."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DELLO STRETTO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'asp3', team:[['scursone',71],['pantafica',71]],
+        pre:["L'urtimu prima du mari sugnu ìu.\nE chiddu ca galleggia supra l'acqua\nnun è cosa di stu munnu."],
+        win:["...va bbonu, acchiana. Ma 'a Fata\nnun l'aju chiamata ìu, 'ntisi?"],
+        after:["U Stretto è 'nfunne. Curaggiu."] } }
+  ],
+  stretto: [
+    { x:3, y:9, frame:12, name:'VECCHIO DEL FARO',
+      lines:["Calma, figghiu. Si allu Stretto di\nMessina, unni l'acqua gira e u tempu\npari ca s'incanta. Talìa, ma cu rispettu.",
+             "Supra u mari spunta 'a FATA MORGANA,\nu miraggiu ca inganna l'occhi. Si 'a\nstanìi, ti porta 'nfunne. Si prontu?"] }
+  ],
+
+  /* ========== SICILIA (Palermo) ========== */
+  traghetto: [
+    { x:7,  y:2,  frame:14, name:'IMBARCATO DELLA COSCA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'trg1', team:[['mammucca',72],['cinghial',72]],
+        pre:["Stu traghettu u cuntrollamu nuàtri.\nU pizzu si paga puru supra u mari."],
+        win:["Mah. Passa, va'."], after:["Palermo è di ddà du mari."] } },
+    { x:20, y:7,  frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'trg2', team:[['lupomannaro',73],['pantafica',73]],
+        pre:["Portu robba ca nun pava dazi.\nLèvati di traversu, forestieru."],
+        win:["Camurrìa di ritardu."], after:["Sbarca e nun ti vutari."] } },
+    { x:14, y:12, frame:14, name:'CAPODECINA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'trg3', team:[['mammucca',74],['basiliscu',74]],
+        pre:["L'ultimu prima di Palermo sugnu ìu.\nE 'n Sicilia 'a Cosca havi radici\nchiù funni du mari."],
+        win:["...si bravu. Palermo t'aspetta."],
+        after:["Amunì, scìnni a Palermo."] } }
+  ],
+  palermo: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'PALERMITANO',
+      lines:["Benvenutu a Palermu, beddu! Ccà c'è u\nmari, u mercatu ca grida, u barocco e\nu pani ca' meusa ca ti cancia 'a vita.",
+             "Supra a nuàtri talìa Monte Pellegrino.\nE sutta u mari, dicìnu, c'è COLAPESCE\nca regge l'isola. Mancu lu sapìmu cchiù."] },
+    { x:8,  y:14, frame:11, name:'PESCATRICE',
+      lines:["Piscu nello specchio davanti a Palermu\nda 'na vita. U mari ccà è generusu,\nma havi i so segreti, talè.",
+             "Si dici ca COLAPESCE si tuffò 'nfunne\ne nun tornò cchiù: regge 'na culonna\nca tene 'n piedi tutta 'a Sicilia."] },
+    { x:18, y:16, frame:12, name:'GUIDA DELLE MADONIE',
+      lines:["Sopra Palermu ci sunnu i monti: i\nMadonie, cu i faggi e 'a nivi. Nun\ntutti si l'aspettanu, 'n Sicilia.",
+             "Attentu a notti: spunta u MAMMUCCA,\nu babbau ca si stuja sutta u lettu.\nDa nicu fa scantu, da grossu fa dannu."] }
+  ],
+  gympa: [
+    { x:5, y:2, frame:13, name:'TOTÒ', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'CANTASTORIE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gympa1', team:[['mammucca',75],['farfarello',75]],
+        pre:["Pi arrivari a Totò passi di mia.\nCantu storie scure ca fannu scantari\ni carusi, sai?"],
+        win:["Bonu. Totò t'aspetta 'nfunne."],
+        after:["U capu è ddà. Tieni i nervi saldi."] } },
+    { x:8, y:7, frame:11, name:'MAGARA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gympa2', team:[['mammadraga',76],['basiliscu',76]],
+        pre:["Sugnu 'na magara di li Madonie.\nL'ùmmira mi ubbidisci, picciottu."],
+        win:["Si forti assai. Vai di Totò."],
+        after:["Ddà 'nfunne, u capu. Amunì."] } },
+    { x:8, y:4, frame:10, name:'GUARDIANO DELLA NOTTE', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gympa3', team:[['mammucca',76],['mammadraga',76]],
+        pre:["Caccio ùmmiri 'nta li grutti di\nl'isola. U scuru nun mi scanta cchiù."],
+        win:["Mah. Tostu. Passa."],
+        after:["Totò è ddà. Nun u fari aspittari."] } }
+  ],
+  ambpa: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA LIROSI', ev:'cura' }
+  ],
+  madonie: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DELLE MADONIE', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'mad1', team:[['mammucca',73],['cinghial',73]],
+        pre:["Sti monti su' robba nostra.\nOgni faggeta, ogni sentieru. Paga."],
+        win:["Mah. Passa."], after:["Nun scìnniri a l'abissu."] } },
+    { x:14, y:12, frame:14, name:'BRACCONIERE', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'mad2', team:[['lupomannaro',74],['mammucca',74]],
+        pre:["Cacciu unni nun si pò.\nLèvati di mezzu, forestieru."],
+        win:["Camurrìa. Va'."], after:["Tira drittu e statti mutu."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DELL\'ABISSO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'mad3', team:[['mammadraga',75],['pantafica',75]],
+        pre:["L'ultimu prima du funnu sugnu ìu.\nE ddà sutta c'è cu regge l'isola\nda prima ca nascìssimu nuàtri."],
+        win:["...va bonu, scìnni. Ma chiddu ca\nregge 'a culonna nun u sbigghiari\npi gioco, 'ntisi?"],
+        after:["L'abissu è 'nfunne. Curaggiu."] } }
+  ],
+  abisso: [
+    { x:3, y:9, frame:12, name:'PALOMBARO',
+      lines:["Chianu, picciottu. Si 'nfunne all'abissu,\nunni u mari nun havi cchiù luci e posanu\ni tri culonni di l'isola. Talìa, e statti mutu.",
+             "Supra una culonna c'è COLAPESCE, u\ncarusu-pisci ca regge 'a Sicilia. Si u\nsbigghi, affruntalu cu rispettu: tene\nu munnu 'n manu."] }
+  ],
+
+  /* ========== SARDEGNA (Cagliari) ========== */
+  nave: [
+    { x:7,  y:2,  frame:14, name:'IMBARCATO DELLA COSCA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'nav1', team:[['janedda',74],['cinghial',74]],
+        pre:["Sa nave puru custa controllamus nois.\nSu pizzu si pagat finas in mesu 'e mare."],
+        win:["Bah. Passa, oh."], after:["Cagliari est a s'aratu de su mare."] } },
+    { x:20, y:7,  frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'nav2', team:[['lupomannaro',75],['basiliscu',75]],
+        pre:["Porto roba chi non si dichiarat.\nIstesiti, forestieri."],
+        win:["Maccu de unu ritardu."], after:["Cala a terra e abarra mudu."] } },
+    { x:14, y:12, frame:14, name:'CAPOZONA SARDO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'nav3', team:[['janedda',76],['pantafica',76]],
+        pre:["S'urtimu prima de Casteddu seo deo.\nE inoghe sa Cosca tenet raighinas\nantigas comente sos nuraghes."],
+        win:["...ses forte. Cagliari t'isettat."],
+        after:["Cala a Casteddu, oh."] } }
+  ],
+  cagliari: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'CAGLIARITANO',
+      lines:["Bénnidu sias a Casteddu! Su Casteddu\narrampicadu, sos fenicòtteros in s'istànniu\ne su sole chi brùsiat sa pedra. Bella, eh.",
+             "Custa terra est antiga prus de totu.\nIn sa Barbagia bìvent sas JANAS, e a\nMont'e Prama... dormint sos Gigantes."] },
+    { x:8,  y:14, frame:11, name:'PASTORE BARBARICINO',
+      lines:["Pasco sas berbeghes in sa Barbagia\nde sèmpere. Custos montes sunt aspros\ne mudos, ma sunt domo mea.",
+             "Sas JANAS faghent su tessìngiu in sas\ndomus de janas, in sa pedra. Si las\nrispetas, fortuna; si nono, ammachiamentu."] },
+    { x:18, y:16, frame:12, name:'ARCHEOLOGA',
+      lines:["Mont'e Prama: filas de Gigantes de pedra,\nscurpidos tres mìgia annos a como. Ogros\na dòpiu chircu. Los aiant interrados, e\nismentigados.",
+             "Unu de cussos Gigantes torrat a si pesare,\nnarant. Su GIGANTE DE PRAMA. Si lu\nismùngias, afróntalu a fronte arta."] }
+  ],
+  gymca: [
+    { x:5, y:2, frame:13, name:'ANTIOGU', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'TESSITRICE DI JANAS', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymca1', team:[['janedda',78],['basiliscu',78]],
+        pre:["Pro arribbare a Antiogu coladi de mene.\nTesso sos sognos comente sas janas, oh."],
+        win:["Bonu. Antiogu t'isettat in fundu."],
+        after:["Su mannu est inìe. Tene sos nervos saldos."] } },
+    { x:8, y:7, frame:11, name:'CUSTODE DEI NURAGHI', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymca2', team:[['jana',79],['scultone',79]],
+        pre:["Bardo sos nuraghes dae una vida.\nPedra e sognu sunt sa matessi cosa, inoghe."],
+        win:["Ses forte meda. Bae a Antiogu."],
+        after:["In fundu, su mannu. Coràgiu."] } },
+    { x:8, y:4, frame:10, name:'SCAVATORE DI PRAMA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymca3', team:[['jana',79],['janedda',79]],
+        pre:["Iscavo Gigantes de pedra a Mont'e Prama.\nSu pesu de s'antigòriu non mi assustat prus."],
+        win:["Bah. Tostu. Passa."],
+        after:["Antiogu est inìe. No lu fagas isettare."] } }
+  ],
+  ambca: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA PORCU', ev:'cura' }
+  ],
+  barbagia: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DELLA BARBAGIA', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'brb1', team:[['janedda',75],['cinghial',75]],
+        pre:["Custos montes sunt nostros.\nOgni nuraghe, ogni caminu. Paga."],
+        win:["Bah. Passa."], after:["No cales a Mont'e Prama."] } },
+    { x:14, y:12, frame:14, name:'BARDANALE', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'brb2', team:[['lupomannaro',76],['janedda',76]],
+        pre:["Fùro bestiàmene dae sèmpere.\nIstesiti, forestieri."],
+        win:["Maccu. Bae."], after:["Tira deretu e abarra mudu."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DI PRAMA', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'brb3', team:[['jana',77],['scultone',77]],
+        pre:["S'urtimu prima de sos Gigantes seo deo.\nE cussos colossos de pedra sunt prus\nantigos de cale si siat istòria."],
+        win:["...andat bene, cala. Ma cussu Gigante\nde pedra non l'apo ismùngiu deo, intesu?"],
+        after:["Mont'e Prama est in fundu. Coràgiu."] } }
+  ],
+  prama: [
+    { x:3, y:9, frame:12, name:'VECCHIO DI MONT\'E PRAMA',
+      lines:["Abarra calmu, fìgiu. Ses a Mont'e Prama,\nin mesu a sos Gigantes de pedra pesados\ntres mìgia annos a como. Camina abbellu.",
+             "Unu de issos torrat a bìvere: su GIGANTE\nDE PRAMA, ogros a dòpiu chircu. Si lu\nismùngias, afróntalu cun rispetu: bardat\ns'ìsula dae prima de s'istòria."] }
+  ],
+
+  /* ========== FINALE — la resa dei conti con la Cosca ========== */
+  montecitorio: [
+    { x:3, y:9, frame:11, name:'CRONISTA',
+      lines:["Sono qui da settimane a fotografare chi\nentra ed esce da quel tombino. Gente in\ngessato. Spille con la N dorata.",
+             "Sotto il Parlamento c'è il covo della\nCosca. Lo sanno in pochi, e quei pochi\nspariscono. Tu però... tu hai le venti\nMedaglie. Forse tu puoi scendere davvero."] },
+    { x:8, y:6, frame:14, name:'SENTINELLA DELLA COSCA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'monte1', team:[['lupomannaro',82],['ratavolora',83]],
+        pre:["Aò, e tu 'ndo' vai? Qua sotto nun ce\nscegne nessuno senza permesso."],
+        win:["...e va be'. Ma de sotto nun esci\npiù come sei entrato, fidate."],
+        after:["Scegni pure. Tanto ce pensa lui."] } },
+    { x:12, y:7, frame:14, name:'GUARDASPALLE', ev:'trainer', look:'left', sight:4,
+      trainer:{ id:'monte2', team:[['mannarone',83],['malebranca',84]],
+        pre:["Hai sgarrato a venì fin qua, ragazzì.\nL'Onorevole nun riceve."],
+        win:["Tch. Passa. Ma t'avverto: lui nun\nperde mai. Mai."],
+        after:["La porta è quella. Auguri, eroe."] } }
+  ],
+  covo: [
+    { x:7, y:2, frame:13, name:'L\'ONOREVOLE', ev:'coscaBoss' },
+    { x:7, y:5, frame:14, name:'JOHNNY LAMETTA', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'johnnyfin', team:[['bissone',84],['mannarone',85],['rudimpero',86]],
+        pre:["«Ammazza, sei arrivato fin qua, bagai.\nL'ultima volta ti lascio passà solo\nse mi passi sopra.»"],
+        win:["Johnny crolla in ginocchio, il rasoio\ngli scivola di mano.\n«...vai. È di là. Finiscila tu, 'sta\nstoria. Io non ce la faccio più.»"],
+        after:["«L'Onorevole è di là, bagai.\nIo... io ho chiuso con loro.»"] } },
+    { x:3, y:8, frame:14, name:'CONSIGLIERE IN GESSATO', ev:'trainer', look:'right', sight:5,
+      trainer:{ id:'covo1', team:[['gattorco',84],['basiliscu',85]],
+        pre:["Lei non ha appuntamento. E qui dentro,\nsenza appuntamento, non si esce."],
+        win:["...impossibile. Nessuno arriva\nfin qui. Nessuno."],
+        after:["L'Onorevole la aspetta. Purtroppo."] } },
+    { x:12, y:8, frame:14, name:'AVVOCATO DELLA COSCA', ev:'trainer', look:'left', sight:5,
+      trainer:{ id:'covo2', team:[['ratavolora',85],['fogherone',85]],
+        pre:["Tutto quello che dirà potrà essere\nusato contro di lei. Anzi: lo sarà."],
+        win:["Faccio... faccio appello. Sempre che\nresti un tribunale dalla nostra parte."],
+        after:["Vada. Tanto da lui non si torna."] } }
   ]
 };
