@@ -1,8 +1,8 @@
 # ROADMAP — Leggende d'Italia
 
-Stato: **15 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
+Stato: **17 / 20 regioni** fatte. Schema, pipeline e verifica sono in `CLAUDE.md` (leggerlo prima).
 Questa roadmap dice **cosa** costruire; CLAUDE.md dice **come**.
-Prossima da fare: **16 — Puglia / Bari (Mimmo, Luce — tipo NEW)**.
+Prossima da fare: **18 — Calabria / Reggio Calabria (Carmelo, Veleno — tipo già esistente)**.
 Nota: il Molise (14) è SEGRETO — si sblocca con la quest di Tonino (3 prove) a L'Aquila → passaggio Q sul Gran Sasso.
 Tipi già implementati: Normale, Fuoco, Acqua, Erba, Elettro, Volante, Coleottero, Veleno,
 Acciaio, Ghiaccio, Roccia, Spettro, Vento, Psico, Terra, **Drago**. Ancora da fare: Luce, Oscurità.
@@ -29,8 +29,8 @@ Extra fatto: **"I tre soci"** (Pivòt/Faccìn/Licàt) — 3 linee speciali con q
 | 13 | Abruzzo | L'Aquila | Carmine | Roccia | ✓ |
 | 14 | Molise | Campobasso | Tonino | Spettro | ✓ (gym segreta) |
 | 15 | Campania | Napoli | Ciruzzo | Fuoco | ✓ |
-| 16 | Puglia | Bari | Mimmo | Luce (NEW) | da fare |
-| 17 | Basilicata | Potenza | Rocchino | Terra | da fare |
+| 16 | Puglia | Bari | Mimmo | Luce | ✓ |
+| 17 | Basilicata | Potenza | Rocchino | Terra | ✓ |
 | 18 | Calabria | Reggio C. | Carmelo | Veleno | da fare |
 | 19 | Sicilia | Palermo | Totò | Oscurità (NEW) | da fare |
 | 20 | Sardegna | Cagliari | Antiogu | Psico/Roccia | da fare |

@@ -619,12 +619,92 @@ const GYMS = {
       title:'★ FINE DEI CONTENUTI ★',
       medal:'MEDAGLIA DEL VESUVIO ottenuta!', region:'Regione 15 di 20 completata',
       next:'PROSSIMA TAPPA: PUGLIA<br>Mimmo · Tipo Luce · Bari',
-      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 15 regioni.',
+      footer:'Premi A: prosegui verso la PUGLIA<br>(il Tavoliere da Napoli,<br>serve la Medaglia del Vesuvio).',
       goodAt:16, badAt:-15,
       verdict:{
         good:'Da Milano a Napoli, tutto il Tirreno:\nun nome che la Cosca non può comprare.',
         bad:'La Cosca ti segue fin sotto il Vesuvio.\nMa il fuoco, certe cose, le purifica.',
         neutral:'Quindici medaglie. Mezzo Stivale\nconosce il tuo nome, ormai.'}
+    }
+  },
+
+  gymba: {
+    leader:'MIMMO', type:'Luce', badge:'badge16', region:16,
+    team:[['lumin',64],['cinghial',65],['pantafica',66],['gazzot',67],['luminone',69]],
+    challenge:"«Cce vince se pìghe 'a MEDAGLIA D''U\nSOLE. Forze, uagnò!»",
+    intro:[
+      "La palestra di Bari: una corte della\ncittà vecchia, bianca di calce e\naccecante di sole a mezzogiorno.",
+      "In fondo, un omone abbronzato con\ngli occhiali da sole ti aspetta.\n«Uagnò, ccà se vede chiare.»"],
+    done:[
+      "«'A Medaglia d'u Sole è 'a toje, uagnò.\nMò vatte in BASILICATA, da ROCCHINO,\na Potenza. E pìghete 'nu sole pure llà.»"],
+    openers:{
+      good:[
+        "«Sì tu 'u uagnone ca 'a Cosca nan po'\naccattà! Brave, me piesce.»",
+        "«Ma ccà cumanne 'a luce. Vedime si\nnan t'accìeche, uagnò.»"],
+      bad:[
+        "«Dìcene ca a monte hè strètte mane\nstuerte, uagnò.»",
+        "«'A luce smaschere tutte. Vedime.»"],
+      neutral:[
+        "«Servite! Sò MIMMO, capopalestre de Bari.»",
+        "«Tipe LUCE: cumme 'u sole nuestre,\nche acceche e scalde. Nan se po'\nguardà in facce, uagnò.»"]
+    },
+    win:[
+      "Mimmo richiame 'u LUMINÒNE e s'aggiuste\ngli occhiali da sole, soddisfatte.",
+      "«Uagnò, ce bella lotte! Te la sì\nguadagnate.»",
+      "Hai ottenuto la MEDAGLIA DEL SOLE!\n(16 di 20)",
+      "«'A Cosca? Ha pruvate pure ccà. Ma 'u\nsole de Puglia nan se cumbre: se\ngode, e basta.»",
+      "«Tu vatte 'nnanze, scinne 'a punta\nd'u Stivale. E ricuordete de Roma:\nè llà ca fernesce tutte.»"],
+    loseMsg:"Mimmo t'aspette in palestre.\n«Pìghete 'nu spritz e tuerne, uagnò.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEL SOLE ottenuta!', region:'Regione 16 di 20 completata',
+      next:'PROSSIMA TAPPA: BASILICATA<br>Rocchino · Tipo Terra · Potenza',
+      footer:'Premi A: prosegui verso la BASILICATA<br>(valle del Bradano da Bari,<br>serve la Medaglia del Sole).',
+      goodAt:17, badAt:-16,
+      verdict:{
+        good:'Da Milano a Bari, da un mare all\'altro:\nun nome che brilla più della Cosca.',
+        bad:'La Cosca ti insegue fino al tacco\ndello Stivale. Ma la luce, certe ombre,\nle scaccia.',
+        neutral:'Sedici medaglie. Lo Stivale quasi\ntutto conosce il tuo nome, ormai.'}
+    }
+  },
+
+  gympz: {
+    leader:'ROCCHINO', type:'Terra', badge:'badge17', region:17,
+    team:[['monachin',66],['cinghial',67],['pantafica',68],['gazzot',69],['monachione',71]],
+    challenge:'«Chi vince si piglia la MEDAGLIA DEI\nSASSI. Forza, e tieni duro!»',
+    intro:[
+      "La palestra di Potenza: una grotta\nscavata nel tufo, fresca e silenziosa,\nilluminata da poche torce.",
+      "In fondo, un uomo asciutto e nodoso\ncome una radice ti aspetta, seduto\nsu un masso. «Salito fin qua, eh.»"],
+    done:[
+      "«La Medaglia dei Sassi è tua, e te la\nsei guadagnata con le mani. Ora scendi\nin CALABRIA, da CARMELO, a Reggio.»"],
+    openers:{
+      good:[
+        "«Sei tu quello che la Cosca non riesce\na comprare. In Lucania la gente come te\nla rispettiamo.»",
+        "«Ma qui comanda la terra. Vediamo se\nreggi quando si fa dura.»"],
+      bad:[
+        "«Dicono che a monte hai stretto mani\nsbagliate, figliolo.»",
+        "«La terra lucana non perdona i furbi.\nVediamo.»"],
+      neutral:[
+        "«Benvenuto! Sono ROCCHINO,\ncapopalestra di Potenza.»",
+        "«Tipo TERRA: come la nostra Lucania,\npovera di tutto tranne che di\ncarattere e di pietra.»"]
+    },
+    win:[
+      "Rocchino richiama il suo MONACHIÒNE e\nannuisce lentamente, come la montagna.",
+      "«Gran bella lotta. Hai la testa dura\ngiusta, figliolo.»",
+      "Hai ottenuto la MEDAGLIA DEI SASSI!\n(17 di 20)",
+      "«La Cosca ha provato a comprarsi mezza\nLucania a prezzo di saldo. Ma certe\nterre non hanno prezzo: hanno radici.»",
+      "«Tu va' avanti, fino alla punta. E\nricordati di Roma: è là che tutto\nquesto deve finire.»"],
+    loseMsg:"Rocchino ti aspetta in palestra.\n«Rifiata e torna, figliolo.»",
+    end:{
+      title:'★ FINE DEI CONTENUTI ★',
+      medal:'MEDAGLIA DEI SASSI ottenuta!', region:'Regione 17 di 20 completata',
+      next:'PROSSIMA TAPPA: CALABRIA<br>Carmelo · Tipo Veleno · Reggio Calabria',
+      footer:'Hai finito i contenuti disponibili!<br>Premi A: puoi continuare a esplorare<br>liberamente le 17 regioni.',
+      goodAt:18, badAt:-17,
+      verdict:{
+        good:'Da Milano alla Lucania: un nome con\nradici che la Cosca non può strappare.',
+        bad:'La Cosca ti insegue anche tra i Sassi.\nMa questa terra antica sta dalla tua.',
+        neutral:'Diciassette medaglie. Manca poco alla\npunta dello Stivale, ormai.'}
     }
   }
 };
@@ -731,11 +811,25 @@ const WORLD_MAP = [
     respawn:{ map:'campobasso', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina a Campobasso.\nIl Molise esiste, e qui te lo ricordano\nvolentieri.","La squadra è di nuovo in forze."] },
     link:'regione segreta (torna al Gran Sasso)' },
   { city:'NAPOLI', region:'Campania', leader:'Ciruzzo', type:'Fuoco', badge:'badge15',
-    maps:['napoli','gymna','ambna','vesuvio','castelovo'],
+    maps:['napoli','gymna','ambna','vesuvio','castelovo','tavoliere'],
     layout:[ { c:['napoli'] },
              { c:['gymna','ambna'] },
              { c:['vesuvio','castelovo'], j:'->' } ],
     respawn:{ map:'napoli', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina sul lungomare.\nIl Vesuvio fuma piano all'orizzonte.","La squadra è di nuovo in forze, uagliò."] },
+    link:'il Tavoliere -> Bari (con Medaglia del Vesuvio)' },
+  { city:'BARI', region:'Puglia', leader:'Mimmo', type:'Luce', badge:'badge16',
+    maps:['bari','gymba','ambba','murgia','castelmonte','bradano'],
+    layout:[ { c:['bari'] },
+             { c:['gymba','ambba'] },
+             { c:['murgia','castelmonte'], j:'->' } ],
+    respawn:{ map:'bari', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina sul lungomare\ndi Bari. Il sole acceca, il mare luccica.","La squadra è di nuovo in forze, uagnò."] },
+    link:'valle del Bradano -> Potenza (con Medaglia del Sole)' },
+  { city:'POTENZA', region:'Basilicata', leader:'Rocchino', type:'Terra', badge:'badge17',
+    maps:['potenza','gympz','ambpz','calanchi','sassi'],
+    layout:[ { c:['potenza'] },
+             { c:['gympz','ambpz'] },
+             { c:['calanchi','sassi'], j:'->' } ],
+    respawn:{ map:'potenza', x:14, y:5, dir:'down', lines:["Ti svegli su una panchina in salita.\nPotenza ti guarda dall'alto dei suoi monti.","La squadra è di nuovo in forze."] },
     link:'ultima regione disponibile' }
 ];
 /* Etichette brevi delle aree per la schermata MAPPA. */
@@ -765,9 +859,13 @@ const AREA_LABELS = {
   tratturo:'Tratturo',
   campobasso:'Centro', gymcb:'Palestra', ambcb:'Ambul.', matese:'Matese', pietrabbondante:'Pietrabbondante',
   sannio:'Sannio',
-  napoli:'Centro', gymna:'Palestra', ambna:'Ambul.', vesuvio:'Vesuvio', castelovo:"Castel dell'Ovo"
+  napoli:'Centro', gymna:'Palestra', ambna:'Ambul.', vesuvio:'Vesuvio', castelovo:"Castel dell'Ovo",
+  tavoliere:'Tavoliere',
+  bari:'Centro', gymba:'Palestra', ambba:'Ambul.', murgia:'Murgia', castelmonte:'Castel del Monte',
+  bradano:'Bradano',
+  potenza:'Centro', gympz:'Palestra', ambpz:'Ambul.', calanchi:'Calanchi', sassi:'Sassi di Matera'
 };
-const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno', 'pietrabbondante', 'castelovo'];
+const SECRET_AREAS = ['segreto', 'sotterranei', 'gelo', 'lanterna', 'rosengarten', 'calle', 'grotta_bora', 'torri', 'ipogeo', 'gubbio', 'sibillini', 'catacombe', 'corno', 'pietrabbondante', 'castelovo', 'castelmonte', 'sassi'];
 
 /* Il punto di risveglio dopo una sconfitta è ora in WORLD_MAP[regione].respawn,
    così rinasci sempre nella città della regione in cui ti trovi (vedi whiteout). */

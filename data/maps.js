@@ -2199,7 +2199,7 @@ const MAPS = {
   },
 
   napoli: {
-    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
     tiles: [
       'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
       'T..........................T',
@@ -2212,7 +2212,7 @@ const MAPS = {
       'T.##..####..####..####..##.T',
       'T.........................RT',
       'T..........................T',
-      'T..........................T',
+      'TB.........................T',
       'TV.........................T',
       'T..........................T',
       'T.WWWWWWWWWWWWWWWWWWWWWWWW.T',
@@ -2290,6 +2290,305 @@ const MAPS = {
   },
   /* ---------- CASTEL DELL'OVO (area segreta — X = Partenope) ---------- */
   castelovo: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== PUGLIA (Bari) — regione 16 ========== */
+  /* ---------- CAMPANIA → PUGLIA · il Tavoliere (U = Napoli, Z = Bari) ---------- */
+  tavoliere: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'TGGG.MM....GGGG....MM.GGGGGT',
+      'T....MM....GGGG....MM......T',
+      'T..........................T',
+      'T..GGG.............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..GGGG...........GGGG.....T',
+      'T..........................T',
+      'T..GGG.............GGG.....T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'lumin',       min:62, max:65, w:28 },
+      { id:'cinghial',    min:61, max:64, w:20 },
+      { id:'pantafica',   min:62, max:65, w:18 },
+      { id:'gazzot',      min:62, max:65, w:18 },
+      { id:'lupomannaro', min:62, max:65, w:16 }
+    ],
+    items: [
+      { x:6,  y:5,  item:'ampolla',    flag:'it_tav1' },
+      { x:20, y:13, item:'pizza',      flag:'it_tav2' }
+    ]
+  },
+
+  bari: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12, 'B':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'TB.........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T.WWWWWWWWWWWWWWWWWWWWWWWW.T',
+      'T.WWWWWWWWWWWWWWWWWWWWWWWW.T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null,
+    fish: [ { id:'anguanella', min:62, max:65, w:70 }, { id:'ranot', min:62, max:65, w:30 } ]
+  },
+  gymba: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambba: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- L'ALTA MURGIA (route della regione, verso Castel del Monte) ---------- */
+  murgia: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'lumin',       min:63, max:66, w:30 },
+      { id:'cinghial',    min:62, max:65, w:18 },
+      { id:'pantafica',   min:63, max:66, w:18 },
+      { id:'gazzot',      min:63, max:66, w:18 },
+      { id:'lupomannaro', min:63, max:66, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'panzerotto', flag:'it_mur1' },
+      { x:22, y:9,  item:'ampolla',    flag:'it_mur2' }
+    ]
+  },
+  /* ---------- CASTEL DEL MONTE (area segreta — X = Solleone) ---------- */
+  castelmonte: {
+    t2i: { '.':13, '#':14, 'X':5, 'E':12 },
+    indoor: true,
+    tiles: [
+      '################',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#.....XX.......#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '#..............#',
+      '######EE########'
+    ],
+    encounters: null
+  },
+
+  /* ========== BASILICATA (Potenza) — regione 17 ========== */
+  /* ---------- PUGLIA → BASILICATA · valle del Bradano (U = Bari, Z = Potenza) ---------- */
+  bradano: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TMM..GGG......GGG......MMMMT',
+      'TM...GGG......GGG......MMM.T',
+      'T....................MM....T',
+      'T..GG................MM....T',
+      'T..........................T',
+      'T..GGG.........GGG.........T',
+      'TMM........................T',
+      'T..........................T',
+      'TU........................ZT',
+      'T..........................T',
+      'T........MM......MM........T',
+      'T..GGG...MM......MM...GGG..T',
+      'T........MM......MM........T',
+      'T..........................T',
+      'T..GGG................GGG..T',
+      'TMMM....................MMMT',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'monachin',    min:64, max:67, w:28 },
+      { id:'cinghial',    min:63, max:66, w:20 },
+      { id:'pantafica',   min:64, max:67, w:18 },
+      { id:'gazzot',      min:64, max:67, w:18 },
+      { id:'lupomannaro', min:64, max:67, w:16 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'ampolla',    flag:'it_brd1' },
+      { x:22, y:14, item:'pizza',      flag:'it_brd2' }
+    ]
+  },
+
+  potenza: {
+    t2i: { '.':0, 'W':5, 'G':3, 'T':4, '#':7, 'Y':10, 'H':18, 'R':12, 'V':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.#Y..####..####..#H#...##.T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T.##..####..####..####..##.T',
+      'T.##..####..####..####..##.T',
+      'T.........................RT',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TV.........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: null
+  },
+  gympz: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '############',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#..........#',
+      '#####EE#####'
+    ],
+    encounters: null
+  },
+  ambpz: {
+    t2i: { '.':13, '#':14, 'E':12 },
+    indoor: true,
+    tiles: [
+      '########',
+      '#......#',
+      '#......#',
+      '#......#',
+      '###EE###'
+    ],
+    encounters: null
+  },
+  /* ---------- I CALANCHI (route della regione, verso i Sassi di Matera) ---------- */
+  calanchi: {
+    t2i: { '.':0, 'G':3, 'T':4, 'M':20, 'U':12, 'Z':12 },
+    tiles: [
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT',
+      'TGGG.MM....GGG....MM.GGGGGGT',
+      'T....MM....GGG....MM.......T',
+      'T....MM.ZG.GGG....MM.......T',
+      'T..........................T',
+      'T..GG..............GGG.....T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..........................T',
+      'TU.........................T',
+      'T..........................T',
+      'TGGGGGGGGGGGGGGGGGGGGGGGGGGT',
+      'T..MM....GGG....MM.........T',
+      'T..MM....GGG....MM.........T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'T..........................T',
+      'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+    ],
+    encounters: [
+      { id:'monachin',    min:65, max:68, w:30 },
+      { id:'cinghial',    min:64, max:67, w:18 },
+      { id:'pantafica',   min:65, max:68, w:18 },
+      { id:'gazzot',      min:65, max:68, w:18 },
+      { id:'lupomannaro', min:65, max:68, w:14 }
+    ],
+    items: [
+      { x:5,  y:5,  item:'panzerotto', flag:'it_cln1' },
+      { x:22, y:9,  item:'ampolla',    flag:'it_cln2' }
+    ]
+  },
+  /* ---------- I SASSI DI MATERA (area segreta — X = Calanco) ---------- */
+  sassi: {
     t2i: { '.':13, '#':14, 'X':5, 'E':12 },
     indoor: true,
     tiles: [
@@ -2602,11 +2901,51 @@ const PORTALS = {
            Y: { map:'gymna', x:5, y:9, dir:'up' },
            H: { map:'ambna', x:3, y:3, dir:'up' },
            R: { map:'vesuvio', x:2, y:8, dir:'right',
-                arriveMsg: ["IL VESUVIO. Sentieri di lava nera e\nginestre. In basso il golfo, in cima\nil cratere che borbotta."] } },
+                arriveMsg: ["IL VESUVIO. Sentieri di lava nera e\nginestre. In basso il golfo, in cima\nil cratere che borbotta."] },
+           B: { map:'tavoliere', x:2, y:9, dir:'right',
+                lock: () => !G.flags.badge15,
+                msg: ["La strada verso la PUGLIA e Bari,\ngiù per il Tavoliere.",
+                      "«Senza 'a Medaglia d'o Vesuvio nun\nse scegne 'o tacco, uagliò.»"],
+                arriveMsg: ["IL TAVOLIERE DELLE PUGLIE. La grande\npianura del grano, piatta e dorata\nfino all'orizzonte."] } },
   gymna:{ E: { map:'napoli', x:4, y:4, dir:'down' } },
   ambna:{ E: { map:'napoli', x:20, y:4, dir:'down' } },
   vesuvio:{ U: { map:'napoli', x:25, y:9, dir:'left' },
             Z: { map:'castelovo', x:7, y:12, dir:'up',
                  arriveMsg: ["IL CASTEL DELL'OVO. Sotto le mura, una\ngrotta marina. Si dice che qui Virgilio\nnascose un uovo magico... e qualcos'altro."] } },
-  castelovo:{ E: { map:'vesuvio', x:8, y:4, dir:'down' } }
+  castelovo:{ E: { map:'vesuvio', x:8, y:4, dir:'down' } },
+  tavoliere:{ U: { map:'napoli', x:2, y:11, dir:'right' },
+              Z: { map:'bari', x:2, y:12, dir:'right',
+                   arriveMsg: ["BARI. La città vecchia, le orecchiette\nstese al sole, San Nicola e il mare\nche luccica. Benvenuto in Puglia."] } },
+  bari:{ V: { map:'tavoliere', x:25, y:9, dir:'left',
+              arriveMsg: ["IL TAVOLIERE. Si risale verso la\nCampania, tra i campi di grano."] },
+         Y: { map:'gymba', x:5, y:9, dir:'up' },
+         H: { map:'ambba', x:3, y:3, dir:'up' },
+         R: { map:'murgia', x:2, y:8, dir:'right',
+              arriveMsg: ["L'ALTA MURGIA. Altopiano di pietra,\nmuretti a secco e ulivi secolari.\nIn fondo, ottagonale, Castel del Monte."] },
+         B: { map:'bradano', x:2, y:9, dir:'right',
+              lock: () => !G.flags.badge16,
+              msg: ["La strada verso la BASILICATA e Potenza,\nlungo la valle del Bradano.",
+                    "«Senza 'a Medaglia d'u Sole de llà\nnan se passe, uagnò.»"],
+              arriveMsg: ["LA VALLE DEL BRADANO. Colline d'argilla\ne grano, calanchi all'orizzonte.\nLa Lucania comincia qui."] } },
+  gymba:{ E: { map:'bari', x:4, y:4, dir:'down' } },
+  ambba:{ E: { map:'bari', x:20, y:4, dir:'down' } },
+  murgia:{ U: { map:'bari', x:25, y:9, dir:'left' },
+           Z: { map:'castelmonte', x:7, y:12, dir:'up',
+                arriveMsg: ["CASTEL DEL MONTE. L'ottagono perfetto\ndi Federico II. La luce entra dalle\nfinestre e si raccoglie al centro, viva."] } },
+  castelmonte:{ E: { map:'murgia', x:8, y:4, dir:'down' } },
+  bradano:{ U: { map:'bari', x:2, y:11, dir:'right' },
+            Z: { map:'potenza', x:2, y:14, dir:'right',
+                 arriveMsg: ["POTENZA. La città più alta tra i\ncapoluoghi, arroccata sui monti.\nAria fresca e vicoli in salita."] } },
+  potenza:{ V: { map:'bradano', x:25, y:9, dir:'left',
+                 arriveMsg: ["LA VALLE DEL BRADANO. Si torna verso\nla Puglia, tra argilla e grano."] },
+            Y: { map:'gympz', x:5, y:9, dir:'up' },
+            H: { map:'ambpz', x:3, y:3, dir:'up' },
+            R: { map:'calanchi', x:2, y:8, dir:'right',
+                 arriveMsg: ["I CALANCHI. Creste d'argilla erose dal\ntempo, lunari e silenziose. In fondo,\nscavata nella pietra, Matera."] } },
+  gympz:{ E: { map:'potenza', x:4, y:4, dir:'down' } },
+  ambpz:{ E: { map:'potenza', x:20, y:4, dir:'down' } },
+  calanchi:{ U: { map:'potenza', x:25, y:9, dir:'left' },
+             Z: { map:'sassi', x:7, y:12, dir:'up',
+                  arriveMsg: ["I SASSI DI MATERA. Grotte e chiese\nrupestri scavate nel tufo, abitate da\nmillenni. Qualcosa, qui, è più antico."] } },
+  sassi:{ E: { map:'calanchi', x:8, y:4, dir:'down' } }
 };

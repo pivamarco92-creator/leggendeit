@@ -1014,5 +1014,145 @@ const NPCS = {
     { x:3, y:9, frame:12, name:'GUARDIANO DEL CASTELLO',
       lines:["Chiano, viaggiatore. Sì sotto 'o Castel\ndell'Ovo, addò Virgilio mago annasconnette\n'o suo uovo magico.",
              "Int'a grotta canta PARTENOPE, 'a sirena\nca fundaie Napule. Si 'a sfide, fallo\ncon rispetto: tene 'o mare dint'a voce."] }
+  ],
+
+  /* ========== PUGLIA (Bari) ========== */
+  tavoliere: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DEL TAVOLIERE', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'tav1', team:[['lumin',62],['cinghial',62]],
+        pre:["'Stu pìane è zona Cosca, uagnò.\nO pìghe o nan passe."],
+        win:["Uagnò, sì brave. Passe."], after:["Tire deritte verse Bari."] } },
+    { x:20, y:7,  frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'tav2', team:[['lupomannaro',63],['pantafica',63]],
+        pre:["Port' 'a robbe pe' tutt' 'u Tavoliere.\nLìevet' da nanze."],
+        win:["Uffa, ritarde."], after:["Jamme, scinne a Bari."] } },
+    { x:14, y:13, frame:14, name:'CAPOZONA PUGLIESE', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'tav3', team:[['lumin',64],['gazzot',64]],
+        pre:["L'urteme prime de Bari sò ìje.\nE nan sò bbuene cumme a chìdde."],
+        win:["...uagnò, sì tueste. Bari t'aspette."],
+        after:["'A città vecchie stè da llà."] } }
+  ],
+  bari: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'BARESE',
+      lines:["Uagnò, bemmenute a Bari! San Nicola,\n'e orecchiette fatt' a mane e 'u mare.\nCa se magne e se vive bbuene.",
+             "'U sole de Puglia nan è normale.\nDicene ca a Castel del Monte se\nraccoglie tutte, vive cumme 'na bestie."] },
+    { x:8,  y:14, frame:11, name:'MASSAIA',
+      lines:["Vide ccà: orecchiette a mano, una\ndietro l'altra. La luce del Sud entra\npure nella pasta, t'u diche ìje.",
+             "Sull'Alta Murgia c'è Castel del Monte,\nl'ottagono di Federico. Lì la luce\nfa cose strane al solstizio."] },
+    { x:18, y:16, frame:12, name:'STUDIOSO DI FEDERICO II',
+      lines:["Castel del Monte è un enigma: otto lati,\notto torri, allineato col sole. Federico\nII lo volle così, da imperatore-mago.",
+             "Dicono che nella sala centrale dorma\nSOLLEONE, lo spirito del sole. Si desta\nquando la luce lo allinea. Abbi rispetto."] }
+  ],
+  gymba: [
+    { x:5, y:2, frame:13, name:'MIMMO', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'PESCATORE BARESE', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gymba1', team:[['lumin',64],['gazzot',64]],
+        pre:["Pe' arrivà a Mimmo passe prime da mè,\nuagnò. Ccà se sude sotto 'u sole."],
+        win:["Uagnò, m'hè fottute. Mimmo t'aspette."],
+        after:["Vatte, stè 'nfunne."] } },
+    { x:8, y:7, frame:11, name:'TARANTOLATA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymba2', team:[['luminone',65],['pantafica',65]],
+        pre:["Abballe la pizzica da quann'ere\npiccinne. 'U ritme nan se ferme.\nVedime si rìegge."],
+        win:["Brave 'u uagnone! Sì degne de Mimmo."],
+        after:["'U cape stè 'nfunne. Tine 'a botte."] } },
+    { x:8, y:4, frame:10, name:'CONTADINO DEL SUD', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gymba3', team:[['lumin',65],['cinghial',65]],
+        pre:["Lavore 'a terra sotto 'u sole cocente.\nLa luce nan me fa paure, e manche tè."],
+        win:["Uffa, sì capace. Vatte 'nnanze."],
+        after:["Mimmo t'aspette 'nfunne."] } }
+  ],
+  ambba: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA LOPEZ', ev:'cura' }
+  ],
+  murgia: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DELLA MURGIA', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'murg1', team:[['lumin',63],['cinghial',63]],
+        pre:["L'Alta Murgia 'a cuntrullame nuje.\nOgni mure a secche. Pighe, uagnò."],
+        win:["Uffa. Passe."], after:["Nan saglì a Castel del Monte."] } },
+    { x:14, y:12, frame:14, name:'BRACCONIERE', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'murg2', team:[['lupomannaro',64],['lumin',64]],
+        pre:["Cacce dove nan se po' caccià.\nLìevet' da nanze."],
+        win:["Mannagge."], after:["Tire deritte e statte zitte."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DEL CASTELLO', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'murg3', team:[['luminone',65],['gazzot',65]],
+        pre:["L'urteme prime de Castel del Monte\nsò ìje. E quèdde ca dorme 'ncime\nè mìegghie nan scetarle."],
+        win:["...va bbuene, sagle. Ma 'u sole\nnan l'agghie scetate ìje."],
+        after:["'U castedde stè 'nfunne. Aguri."] } }
+  ],
+  castelmonte: [
+    { x:3, y:9, frame:12, name:'CUSTODE DI FEDERICO',
+      lines:["Silenzio, viandante. Sei nella sala\nottagonale di Castel del Monte, dove\nFederico II inseguiva la luce e il sapere.",
+             "Al centro dorme SOLLEONE, lo spirito\ndel sole del Sud. Quando la luce lo\nallinea, si desta. Affrontalo a viso aperto."] }
+  ],
+
+  /* ========== BASILICATA (Potenza) ========== */
+  bradano: [
+    { x:7,  y:2,  frame:14, name:'PICCIOTTO DEL BRADANO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'brd1', team:[['monachin',64],['cinghial',64]],
+        pre:["'Sta valle la tiene la Cosca.\nPaghi il dazio, e cammini."],
+        win:["Uff. Passa, va'."], after:["Tira su verso Potenza."] } },
+    { x:20, y:7,  frame:14, name:'CONTRABBANDIERE', ev:'trainer', look:'up', sight:5,
+      trainer:{ id:'brd2', team:[['lupomannaro',65],['pantafica',65]],
+        pre:["Porto roba per la Lucania intera.\nLevati di torno."],
+        win:["Maledetto ritardo."], after:["Sali, sali ai monti."] } },
+    { x:14, y:13, frame:14, name:'CAPOZONA LUCANO', ev:'trainer', look:'down', sight:4,
+      trainer:{ id:'brd3', team:[['monachin',66],['gazzot',66]],
+        pre:["L'ultimo prima di Potenza sono io.\nE qui la terra è dura come noi."],
+        win:["...sei tosto. Potenza ti aspetta."],
+        after:["La città in salita è di là."] } }
+  ],
+  potenza: [
+    { x:9,  y:5,  frame:15, name:'NEGOZIANTE', ev:'negozio' },
+    { x:18, y:5,  frame:9,  name:'POTENTINO',
+      lines:["Benvenuto a Potenza, il capoluogo più\nalto d'Italia! Qui si sale sempre, e\nl'aria è frizzante anche d'estate.",
+             "La terra lucana è antica. Sui calanchi\nvive il Monachicchio, e dentro i Sassi\ndi Matera... qualcosa di molto più vecchio."] },
+    { x:8,  y:14, frame:11, name:'PASTORE LUCANO',
+      lines:["Porto le capre tra i calanchi da\nsempre. Quelle creste d'argilla\ncambiano forma a ogni pioggia.",
+             "Il Monachicchio col cappuccio rosso\nti ruba il berretto. Se glielo strappi,\ndicono, ti indica un tesoro."] },
+    { x:18, y:16, frame:12, name:'GUIDA DI MATERA',
+      lines:["Matera, i Sassi: tra i posti abitati\npiù antichi del mondo. Grotte su grotte,\nscavate nel tufo da millenni.",
+             "Nel cuore dei Sassi dorme CALANCO, il\ngigante d'argilla. È vecchio quanto la\npietra. Sveglialo solo se sei pronto."] }
+  ],
+  gympz: [
+    { x:5, y:2, frame:13, name:'ROCCHINO', ev:'gymLeader' },
+    { x:3, y:5, frame:14, name:'SCALPELLINO LUCANO', ev:'trainer', look:'right', sight:6,
+      trainer:{ id:'gympz1', team:[['monachin',66],['cinghial',66]],
+        pre:["Per arrivare a Rocchino passi da me.\nScolpisco il tufo da una vita, sai?"],
+        win:["Dura la pietra. Rocchino ti aspetta."],
+        after:["Vai, è in fondo che ti aspetta."] } },
+    { x:8, y:7, frame:11, name:'CONTADINA', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gympz2', team:[['monachione',67],['pantafica',67]],
+        pre:["Lavoro questa terra avara da\ntrent'anni. Non mi spaventi di certo."],
+        win:["Hai radici robuste. Vai da Rocchino."],
+        after:["Il capo è là. Tieni i piedi a terra."] } },
+    { x:8, y:4, frame:10, name:'GROTTAIOLO', ev:'trainer', look:'left', sight:6,
+      trainer:{ id:'gympz3', team:[['monachin',67],['lupomannaro',67]],
+        pre:["Vivo nelle grotte dei Sassi.\nIl buio e la terra sono casa mia."],
+        win:["Uff, sei capace. Vai avanti."],
+        after:["Rocchino ti aspetta in fondo."] } }
+  ],
+  ambpz: [
+    { x:3, y:1, frame:8, name:'DOTTORESSA LANZA', ev:'cura' }
+  ],
+  calanchi: [
+    { x:7,  y:6,  frame:14, name:'SCAGNOZZO DEI CALANCHI', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'cal1', team:[['monachin',65],['cinghial',65]],
+        pre:["I calanchi li battiamo noi.\nOgni cresta d'argilla. Paga."],
+        win:["Uff. Passa."], after:["Non scendere ai Sassi."] } },
+    { x:14, y:12, frame:14, name:'TOMBAROLO', ev:'trainer', look:'up', sight:4,
+      trainer:{ id:'cal2', team:[['lupomannaro',66],['monachin',66]],
+        pre:["Scavo reperti che non si dichiarano.\nLevati di mezzo."],
+        win:["Bah. Vada."], after:["Tira dritto e taci."] } },
+    { x:20, y:6,  frame:14, name:'GUARDIANO DEI SASSI', ev:'trainer', look:'down', sight:5,
+      trainer:{ id:'cal3', team:[['monachione',67],['pantafica',67]],
+        pre:["L'ultimo prima dei Sassi sono io.\nE quello che dorme là sotto è\nvecchio come il mondo."],
+        win:["...va bene, scendi. Ma quel gigante\nnon l'ho svegliato io, intesi?"],
+        after:["I Sassi sono in fondo. Coraggio."] } }
+  ],
+  sassi: [
+    { x:3, y:9, frame:12, name:'EREMITA RUPESTRE',
+      lines:["Pace, viandante. Sei nei Sassi di Matera,\ntra chiese rupestri e grotte abitate da\nventimila anni. Cammina piano.",
+             "Nel ventre della pietra dorme CALANCO,\nil gigante d'argilla. Più antico di\nogni storia. Se lo desti, abbi rispetto."] }
   ]
 };

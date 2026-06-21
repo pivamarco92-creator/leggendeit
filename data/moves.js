@@ -45,5 +45,7 @@ const MOVES = {
   pivonata:   { n:'Pivonata',     t:'Elettro',    pow:90, pp:10 },
   facciata:   { n:'Facciata',     t:'Fuoco',      pow:90, pp:10 },
   licatonda:  { n:'Licatònda',    t:'Acqua',      pow:90, pp:10 },
-  tirapacchi: { n:'Tirapacchi',   t:'Normale',    pow:85, pp:10 }
+  tirapacchi: { n:'Tirapacchi',   t:'Normale',    pow:85, pp:10 },
+  bagliore:   { n:'Bagliore',     t:'Luce',       pow:50, pp:25 },
+  raggiosole: { n:'Raggio di Sole', t:'Luce',     pow:90, pp:10 }
 };

@@ -251,7 +251,7 @@ function checkTriggers() {
 
 /* ---------------- JOHNNY LAMETTA (boss della Cosca, una città alla volta) ----------------
    Inevitabile alla prima visita; squadra scalata sul livello medio della tua. */
-const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true, campobasso:true, napoli:true };
+const JL_TOWNS = { torino:true, aosta:true, genova:true, bolzano:true, venezia:true, trieste:true, bologna:true, firenze:true, perugia:true, ancona:true, roma:true, aquila:true, campobasso:true, napoli:true, bari:true, potenza:true };
 function evJohnny(town) {
   const avg = Math.max(5, Math.round(G.party.reduce((s, m) => s + m.lv, 0) / G.party.length));
   const lv = avg + 2;
@@ -269,7 +269,9 @@ function evJohnny(town) {
     roma: [['ruderin', lv], ['lupomannaro', lv + 1], ['ruderone', lv + 2]],
     aquila: [['petrin', lv], ['cinghial', lv + 1], ['petrone', lv + 2]],
     campobasso: [['svanin', lv], ['pantafica', lv + 1], ['svanone', lv + 2]],
-    napoli: [['vesuvin', lv], ['malebranca', lv + 1], ['vesuvione', lv + 2]]
+    napoli: [['vesuvin', lv], ['malebranca', lv + 1], ['vesuvione', lv + 2]],
+    bari: [['lumin', lv], ['cinghial', lv + 1], ['luminone', lv + 2]],
+    potenza: [['monachin', lv], ['cinghial', lv + 1], ['monachione', lv + 2]]
   };
   // Starter OPPOSTO a quello del giocatore (triangolo Erba->Acqua->Fuoco->Erba), stadio in base al livello.
   const OPP_STARTER = { salvanello:'tarantasino', tarantasino:'anguanella', anguanella:'salvanello' };
@@ -953,7 +955,39 @@ function evPartenope() {
     startBattle(makeMon('partenope', 56), null);
   });
 }
+/* Leggendario della Puglia: Solleone, lo spirito del sole del Sud, a Castel del Monte. */
+function evSolleone() {
+  if (G.flags.solleoneCaught) {
+    say(["La sala ottagonale è quieta.\nSOLLEONE ti ha già illuminato.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\nguardare in faccia il sole."); return; }
+  say(["Nella sala centrale di Castel del Monte\nla luce delle otto finestre converge e\nprende forma: una criniera di raggi.",
+       "È SOLLEONE, lo spirito del sole del Sud.\nIl calore vibra, l'aria trema come a\nmezzogiorno d'agosto.",
+       "«Chi vuole la mia luce, regga il mio\ncalore.»",
+       "SOLLEONE ruggisce di luce!"], () => {
+    saveGame();
+    beep(340, .2, 'triangle'); beep(420, .18, 'triangle'); beep(300, .26, 'triangle');
+    startBattle(makeMon('solleone', 58), null);
+  });
+}
+/* Leggendario della Basilicata: Calanco, il gigante d'argilla dei Sassi di Matera. */
+function evCalanco() {
+  if (G.flags.calancoCaught) {
+    say(["I Sassi sono di nuovo immobili.\nCALANCO ti ha già riconosciuto.\nUna volta sola."]);
+    return;
+  }
+  if (!activeMon()) { say("Senza una Leggenda in forze non\ndestare ciò che dorme nella pietra."); return; }
+  say(["Nel cuore dei Sassi una parete di tufo\nsi stacca e prende forma: spalle di\nargilla, occhi come braci nella creta.",
+       "È CALANCO, il gigante nato dalla terra\nlucana. Antico più della storia, si\nleva con un rombo sordo.",
+       "«Chi sveglia la pietra antica...\nche ne regga il peso.»",
+       "CALANCO scatena il terremoto!"], () => {
+    saveGame();
+    beep(90, .3, 'triangle'); beep(70, .34, 'triangle'); beep(55, .4, 'triangle');
+    startBattle(makeMon('calanco', 60), null);
+  });
+}
 /* Tile 'X' dei santuari: quale leggendario evoca, per mappa. */
-const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente, pietrabbondante: evDimenticato, castelovo: evPartenope };
+const LEGEND_SPOTS = { aosta: evStambeco, segreto: evScighera, sotterranei: evTaurin, gelo: evBarry, lanterna: evGrifone, rosengarten: evLaurino, calle: evLeon, grotta_bora: evBora, torri: evAldial, ipogeo: evAruspice, gubbio: evLupogubbio, sibillini: evSibilla, catacombe: evDracone, corno: evDormiente, pietrabbondante: evDimenticato, castelovo: evPartenope, castelmonte: evSolleone, sassi: evCalanco };
 
 /* Le schermate di fine regione sono ora generate da showRegionEnd(GYMS[mapId].end). */

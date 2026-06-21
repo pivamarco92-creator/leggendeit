@@ -57,6 +57,10 @@ const CREATURE_ORDER = ['salvanello','tarantasino','anguanella','merlotta','maza
                         'vesuvin','vesuvione','partenope',
                         /* Asso di Johnny Lametta — creatura speciale (cognome Tuttobene) */
                         'tuttobene',
+                        /* Puglia — linea Luce + leggendario */
+                        'lumin','luminone','solleone',
+                        /* Basilicata — linea Terra + leggendario */
+                        'monachin','monachione','calanco',
                         /* sprite dal pack Hexany (CC0) — vedi tools/import_hexany.py */
                         'ratapignata','farfarello','civettona','borda',
                         'lupomannaro','scultone'];
@@ -437,6 +441,30 @@ const SPECIES = {
   tuttobene: { n:'TUTTOBÈNE', types:['Normale','Veleno'], hp:85, atk:102, def:82, spd:96,
     learnset:[[1,'morso'],[1,'velenovivo'],[1,'dispetto'],[1,'tirapacchi']],
     dex:'L\'asso della Cosca, fedele a Johnny Lametta. Sorride sempre e dice che «va tutto bene», mentre ti tira il pacco. Un favore tira l\'altro, e ti ritrovi in debito per sempre.' },
+
+  /* ---------- Puglia — linea Luce + Solleone ---------- */
+  lumin: { n:'LUMÌN', types:['Luce'], hp:48, atk:55, def:46, spd:60,
+    evolve:{ lv:34, to:'luminone' },
+    learnset:[[1,'botta'],[1,'bagliore'],[14,'morso'],[34,'raggiosole']],
+    dex:'Spiritello di luce del Salento. Danza sul mare al tramonto come i riflessi del sole. Di notte si confonde con le lucciole, ma scotta di più.' },
+  luminone: { n:'LUMINÒNE', types:['Luce'], hp:74, atk:88, def:64, spd:86,
+    learnset:[[1,'bagliore'],[1,'morso'],[1,'sfondata'],[48,'raggiosole']],
+    dex:'Il Lumìn cresciuto: un piccolo sole con le gambe. La sua luce abbaglia gli avversari e tiene lontane le ombre della notte pugliese.' },
+  solleone: { n:'SOLLEONE', types:['Luce'], hp:96, atk:100, def:88, spd:96,
+    learnset:[[1,'bagliore'],[1,'morso'],[1,'sfondata'],[1,'raggiosole'],[50,'raggiosole']],
+    dex:'Lo spirito del sole del Sud, dimora nella sala ottagonale di Castel del Monte. Quando il solstizio allinea la luce, si desta: chioma di raggi e ruggito di calura.' },
+
+  /* ---------- Basilicata — linea Terra + Calanco ---------- */
+  monachin: { n:'MONACHÌN', types:['Terra'], hp:52, atk:58, def:56, spd:44,
+    evolve:{ lv:34, to:'monachione' },
+    learnset:[[1,'botta'],[1,'fango'],[14,'morso'],[34,'terremoto']],
+    dex:'Il Monachicchio lucano: folletto col cappuccio rosso che si annida nelle grotte dei Sassi. Ruba i cappelli e nasconde tesori d\'argilla.' },
+  monachione: { n:'MONACHIÒNE', types:['Terra'], hp:80, atk:90, def:80, spd:56,
+    learnset:[[1,'fango'],[1,'morso'],[1,'sfondata'],[48,'terremoto']],
+    dex:'Il Monachicchio cresciuto, ormai un golem di tufo e creta. Conosce ogni cunicolo di Matera e ci si muove come fosse casa sua. Lo è.' },
+  calanco: { n:'CALANCO', types:['Terra'], hp:98, atk:102, def:96, spd:72,
+    learnset:[[1,'fango'],[1,'morso'],[1,'sfondata'],[1,'terremoto'],[50,'terremoto']],
+    dex:'Il gigante d\'argilla nato dai calanchi lucani e dalla pietra antichissima di Matera. Dorme dentro i Sassi da prima della storia: quando si muove, la terra si scolpisce da sé.' },
 
   /* ---------- creature dal bestiario esteso (sprite Hexany, CC0) ----------
      Incontri attivi ora: civettona (Milano/Parco), borda + lupomannaro (Torino/Valentino).
