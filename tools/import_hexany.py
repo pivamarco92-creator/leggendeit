@@ -1,49 +1,69 @@
 #!/usr/bin/env python3
 """
-Integra creature da Hexany's Monster Menagerie (CC0, vendor/hexany/) nel
-foglio assets/creatures.png: colorizza gli sprite 1-bit, genera il retro
-(specchiato e scurito) e aggiunge le colonne in coda.
+Sovrascrive gli sprite di ALCUNE Leggende (soprattutto i leggendari) con creature
+di Hexany's Monster Menagerie (CC0, 32x32 monocromatiche), colorizzate per tipo.
 
-L'ORDINE qui sotto DEVE combaciare con le specie aggiunte in coda a
-CREATURE_ORDER in data/creatures.js.
+Modello "override per id": ogni voce dice quale colonna (= creatura di CREATURE_ORDER)
+rimpiazzare con quale creatura Hexany. Funziona DOPO gen_assets/import_kenney e PRIMA
+di import_tiny (che a sua volta sovrascrive altre colonne con sprite colorati).
 
 Pipeline completa:
-  python3 tools/gen_assets.py && python3 tools/import_kenney.py \
-    && python3 tools/import_hexany.py && python3 tools/embed_assets.py
+  gen_assets.py -> import_kenney.py -> import_hexany.py -> import_tiny.py -> embed_assets.py
 """
-import os
+import os, re
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..')
-SRC = os.path.join(ROOT, 'vendor', 'hexany', 'Tiles', 'Regular')
+SRC = os.path.join(ROOT, 'vendor', 'hexany', 'tiles', 'transparent')
 OUT = os.path.join(ROOT, 'assets', 'creatures.png')
 CW = 32
 
 if not os.path.isdir(SRC):
-    raise SystemExit('Pack non trovato: ' + SRC)
+    raise SystemExit('Pack Hexany non trovato: ' + SRC)
 
-# specie -> (numero creatura Hexany, colore principale, colore ombra)
-HEXANY = [
-    ('ratapignata', 15, (150, 104, 178), (104, 68, 128)),   # pipistrello leggendario
-    ('farfarello',  17, (224, 84, 56),  (160, 52, 36)),     # diavoletto dantesco
-    ('civettona',   45, (186, 142, 86), (136, 100, 58)),    # civetta del malaugurio
-    ('borda',       14, (138, 178, 206), (94, 128, 156)),   # strega della nebbia
-    ('lupomannaro', 35, (152, 152, 164), (108, 108, 122)),  # licantropo
-    ('scultone',     6, (104, 170, 100), (70, 124, 70)),    # serpente sardo
-]
+# id_creatura -> (numero Hexany, colore principale)  [l'ombra è derivata]
+HEXANY = {
+    'scighera':    (47, (188, 200, 228)),   # fantasma/nebbia
+    'grifone':     ( 8, (228, 196, 120)),   # grifone (uccello-leone) oro
+    'leon':        ( 4, (222, 184, 96)),    # leone alato di San Marco, oro
+    'bora':        (48, (188, 208, 236)),   # spirito del vento (spirale)
+    'aruspice':    (14, (190, 130, 200)),   # indovino/mago, psico
+    'sibilla':     (25, (196, 168, 214)),   # profetessa alata
+    'dracone':     (62, (120, 168, 96)),    # grande drago serpentino
+    'dormiente':   (61, (150, 134, 110)),   # gigante di pietra (golem)
+    'partenope':   (35, ( 96, 156, 214)),   # sirena
+    'solleone':    (54, (246, 214, 96)),    # sole (sunburst)
+    'calanco':     (16, (172, 124, 74)),    # golem d'argilla su base
+}
+
+# Fallback se mai servisse tintare per tipo (qui i colori sono espliciti sopra).
+TYPE_COLOR = {
+    'Fuoco':(228,84,56),'Acqua':(88,148,212),'Erba':(96,168,80),'Elettro':(240,210,80),
+    'Volante':(186,202,226),'Coleottero':(150,180,90),'Veleno':(150,104,178),
+    'Acciaio':(160,164,178),'Ghiaccio':(150,200,235),'Roccia':(150,134,110),
+    'Spettro':(170,160,200),'Normale':(200,185,160),'Vento':(172,206,212),
+    'Psico':(190,130,200),'Terra':(170,120,70),'Drago':(110,150,90),'Luce':(246,224,120),
+}
+
+def read_order():
+    s = open(os.path.join(ROOT, 'data', 'creatures.js'), encoding='utf-8').read()
+    blk = re.search(r'const CREATURE_ORDER[\s\S]*?\];', s).group(0)
+    blk = re.sub(r'/\*[\s\S]*?\*/', '', blk)
+    return re.findall(r"'([a-z0-9]+)'", blk)
+
+def shade_of(c):
+    return tuple(max(0, v - 46) for v in c)
 
 def colorize(im, main, shade):
-    """Bianco -> colore (metà inferiore più scura), aggiunge outline scuro."""
     w, h = im.size
     out = Image.new('RGBA', (w, h), (0, 0, 0, 0))
     px, opx = im.load(), out.load()
     for y in range(h):
         for x in range(w):
             r, g, b, a = px[x, y]
-            if a > 100 and r > 100:
-                opx[x, y] = (main if y < h*0.55 else shade) + (255,)
-    # outline
+            if a > 90 and r > 90:
+                opx[x, y] = (main if y < h * 0.55 else shade) + (255,)
     res = out.copy(); rpx = res.load()
     for y in range(h):
         for x in range(w):
@@ -59,28 +79,28 @@ def darken(im):
     for y in range(im.height):
         for x in range(im.width):
             r, g, b, a = px[x, y]
-            if a: px[x, y] = (max(0, r-22), max(0, g-22), max(0, b-14), a)
+            if a: px[x, y] = (max(0, r-24), max(0, g-24), max(0, b-16), a)
     return out
 
+order = read_order()
+N = len(order)
 base = Image.open(OUT).convert('RGBA')
-# Idempotenza: riparti SEMPRE dalle sole creature procedurali (assets/.proc_count
-# scritto da gen_assets.py), così rilanciare lo script non duplica le colonne.
-pc = os.path.join(ROOT, 'assets', '.proc_count')
-if os.path.exists(pc):
-    with open(pc) as f:
-        n_existing = int(f.read().strip())
-    base = base.crop((0, 0, n_existing * CW, 64))
-else:
-    n_existing = base.width // CW
-sheet = Image.new('RGBA', (n_existing * CW + CW * len(HEXANY), 64), (0, 0, 0, 0))
-sheet.alpha_composite(base, (0, 0))
-for i, (name, num, main, shade) in enumerate(HEXANY):
+if base.width < N * CW:                     # pad fino a tutte le colonne
+    nb = Image.new('RGBA', (N * CW, 64), (0, 0, 0, 0))
+    nb.alpha_composite(base, (0, 0)); base = nb
+
+done = 0
+for cid, (num, color) in HEXANY.items():
+    if cid not in order:
+        continue
+    c = order.index(cid)
     src = Image.open(os.path.join(SRC, 'creature_%03d.png' % num)).convert('RGBA')
-    front = colorize(src, main, shade)
+    front = colorize(src, color, shade_of(color))
     back = darken(front.transpose(Image.FLIP_LEFT_RIGHT))
-    x = (n_existing + i) * CW
-    sheet.alpha_composite(front, (x, 0))
-    sheet.alpha_composite(back, (x, CW))
-sheet.save(OUT)
-print('OK: %d creature Hexany aggiunte (totale colonne: %d)' %
-      (len(HEXANY), n_existing + len(HEXANY)))
+    base.paste((0, 0, 0, 0), (c*CW, 0, c*CW+CW, 64))   # pulisci la cella
+    base.alpha_composite(front, (c*CW, 0))
+    base.alpha_composite(back, (c*CW, CW))
+    done += 1
+
+base.save(OUT)
+print('OK: %d sprite Hexany applicati (sheet %d colonne)' % (done, base.width // CW))

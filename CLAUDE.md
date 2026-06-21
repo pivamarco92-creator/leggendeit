@@ -37,8 +37,8 @@ src/    (engine: di norma non si tocca per aggiungere contenuti)
   menu.js         menù di pausa (SQUADRA/BORSA/MAPPA/PIVADEX/PROGRESSI/SALVA)
   box.js          laptop del deposito (sposta tra squadra e box)
   main.js         boot Phaser + input globale (dispatch per G.mode)
-tools/  gen_assets.py · import_kenney.py · import_hexany.py · embed_assets.py
-vendor/ pack CC0: kenney_tiny-town/ · hexany/ (Monster Menagerie)
+tools/  gen_assets.py · import_kenney.py · import_hexany.py · import_tiny.py · embed_assets.py
+vendor/ pack CC0: kenney_tiny-town/ · hexany/ (Monster Menagerie) · tiny-creatures/ (animali a colori)
 ```
 
 `G.mode`: title | walk | dialog | choice | menu | laptop | battle | end. L'input globale
@@ -47,11 +47,18 @@ vendor/ pack CC0: kenney_tiny-town/ · hexany/ (Monster Menagerie)
 ## Pipeline asset (eseguire SEMPRE in quest'ordine)
 ```
 python3 tools/gen_assets.py && python3 tools/import_kenney.py \
-  && python3 tools/import_hexany.py && python3 tools/embed_assets.py
+  && python3 tools/import_hexany.py && python3 tools/import_tiny.py \
+  && python3 tools/embed_assets.py
 ```
-- `gen_assets.py` genera tileset/creatures/chars e scrive `assets/.proc_count` (n. creature procedurali).
+- `gen_assets.py` genera tileset/creatures/chars (sprite procedurali base) e scrive `assets/.proc_count`.
 - `import_kenney.py` sovrappone i tile di Kenney (lascia intatti gli indici non coperti).
-- `import_hexany.py` è **idempotente** grazie a `.proc_count` (riparte sempre dalle procedurali).
+- `import_hexany.py` **override per-id**: sostituisce gli sprite di alcuni leggendari con creature
+  Hexany (32x32, tintate per tipo). Mappa `HEXANY = {id:(num,colore)}`.
+- `import_tiny.py` **override per-id**: sostituisce la maggior parte delle creature con sprite COLORATI
+  del pack tiny-creatures (16x16 scalati 2x, niente tinta). Mappa `TINY = {id:tile}`.
+- Le creature NON in nessuna mappa restano con lo sprite **procedurale** (oggi: i 3 soci, Tuttobène,
+  i Soli della Puglia — sprite su misura). **Aggiungendo una regione nuova**, aggiungi le sue creature
+  alla mappa di `import_tiny.py` (o restano programmer-art procedurale).
 - `embed_assets.py` rigenera `data/assets.js`. Serve solo dopo modifiche AGLI ASSET (sprite/tile).
   Modifiche a sola logica/dati JS: nessuna pipeline.
 
